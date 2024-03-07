@@ -7,12 +7,18 @@
 
 import UIKit
 
-class MapViewController: UIViewController {
-
+final class MapViewController: BaseViewController {
+    let mainView = MapView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+
+    }
+    
+    override func loadView() {
+        view = mainView
     }
     
 }
+

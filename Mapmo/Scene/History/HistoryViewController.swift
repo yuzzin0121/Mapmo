@@ -7,13 +7,16 @@
 
 import UIKit
 
-class HistoryViewController: UIViewController {
-
+final class HistoryViewController: BaseViewController {
+    let mainView = HistoryView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
     
+    override func loadView() {
+        view = mainView
+    }
 
 }

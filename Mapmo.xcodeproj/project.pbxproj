@@ -30,6 +30,11 @@
 		618CB0722B99D58A005BC379 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 618CB0712B99D58A005BC379 /* Colors.xcassets */; };
 		618CB0742B99D5B2005BC379 /* ColorStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618CB0732B99D5B2005BC379 /* ColorStyle.swift */; };
 		618CB0762B99D5B8005BC379 /* ImageStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618CB0752B99D5B8005BC379 /* ImageStyle.swift */; };
+		618CB0782B99D62C005BC379 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618CB0772B99D62C005BC379 /* BaseView.swift */; };
+		618CB07A2B99D632005BC379 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618CB0792B99D632005BC379 /* BaseViewController.swift */; };
+		618CB07C2B99D64A005BC379 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618CB07B2B99D64A005BC379 /* MapView.swift */; };
+		618CB07E2B99D675005BC379 /* RecordListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618CB07D2B99D675005BC379 /* RecordListView.swift */; };
+		618CB0802B99D688005BC379 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618CB07F2B99D688005BC379 /* HistoryView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +63,11 @@
 		618CB0712B99D58A005BC379 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		618CB0732B99D5B2005BC379 /* ColorStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorStyle.swift; sourceTree = "<group>"; };
 		618CB0752B99D5B8005BC379 /* ImageStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageStyle.swift; sourceTree = "<group>"; };
+		618CB0772B99D62C005BC379 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		618CB0792B99D632005BC379 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		618CB07B2B99D64A005BC379 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		618CB07D2B99D675005BC379 /* RecordListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordListView.swift; sourceTree = "<group>"; };
+		618CB07F2B99D688005BC379 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +126,8 @@
 		618CB0452B99D140005BC379 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				618CB0772B99D62C005BC379 /* BaseView.swift */,
+				618CB0792B99D632005BC379 /* BaseViewController.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -210,6 +222,7 @@
 			isa = PBXGroup;
 			children = (
 				618CB06A2B99D548005BC379 /* MapViewController.swift */,
+				618CB07B2B99D64A005BC379 /* MapView.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -218,6 +231,7 @@
 			isa = PBXGroup;
 			children = (
 				618CB06C2B99D551005BC379 /* RecordListViewController.swift */,
+				618CB07D2B99D675005BC379 /* RecordListView.swift */,
 			);
 			path = RecordList;
 			sourceTree = "<group>";
@@ -226,6 +240,7 @@
 			isa = PBXGroup;
 			children = (
 				618CB06E2B99D55D005BC379 /* HistoryViewController.swift */,
+				618CB07F2B99D688005BC379 /* HistoryView.swift */,
 			);
 			path = History;
 			sourceTree = "<group>";
@@ -315,11 +330,16 @@
 				618CB0762B99D5B8005BC379 /* ImageStyle.swift in Sources */,
 				618CB0622B99D337005BC379 /* UIFont+Pretendard.swift in Sources */,
 				618CB06D2B99D551005BC379 /* RecordListViewController.swift in Sources */,
+				618CB07C2B99D64A005BC379 /* MapView.swift in Sources */,
 				618CB06B2B99D548005BC379 /* MapViewController.swift in Sources */,
+				618CB07A2B99D632005BC379 /* BaseViewController.swift in Sources */,
+				618CB0802B99D688005BC379 /* HistoryView.swift in Sources */,
 				618CB0642B99D397005BC379 /* TabBarController.swift in Sources */,
 				618CB02F2B99D073005BC379 /* AppDelegate.swift in Sources */,
+				618CB07E2B99D675005BC379 /* RecordListView.swift in Sources */,
 				618CB0662B99D3B3005BC379 /* TabItem.swift in Sources */,
 				618CB0312B99D073005BC379 /* SceneDelegate.swift in Sources */,
+				618CB0782B99D62C005BC379 /* BaseView.swift in Sources */,
 				618CB06F2B99D55D005BC379 /* HistoryViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

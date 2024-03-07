@@ -7,12 +7,17 @@
 
 import UIKit
 
-class RecordListViewController: UIViewController {
+final class RecordListViewController: BaseViewController {
+    let mainView = RecordListView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
+
+    }
+    
+    override func loadView() {
+        view = mainView
     }
     
 }
+
