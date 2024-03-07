@@ -22,6 +22,14 @@
 		618CB05F2B99D2D0005BC379 /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 618CB0562B99D2D0005BC379 /* Pretendard-SemiBold.otf */; };
 		618CB0602B99D2D0005BC379 /* Pretendard-ExtraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 618CB0572B99D2D0005BC379 /* Pretendard-ExtraLight.otf */; };
 		618CB0622B99D337005BC379 /* UIFont+Pretendard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618CB0612B99D337005BC379 /* UIFont+Pretendard.swift */; };
+		618CB0642B99D397005BC379 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618CB0632B99D397005BC379 /* TabBarController.swift */; };
+		618CB0662B99D3B3005BC379 /* TabItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618CB0652B99D3B3005BC379 /* TabItem.swift */; };
+		618CB06B2B99D548005BC379 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618CB06A2B99D548005BC379 /* MapViewController.swift */; };
+		618CB06D2B99D551005BC379 /* RecordListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618CB06C2B99D551005BC379 /* RecordListViewController.swift */; };
+		618CB06F2B99D55D005BC379 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618CB06E2B99D55D005BC379 /* HistoryViewController.swift */; };
+		618CB0722B99D58A005BC379 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 618CB0712B99D58A005BC379 /* Colors.xcassets */; };
+		618CB0742B99D5B2005BC379 /* ColorStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618CB0732B99D5B2005BC379 /* ColorStyle.swift */; };
+		618CB0762B99D5B8005BC379 /* ImageStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618CB0752B99D5B8005BC379 /* ImageStyle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +50,14 @@
 		618CB0562B99D2D0005BC379 /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
 		618CB0572B99D2D0005BC379 /* Pretendard-ExtraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraLight.otf"; sourceTree = "<group>"; };
 		618CB0612B99D337005BC379 /* UIFont+Pretendard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Pretendard.swift"; sourceTree = "<group>"; };
+		618CB0632B99D397005BC379 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		618CB0652B99D3B3005BC379 /* TabItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabItem.swift; sourceTree = "<group>"; };
+		618CB06A2B99D548005BC379 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		618CB06C2B99D551005BC379 /* RecordListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordListViewController.swift; sourceTree = "<group>"; };
+		618CB06E2B99D55D005BC379 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
+		618CB0712B99D58A005BC379 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		618CB0732B99D5B2005BC379 /* ColorStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorStyle.swift; sourceTree = "<group>"; };
+		618CB0752B99D5B8005BC379 /* ImageStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageStyle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +123,9 @@
 		618CB0462B99D143005BC379 /* Enum */ = {
 			isa = PBXGroup;
 			children = (
+				618CB0652B99D3B3005BC379 /* TabItem.swift */,
+				618CB0732B99D5B2005BC379 /* ColorStyle.swift */,
+				618CB0752B99D5B8005BC379 /* ImageStyle.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -152,6 +171,10 @@
 		618CB04C2B99D17C005BC379 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				618CB0672B99D51C005BC379 /* Map */,
+				618CB0682B99D525005BC379 /* RecordList */,
+				618CB0692B99D52B005BC379 /* History */,
+				618CB0632B99D397005BC379 /* TabBarController.swift */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -162,6 +185,7 @@
 				618CB04E2B99D1AB005BC379 /* Fonts */,
 				618CB0372B99D075005BC379 /* Assets.xcassets */,
 				618CB0392B99D075005BC379 /* LaunchScreen.storyboard */,
+				618CB0712B99D58A005BC379 /* Colors.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -180,6 +204,30 @@
 				618CB0552B99D2D0005BC379 /* Pretendard-Thin.otf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		618CB0672B99D51C005BC379 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				618CB06A2B99D548005BC379 /* MapViewController.swift */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		618CB0682B99D525005BC379 /* RecordList */ = {
+			isa = PBXGroup;
+			children = (
+				618CB06C2B99D551005BC379 /* RecordListViewController.swift */,
+			);
+			path = RecordList;
+			sourceTree = "<group>";
+		};
+		618CB0692B99D52B005BC379 /* History */ = {
+			isa = PBXGroup;
+			children = (
+				618CB06E2B99D55D005BC379 /* HistoryViewController.swift */,
+			);
+			path = History;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -242,6 +290,7 @@
 			files = (
 				618CB05F2B99D2D0005BC379 /* Pretendard-SemiBold.otf in Resources */,
 				618CB0432B99D084005BC379 /* .gitignore in Resources */,
+				618CB0722B99D58A005BC379 /* Colors.xcassets in Resources */,
 				618CB05E2B99D2D0005BC379 /* Pretendard-Thin.otf in Resources */,
 				618CB03B2B99D075005BC379 /* LaunchScreen.storyboard in Resources */,
 				618CB05C2B99D2D0005BC379 /* Pretendard-ExtraBold.otf in Resources */,
@@ -262,9 +311,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				618CB0742B99D5B2005BC379 /* ColorStyle.swift in Sources */,
+				618CB0762B99D5B8005BC379 /* ImageStyle.swift in Sources */,
 				618CB0622B99D337005BC379 /* UIFont+Pretendard.swift in Sources */,
+				618CB06D2B99D551005BC379 /* RecordListViewController.swift in Sources */,
+				618CB06B2B99D548005BC379 /* MapViewController.swift in Sources */,
+				618CB0642B99D397005BC379 /* TabBarController.swift in Sources */,
 				618CB02F2B99D073005BC379 /* AppDelegate.swift in Sources */,
+				618CB0662B99D3B3005BC379 /* TabItem.swift in Sources */,
 				618CB0312B99D073005BC379 /* SceneDelegate.swift in Sources */,
+				618CB06F2B99D55D005BC379 /* HistoryViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -413,7 +469,6 @@
 				INFOPLIST_FILE = Mapmo/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -441,7 +496,6 @@
 				INFOPLIST_FILE = Mapmo/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
