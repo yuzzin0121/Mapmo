@@ -35,9 +35,12 @@
 		618CB07C2B99D64A005BC379 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618CB07B2B99D64A005BC379 /* MapView.swift */; };
 		618CB07E2B99D675005BC379 /* RecordListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618CB07D2B99D675005BC379 /* RecordListView.swift */; };
 		618CB0802B99D688005BC379 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618CB07F2B99D688005BC379 /* HistoryView.swift */; };
+		618CB0822B99D6FE005BC379 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618CB0812B99D6FE005BC379 /* APIKey.swift */; };
+		DA6A4A6CA64332726B03C6F8 /* Pods_Mapmo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 980F4D8B3D07F8E679D1D81B /* Pods_Mapmo.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		266404A7697C85E9C64645C6 /* Pods-Mapmo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mapmo.release.xcconfig"; path = "Target Support Files/Pods-Mapmo/Pods-Mapmo.release.xcconfig"; sourceTree = "<group>"; };
 		618CB02B2B99D073005BC379 /* Mapmo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mapmo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		618CB02E2B99D073005BC379 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		618CB0302B99D073005BC379 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -68,6 +71,9 @@
 		618CB07B2B99D64A005BC379 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		618CB07D2B99D675005BC379 /* RecordListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordListView.swift; sourceTree = "<group>"; };
 		618CB07F2B99D688005BC379 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
+		618CB0812B99D6FE005BC379 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
+		89A1130BA0DEA3EB97F2373A /* Pods-Mapmo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mapmo.debug.xcconfig"; path = "Target Support Files/Pods-Mapmo/Pods-Mapmo.debug.xcconfig"; sourceTree = "<group>"; };
+		980F4D8B3D07F8E679D1D81B /* Pods_Mapmo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mapmo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,18 +81,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA6A4A6CA64332726B03C6F8 /* Pods_Mapmo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		447A6969DA3621F3D2AAA17E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				980F4D8B3D07F8E679D1D81B /* Pods_Mapmo.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		618CB0222B99D073005BC379 = {
 			isa = PBXGroup;
 			children = (
 				618CB0422B99D084005BC379 /* .gitignore */,
 				618CB02D2B99D073005BC379 /* Mapmo */,
 				618CB02C2B99D073005BC379 /* Products */,
+				875C62DC5E3D3C1EC1FE7A70 /* Pods */,
+				447A6969DA3621F3D2AAA17E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -109,6 +126,7 @@
 				618CB04C2B99D17C005BC379 /* Scene */,
 				618CB04D2B99D19C005BC379 /* Resources */,
 				618CB03C2B99D075005BC379 /* Info.plist */,
+				618CB0812B99D6FE005BC379 /* APIKey.swift */,
 			);
 			path = Mapmo;
 			sourceTree = "<group>";
@@ -245,6 +263,15 @@
 			path = History;
 			sourceTree = "<group>";
 		};
+		875C62DC5E3D3C1EC1FE7A70 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				89A1130BA0DEA3EB97F2373A /* Pods-Mapmo.debug.xcconfig */,
+				266404A7697C85E9C64645C6 /* Pods-Mapmo.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -252,9 +279,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 618CB03F2B99D075005BC379 /* Build configuration list for PBXNativeTarget "Mapmo" */;
 			buildPhases = (
+				85158EBE66D9C053256DE78B /* [CP] Check Pods Manifest.lock */,
 				618CB0272B99D073005BC379 /* Sources */,
 				618CB0282B99D073005BC379 /* Frameworks */,
 				618CB0292B99D073005BC379 /* Resources */,
+				736C3896BF68367391F0CDBB /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -321,6 +350,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		736C3896BF68367391F0CDBB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Mapmo/Pods-Mapmo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Mapmo/Pods-Mapmo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Mapmo/Pods-Mapmo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		85158EBE66D9C053256DE78B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Mapmo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		618CB0272B99D073005BC379 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -336,6 +407,7 @@
 				618CB0802B99D688005BC379 /* HistoryView.swift in Sources */,
 				618CB0642B99D397005BC379 /* TabBarController.swift in Sources */,
 				618CB02F2B99D073005BC379 /* AppDelegate.swift in Sources */,
+				618CB0822B99D6FE005BC379 /* APIKey.swift in Sources */,
 				618CB07E2B99D675005BC379 /* RecordListView.swift in Sources */,
 				618CB0662B99D3B3005BC379 /* TabItem.swift in Sources */,
 				618CB0312B99D073005BC379 /* SceneDelegate.swift in Sources */,
@@ -479,12 +551,14 @@
 		};
 		618CB0402B99D075005BC379 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 89A1130BA0DEA3EB97F2373A /* Pods-Mapmo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = T2Q8P9627P;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Mapmo/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -506,12 +580,14 @@
 		};
 		618CB0412B99D075005BC379 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 266404A7697C85E9C64645C6 /* Pods-Mapmo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = T2Q8P9627P;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Mapmo/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
