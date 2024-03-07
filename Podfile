@@ -6,6 +6,7 @@ target 'Mapmo' do
   use_frameworks!
 
   pod 'NMapsMap'
+  pod 'SnapKit'
 
   # Pods for Mapmo
 
