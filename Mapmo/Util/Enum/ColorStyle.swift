@@ -11,4 +11,5 @@ enum ColorStyle {
     static let customWhite = UIColor(named: "customWhite")!
     static let customBlack = UIColor(named: "customBlack")!
     static let customGray = UIColor(named: "customGray")!
+    static let mapmoColor = UIColor(named: "mapmoColor")
 }

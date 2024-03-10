@@ -13,4 +13,6 @@ enum ImageStyle {
     static let photos = UIImage(systemName: "photo.on.rectangle.angled")!
     static let history = UIImage(named: "clock")!
     static let selectedHistory = UIImage(named: "clockFill")!
+    
+    static let plus = UIImage(systemName: "plus")
 }
