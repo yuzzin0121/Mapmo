@@ -29,10 +29,12 @@ final class MapView: BaseView {
     }
     override func configureView() {
         naverMapView.allowsZooming = true
-        addRecordButton.backgroundColor = ColorStyle.mapmoColor
-        var config = addRecordButton.configuration
-        config?.image = ImageStyle.plus
+        var config = UIButton.Configuration.filled()
+        config.image = ImageStyle.plus
+        config.cornerStyle = .capsule
+        config.baseBackgroundColor = ColorStyle.mapmoColor
         addRecordButton.configuration = config
+        
         
     }
 }
