@@ -15,7 +15,7 @@ final class MapView: BaseView {
     
     override func configureHierarchy() {
         addSubview(naverMapView)
-        naverMapView.addSubview(addRecordButton)
+        addSubview(addRecordButton)
     }
     override func configureLayout() {
         naverMapView.snp.makeConstraints { make in
