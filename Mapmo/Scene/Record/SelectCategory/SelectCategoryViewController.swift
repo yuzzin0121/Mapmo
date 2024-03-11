@@ -52,13 +52,13 @@ final class SelectCategoryViewController: BaseViewController {
 }
 
 extension SelectCategoryViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    // 헤더 적용
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         guard kind == UICollectionView.elementKindSectionHeader, // 헤더일 때
               let headerView = collectionView.dequeueReusableSupplementaryView(
                 ofKind: kind,
                 withReuseIdentifier: SelectCategoryCollectionHeaderView.identifier,
                 for: indexPath) as? SelectCategoryCollectionHeaderView else {
-            print("없음")
             return UICollectionReusableView()
         }
         headerView.addCategoryButton.addTarget(self, action: #selector(addCategoryButtonClicked), for: .touchUpInside)
@@ -69,6 +69,7 @@ extension SelectCategoryViewController: UICollectionViewDelegate, UICollectionVi
         return CGSize(width: view.frame.size.width, height: 80)
     }
     
+    // 카테고리 개수
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 3
     }
@@ -77,7 +78,6 @@ extension SelectCategoryViewController: UICollectionViewDelegate, UICollectionVi
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SelectCategoryCollectionViewCell.identifier, for: indexPath) as? SelectCategoryCollectionViewCell else {
             return UICollectionViewCell()
         }
-        print(#function)
         
         return cell
     }

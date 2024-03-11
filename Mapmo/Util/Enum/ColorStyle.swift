@@ -13,5 +13,6 @@ enum ColorStyle {
     static let customGray = UIColor(named: "customGray")!
     static let customBackgroundGray = UIColor(named: "customBackgroundGray")!
     static let mapmoColor = UIColor(named: "mapmoColor")!
-    static let null = UIColor(named: "null")
+    static let null = UIColor(named: "null")!
+    static let markRed = UIColor(named: "markRed")!
 }

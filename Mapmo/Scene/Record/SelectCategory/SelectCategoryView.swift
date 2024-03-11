@@ -10,7 +10,7 @@ import SnapKit
 
 class SelectCategoryView: BaseView {
     lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout())
-    let nextButton = UIButton()
+    let nextButton = MapmoButton()
     
     private func configureCollectionViewLayout() -> UICollectionViewFlowLayout {
         let layout = UICollectionViewFlowLayout()
@@ -46,9 +46,6 @@ class SelectCategoryView: BaseView {
         collectionView.showsVerticalScrollIndicator = false
         collectionView.backgroundColor = ColorStyle.customWhite
 
-        nextButton.backgroundColor = ColorStyle.null
         nextButton.setTitle("다음으로", for: .normal)
-        nextButton.layer.cornerRadius = 12
-        nextButton.clipsToBounds = true
     }
 }
