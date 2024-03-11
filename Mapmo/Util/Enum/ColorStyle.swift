@@ -13,6 +13,8 @@ enum ColorStyle {
     static let customGray = UIColor(named: "customGray")!
     static let customBackgroundGray = UIColor(named: "customBackgroundGray")!
     static let mapmoColor = UIColor(named: "mapmoColor")!
+    static let mapmoBorderColor = UIColor(named: "mapmoBorderColor")!
+    static let mapmoBackgroundColor = UIColor(named: "mapmoBackgroundColor")!
     static let null = UIColor(named: "null")!
     static let markRed = UIColor(named: "markRed")!
 }

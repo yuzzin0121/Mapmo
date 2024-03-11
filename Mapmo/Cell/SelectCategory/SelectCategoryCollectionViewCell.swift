@@ -13,6 +13,14 @@ class SelectCategoryCollectionViewCell: UICollectionViewCell, ViewProtocol {
     let titleLabel = UILabel()
     let recordCountLabel = UILabel()
     
+    override var isSelected: Bool {
+        didSet {
+            contentView.layer.borderWidth = isSelected ? 2 : 0
+            contentView.layer.borderColor = ColorStyle.mapmoBorderColor.cgColor
+            contentView.backgroundColor = isSelected ? ColorStyle.mapmoBackgroundColor : ColorStyle.customBackgroundGray
+        }
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         configureHierarchy()

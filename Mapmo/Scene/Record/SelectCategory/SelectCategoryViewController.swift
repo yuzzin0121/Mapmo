@@ -14,6 +14,11 @@ final class SelectCategoryViewController: BaseViewController {
         super.viewDidLoad()
 
         setDelegate()
+        mainView.nextButton.addTarget(self, action: #selector(nextButtonClicked), for: .touchUpInside)
+    }
+    
+    @objc private func nextButtonClicked(sender: UIButton) {
+        
     }
     
     private func setDelegate() {
@@ -82,5 +87,9 @@ extension SelectCategoryViewController: UICollectionViewDelegate, UICollectionVi
         return cell
     }
     
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print(#function)
+        mainView.nextButton.isEnabled = true
+        mainView.nextButton.backgroundColor = ColorStyle.mapmoColor
+    }
 }
