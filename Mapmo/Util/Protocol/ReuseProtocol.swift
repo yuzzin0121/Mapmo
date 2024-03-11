@@ -19,12 +19,6 @@ extension UITableViewCell: ReuseeProtocol {
     }
 }
 
-extension UICollectionViewCell: ReuseeProtocol {
-    static var identifier: String {
-        String(describing: self)
-    }
-}
-
 extension UICollectionReusableView: ReuseeProtocol {
     static var identifier: String {
         String(describing: self)

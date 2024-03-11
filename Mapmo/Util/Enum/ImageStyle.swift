@@ -14,5 +14,8 @@ enum ImageStyle {
     static let history = UIImage(named: "clock")!
     static let selectedHistory = UIImage(named: "clockFill")!
     
-    static let plus = UIImage(systemName: "plus")
+    static let plus = UIImage(systemName: "plus")!
+    static let arrowLeft = UIImage(systemName: "chevron.left")!
+    static let mark = UIImage(named: "mark")!
+    static let customPlus = UIImage(systemName: "plus")!
 }
