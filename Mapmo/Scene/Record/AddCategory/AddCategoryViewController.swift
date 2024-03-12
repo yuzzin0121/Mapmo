@@ -14,9 +14,13 @@ final class AddCategoryViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setDelegate()
+        setDelegateAndAction()
         addCategoryViewModel.colorList.bind { _ in
             self.mainView.colorCollectionView.reloadData()
+        }
+        addCategoryViewModel.outputWarningMessage.bind { message in
+            print("우잉????")
+            self.mainView.warningMessageLabel.text = message
         }
     }
     
@@ -39,9 +43,16 @@ final class AddCategoryViewController: BaseViewController {
         mainView.colorCollectionView.collectionViewLayout = layout
     }
     
-    private func setDelegate() {
+    private func setDelegateAndAction() {
         mainView.colorCollectionView.delegate = self
         mainView.colorCollectionView.dataSource = self
+        mainView.categoryNameTextField.addTarget(self, action: #selector(categoryNameTextFieldValueChanged), for: .editingChanged)
+    }
+    
+    @objc private func categoryNameTextFieldValueChanged(_ sender: UITextField) {
+        print(#function)
+        let text = sender.text
+        addCategoryViewModel.inputCategoryName.value = text
     }
 
     override func configureNavigationItem() {
@@ -52,13 +63,14 @@ final class AddCategoryViewController: BaseViewController {
         navigationItem.leftBarButtonItem = backButton
     }
     
-    @objc private func popView() {
+    @objc private func popView() {  // 뒤로가기 버튼 클릭 시
         navigationController?.popViewController(animated: true)
     }
 }
 
+
+// 색상 컬렉션뷰 설정
 extension AddCategoryViewController: UICollectionViewDataSource, UICollectionViewDelegate {
-    
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return addCategoryViewModel.colorList.value.count

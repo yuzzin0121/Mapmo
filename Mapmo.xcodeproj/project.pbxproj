@@ -56,6 +56,8 @@
 		61D8E56A2B9F7AAC0080D167 /* AddCategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D8E5692B9F7AAC0080D167 /* AddCategoryViewModel.swift */; };
 		61D8E56D2B9F7FFA0080D167 /* CreateRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D8E56C2B9F7FFA0080D167 /* CreateRecordViewController.swift */; };
 		61D8E56F2B9F80400080D167 /* CreateRecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D8E56E2B9F803F0080D167 /* CreateRecordView.swift */; };
+		61D8E5712B9FD7840080D167 /* CategoryRealmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D8E5702B9FD7840080D167 /* CategoryRealmModel.swift */; };
+		61D8E5732B9FDB110080D167 /* ValidationCategoryNameError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D8E5722B9FDB110080D167 /* ValidationCategoryNameError.swift */; };
 		DA6A4A6CA64332726B03C6F8 /* Pods_Mapmo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 980F4D8B3D07F8E679D1D81B /* Pods_Mapmo.framework */; };
 /* End PBXBuildFile section */
 
@@ -112,6 +114,8 @@
 		61D8E5692B9F7AAC0080D167 /* AddCategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCategoryViewModel.swift; sourceTree = "<group>"; };
 		61D8E56C2B9F7FFA0080D167 /* CreateRecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRecordViewController.swift; sourceTree = "<group>"; };
 		61D8E56E2B9F803F0080D167 /* CreateRecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRecordView.swift; sourceTree = "<group>"; };
+		61D8E5702B9FD7840080D167 /* CategoryRealmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryRealmModel.swift; sourceTree = "<group>"; };
+		61D8E5722B9FDB110080D167 /* ValidationCategoryNameError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationCategoryNameError.swift; sourceTree = "<group>"; };
 		89A1130BA0DEA3EB97F2373A /* Pods-Mapmo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mapmo.debug.xcconfig"; path = "Target Support Files/Pods-Mapmo/Pods-Mapmo.debug.xcconfig"; sourceTree = "<group>"; };
 		980F4D8B3D07F8E679D1D81B /* Pods_Mapmo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mapmo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -249,6 +253,7 @@
 				618CB0732B99D5B2005BC379 /* ColorStyle.swift */,
 				618CB0752B99D5B8005BC379 /* ImageStyle.swift */,
 				61D8E5672B9F79D50080D167 /* CategoryColor.swift */,
+				61D8E5722B9FDB110080D167 /* ValidationCategoryNameError.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -275,6 +280,7 @@
 		618CB0492B99D166005BC379 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				61D8E5702B9FD7840080D167 /* CategoryRealmModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -535,6 +541,7 @@
 				61D8E56F2B9F80400080D167 /* CreateRecordView.swift in Sources */,
 				618CB0622B99D337005BC379 /* UIFont+Pretendard.swift in Sources */,
 				61214F5C2B9F514F00C7D0B6 /* ViewProtocol.swift in Sources */,
+				61D8E5732B9FDB110080D167 /* ValidationCategoryNameError.swift in Sources */,
 				618CB06D2B99D551005BC379 /* RecordListViewController.swift in Sources */,
 				61D8E5682B9F79D50080D167 /* CategoryColor.swift in Sources */,
 				6142585E2B9E916D00F35521 /* Observable.swift in Sources */,
@@ -558,6 +565,7 @@
 				618CB02F2B99D073005BC379 /* AppDelegate.swift in Sources */,
 				618CB0822B99D6FE005BC379 /* APIKey.swift in Sources */,
 				618CB07E2B99D675005BC379 /* RecordListView.swift in Sources */,
+				61D8E5712B9FD7840080D167 /* CategoryRealmModel.swift in Sources */,
 				618CB0662B99D3B3005BC379 /* TabItem.swift in Sources */,
 				6142585C2B9E903800F35521 /* MapViewModel.swift in Sources */,
 				614258662B9E940D00F35521 /* AddCategoryViewController.swift in Sources */,
