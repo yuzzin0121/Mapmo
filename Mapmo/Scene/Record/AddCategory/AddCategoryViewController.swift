@@ -19,7 +19,6 @@ final class AddCategoryViewController: BaseViewController {
             self.mainView.colorCollectionView.reloadData()
         }
         addCategoryViewModel.outputWarningMessage.bind { message in
-            print("우잉????")
             self.mainView.warningMessageLabel.text = message
         }
     }

@@ -28,6 +28,7 @@ class AddCategoryViewModel {
         inputCategoryName.bind { name in
             self.validateCategoryName(name: name)
         }
+        
     }
     
     private func validateCategoryName(name: String?) {
