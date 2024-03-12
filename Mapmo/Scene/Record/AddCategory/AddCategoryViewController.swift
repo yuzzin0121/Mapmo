@@ -9,6 +9,7 @@ import UIKit
 
 final class AddCategoryViewController: BaseViewController {
     let mainView = AddCategoryView()
+    var completionHandler: (() -> Void)?
 
     let addCategoryViewModel = AddCategoryViewModel()
     override func viewDidLoad() {
@@ -59,6 +60,7 @@ final class AddCategoryViewController: BaseViewController {
     
     @objc private func addButtonClicked(_ sender: UIButton) {
         addCategoryViewModel.addButtonClickTrigger.value = ()
+        completionHandler?()
         popView()
     }
     

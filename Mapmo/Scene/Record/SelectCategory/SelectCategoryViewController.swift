@@ -10,11 +10,19 @@ import UIKit
 final class SelectCategoryViewController: BaseViewController {
     let mainView = SelectCategoryView()
 
+    let selectCategoryViewModel = SelectCategoryViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setDelegate()
         mainView.nextButton.addTarget(self, action: #selector(nextButtonClicked), for: .touchUpInside)
+        selectCategoryViewModel.fetchCategoryTrigger.value = ()
+        selectCategoryViewModel.categoryList.bind { _ in
+            print("dmdkdkdkdkdkdk")
+            print(self.selectCategoryViewModel.categoryList.value)
+            self.mainView.collectionView.reloadData()
+        }
     }
     
     @objc private func nextButtonClicked(sender: UIButton) {
@@ -54,6 +62,9 @@ final class SelectCategoryViewController: BaseViewController {
     
     @objc private func addCategoryButtonClicked(sender: UIButton) {
         let addCategoryVC = AddCategoryViewController()
+        addCategoryVC.completionHandler = { // 새 카테고리가 추가됐을 때 : 카테고리 리스트 갱신
+            self.selectCategoryViewModel.fetchCategoryTrigger.value = ()
+        }
         navigationController?.pushViewController(addCategoryVC, animated: true)
     }
 }
@@ -78,13 +89,16 @@ extension SelectCategoryViewController: UICollectionViewDelegate, UICollectionVi
     
     // 카테고리 개수
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return selectCategoryViewModel.categoryList.value.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SelectCategoryCollectionViewCell.identifier, for: indexPath) as? SelectCategoryCollectionViewCell else {
             return UICollectionViewCell()
         }
+        let data = selectCategoryViewModel.categoryList.value[indexPath.item]
+        
+        cell.configureCell(category: data)
         
         return cell
     }

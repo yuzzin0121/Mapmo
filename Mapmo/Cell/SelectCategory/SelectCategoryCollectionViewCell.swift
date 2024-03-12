@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class SelectCategoryCollectionViewCell: UICollectionViewCell, ViewProtocol {
+final class SelectCategoryCollectionViewCell: UICollectionViewCell, ViewProtocol {
     let markImageView = UIImageView()
     let titleLabel = UILabel()
     let recordCountLabel = UILabel()
@@ -28,6 +28,20 @@ class SelectCategoryCollectionViewCell: UICollectionViewCell, ViewProtocol {
         configureView()
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        configureCell(category: nil)
+    }
+    
+    // MARK: - setData
+    func configureCell(category: Category?) {
+        guard let category = category else { return }
+        markImageView.tintColor = UIColor(named: category.colorName)
+        titleLabel.text = category.name
+        recordCountLabel.text = "\(category.recordCount)"
+    }
+    
+    // MARK: - Configure
     func configureHierarchy() {
         [markImageView, titleLabel, recordCountLabel].forEach {
             contentView.addSubview($0)

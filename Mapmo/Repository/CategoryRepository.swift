@@ -23,4 +23,9 @@ class CategoryRepository {
         }
     }
     
+    func fetchCategory() -> [Category] {
+        let categories = Array(realm.objects(Category.self))
+        print(categories)
+        return categories
+    }
 }
