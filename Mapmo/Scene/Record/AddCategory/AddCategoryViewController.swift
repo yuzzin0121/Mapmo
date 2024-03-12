@@ -21,6 +21,9 @@ final class AddCategoryViewController: BaseViewController {
         addCategoryViewModel.outputWarningMessage.bind { message in
             self.mainView.warningMessageLabel.text = message
         }
+        addCategoryViewModel.isActive.bind { isActive in
+            self.checkIsValid(isActive)
+        }
     }
     
     deinit {
@@ -29,6 +32,11 @@ final class AddCategoryViewController: BaseViewController {
     
     override func loadView() {
         view = mainView
+    }
+    
+    private func checkIsValid(_ isActive: Bool) {
+        mainView.addButton.isEnabled = isActive ? true : false
+        mainView.addButton.backgroundColor = isActive ? ColorStyle.mapmoColor : ColorStyle.mapmoBackgroundColor
     }
     
     override func viewWillLayoutSubviews() {
@@ -46,6 +54,12 @@ final class AddCategoryViewController: BaseViewController {
         mainView.colorCollectionView.delegate = self
         mainView.colorCollectionView.dataSource = self
         mainView.categoryNameTextField.addTarget(self, action: #selector(categoryNameTextFieldValueChanged), for: .editingChanged)
+        mainView.addButton.addTarget(self, action: #selector(addButtonClicked), for: .touchUpInside)
+    }
+    
+    @objc private func addButtonClicked(_ sender: UIButton) {
+        addCategoryViewModel.addButtonClickTrigger.value = ()
+        popView()
     }
     
     @objc private func categoryNameTextFieldValueChanged(_ sender: UITextField) {

@@ -14,6 +14,11 @@ class AddCategoryViewModel {
     
     var colorList: Observable<[CategoryColor]> = Observable([])
     var selectedColor: Observable<CategoryColor?> = Observable(nil)
+    var isActive: Observable<Bool> = Observable(false)
+    
+    var addButtonClickTrigger: Observable<Void?> = Observable(nil)
+    
+    let categoryRepository = CategoryRepository()
     
     init() {
         transform()
@@ -28,7 +33,35 @@ class AddCategoryViewModel {
         inputCategoryName.bind { name in
             self.validateCategoryName(name: name)
         }
+        isValidName.bind { value in
+            self.confirmActive(isValidName: value)
+        }
+        selectedColor.bind { value in
+            self.confirmActive(isValidName: self.isValidName.value)
+        }
         
+        addButtonClickTrigger.bind { value in
+            guard let value = value else { return }
+            self.addCategory()
+        }
+    }
+    
+    // Realm에 카테고리 추가
+    private func addCategory() {
+        guard let categoryName = inputCategoryName.value else { return }
+        guard let selectedColor = selectedColor.value else { return }
+        
+        let category = Category(name: categoryName, colorName: selectedColor.name)
+        categoryRepository.createCategory(category)
+    }
+    
+    
+    private func confirmActive(isValidName: Bool) {
+        if isValidName && self.selectedColor.value != nil {
+            isActive.value = true
+        } else {
+            isActive.value = false
+        }
     }
     
     private func validateCategoryName(name: String?) {

@@ -8,7 +8,7 @@
 import Foundation
 import RealmSwift
 
-class CategoryRealmModel: Object {
+class Category: Object {
     @Persisted(primaryKey: true) var id: ObjectId
     @Persisted var name: String
     @Persisted var colorName: String
