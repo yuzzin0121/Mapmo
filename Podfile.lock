@@ -2,23 +2,33 @@ PODS:
   - NMapsGeometry (1.0.1)
   - NMapsMap (3.17.0):
     - NMapsGeometry
+  - Realm (10.47.0):
+    - Realm/Headers (= 10.47.0)
+  - Realm/Headers (10.47.0)
+  - RealmSwift (10.47.0):
+    - Realm (= 10.47.0)
   - SnapKit (5.7.1)
 
 DEPENDENCIES:
   - NMapsMap
+  - RealmSwift (= 10.47.0)
   - SnapKit
 
 SPEC REPOS:
   trunk:
     - NMapsGeometry
     - NMapsMap
+    - Realm
+    - RealmSwift
     - SnapKit
 
 SPEC CHECKSUMS:
   NMapsGeometry: 53c573ead66466681cf123f99f698dc8071a4b83
   NMapsMap: a5b909a31b6f3d27a670f6eb2ddc913c38975474
+  Realm: e43fb540ae947497e3ea8a662443256920602060
+  RealmSwift: 8b06ed06b5d16749ae0c4d91c0cba414a9e28189
   SnapKit: d612e99e678a2d3b95bf60b0705ed0a35c03484a
 
-PODFILE CHECKSUM: f810e67dd75b21d31a60b85b3f4bee0abcbf19ce
+PODFILE CHECKSUM: 110a79a8cebbaacf1cc9114636ece3e36407d47a
 
 COCOAPODS: 1.12.0

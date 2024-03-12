@@ -18,7 +18,9 @@ final class SelectCategoryViewController: BaseViewController {
     }
     
     @objc private func nextButtonClicked(sender: UIButton) {
-        
+        let createRecordVC = CreateRecordViewController()
+        // TODO: - 카테고리 값 전달 필요
+        navigationController?.pushViewController(createRecordVC, animated: true)
     }
     
     private func setDelegate() {
