@@ -9,6 +9,7 @@ import UIKit
 
 final class CreateRecordViewController: BaseViewController {
     let mainView = CreateRecordView()
+    let createRecordViewModel = CreateRecordViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()

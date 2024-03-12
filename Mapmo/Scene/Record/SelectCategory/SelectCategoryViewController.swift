@@ -28,6 +28,8 @@ final class SelectCategoryViewController: BaseViewController {
     @objc private func nextButtonClicked(sender: UIButton) {
         let createRecordVC = CreateRecordViewController()
         // TODO: - 카테고리 값 전달 필요
+        guard let selectedCategory = selectCategoryViewModel.inputSelectedCategory.value else { return }
+        createRecordVC.createRecordViewModel.inputSelectedCategory.value = selectedCategory
         navigationController?.pushViewController(createRecordVC, animated: true)
     }
     
@@ -107,5 +109,8 @@ extension SelectCategoryViewController: UICollectionViewDelegate, UICollectionVi
         print(#function)
         mainView.nextButton.isEnabled = true
         mainView.nextButton.backgroundColor = ColorStyle.mapmoColor
+        
+        let data = selectCategoryViewModel.categoryList.value[indexPath.item]
+        selectCategoryViewModel.inputSelectedCategory.value = data
     }
 }
