@@ -9,6 +9,7 @@ import Foundation
 
 class CreateRecordViewModel {
     var inputSelectedCategory: Observable<Category?> = Observable(nil)
+    var inputRecordSectionList: Observable<[InputRecordSection]> = Observable(InputRecordSection.allCases)
     
     init() {
         transform()

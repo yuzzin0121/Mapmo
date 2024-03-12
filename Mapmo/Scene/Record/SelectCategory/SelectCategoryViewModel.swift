@@ -22,7 +22,6 @@ class SelectCategoryViewModel {
         fetchCategoryTrigger.bind { value in
             guard let value = value else { return }
             self.categoryList.value = self.categoryRepository.fetchCategory()
-            print(self.categoryList.value)
         }
     }
 }

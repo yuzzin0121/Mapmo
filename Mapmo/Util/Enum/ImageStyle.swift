@@ -18,4 +18,9 @@ enum ImageStyle {
     static let arrowLeft = UIImage(systemName: "chevron.left")!
     static let mark = UIImage(named: "mark")!
     static let customPlus = UIImage(systemName: "plus")!
+    
+    static let photo = UIImage(named: "photo")!
+    static let memo = UIImage(named: "memo")!
+    
+    static let photoBadgePlus = UIImage(named: "photo.badge.plus.fill")!
 }

@@ -60,6 +60,11 @@
 		61D8E5732B9FDB110080D167 /* ValidationCategoryNameError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D8E5722B9FDB110080D167 /* ValidationCategoryNameError.swift */; };
 		61D8E5822BA01CFA0080D167 /* CategoryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D8E5812BA01CFA0080D167 /* CategoryRepository.swift */; };
 		61D8E5842BA02B660080D167 /* CreateRecordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D8E5832BA02B660080D167 /* CreateRecordViewModel.swift */; };
+		61D8E5862BA032FD0080D167 /* InputRecordSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D8E5852BA032FD0080D167 /* InputRecordSection.swift */; };
+		61D8E5892BA033B30080D167 /* AddPhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D8E5882BA033B30080D167 /* AddPhotoCollectionViewCell.swift */; };
+		61D8E58B2BA04B8E0080D167 /* InputPlaceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D8E58A2BA04B8E0080D167 /* InputPlaceCollectionViewCell.swift */; };
+		61D8E58D2BA050A60080D167 /* InputVisitedDateCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D8E58C2BA050A60080D167 /* InputVisitedDateCollectionViewCell.swift */; };
+		61D8E58F2BA051260080D167 /* InputMemoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D8E58E2BA051260080D167 /* InputMemoCollectionViewCell.swift */; };
 		DA6A4A6CA64332726B03C6F8 /* Pods_Mapmo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 980F4D8B3D07F8E679D1D81B /* Pods_Mapmo.framework */; };
 /* End PBXBuildFile section */
 
@@ -120,6 +125,11 @@
 		61D8E5722B9FDB110080D167 /* ValidationCategoryNameError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationCategoryNameError.swift; sourceTree = "<group>"; };
 		61D8E5812BA01CFA0080D167 /* CategoryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryRepository.swift; sourceTree = "<group>"; };
 		61D8E5832BA02B660080D167 /* CreateRecordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRecordViewModel.swift; sourceTree = "<group>"; };
+		61D8E5852BA032FD0080D167 /* InputRecordSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputRecordSection.swift; sourceTree = "<group>"; };
+		61D8E5882BA033B30080D167 /* AddPhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoCollectionViewCell.swift; sourceTree = "<group>"; };
+		61D8E58A2BA04B8E0080D167 /* InputPlaceCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputPlaceCollectionViewCell.swift; sourceTree = "<group>"; };
+		61D8E58C2BA050A60080D167 /* InputVisitedDateCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputVisitedDateCollectionViewCell.swift; sourceTree = "<group>"; };
+		61D8E58E2BA051260080D167 /* InputMemoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputMemoCollectionViewCell.swift; sourceTree = "<group>"; };
 		89A1130BA0DEA3EB97F2373A /* Pods-Mapmo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mapmo.debug.xcconfig"; path = "Target Support Files/Pods-Mapmo/Pods-Mapmo.debug.xcconfig"; sourceTree = "<group>"; };
 		980F4D8B3D07F8E679D1D81B /* Pods_Mapmo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mapmo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -147,6 +157,7 @@
 		61214F552B9F50A500C7D0B6 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				61D8E5872BA033970080D167 /* CreateRecord */,
 				61D8E5632B9F75710080D167 /* AddCategory */,
 				61D8E55B2B9F6EA60080D167 /* SelectCategory */,
 			);
@@ -258,6 +269,7 @@
 				618CB0752B99D5B8005BC379 /* ImageStyle.swift */,
 				61D8E5672B9F79D50080D167 /* CategoryColor.swift */,
 				61D8E5722B9FDB110080D167 /* ValidationCategoryNameError.swift */,
+				61D8E5852BA032FD0080D167 /* InputRecordSection.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -407,6 +419,17 @@
 			path = CreateRecord;
 			sourceTree = "<group>";
 		};
+		61D8E5872BA033970080D167 /* CreateRecord */ = {
+			isa = PBXGroup;
+			children = (
+				61D8E5882BA033B30080D167 /* AddPhotoCollectionViewCell.swift */,
+				61D8E58A2BA04B8E0080D167 /* InputPlaceCollectionViewCell.swift */,
+				61D8E58C2BA050A60080D167 /* InputVisitedDateCollectionViewCell.swift */,
+				61D8E58E2BA051260080D167 /* InputMemoCollectionViewCell.swift */,
+			);
+			path = CreateRecord;
+			sourceTree = "<group>";
+		};
 		875C62DC5E3D3C1EC1FE7A70 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -541,8 +564,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				61D8E58B2BA04B8E0080D167 /* InputPlaceCollectionViewCell.swift in Sources */,
 				614258682B9E943500F35521 /* AddCategoryView.swift in Sources */,
 				618CB0742B99D5B2005BC379 /* ColorStyle.swift in Sources */,
+				61D8E5892BA033B30080D167 /* AddPhotoCollectionViewCell.swift in Sources */,
 				618CB0762B99D5B8005BC379 /* ImageStyle.swift in Sources */,
 				61D8E56F2B9F80400080D167 /* CreateRecordView.swift in Sources */,
 				618CB0622B99D337005BC379 /* UIFont+Pretendard.swift in Sources */,
@@ -552,6 +577,7 @@
 				61D8E5682B9F79D50080D167 /* CategoryColor.swift in Sources */,
 				6142585E2B9E916D00F35521 /* Observable.swift in Sources */,
 				618CB07C2B99D64A005BC379 /* MapView.swift in Sources */,
+				61D8E58F2BA051260080D167 /* InputMemoCollectionViewCell.swift in Sources */,
 				61D8E5622B9F73150080D167 /* MapmoButton.swift in Sources */,
 				618CB06B2B99D548005BC379 /* MapViewController.swift in Sources */,
 				61D8E5652B9F75820080D167 /* SelectCategoryColorCollectionViewCell.swift in Sources */,
@@ -563,6 +589,7 @@
 				614258642B9E93FF00F35521 /* SelectCategoryViewController.swift in Sources */,
 				61D8E5602B9F72970080D167 /* CustomTextField.swift in Sources */,
 				61D8E5842BA02B660080D167 /* CreateRecordViewModel.swift in Sources */,
+				61D8E58D2BA050A60080D167 /* InputVisitedDateCollectionViewCell.swift in Sources */,
 				6142586A2B9E96AB00F35521 /* SelectCategoryView.swift in Sources */,
 				618CB0802B99D688005BC379 /* HistoryView.swift in Sources */,
 				61214F5A2B9F50F800C7D0B6 /* ReuseProtocol.swift in Sources */,
@@ -579,6 +606,7 @@
 				614258662B9E940D00F35521 /* AddCategoryViewController.swift in Sources */,
 				61D8E56D2B9F7FFA0080D167 /* CreateRecordViewController.swift in Sources */,
 				618CB0312B99D073005BC379 /* SceneDelegate.swift in Sources */,
+				61D8E5862BA032FD0080D167 /* InputRecordSection.swift in Sources */,
 				618CB0782B99D62C005BC379 /* BaseView.swift in Sources */,
 				618CB06F2B99D55D005BC379 /* HistoryViewController.swift in Sources */,
 			);

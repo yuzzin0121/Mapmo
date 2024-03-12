@@ -19,8 +19,6 @@ final class SelectCategoryViewController: BaseViewController {
         mainView.nextButton.addTarget(self, action: #selector(nextButtonClicked), for: .touchUpInside)
         selectCategoryViewModel.fetchCategoryTrigger.value = ()
         selectCategoryViewModel.categoryList.bind { _ in
-            print("dmdkdkdkdkdkdk")
-            print(self.selectCategoryViewModel.categoryList.value)
             self.mainView.collectionView.reloadData()
         }
     }
