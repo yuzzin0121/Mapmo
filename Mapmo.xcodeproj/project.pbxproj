@@ -69,6 +69,10 @@
 		61D8E5932BA076550080D167 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D8E5922BA076550080D167 /* PhotoCollectionViewCell.swift */; };
 		61D8E5982BA1F37D0080D167 /* SearchPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D8E5972BA1F37D0080D167 /* SearchPlaceViewController.swift */; };
 		61D8E59A2BA1F3A10080D167 /* SearchPlaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D8E5992BA1F3A10080D167 /* SearchPlaceView.swift */; };
+		61D8E59E2BA211AB0080D167 /* PlaceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D8E59D2BA211AB0080D167 /* PlaceCollectionViewCell.swift */; };
+		61D8E5A02BA213080080D167 /* NaverMapAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D8E59F2BA213080080D167 /* NaverMapAPI.swift */; };
+		61D8E5A22BA213120080D167 /* NaverMapAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D8E5A12BA213120080D167 /* NaverMapAPIManager.swift */; };
+		61D8E5A42BA213210080D167 /* SearchPlaceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D8E5A32BA213210080D167 /* SearchPlaceViewModel.swift */; };
 		DA6A4A6CA64332726B03C6F8 /* Pods_Mapmo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 980F4D8B3D07F8E679D1D81B /* Pods_Mapmo.framework */; };
 /* End PBXBuildFile section */
 
@@ -138,6 +142,10 @@
 		61D8E5922BA076550080D167 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		61D8E5972BA1F37D0080D167 /* SearchPlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPlaceViewController.swift; sourceTree = "<group>"; };
 		61D8E5992BA1F3A10080D167 /* SearchPlaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPlaceView.swift; sourceTree = "<group>"; };
+		61D8E59D2BA211AB0080D167 /* PlaceCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceCollectionViewCell.swift; sourceTree = "<group>"; };
+		61D8E59F2BA213080080D167 /* NaverMapAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverMapAPI.swift; sourceTree = "<group>"; };
+		61D8E5A12BA213120080D167 /* NaverMapAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverMapAPIManager.swift; sourceTree = "<group>"; };
+		61D8E5A32BA213210080D167 /* SearchPlaceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPlaceViewModel.swift; sourceTree = "<group>"; };
 		89A1130BA0DEA3EB97F2373A /* Pods-Mapmo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mapmo.debug.xcconfig"; path = "Target Support Files/Pods-Mapmo/Pods-Mapmo.debug.xcconfig"; sourceTree = "<group>"; };
 		980F4D8B3D07F8E679D1D81B /* Pods_Mapmo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mapmo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -313,6 +321,8 @@
 		618CB04A2B99D16C005BC379 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				61D8E59F2BA213080080D167 /* NaverMapAPI.swift */,
+				61D8E5A12BA213120080D167 /* NaverMapAPIManager.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -432,6 +442,7 @@
 		61D8E5872BA033970080D167 /* CreateRecord */ = {
 			isa = PBXGroup;
 			children = (
+				61D8E59C2BA2119A0080D167 /* SearchPlace */,
 				61D8E5882BA033B30080D167 /* AddPhotoCollectionViewCell.swift */,
 				61D8E58A2BA04B8E0080D167 /* InputPlaceCollectionViewCell.swift */,
 				61D8E58C2BA050A60080D167 /* InputVisitedDateCollectionViewCell.swift */,
@@ -446,8 +457,17 @@
 			children = (
 				61D8E5972BA1F37D0080D167 /* SearchPlaceViewController.swift */,
 				61D8E5992BA1F3A10080D167 /* SearchPlaceView.swift */,
+				61D8E5A32BA213210080D167 /* SearchPlaceViewModel.swift */,
 			);
 			path = SearchPlace;
+			sourceTree = "<group>";
+		};
+		61D8E59C2BA2119A0080D167 /* SearchPlace */ = {
+			isa = PBXGroup;
+			children = (
+				61D8E59D2BA211AB0080D167 /* PlaceCollectionViewCell.swift */,
+			);
+			name = SearchPlace;
 			sourceTree = "<group>";
 		};
 		875C62DC5E3D3C1EC1FE7A70 /* Pods */ = {
@@ -586,10 +606,12 @@
 			files = (
 				61D8E58B2BA04B8E0080D167 /* InputPlaceCollectionViewCell.swift in Sources */,
 				614258682B9E943500F35521 /* AddCategoryView.swift in Sources */,
+				61D8E5A42BA213210080D167 /* SearchPlaceViewModel.swift in Sources */,
 				618CB0742B99D5B2005BC379 /* ColorStyle.swift in Sources */,
 				61D8E5892BA033B30080D167 /* AddPhotoCollectionViewCell.swift in Sources */,
 				618CB0762B99D5B8005BC379 /* ImageStyle.swift in Sources */,
 				61D8E5932BA076550080D167 /* PhotoCollectionViewCell.swift in Sources */,
+				61D8E59E2BA211AB0080D167 /* PlaceCollectionViewCell.swift in Sources */,
 				61D8E56F2B9F80400080D167 /* CreateRecordView.swift in Sources */,
 				618CB0622B99D337005BC379 /* UIFont+Pretendard.swift in Sources */,
 				61214F5C2B9F514F00C7D0B6 /* ViewProtocol.swift in Sources */,
@@ -605,6 +627,7 @@
 				618CB07A2B99D632005BC379 /* BaseViewController.swift in Sources */,
 				61214F602B9F597D00C7D0B6 /* SelectCategoryCollectionViewCell.swift in Sources */,
 				61D8E5982BA1F37D0080D167 /* SearchPlaceViewController.swift in Sources */,
+				61D8E5A22BA213120080D167 /* NaverMapAPIManager.swift in Sources */,
 				61D8E55D2B9F723E0080D167 /* UITextField+Extension.swift in Sources */,
 				61214F572B9F50D000C7D0B6 /* SelectCategoryCollectionHeaderView.swift in Sources */,
 				61D8E5912BA066560080D167 /* UIStackView+Extension.swift in Sources */,
@@ -623,6 +646,7 @@
 				61D8E56A2B9F7AAC0080D167 /* AddCategoryViewModel.swift in Sources */,
 				618CB02F2B99D073005BC379 /* AppDelegate.swift in Sources */,
 				618CB0822B99D6FE005BC379 /* APIKey.swift in Sources */,
+				61D8E5A02BA213080080D167 /* NaverMapAPI.swift in Sources */,
 				618CB07E2B99D675005BC379 /* RecordListView.swift in Sources */,
 				61D8E5712B9FD7840080D167 /* Category.swift in Sources */,
 				618CB0662B99D3B3005BC379 /* TabItem.swift in Sources */,

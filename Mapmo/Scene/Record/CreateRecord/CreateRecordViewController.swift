@@ -95,8 +95,8 @@ extension CreateRecordViewController: UICollectionViewDelegate, UICollectionView
                 guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: InputPlaceCollectionViewCell.identifier, for: indexPath) as? InputPlaceCollectionViewCell else {
                     return UICollectionViewCell()
                 }
-                let gesture = UIGestureRecognizer(target: self, action: #selector(addressTextFieldTapped))
-                cell.addressTextField.addGestureRecognizer(gesture)
+                
+                cell.addressButton.addTarget(self, action: #selector(addressTextFieldTapped), for: .touchUpInside)
                 
                 return cell
                 
@@ -166,3 +166,4 @@ extension CreateRecordViewController: PHPickerViewControllerDelegate {
     }
 
 }
+

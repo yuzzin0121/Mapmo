@@ -11,7 +11,7 @@ import SnapKit
 final class InputPlaceCollectionViewCell: UICollectionViewCell, ViewProtocol {
     let iconImageView = UIImageView()
     let titleLabel = UILabel()
-    let addressTextField = CustomTextField()
+    let addressButton = UIButton()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -21,7 +21,7 @@ final class InputPlaceCollectionViewCell: UICollectionViewCell, ViewProtocol {
     }
     
     func configureHierarchy() {
-        [iconImageView, titleLabel, addressTextField].forEach {
+        [iconImageView, titleLabel, addressButton].forEach {
             contentView.addSubview($0)
         }
     }
@@ -37,7 +37,7 @@ final class InputPlaceCollectionViewCell: UICollectionViewCell, ViewProtocol {
             make.centerY.equalTo(iconImageView)
             make.height.equalTo(16)
         }
-        addressTextField.snp.makeConstraints { make in
+        addressButton.snp.makeConstraints { make in
             make.top.equalTo(iconImageView.snp.bottom).offset(12)
             make.horizontalEdges.equalToSuperview().inset(20)
             make.height.equalTo(40)
@@ -50,8 +50,14 @@ final class InputPlaceCollectionViewCell: UICollectionViewCell, ViewProtocol {
         iconImageView.tintColor = ColorStyle.customGray
         titleLabel.design(text: InputRecordSection.place.title, font: .pretendard(size: 16, weight: .bold))
         
-        addressTextField.isEnabled = false
-        addressTextField.placeholder = "장소 입력"
+        addressButton.layer.cornerRadius = 12
+        addressButton.backgroundColor = ColorStyle.customBackgroundGray
+      
+        addressButton.setTitle("장소 입력", for: .normal)
+        addressButton.setTitleColor(ColorStyle.customGray, for: .normal)
+        addressButton.titleLabel?.font = .pretendard(size: 16, weight: .semiBold)
+        addressButton.contentHorizontalAlignment = .left
+        addressButton.contentEdgeInsets = UIEdgeInsets(top: 0, left: 12, bottom: 0, right: 0)
     }
     
     
