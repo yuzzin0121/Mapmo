@@ -8,7 +8,7 @@ target 'Mapmo' do
   pod 'NMapsMap'
   pod 'SnapKit'
   pod 'RealmSwift', '10.47.0'
-
+  pod 'Alamofire'
   # Pods for Mapmo
 
 end
