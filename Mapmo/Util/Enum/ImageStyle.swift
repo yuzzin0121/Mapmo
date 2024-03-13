@@ -22,5 +22,6 @@ enum ImageStyle {
     static let photo = UIImage(named: "photo")!
     static let memo = UIImage(named: "memo")!
     
-    static let photoBadgePlus = UIImage(named: "photo.badge.plus.fill")!
+    static let emptyPhoto = UIImage(systemName: "photo")!
+    static let xCircle = UIImage(named: "xCircle")!
 }

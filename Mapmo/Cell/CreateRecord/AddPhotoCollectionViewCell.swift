@@ -12,8 +12,11 @@ final class AddPhotoCollectionViewCell: UICollectionViewCell, ViewProtocol {
     let iconImageView = UIImageView()
     let titleLabel = UILabel()
     let addPhotoButton = UIButton()
-    let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+    lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: configureCollectionViewFlowLayout())
+    
+    let emptyStackView = UIStackView()
     let emptyPhotoImageView = UIImageView()
+    let emptyMessageLabel = UILabel()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -22,10 +25,28 @@ final class AddPhotoCollectionViewCell: UICollectionViewCell, ViewProtocol {
         configureView()
     }
     
+    func setEmptyUI(_ isEmpty: Bool) {
+        emptyStackView.isHidden = !isEmpty
+    }
+    
+    func configureCollectionViewFlowLayout() -> UICollectionViewFlowLayout {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        
+        let width = (contentView.frame.width - 40 - 16) / 2
+        print(width)
+        layout.itemSize = CGSize(width: 150, height: 200)
+        layout.minimumInteritemSpacing = 16
+        return layout
+    }
+    
     // MARK: - Configure
     func configureHierarchy() {
-        [iconImageView, titleLabel, addPhotoButton, collectionView].forEach {
+        [iconImageView, titleLabel, addPhotoButton, collectionView, emptyStackView].forEach {
             contentView.addSubview($0)
+        }
+        [emptyPhotoImageView, emptyMessageLabel].forEach {
+            emptyStackView.addArrangedSubview($0)
         }
     }
     
@@ -51,6 +72,19 @@ final class AddPhotoCollectionViewCell: UICollectionViewCell, ViewProtocol {
             make.horizontalEdges.equalToSuperview().inset(20)
             make.bottom.equalToSuperview().inset(12)
         }
+        
+        emptyStackView.snp.makeConstraints { make in
+            make.centerY.equalTo(collectionView)
+            make.horizontalEdges.equalToSuperview().inset(20)
+        }
+        
+        emptyPhotoImageView.snp.makeConstraints { make in
+            make.width.equalTo(120)
+            make.height.equalTo(70)
+        }
+        emptyMessageLabel.snp.makeConstraints { make in
+            make.height.equalTo(16)
+        }
     }
     
     func configureView() {
@@ -62,6 +96,16 @@ final class AddPhotoCollectionViewCell: UICollectionViewCell, ViewProtocol {
         collectionView.backgroundColor = ColorStyle.customBackgroundGray
         collectionView.layer.cornerRadius = 12
         collectionView.clipsToBounds = true
+        collectionView.contentInset = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
+        collectionView.register(PhotoCollectionViewCell.self, forCellWithReuseIdentifier: PhotoCollectionViewCell.identifier)
+        
+        emptyStackView.design(spacing: 12)
+        
+        emptyPhotoImageView.image = ImageStyle.emptyPhoto
+        emptyPhotoImageView.contentMode = .scaleAspectFit
+        emptyPhotoImageView.tintColor = ColorStyle.customGray
+        
+        emptyMessageLabel.design(text: "아직 등록된 사진이 없어요", textColor: ColorStyle.customGray, font: .pretendard(size: 16, weight: .semiBold), textAlignment: .center)
     }
     
     required init?(coder: NSCoder) {

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import PhotosUI
 
 final class CreateRecordViewController: BaseViewController {
     let mainView = CreateRecordView()
@@ -15,11 +16,32 @@ final class CreateRecordViewController: BaseViewController {
         super.viewDidLoad()
 
         setDelegate()
+        createRecordViewModel.inputSelectedImageList.bind { _ in
+            DispatchQueue.main.async {
+                self.mainView.collectionView.reloadData()
+            }
+        }
     }
     
     private func setDelegate() {
         mainView.collectionView.delegate = self
         mainView.collectionView.dataSource = self
+    }
+    
+    @objc func addImage() { // + 버튼 눌렀을 때 -> 이미지 추가
+        var configuration = PHPickerConfiguration()
+        configuration.selectionLimit = 5
+        configuration.filter = .images
+        
+        let picker = PHPickerViewController(configuration: configuration)
+        picker.delegate = self
+        self.present(picker, animated: true, completion: nil)
+    }
+    
+    @objc func addressTextFieldTapped(_ sender: UITapGestureRecognizer) {
+        print(#function)
+        let searchPlaceVC = SearchPlaceViewController()
+        navigationController?.pushViewController(searchPlaceVC, animated: true)
     }
     
     override func loadView() {
@@ -41,46 +63,63 @@ final class CreateRecordViewController: BaseViewController {
 
 extension CreateRecordViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print(#function)
-        return createRecordViewModel.inputRecordSectionList.value.count
+        if collectionView.tag == 1 {
+            return createRecordViewModel.inputSelectedImageList.value.count
+        } else {
+            return createRecordViewModel.inputRecordSectionList.value.count
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-       
-        switch indexPath.item {
-        case InputRecordSection.photo.rawValue:
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AddPhotoCollectionViewCell.identifier, for: indexPath) as? AddPhotoCollectionViewCell else {
+        if collectionView.tag == 1 {    // 이미지 리스트 컬렉션뷰일 때
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoCollectionViewCell.identifier, for: indexPath) as? PhotoCollectionViewCell else {
                 return UICollectionViewCell()
             }
-            
+            let data = createRecordViewModel.inputSelectedImageList.value[indexPath.item]
+            cell.configureCell(image: data)
             return cell
-        case InputRecordSection.place.rawValue:
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: InputPlaceCollectionViewCell.identifier, for: indexPath) as? InputPlaceCollectionViewCell else {
+        } else {
+            switch indexPath.item {
+            case InputRecordSection.photo.rawValue:
+                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AddPhotoCollectionViewCell.identifier, for: indexPath) as? AddPhotoCollectionViewCell else {
+                    return UICollectionViewCell()
+                }
+                cell.collectionView.tag = 1
+                cell.collectionView.delegate = self
+                cell.collectionView.dataSource = self
+                cell.addPhotoButton.addTarget(self, action: #selector(addImage), for: .touchUpInside)
+                cell.setEmptyUI(createRecordViewModel.inputSelectedImageList.value.isEmpty)
+                cell.collectionView.reloadData()
+                return cell
+            case InputRecordSection.place.rawValue:
+                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: InputPlaceCollectionViewCell.identifier, for: indexPath) as? InputPlaceCollectionViewCell else {
+                    return UICollectionViewCell()
+                }
+                let gesture = UIGestureRecognizer(target: self, action: #selector(addressTextFieldTapped))
+                cell.addressTextField.addGestureRecognizer(gesture)
+                
+                return cell
+                
+            case InputRecordSection.visitDate.rawValue:
+                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: InputVisitedDateCollectionViewCell.identifier, for: indexPath) as? InputVisitedDateCollectionViewCell else {
+                    return UICollectionViewCell()
+                }
+                
+                return cell
+                
+            case InputRecordSection.memo.rawValue:
+                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: InputMemoCollectionViewCell.identifier, for: indexPath) as? InputMemoCollectionViewCell else {
+                    return UICollectionViewCell()
+                }
+                
+                return cell
+            default:
                 return UICollectionViewCell()
             }
-            
-            return cell
-            
-        case InputRecordSection.visitDate.rawValue:
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: InputVisitedDateCollectionViewCell.identifier, for: indexPath) as? InputVisitedDateCollectionViewCell else {
-                return UICollectionViewCell()
-            }
-            
-            return cell
-            
-        case InputRecordSection.memo.rawValue:
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: InputMemoCollectionViewCell.identifier, for: indexPath) as? InputMemoCollectionViewCell else {
-                return UICollectionViewCell()
-            }
-            
-            return cell
-        default:
-            return UICollectionViewCell()
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        print(#function)
         switch indexPath.item {
         case InputRecordSection.photo.rawValue:
             return CGSize(width: view.frame.width, height: InputRecordSection.photo.cellHeight)
@@ -95,4 +134,35 @@ extension CreateRecordViewController: UICollectionViewDelegate, UICollectionView
         }
     }
     
+}
+
+extension CreateRecordViewController: PHPickerViewControllerDelegate {
+    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+        picker.dismiss(animated: true)
+        
+        if !(results.isEmpty) {
+            var images: [UIImage] = []
+            for result in results {
+                let itemProvider = result.itemProvider
+                
+                if itemProvider.canLoadObject(ofClass: UIImage.self) {
+                    itemProvider.loadObject(ofClass: UIImage.self) { image, error in
+                        if let image = image as? UIImage {
+                            images.append(image)
+                            self.createRecordViewModel.inputSelectedImageList.value.append(image)
+                            print("미미미미")
+                        }
+                        
+                        if let error = error {
+                            return
+                        }
+                    }
+                } else {
+                    print("이미지 가져오기 실패")
+                }
+            }
+//            createRecordViewModel.inputSelectedImageList.value = images
+        }
+    }
+
 }
