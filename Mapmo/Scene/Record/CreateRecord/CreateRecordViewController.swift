@@ -8,6 +8,10 @@
 import UIKit
 import PhotosUI
 
+protocol PassDataDelegate: AnyObject {
+    func sendPlaceItem(_ placeItem: PlaceItem)
+}
+
 final class CreateRecordViewController: BaseViewController {
     let mainView = CreateRecordView()
     let createRecordViewModel = CreateRecordViewModel()
@@ -41,6 +45,7 @@ final class CreateRecordViewController: BaseViewController {
     @objc func addressTextFieldTapped(_ sender: UITapGestureRecognizer) {
         print(#function)
         let searchPlaceVC = SearchPlaceViewController()
+        searchPlaceVC.passPlaceDelegate = self
         navigationController?.pushViewController(searchPlaceVC, animated: true)
     }
     
@@ -58,6 +63,13 @@ final class CreateRecordViewController: BaseViewController {
     
     @objc private func popView() {
         navigationController?.popViewController(animated: true)
+    }
+}
+
+extension CreateRecordViewController: PassDataDelegate {
+    func sendPlaceItem(_ placeItem: PlaceItem) {
+        createRecordViewModel.inputPlaceItem.value = placeItem
+        mainView.collectionView.reloadItems(at: [IndexPath(item: InputRecordSection.place.rawValue, section: 0)])
     }
 }
 
@@ -96,6 +108,8 @@ extension CreateRecordViewController: UICollectionViewDelegate, UICollectionView
                 }
                 
                 cell.addressButton.addTarget(self, action: #selector(addressTextFieldTapped), for: .touchUpInside)
+                cell.configureCell(placeItem: createRecordViewModel.inputPlaceItem.value)
+                
                 
                 return cell
                 

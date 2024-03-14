@@ -12,12 +12,18 @@ class CreateRecordViewModel {
     var inputRecordSectionList: Observable<[InputRecordSection]> = Observable(InputRecordSection.allCases)
     
     var inputSelectedImageList: Observable<[UIImage]> = Observable([])
+    var inputPlaceItem: Observable<PlaceItem?> = Observable(nil)
     
     init() {
         transform()
     }
     
     private func transform() {
-        
+        inputPlaceItem.bind { placeItem in
+            guard let placeItem = placeItem else { return }
+            print(placeItem)
+        }
     }
+    
+    
 }

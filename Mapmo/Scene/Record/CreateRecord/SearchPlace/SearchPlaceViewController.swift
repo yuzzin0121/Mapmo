@@ -11,6 +11,7 @@ class SearchPlaceViewController: BaseViewController {
     let mainView = SearchPlaceView()
     
     let searchPlaceViewModel = SearchPlaceViewModel()
+    var passPlaceDelegate: PassDataDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,6 +55,11 @@ class SearchPlaceViewController: BaseViewController {
     @objc private func popView() {
         navigationController?.popViewController(animated: true)
     }
+    
+    private func placeItemSelected(_ placeItem: PlaceItem) {
+        passPlaceDelegate?.sendPlaceItem(placeItem)
+        navigationController?.popViewController(animated: true)
+    }
 }
 
 extension SearchPlaceViewController: UISearchBarDelegate {
@@ -93,5 +99,6 @@ extension SearchPlaceViewController: UICollectionViewDelegate, UICollectionViewD
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print(#function)
         let data = searchPlaceViewModel.outputPlaceItemList.value[indexPath.item]
+        placeItemSelected(data)
     }
 }

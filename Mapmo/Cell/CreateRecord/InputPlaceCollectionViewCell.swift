@@ -20,6 +20,19 @@ final class InputPlaceCollectionViewCell: UICollectionViewCell, ViewProtocol {
         configureView()
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        configureCell(placeItem: nil)
+    }
+    
+    // MARK: - setData
+    func configureCell(placeItem: PlaceItem?) {
+        guard let placeItem = placeItem else { return }
+        addressButton.setTitle(placeItem.address, for: .normal)
+        addressButton.setTitleColor(ColorStyle.customBlack, for: .normal)
+    }
+    
+    // MARK: - Configure
     func configureHierarchy() {
         [iconImageView, titleLabel, addressButton].forEach {
             contentView.addSubview($0)
