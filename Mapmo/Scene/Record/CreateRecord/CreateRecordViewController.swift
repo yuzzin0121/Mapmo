@@ -54,8 +54,12 @@ final class CreateRecordViewController: BaseViewController {
     
     // DatePicker 값을 선택했을 때
     @objc func datePickerSelected(_ sender: UIDatePicker) {
-        print(#function, sender.date)
         createRecordViewModel.inputVisitDate.value = sender.date
+    }
+    
+    // 제목 텍스트필드 값 변경될 때
+    @objc func titleTextFieldValueChanged(_ sender: UITextField) {
+        createRecordViewModel.inputTitleText.value = sender.text
     }
     
     override func loadView() {
@@ -139,6 +143,10 @@ extension CreateRecordViewController: UICollectionViewDelegate, UICollectionView
                     return UICollectionViewCell()
                 }
                 
+                cell.titleTextField.addTarget(self, action: #selector(titleTextFieldValueChanged), for: .valueChanged)
+                titleTextFieldValueChanged(cell.titleTextField)
+                
+                cell.contentTextView.delegate = self
                 
                 return cell
             default:
@@ -197,9 +205,9 @@ extension CreateRecordViewController: PHPickerViewControllerDelegate {
                     print("이미지 가져오기 실패")
                 }
             }
-//            createRecordViewModel.inputSelectedImageList.value = images
         }
     }
 
 }
+
 

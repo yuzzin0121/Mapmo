@@ -14,6 +14,7 @@ class CreateRecordViewModel {
     var inputSelectedImageList: Observable<[UIImage]> = Observable([])
     var inputPlaceItem: Observable<PlaceItem?> = Observable(nil)
     var inputVisitDate: Observable<Date?> = Observable(nil)
+    var inputTitleText: Observable<String?> = Observable(nil)
     
     init() {
         transform()
