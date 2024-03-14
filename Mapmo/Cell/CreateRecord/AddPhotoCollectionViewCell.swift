@@ -20,6 +20,7 @@ final class AddPhotoCollectionViewCell: UICollectionViewCell, ViewProtocol {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
+        print(#function)
         configureHierarchy()
         configureLayout()
         configureView()
@@ -27,16 +28,24 @@ final class AddPhotoCollectionViewCell: UICollectionViewCell, ViewProtocol {
     
     func setEmptyUI(_ isEmpty: Bool) {
         emptyStackView.isHidden = !isEmpty
+        collectionView.backgroundColor = isEmpty ? ColorStyle.customBackgroundGray : ColorStyle.customWhite
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        print(#function)
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        
+        let width = (contentView.frame.width - 40 - 20*2 + 8) / 2
+        layout.itemSize = CGSize(width: width, height: 148)
+        layout.minimumInteritemSpacing = 20
+        collectionView.collectionViewLayout = layout
     }
     
     func configureCollectionViewFlowLayout() -> UICollectionViewFlowLayout {
         let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
         
-        let width = (contentView.frame.width - 40 - 16) / 2
-        print(width)
-        layout.itemSize = CGSize(width: 150, height: 200)
-        layout.minimumInteritemSpacing = 16
         return layout
     }
     
@@ -50,6 +59,7 @@ final class AddPhotoCollectionViewCell: UICollectionViewCell, ViewProtocol {
         }
     }
     
+    // 높이 - (12 + 24) + 12 + 150 + 12
     func configureLayout() {
         iconImageView.snp.makeConstraints { make in
             make.size.equalTo(20)
@@ -68,8 +78,9 @@ final class AddPhotoCollectionViewCell: UICollectionViewCell, ViewProtocol {
         }
         
         collectionView.snp.makeConstraints { make in
-            make.top.equalTo(iconImageView.snp.bottom).offset(12)
+            make.top.equalTo(addPhotoButton.snp.bottom).offset(12)
             make.horizontalEdges.equalToSuperview().inset(20)
+            make.height.equalTo(180)
             make.bottom.equalToSuperview().inset(12)
         }
         
@@ -96,7 +107,8 @@ final class AddPhotoCollectionViewCell: UICollectionViewCell, ViewProtocol {
         collectionView.backgroundColor = ColorStyle.customBackgroundGray
         collectionView.layer.cornerRadius = 12
         collectionView.clipsToBounds = true
-        collectionView.contentInset = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.contentInset = UIEdgeInsets(top: 16, left: 0, bottom: 16, right: 16)
         collectionView.register(PhotoCollectionViewCell.self, forCellWithReuseIdentifier: PhotoCollectionViewCell.identifier)
         
         emptyStackView.design(spacing: 12)

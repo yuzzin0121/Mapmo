@@ -33,7 +33,7 @@ enum InputRecordSection: Int, CaseIterable {
     
     var cellHeight: CGFloat {
         switch self {
-        case .photo: return 250
+        case .photo: return 240
         case .place: return 96
         case .visitDate: return 100
         case .memo: return 264

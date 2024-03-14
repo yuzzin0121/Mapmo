@@ -80,7 +80,7 @@ extension CreateRecordViewController: UICollectionViewDelegate, UICollectionView
             return cell
         } else {
             switch indexPath.item {
-            case InputRecordSection.photo.rawValue:
+            case InputRecordSection.photo.rawValue: // 이미지 추가
                 guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AddPhotoCollectionViewCell.identifier, for: indexPath) as? AddPhotoCollectionViewCell else {
                     return UICollectionViewCell()
                 }
@@ -89,9 +89,8 @@ extension CreateRecordViewController: UICollectionViewDelegate, UICollectionView
                 cell.collectionView.dataSource = self
                 cell.addPhotoButton.addTarget(self, action: #selector(addImage), for: .touchUpInside)
                 cell.setEmptyUI(createRecordViewModel.inputSelectedImageList.value.isEmpty)
-                cell.collectionView.reloadData()
                 return cell
-            case InputRecordSection.place.rawValue:
+            case InputRecordSection.place.rawValue: // 장소
                 guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: InputPlaceCollectionViewCell.identifier, for: indexPath) as? InputPlaceCollectionViewCell else {
                     return UICollectionViewCell()
                 }
@@ -100,14 +99,14 @@ extension CreateRecordViewController: UICollectionViewDelegate, UICollectionView
                 
                 return cell
                 
-            case InputRecordSection.visitDate.rawValue:
+            case InputRecordSection.visitDate.rawValue: // 방문 날짜
                 guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: InputVisitedDateCollectionViewCell.identifier, for: indexPath) as? InputVisitedDateCollectionViewCell else {
                     return UICollectionViewCell()
                 }
                 
                 return cell
                 
-            case InputRecordSection.memo.rawValue:
+            case InputRecordSection.memo.rawValue:  // 메모
                 guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: InputMemoCollectionViewCell.identifier, for: indexPath) as? InputMemoCollectionViewCell else {
                     return UICollectionViewCell()
                 }
@@ -119,19 +118,27 @@ extension CreateRecordViewController: UICollectionViewDelegate, UICollectionView
         }
     }
     
+    // 셀 사이즈 설정
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        switch indexPath.item {
-        case InputRecordSection.photo.rawValue:
-            return CGSize(width: view.frame.width, height: InputRecordSection.photo.cellHeight)
-        case InputRecordSection.place.rawValue:
-            return CGSize(width: view.frame.width, height: InputRecordSection.place.cellHeight)
-        case InputRecordSection.visitDate.rawValue:
-            return CGSize(width: view.frame.width, height: InputRecordSection.visitDate.cellHeight)
-        case InputRecordSection.memo.rawValue:
-            return CGSize(width: view.frame.width, height: InputRecordSection.memo.cellHeight)
-        default:
-            return CGSize(width: view.frame.width, height: 100)
+        if collectionView.tag == 1 {
+            let width = (view.frame.width - 40 - 20*2 + 8) / 2
+            print(width)
+            return CGSize(width: width, height: 148)
+        } else {
+            switch indexPath.item {
+            case InputRecordSection.photo.rawValue:
+                return CGSize(width: view.frame.width, height: InputRecordSection.photo.cellHeight)
+            case InputRecordSection.place.rawValue:
+                return CGSize(width: view.frame.width, height: InputRecordSection.place.cellHeight)
+            case InputRecordSection.visitDate.rawValue:
+                return CGSize(width: view.frame.width, height: InputRecordSection.visitDate.cellHeight)
+            case InputRecordSection.memo.rawValue:
+                return CGSize(width: view.frame.width, height: InputRecordSection.memo.cellHeight)
+            default:
+                return CGSize(width: view.frame.width, height: 100)
+            }
         }
+        
     }
     
 }

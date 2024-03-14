@@ -73,6 +73,8 @@
 		61D8E5A02BA213080080D167 /* NaverMapAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D8E59F2BA213080080D167 /* NaverMapAPI.swift */; };
 		61D8E5A22BA213120080D167 /* NaverMapAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D8E5A12BA213120080D167 /* NaverMapAPIManager.swift */; };
 		61D8E5A42BA213210080D167 /* SearchPlaceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D8E5A32BA213210080D167 /* SearchPlaceViewModel.swift */; };
+		61D8E5A62BA2145E0080D167 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D8E5A52BA2145E0080D167 /* Place.swift */; };
+		61D8E5A82BA2155A0080D167 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D8E5A72BA2155A0080D167 /* NetworkError.swift */; };
 		DA6A4A6CA64332726B03C6F8 /* Pods_Mapmo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 980F4D8B3D07F8E679D1D81B /* Pods_Mapmo.framework */; };
 /* End PBXBuildFile section */
 
@@ -146,6 +148,8 @@
 		61D8E59F2BA213080080D167 /* NaverMapAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverMapAPI.swift; sourceTree = "<group>"; };
 		61D8E5A12BA213120080D167 /* NaverMapAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverMapAPIManager.swift; sourceTree = "<group>"; };
 		61D8E5A32BA213210080D167 /* SearchPlaceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPlaceViewModel.swift; sourceTree = "<group>"; };
+		61D8E5A52BA2145E0080D167 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
+		61D8E5A72BA2155A0080D167 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		89A1130BA0DEA3EB97F2373A /* Pods-Mapmo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mapmo.debug.xcconfig"; path = "Target Support Files/Pods-Mapmo/Pods-Mapmo.debug.xcconfig"; sourceTree = "<group>"; };
 		980F4D8B3D07F8E679D1D81B /* Pods_Mapmo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mapmo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -286,6 +290,7 @@
 				61D8E5672B9F79D50080D167 /* CategoryColor.swift */,
 				61D8E5722B9FDB110080D167 /* ValidationCategoryNameError.swift */,
 				61D8E5852BA032FD0080D167 /* InputRecordSection.swift */,
+				61D8E5A72BA2155A0080D167 /* NetworkError.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -314,6 +319,7 @@
 			isa = PBXGroup;
 			children = (
 				61D8E5702B9FD7840080D167 /* Category.swift */,
+				61D8E5A52BA2145E0080D167 /* Place.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -613,6 +619,7 @@
 				61D8E5932BA076550080D167 /* PhotoCollectionViewCell.swift in Sources */,
 				61D8E59E2BA211AB0080D167 /* PlaceCollectionViewCell.swift in Sources */,
 				61D8E56F2B9F80400080D167 /* CreateRecordView.swift in Sources */,
+				61D8E5A82BA2155A0080D167 /* NetworkError.swift in Sources */,
 				618CB0622B99D337005BC379 /* UIFont+Pretendard.swift in Sources */,
 				61214F5C2B9F514F00C7D0B6 /* ViewProtocol.swift in Sources */,
 				61D8E5732B9FDB110080D167 /* ValidationCategoryNameError.swift in Sources */,
@@ -655,6 +662,7 @@
 				61D8E56D2B9F7FFA0080D167 /* CreateRecordViewController.swift in Sources */,
 				618CB0312B99D073005BC379 /* SceneDelegate.swift in Sources */,
 				61D8E5862BA032FD0080D167 /* InputRecordSection.swift in Sources */,
+				61D8E5A62BA2145E0080D167 /* Place.swift in Sources */,
 				618CB0782B99D62C005BC379 /* BaseView.swift in Sources */,
 				618CB06F2B99D55D005BC379 /* HistoryViewController.swift in Sources */,
 			);
