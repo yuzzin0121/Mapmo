@@ -16,6 +16,7 @@ final class CreateRecordViewController: BaseViewController {
     let mainView = CreateRecordView()
     let createRecordViewModel = CreateRecordViewModel()
     
+    // MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -66,6 +67,7 @@ final class CreateRecordViewController: BaseViewController {
     }
 }
 
+// MARK: - 데이터 전달 Delegate 설정
 extension CreateRecordViewController: PassDataDelegate {
     func sendPlaceItem(_ placeItem: PlaceItem) {
         createRecordViewModel.inputPlaceItem.value = placeItem
@@ -73,6 +75,8 @@ extension CreateRecordViewController: PassDataDelegate {
     }
 }
 
+
+// MARK: - 기록 입력, 이미지 추가 컬렉션뷰 설정
 extension CreateRecordViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView.tag == 1 {
@@ -156,6 +160,7 @@ extension CreateRecordViewController: UICollectionViewDelegate, UICollectionView
     
 }
 
+// MARK: - 이미지 추가 delegate 설정
 extension CreateRecordViewController: PHPickerViewControllerDelegate {
     func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
         picker.dismiss(animated: true)

@@ -25,5 +25,11 @@ class CreateRecordViewModel {
         }
     }
     
+    private func checkData() {
+        if inputSelectedCategory.value != nil && inputSelectedImageList.value != nil
+            && inputPlaceItem.value != nil {
+            
+        }
+    }
     
 }
