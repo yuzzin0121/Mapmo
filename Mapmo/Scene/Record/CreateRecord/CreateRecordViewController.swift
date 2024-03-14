@@ -33,6 +33,7 @@ final class CreateRecordViewController: BaseViewController {
         mainView.collectionView.dataSource = self
     }
     
+    // 이미지 추가 버튼(+) 클릭했을 때 - 이미지 선택 화면(PHPickerViewController) 띄우기
     @objc func addImage() { // + 버튼 눌렀을 때 -> 이미지 추가
         var configuration = PHPickerConfiguration()
         configuration.selectionLimit = 5
@@ -43,11 +44,18 @@ final class CreateRecordViewController: BaseViewController {
         self.present(picker, animated: true, completion: nil)
     }
     
+    // 주소 버튼을 클릭했을 때 - 주소 검색 화면으로 화면 전환
     @objc func addressTextFieldTapped(_ sender: UITapGestureRecognizer) {
         print(#function)
         let searchPlaceVC = SearchPlaceViewController()
         searchPlaceVC.passPlaceDelegate = self
         navigationController?.pushViewController(searchPlaceVC, animated: true)
+    }
+    
+    // DatePicker 값을 선택했을 때
+    @objc func datePickerSelected(_ sender: UIDatePicker) {
+        print(#function, sender.date)
+        createRecordViewModel.inputVisitDate.value = sender.date
     }
     
     override func loadView() {
@@ -122,12 +130,15 @@ extension CreateRecordViewController: UICollectionViewDelegate, UICollectionView
                     return UICollectionViewCell()
                 }
                 
+                cell.datePicker.addTarget(self, action: #selector(datePickerSelected), for: .valueChanged)
+                datePickerSelected(cell.datePicker)
                 return cell
                 
             case InputRecordSection.memo.rawValue:  // 메모
                 guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: InputMemoCollectionViewCell.identifier, for: indexPath) as? InputMemoCollectionViewCell else {
                     return UICollectionViewCell()
                 }
+                
                 
                 return cell
             default:
