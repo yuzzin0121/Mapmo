@@ -54,11 +54,18 @@ class InputMemoCollectionViewCell: UICollectionViewCell {
     
     func configureView() {
         iconImageView.image = InputRecordSection.memo.icon
+        
         titleLabel.design(text: InputRecordSection.memo.title, font: .pretendard(size: 16, weight: .bold))
         titleTextField.placeholder = "제목 입력"
+        titleTextField.textColor = ColorStyle.customBlack
+        
         contentTextView.backgroundColor = ColorStyle.customBackgroundGray
         contentTextView.layer.cornerRadius = 12
         contentTextView.clipsToBounds = true
+        contentTextView.text = "내용 입력"
+        contentTextView.font = .pretendard(size: 17, weight: .regular)
+        contentTextView.textColor = ColorStyle.customGray
+        contentTextView.textContainerInset = UIEdgeInsets(top: 16, left: 12, bottom: 16, right: 12)
     }
     
     

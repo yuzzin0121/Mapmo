@@ -28,7 +28,7 @@ final class InputPlaceCollectionViewCell: UICollectionViewCell, ViewProtocol {
     // MARK: - setData
     func configureCell(placeItem: PlaceItem?) {
         guard let placeItem = placeItem else { return }
-        let title = "\(placeItem.title) | \(placeItem.address)"
+        let title = "\(placeItem.title.htmlEscaped) | \(placeItem.address)"
         addressButton.setTitle(title, for: .normal)
         addressButton.setTitleColor(ColorStyle.customBlack, for: .normal)
     }

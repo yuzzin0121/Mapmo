@@ -147,6 +147,7 @@ extension CreateRecordViewController: UICollectionViewDelegate, UICollectionView
                 titleTextFieldValueChanged(cell.titleTextField)
                 
                 cell.contentTextView.delegate = self
+                textViewDidChange(cell.contentTextView)
                 
                 return cell
             default:
@@ -197,7 +198,7 @@ extension CreateRecordViewController: PHPickerViewControllerDelegate {
                             print("미미미미")
                         }
                         
-                        if let error = error {
+                        if error != nil {
                             return
                         }
                     }
@@ -210,4 +211,26 @@ extension CreateRecordViewController: PHPickerViewControllerDelegate {
 
 }
 
-
+// MARK: - UITextViewDelegate
+extension CreateRecordViewController: UITextViewDelegate {
+    // textView에 focus를 얻는 경우 발생
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.text == createRecordViewModel.contentTextViewPlaceholder {
+            textView.text = nil
+            textView.textColor = ColorStyle.customBlack
+        }
+    }
+    
+    // textView에 focus를 잃는 경우 발생
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+            textView.text = createRecordViewModel.contentTextViewPlaceholder
+            textView.textColor = ColorStyle.customGray
+        }
+    }
+    
+    func textViewDidChange(_ textView: UITextView) {
+        createRecordViewModel.inputContentText.value = textView.text
+    }
+    
+}

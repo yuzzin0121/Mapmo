@@ -15,6 +15,9 @@ class CreateRecordViewModel {
     var inputPlaceItem: Observable<PlaceItem?> = Observable(nil)
     var inputVisitDate: Observable<Date?> = Observable(nil)
     var inputTitleText: Observable<String?> = Observable(nil)
+    var inputContentText: Observable<String?> = Observable(nil)
+    
+    let contentTextViewPlaceholder = "내용 입력"
     
     init() {
         transform()
