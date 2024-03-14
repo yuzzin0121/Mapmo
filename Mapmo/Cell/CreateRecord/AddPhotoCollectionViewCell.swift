@@ -20,7 +20,6 @@ final class AddPhotoCollectionViewCell: UICollectionViewCell, ViewProtocol {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        print(#function)
         configureHierarchy()
         configureLayout()
         configureView()
@@ -33,7 +32,6 @@ final class AddPhotoCollectionViewCell: UICollectionViewCell, ViewProtocol {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        print(#function)
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         

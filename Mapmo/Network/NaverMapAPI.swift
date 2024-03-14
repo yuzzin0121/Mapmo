@@ -23,7 +23,10 @@ enum NaverMapAPI {
     }
     
     var header: HTTPHeaders {
-        return [:]
+        switch self {
+        case .place:
+            return ["X-Naver-Client-Id": APIKey.xNaverClientId, "X-Naver-Client-Secret": APIKey.xNaverClientSecret]
+        }
     }
     
     var method: HTTPMethod {

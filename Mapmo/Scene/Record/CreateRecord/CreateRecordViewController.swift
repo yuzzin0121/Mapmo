@@ -122,7 +122,6 @@ extension CreateRecordViewController: UICollectionViewDelegate, UICollectionView
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView.tag == 1 {
             let width = (view.frame.width - 40 - 20*2 + 8) / 2
-            print(width)
             return CGSize(width: width, height: 148)
         } else {
             switch indexPath.item {

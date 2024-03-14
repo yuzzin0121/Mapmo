@@ -17,4 +17,5 @@ enum ColorStyle {
     static let mapmoBackgroundColor = UIColor(named: "mapmoBackgroundColor")!
     static let null = UIColor(named: "null")!
     static let markRed = UIColor(named: "markRed")!
+    static let separatorColor = UIColor(named: "separatorColor")!
 }

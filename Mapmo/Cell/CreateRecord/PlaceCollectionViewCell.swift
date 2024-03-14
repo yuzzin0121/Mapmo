@@ -8,11 +8,12 @@
 import UIKit
 import SnapKit
 
-class PlaceCollectionViewCell: UICollectionViewCell, ViewProtocol {
+final class PlaceCollectionViewCell: UICollectionViewCell, ViewProtocol {
     let locationImageView = UIImageView()
     let placeStackView = UIStackView()
     let placeLabel = UILabel()
     let addressLabel = UILabel()
+    let underLineView = UIView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -21,10 +22,21 @@ class PlaceCollectionViewCell: UICollectionViewCell, ViewProtocol {
         configureView()
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        configureCell(nil)
+    }
+    
+    // MARK: - setData
+    func configureCell(_ placeItem: PlaceItem?) {
+        guard let placeItem = placeItem else { return }
+        placeLabel.text = placeItem.title.htmlEscaped
+        addressLabel.text = placeItem.address
+    }
+    
+    // MARK: - Configure
     func configureHierarchy() {
-        [locationImageView, placeStackView].forEach {
-            contentView.addSubview($0)
-        }
+        contentView.addSubviews([locationImageView, placeStackView, underLineView])
         [placeLabel, addressLabel].forEach {
             placeStackView.addArrangedSubview($0)
         }
@@ -33,7 +45,7 @@ class PlaceCollectionViewCell: UICollectionViewCell, ViewProtocol {
     func configureLayout() {
         locationImageView.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
-            make.leading.equalToSuperview().offset(12)
+            make.leading.equalToSuperview()
             make.size.equalTo(32)
         }
         placeStackView.snp.makeConstraints { make in
@@ -47,13 +59,21 @@ class PlaceCollectionViewCell: UICollectionViewCell, ViewProtocol {
         addressLabel.snp.makeConstraints { make in
             make.height.equalTo(15)
         }
+        underLineView.snp.makeConstraints { make in
+            make.bottom.equalToSuperview()
+            make.height.equalTo(0.5)
+            make.horizontalEdges.equalToSuperview()
+        }
     }
     
     func configureView() {
         locationImageView.image = ImageStyle.mark
+        locationImageView.tintColor = ColorStyle.customGray
         placeStackView.design()
         placeLabel.design(font: .pretendard(size: 16, weight: .semiBold))
         addressLabel.design(textColor: ColorStyle.customGray, font: .pretendard(size: 15, weight: .regular))
+        
+        underLineView.backgroundColor = ColorStyle.separatorColor
     }
     
     required init?(coder: NSCoder) {
