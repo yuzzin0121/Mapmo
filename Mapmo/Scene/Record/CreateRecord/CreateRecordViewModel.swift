@@ -23,6 +23,7 @@ class CreateRecordViewModel {
     let contentTextViewPlaceholder = "내용 입력"
     lazy var placeRepository = PlaceRepository()
     lazy var recordRepository = RecordRepository()
+    lazy var fileManagerClass = FileManagerClass()
     
     init() {
         transform()
@@ -83,11 +84,18 @@ class CreateRecordViewModel {
             guard let record = self.createRecord() else { return }
             print("이미 장소 등록되어있음")
             recordRepository.createRecord(record, place: place)
+            if !inputSelectedImageList.value.isEmpty {
+                fileManagerClass.saveImagesToDocument(images: inputSelectedImageList.value, recordId: record.id.stringValue)
+            }
         } else {
             print("장소 등록 안되어있음")
             placeRepository.createPlace(place)  // 존재하지 않으면, 장소 생성 + Reacord 생성 및 생성된 장소에 추가
+            
             guard let record = self.createRecord() else { return }
             recordRepository.createRecord(record, place: place)
+            if !inputSelectedImageList.value.isEmpty {
+                fileManagerClass.saveImagesToDocument(images: inputSelectedImageList.value, recordId: record.id.stringValue)
+            }
         }
     }
     
