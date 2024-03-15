@@ -25,20 +25,20 @@ class TabBarController: UITabBarController {
     private func addViewControllers() {
         let mapVC = MapViewController()
         let mapNav = UINavigationController(rootViewController: mapVC)
-        mapVC.tabBarItem = UITabBarItem(title: nil, image: TabItem.map.image, selectedImage: TabItem.map.selectedImage)
+        mapNav.tabBarItem = UITabBarItem(title: nil, image: TabItem.map.image, selectedImage: TabItem.map.selectedImage)
   
         let recordListVC = RecordListViewController()
         let recordListNav = UINavigationController(rootViewController: recordListVC)
-        recordListVC.tabBarItem = UITabBarItem(title: nil, image: TabItem.list.image, selectedImage: TabItem.list.image)
+        recordListNav.tabBarItem = UITabBarItem(title: nil, image: TabItem.list.image, selectedImage: TabItem.list.image)
         
         let historyVC = HistoryViewController()
         let historyNav = UINavigationController(rootViewController: historyVC)
-        historyVC.tabBarItem = UITabBarItem(title: nil, image: TabItem.history.image, selectedImage: TabItem.history.selectedImage)
+        historyNav.tabBarItem = UITabBarItem(title: nil, image: TabItem.history.image, selectedImage: TabItem.history.selectedImage)
         
 //        [mapNav, recordListNav, historyNav].forEach {
 //            $0.setupBarAppearance()
 //        }
         
-        self.viewControllers = [mapVC, recordListVC, historyVC]
+        self.viewControllers = [mapNav, recordListNav, historyNav]
     }
 }

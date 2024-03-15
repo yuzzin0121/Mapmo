@@ -24,6 +24,7 @@ final class MapViewController: BaseViewController {
     
     private func showAddRecordVC() {
         let selectCategoryVC = SelectCategoryViewController()
+        selectCategoryVC.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(selectCategoryVC, animated: true)
     }
     
