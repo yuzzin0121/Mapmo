@@ -20,10 +20,13 @@ class CreateRecordViewModel {
     var isActivate: Observable<Bool> = Observable(false)
     var createRecordTrigger: Observable<Void?> = Observable(nil)
     
+    var createSuccess: Observable<Bool> = Observable(false)
+    
     let contentTextViewPlaceholder = "내용 입력"
     lazy var placeRepository = PlaceRepository()
     lazy var recordRepository = RecordRepository()
     lazy var fileManagerClass = FileManagerClass()
+
     
     init() {
         transform()
@@ -97,6 +100,7 @@ class CreateRecordViewModel {
                 fileManagerClass.saveImagesToDocument(images: inputSelectedImageList.value, recordId: record.id.stringValue)
             }
         }
+        createSuccess.value = true
     }
     
     private func createRecord() -> Record? {

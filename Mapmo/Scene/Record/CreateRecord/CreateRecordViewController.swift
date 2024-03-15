@@ -31,6 +31,7 @@ final class CreateRecordViewController: BaseViewController {
             self.mainView.createButton.isEnabled = isActivate
             self.mainView.createButton.backgroundColor = isActivate ? ColorStyle.mapmoColor : ColorStyle.null
         }
+        
     }
     
     private func setDelegate() {
@@ -42,6 +43,11 @@ final class CreateRecordViewController: BaseViewController {
     @objc private func createButtonClicked(_ sender: UIButton) {
         print(#function)
         createRecordViewModel.createRecordTrigger.value = ()
+        createRecordViewModel.createSuccess.bind { success in
+            if success {
+                self.showMainTabBar()
+            }
+        }
     }
     
     // 이미지 추가 버튼(+) 클릭했을 때 - 이미지 선택 화면(PHPickerViewController) 띄우기
