@@ -31,7 +31,7 @@ final class PlaceCollectionViewCell: UICollectionViewCell, ViewProtocol {
     func configureCell(_ placeItem: PlaceItem?) {
         guard let placeItem = placeItem else { return }
         placeLabel.text = placeItem.title.htmlEscaped
-        addressLabel.text = placeItem.address
+        addressLabel.text = placeItem.roadAddress
     }
     
     // MARK: - Configure

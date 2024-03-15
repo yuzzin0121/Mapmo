@@ -23,8 +23,9 @@ class SearchPlaceViewModel {
         }
     }
     
+    // 장소 검색
     private func callRequest(query: String, display: Int, sort: String) {
-        NaverMapAPIManager.shared.fetchData(type: Place.self, api: .place(query: query, display: display, sort: sort)) { response, error in
+        NaverMapAPIManager.shared.fetchData(type: PlaceModel.self, api: .place(query: query, display: display, sort: sort)) { response, error in
             if error == nil {
                 guard let response = response else { return }
                 print(response)
@@ -43,7 +44,7 @@ class SearchPlaceViewModel {
         if text.isEmpty {
             return
         } else {
-            callRequest(query: text, display: 1, sort: "random")
+            callRequest(query: text, display: 30, sort: "random")
         }
     }
 }

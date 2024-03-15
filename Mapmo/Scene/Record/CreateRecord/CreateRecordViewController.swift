@@ -26,11 +26,22 @@ final class CreateRecordViewController: BaseViewController {
                 self.mainView.collectionView.reloadData()
             }
         }
+        
+        createRecordViewModel.isActivate.bind { isActivate in
+            self.mainView.createButton.isEnabled = isActivate
+            self.mainView.createButton.backgroundColor = isActivate ? ColorStyle.mapmoColor : ColorStyle.null
+        }
     }
     
     private func setDelegate() {
         mainView.collectionView.delegate = self
         mainView.collectionView.dataSource = self
+        mainView.createButton.addTarget(self, action: #selector(createButtonClicked), for: .touchUpInside)
+    }
+    
+    @objc private func createButtonClicked(_ sender: UIButton) {
+        print(#function)
+        createRecordViewModel.createRecordTrigger.value = ()
     }
     
     // 이미지 추가 버튼(+) 클릭했을 때 - 이미지 선택 화면(PHPickerViewController) 띄우기
@@ -58,7 +69,8 @@ final class CreateRecordViewController: BaseViewController {
     }
     
     // 제목 텍스트필드 값 변경될 때
-    @objc func titleTextFieldValueChanged(_ sender: UITextField) {
+    @objc func titleTextFieldEditingChanged(_ sender: UITextField) {
+        print(#function, sender.text)
         createRecordViewModel.inputTitleText.value = sender.text
     }
     
@@ -143,8 +155,8 @@ extension CreateRecordViewController: UICollectionViewDelegate, UICollectionView
                     return UICollectionViewCell()
                 }
                 
-                cell.titleTextField.addTarget(self, action: #selector(titleTextFieldValueChanged), for: .valueChanged)
-                titleTextFieldValueChanged(cell.titleTextField)
+                cell.titleTextField.addTarget(self, action: #selector(titleTextFieldEditingChanged), for: .editingChanged)
+                titleTextFieldEditingChanged(cell.titleTextField)
                 
                 cell.contentTextView.delegate = self
                 textViewDidChange(cell.contentTextView)

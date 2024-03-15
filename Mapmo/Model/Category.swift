@@ -9,8 +9,7 @@ import Foundation
 import RealmSwift
 
 class Category: Object {
-    @Persisted(primaryKey: true) var id: ObjectId
-    @Persisted var name: String
+    @Persisted(primaryKey: true) var name: String
     @Persisted var colorName: String
     @Persisted var recordCount: Int
     

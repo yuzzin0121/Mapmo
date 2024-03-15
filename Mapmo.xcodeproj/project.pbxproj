@@ -77,6 +77,9 @@
 		61D8E5A82BA2155A0080D167 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D8E5A72BA2155A0080D167 /* NetworkError.swift */; };
 		61D8E5AC2BA2D89D0080D167 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D8E5AB2BA2D89D0080D167 /* String+Extension.swift */; };
 		61D8E5AE2BA2DB5F0080D167 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D8E5AD2BA2DB5F0080D167 /* UIView+Extension.swift */; };
+		61D8E5B02BA450280080D167 /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D8E5AF2BA450280080D167 /* Record.swift */; };
+		61D8E5B22BA480360080D167 /* PlaceRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D8E5B12BA480360080D167 /* PlaceRepository.swift */; };
+		61D8E5B42BA484B80080D167 /* RecordRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D8E5B32BA484B80080D167 /* RecordRepository.swift */; };
 		DA6A4A6CA64332726B03C6F8 /* Pods_Mapmo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 980F4D8B3D07F8E679D1D81B /* Pods_Mapmo.framework */; };
 /* End PBXBuildFile section */
 
@@ -154,6 +157,9 @@
 		61D8E5A72BA2155A0080D167 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		61D8E5AB2BA2D89D0080D167 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		61D8E5AD2BA2DB5F0080D167 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		61D8E5AF2BA450280080D167 /* Record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
+		61D8E5B12BA480360080D167 /* PlaceRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceRepository.swift; sourceTree = "<group>"; };
+		61D8E5B32BA484B80080D167 /* RecordRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordRepository.swift; sourceTree = "<group>"; };
 		89A1130BA0DEA3EB97F2373A /* Pods-Mapmo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mapmo.debug.xcconfig"; path = "Target Support Files/Pods-Mapmo/Pods-Mapmo.debug.xcconfig"; sourceTree = "<group>"; };
 		980F4D8B3D07F8E679D1D81B /* Pods_Mapmo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mapmo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -326,6 +332,7 @@
 			children = (
 				61D8E5702B9FD7840080D167 /* Category.swift */,
 				61D8E5A52BA2145E0080D167 /* Place.swift */,
+				61D8E5AF2BA450280080D167 /* Record.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -343,6 +350,8 @@
 			isa = PBXGroup;
 			children = (
 				61D8E5812BA01CFA0080D167 /* CategoryRepository.swift */,
+				61D8E5B12BA480360080D167 /* PlaceRepository.swift */,
+				61D8E5B32BA484B80080D167 /* RecordRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -620,6 +629,7 @@
 				614258682B9E943500F35521 /* AddCategoryView.swift in Sources */,
 				61D8E5A42BA213210080D167 /* SearchPlaceViewModel.swift in Sources */,
 				618CB0742B99D5B2005BC379 /* ColorStyle.swift in Sources */,
+				61D8E5B02BA450280080D167 /* Record.swift in Sources */,
 				61D8E5892BA033B30080D167 /* AddPhotoCollectionViewCell.swift in Sources */,
 				618CB0762B99D5B8005BC379 /* ImageStyle.swift in Sources */,
 				61D8E5932BA076550080D167 /* PhotoCollectionViewCell.swift in Sources */,
@@ -659,6 +669,7 @@
 				618CB0642B99D397005BC379 /* TabBarController.swift in Sources */,
 				61214F5E2B9F52EF00C7D0B6 /* UILabel+Extension.swift in Sources */,
 				61D8E56A2B9F7AAC0080D167 /* AddCategoryViewModel.swift in Sources */,
+				61D8E5B42BA484B80080D167 /* RecordRepository.swift in Sources */,
 				618CB02F2B99D073005BC379 /* AppDelegate.swift in Sources */,
 				618CB0822B99D6FE005BC379 /* APIKey.swift in Sources */,
 				61D8E5A02BA213080080D167 /* NaverMapAPI.swift in Sources */,
@@ -668,6 +679,7 @@
 				6142585C2B9E903800F35521 /* MapViewModel.swift in Sources */,
 				614258662B9E940D00F35521 /* AddCategoryViewController.swift in Sources */,
 				61D8E56D2B9F7FFA0080D167 /* CreateRecordViewController.swift in Sources */,
+				61D8E5B22BA480360080D167 /* PlaceRepository.swift in Sources */,
 				618CB0312B99D073005BC379 /* SceneDelegate.swift in Sources */,
 				61D8E5862BA032FD0080D167 /* InputRecordSection.swift in Sources */,
 				61D8E5A62BA2145E0080D167 /* Place.swift in Sources */,
