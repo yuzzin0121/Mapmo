@@ -9,6 +9,7 @@ target 'Mapmo' do
   pod 'SnapKit'
   pod 'RealmSwift', '10.47.0'
   pod 'Alamofire'
+  pod 'FloatingPanel'
   # Pods for Mapmo
 
 end
