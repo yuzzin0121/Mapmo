@@ -7,6 +7,7 @@
 
 import UIKit
 import RealmSwift
+import NMapsMap
 
 class CreateRecordViewModel {
     var inputSelectedCategory: Observable<Category?> = Observable(nil)
@@ -72,10 +73,16 @@ class CreateRecordViewModel {
     private func checkIsExistPlace() {
         guard let placeItem = inputPlaceItem.value else { return }
         var place: Place?
-        if let mapx = Int(placeItem.mapx), let mapy = Int(placeItem.mapy) {
+        
+        if let mapx = Double(placeItem.mapx), let mapy = Double(placeItem.mapy) {
+            let mapTm128 = NMGTm128(x: mapx, y: mapy)
+            let latLng = mapTm128.toLatLng()
+            let x = latLng.lat
+            let y = latLng.lng
+            
             place = Place(roadAddress: placeItem.roadAddress,
-                              mapx: mapx,
-                              mapy: mapy,
+                              mapx: x,
+                              mapy: y,
                               title: placeItem.title,
                               link: placeItem.link)
         }
