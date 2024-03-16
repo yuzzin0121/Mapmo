@@ -48,10 +48,7 @@ final class MapViewController: BaseViewController {
     
     private func getCurrentRegion() {
         let visibleRegion = mainView.naverMapView.contentBounds
-        print(visibleRegion)
-        let southWest = visibleRegion.southWest
-        let northEast = visibleRegion.northEast
-        print(southWest, northEast)
+        mapViewModel.inputVisibleRegion.value = visibleRegion
     }
     
     private func setDelegate() {
@@ -76,11 +73,16 @@ final class MapViewController: BaseViewController {
         navigationController?.pushViewController(selectCategoryVC, animated: true)
     }
     
-    @objc private func addRecordButtonClicked() {
+    @objc private func refreshButtonClicked(_ sender: UIButton) {
+        getCurrentRegion()
+    }
+    
+    @objc private func addRecordButtonClicked(_ sender: UIButton) {
         mapViewModel.addRecordButtonTrigger.value = ()
     }
     
     private func setAction() {
+        mainView.refreshButton.addTarget(self, action: #selector(refreshButtonClicked), for: .touchUpInside)
         mainView.addRecordButton.addTarget(self, action: #selector(addRecordButtonClicked), for: .touchUpInside)
     }
     
