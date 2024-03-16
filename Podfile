@@ -10,6 +10,7 @@ target 'Mapmo' do
   pod 'RealmSwift', '10.47.0'
   pod 'Alamofire'
   pod 'FloatingPanel'
+  pod 'IQKeyboardManagerSwift', '6.5.0'
   # Pods for Mapmo
 
 end
