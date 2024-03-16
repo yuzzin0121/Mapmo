@@ -49,6 +49,9 @@
 		618CB07E2B99D675005BC379 /* RecordListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618CB07D2B99D675005BC379 /* RecordListView.swift */; };
 		618CB0802B99D688005BC379 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618CB07F2B99D688005BC379 /* HistoryView.swift */; };
 		618CB0822B99D6FE005BC379 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618CB0812B99D6FE005BC379 /* APIKey.swift */; };
+		61B169D02BA4A50D00D6D63F /* MapRecordListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B169CF2BA4A50D00D6D63F /* MapRecordListViewController.swift */; };
+		61B169D32BA5781100D6D63F /* MapRecordListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B169D22BA5781100D6D63F /* MapRecordListView.swift */; };
+		61B169D52BA579D200D6D63F /* FloatingPanelController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B169D42BA579D200D6D63F /* FloatingPanelController+Extension.swift */; };
 		61D8E55D2B9F723E0080D167 /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D8E55C2B9F723E0080D167 /* UITextField+Extension.swift */; };
 		61D8E5602B9F72970080D167 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D8E55F2B9F72970080D167 /* CustomTextField.swift */; };
 		61D8E5622B9F73150080D167 /* MapmoButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D8E5612B9F73150080D167 /* MapmoButton.swift */; };
@@ -130,6 +133,9 @@
 		618CB07D2B99D675005BC379 /* RecordListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordListView.swift; sourceTree = "<group>"; };
 		618CB07F2B99D688005BC379 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
 		618CB0812B99D6FE005BC379 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
+		61B169CF2BA4A50D00D6D63F /* MapRecordListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapRecordListViewController.swift; sourceTree = "<group>"; };
+		61B169D22BA5781100D6D63F /* MapRecordListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapRecordListView.swift; sourceTree = "<group>"; };
+		61B169D42BA579D200D6D63F /* FloatingPanelController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FloatingPanelController+Extension.swift"; sourceTree = "<group>"; };
 		61D8E55C2B9F723E0080D167 /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
 		61D8E55F2B9F72970080D167 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		61D8E5612B9F73150080D167 /* MapmoButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapmoButton.swift; sourceTree = "<group>"; };
@@ -317,6 +323,7 @@
 				61D8E5AB2BA2D89D0080D167 /* String+Extension.swift */,
 				61D8E5AD2BA2DB5F0080D167 /* UIView+Extension.swift */,
 				614153492BA48D8F0035D5C8 /* FileManager+Extension.swift */,
+				61B169D42BA579D200D6D63F /* FloatingPanelController+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -401,6 +408,7 @@
 		618CB0672B99D51C005BC379 /* Map */ = {
 			isa = PBXGroup;
 			children = (
+				61B169D12BA577F200D6D63F /* MapRecordList */,
 				618CB06A2B99D548005BC379 /* MapViewController.swift */,
 				618CB07B2B99D64A005BC379 /* MapView.swift */,
 				6142585B2B9E903800F35521 /* MapViewModel.swift */,
@@ -424,6 +432,15 @@
 				618CB07F2B99D688005BC379 /* HistoryView.swift */,
 			);
 			path = History;
+			sourceTree = "<group>";
+		};
+		61B169D12BA577F200D6D63F /* MapRecordList */ = {
+			isa = PBXGroup;
+			children = (
+				61B169CF2BA4A50D00D6D63F /* MapRecordListViewController.swift */,
+				61B169D22BA5781100D6D63F /* MapRecordListView.swift */,
+			);
+			path = MapRecordList;
 			sourceTree = "<group>";
 		};
 		61D8E55B2B9F6EA60080D167 /* SelectCategory */ = {
@@ -653,6 +670,7 @@
 				61D8E5622B9F73150080D167 /* MapmoButton.swift in Sources */,
 				618CB06B2B99D548005BC379 /* MapViewController.swift in Sources */,
 				61D8E5652B9F75820080D167 /* SelectCategoryColorCollectionViewCell.swift in Sources */,
+				61B169D32BA5781100D6D63F /* MapRecordListView.swift in Sources */,
 				618CB07A2B99D632005BC379 /* BaseViewController.swift in Sources */,
 				61214F602B9F597D00C7D0B6 /* SelectCategoryCollectionViewCell.swift in Sources */,
 				61D8E5982BA1F37D0080D167 /* SearchPlaceViewController.swift in Sources */,
@@ -677,6 +695,7 @@
 				618CB02F2B99D073005BC379 /* AppDelegate.swift in Sources */,
 				618CB0822B99D6FE005BC379 /* APIKey.swift in Sources */,
 				61D8E5A02BA213080080D167 /* NaverMapAPI.swift in Sources */,
+				61B169D52BA579D200D6D63F /* FloatingPanelController+Extension.swift in Sources */,
 				618CB07E2B99D675005BC379 /* RecordListView.swift in Sources */,
 				61D8E5712B9FD7840080D167 /* Category.swift in Sources */,
 				618CB0662B99D3B3005BC379 /* TabItem.swift in Sources */,
@@ -684,6 +703,7 @@
 				614258662B9E940D00F35521 /* AddCategoryViewController.swift in Sources */,
 				61D8E56D2B9F7FFA0080D167 /* CreateRecordViewController.swift in Sources */,
 				61D8E5B22BA480360080D167 /* PlaceRepository.swift in Sources */,
+				61B169D02BA4A50D00D6D63F /* MapRecordListViewController.swift in Sources */,
 				618CB0312B99D073005BC379 /* SceneDelegate.swift in Sources */,
 				61D8E5862BA032FD0080D167 /* InputRecordSection.swift in Sources */,
 				61D8E5A62BA2145E0080D167 /* Place.swift in Sources */,
