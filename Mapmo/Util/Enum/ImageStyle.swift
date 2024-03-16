@@ -24,4 +24,5 @@ enum ImageStyle {
     
     static let emptyPhoto = UIImage(systemName: "photo")!
     static let xCircle = UIImage(named: "xCircle")!
+    static let refresh = UIImage(systemName: "arrow.circlepath")!
 }

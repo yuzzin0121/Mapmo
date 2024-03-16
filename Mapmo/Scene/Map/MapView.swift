@@ -11,15 +11,22 @@ import SnapKit
 
 final class MapView: BaseView {
     let naverMapView = NMFMapView()
+    let refreshButton = UIButton()
     let addRecordButton = UIButton()
     
     override func configureHierarchy() {
         addSubview(naverMapView)
+        addSubview(refreshButton)
         addSubview(addRecordButton)
     }
     override func configureLayout() {
         naverMapView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
+        }
+        refreshButton.snp.makeConstraints { make in
+            make.top.equalTo(safeAreaLayoutGuide)
+            make.centerX.equalToSuperview()
+            make.height.equalTo(40)
         }
         addRecordButton.snp.makeConstraints { make in
             make.top.equalTo(safeAreaLayoutGuide).offset(100)
@@ -29,11 +36,21 @@ final class MapView: BaseView {
     }
     override func configureView() {
         naverMapView.allowsZooming = true
-        var config = UIButton.Configuration.filled()
-        config.image = ImageStyle.plus
-        config.cornerStyle = .capsule
-        config.baseBackgroundColor = ColorStyle.mapmoColor
-        addRecordButton.configuration = config
+        
+        var refreshConfig = UIButton.Configuration.filled()
+        refreshConfig.image = ImageStyle.refresh
+        refreshConfig.title = "현 지도에서 찾기"
+        refreshConfig.cornerStyle = .capsule
+        refreshConfig.imagePadding = 6
+        refreshConfig.baseBackgroundColor = ColorStyle.customWhite
+        refreshConfig.baseForegroundColor = ColorStyle.mapmoColor
+        refreshButton.configuration = refreshConfig
+        
+        var addRecordConfig = UIButton.Configuration.filled()
+        addRecordConfig.image = ImageStyle.plus
+        addRecordConfig.cornerStyle = .capsule
+        addRecordConfig.baseBackgroundColor = ColorStyle.mapmoColor
+        addRecordButton.configuration = addRecordConfig
         
         
     }
