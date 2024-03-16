@@ -16,7 +16,8 @@ class MapRecordListView: BaseView {
     }
     override func configureLayout() {
         tableView.snp.makeConstraints { make in
-            make.edges.equalTo(safeAreaLayoutGuide)
+            make.horizontalEdges.equalTo(safeAreaLayoutGuide)
+            make.verticalEdges.equalTo(safeAreaLayoutGuide).inset(16)
         }
     }
     override func configureView() {
