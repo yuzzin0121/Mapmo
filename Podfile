@@ -12,6 +12,7 @@ target 'Mapmo' do
   pod 'FloatingPanel'
   pod 'IQKeyboardManagerSwift'
   pod 'FSCalendar'
+  pod 'DGCharts'
   # Pods for Mapmo
 
 end

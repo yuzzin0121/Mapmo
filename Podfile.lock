@@ -1,5 +1,8 @@
 PODS:
   - Alamofire (5.9.0)
+  - DGCharts (5.1.0):
+    - DGCharts/Core (= 5.1.0)
+  - DGCharts/Core (5.1.0)
   - FloatingPanel (2.8.2)
   - FSCalendar (2.8.4)
   - IQKeyboardManagerSwift (6.3.0)
@@ -15,6 +18,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
+  - DGCharts
   - FloatingPanel
   - FSCalendar
   - IQKeyboardManagerSwift
@@ -25,6 +29,7 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Alamofire
+    - DGCharts
     - FloatingPanel
     - FSCalendar
     - IQKeyboardManagerSwift
@@ -36,6 +41,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: 02b772c9910e8eba1a079227c32fbd9e46c90a24
+  DGCharts: 1c6daf585b6cfc78807af44ea690d357c410627f
   FloatingPanel: 99b72651e5e607a6a4e0c9831e30f02d145beeb6
   FSCalendar: 2d1d0d9398f12d439f55c1fe0f01525b151b8260
   IQKeyboardManagerSwift: a8228c257614af98743b4cd8584637025f36358f
@@ -45,6 +51,6 @@ SPEC CHECKSUMS:
   RealmSwift: 8b06ed06b5d16749ae0c4d91c0cba414a9e28189
   SnapKit: d612e99e678a2d3b95bf60b0705ed0a35c03484a
 
-PODFILE CHECKSUM: 866491276c1073aaab4d128f0ab1802d6337c8f4
+PODFILE CHECKSUM: 6967033e008a0169f58555c66cc87b09dbe6e72a
 
 COCOAPODS: 1.12.0
