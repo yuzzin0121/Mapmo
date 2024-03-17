@@ -23,11 +23,13 @@ class MyRecordView: BaseView {
         }
         collectionView.snp.makeConstraints { make in
             make.top.equalTo(calendar.snp.bottom).offset(14)
-            make.horizontalEdges.bottom.equalToSuperview()
+            make.horizontalEdges.equalToSuperview()
+            make.bottom.equalTo(safeAreaLayoutGuide)
         }
     }
     override func configureView() {
-        
-        collectionView.backgroundColor = .gray
+        collectionView.showsVerticalScrollIndicator = false
+        collectionView.backgroundColor = ColorStyle.customWhite
+        collectionView.register(RecordCollectionViewCell.self, forCellWithReuseIdentifier: RecordCollectionViewCell.identifier)
     }
 }
