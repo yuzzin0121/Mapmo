@@ -9,12 +9,15 @@ PODS:
   - NMapsGeometry (1.0.1)
   - NMapsMap (3.17.0):
     - NMapsGeometry
+  - Pageboy (4.0.2)
   - Realm (10.47.0):
     - Realm/Headers (= 10.47.0)
   - Realm/Headers (10.47.0)
   - RealmSwift (10.47.0):
     - Realm (= 10.47.0)
   - SnapKit (5.7.1)
+  - Tabman (3.0.2):
+    - Pageboy (~> 4.0.2)
 
 DEPENDENCIES:
   - Alamofire
@@ -25,6 +28,7 @@ DEPENDENCIES:
   - NMapsMap
   - RealmSwift (= 10.47.0)
   - SnapKit
+  - Tabman (~> 3.0)
 
 SPEC REPOS:
   trunk:
@@ -35,9 +39,11 @@ SPEC REPOS:
     - IQKeyboardManagerSwift
     - NMapsGeometry
     - NMapsMap
+    - Pageboy
     - Realm
     - RealmSwift
     - SnapKit
+    - Tabman
 
 SPEC CHECKSUMS:
   Alamofire: 02b772c9910e8eba1a079227c32fbd9e46c90a24
@@ -47,10 +53,12 @@ SPEC CHECKSUMS:
   IQKeyboardManagerSwift: a8228c257614af98743b4cd8584637025f36358f
   NMapsGeometry: 53c573ead66466681cf123f99f698dc8071a4b83
   NMapsMap: a5b909a31b6f3d27a670f6eb2ddc913c38975474
+  Pageboy: 34ff11e8d1041b81769d5bcde9b19a0cb7218bd9
   Realm: e43fb540ae947497e3ea8a662443256920602060
   RealmSwift: 8b06ed06b5d16749ae0c4d91c0cba414a9e28189
   SnapKit: d612e99e678a2d3b95bf60b0705ed0a35c03484a
+  Tabman: 6326ec3a792da1c2a6e79c7eddb56af7b591c9d6
 
-PODFILE CHECKSUM: 6967033e008a0169f58555c66cc87b09dbe6e72a
+PODFILE CHECKSUM: a9305701c961cbd840dbc511817d2fcdaa1c2a56
 
 COCOAPODS: 1.12.0

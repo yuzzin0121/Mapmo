@@ -13,6 +13,7 @@ target 'Mapmo' do
   pod 'IQKeyboardManagerSwift'
   pod 'FSCalendar'
   pod 'DGCharts'
+  pod 'Tabman', '~> 3.0'
   # Pods for Mapmo
 
 end
