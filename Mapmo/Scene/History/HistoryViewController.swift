@@ -18,5 +18,11 @@ final class HistoryViewController: BaseViewController {
     override func loadView() {
         view = mainView
     }
+    
+    override func configureNavigationItem() {
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.largeTitleDisplayMode = .always
+        navigationItem.title = TabItem.history.title
+    }
 
 }
