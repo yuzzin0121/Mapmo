@@ -1,6 +1,7 @@
 PODS:
   - Alamofire (5.9.0)
   - FloatingPanel (2.8.2)
+  - FSCalendar (2.8.4)
   - IQKeyboardManagerSwift (6.3.0)
   - NMapsGeometry (1.0.1)
   - NMapsMap (3.17.0):
@@ -15,6 +16,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire
   - FloatingPanel
+  - FSCalendar
   - IQKeyboardManagerSwift
   - NMapsMap
   - RealmSwift (= 10.47.0)
@@ -24,6 +26,7 @@ SPEC REPOS:
   trunk:
     - Alamofire
     - FloatingPanel
+    - FSCalendar
     - IQKeyboardManagerSwift
     - NMapsGeometry
     - NMapsMap
@@ -34,6 +37,7 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Alamofire: 02b772c9910e8eba1a079227c32fbd9e46c90a24
   FloatingPanel: 99b72651e5e607a6a4e0c9831e30f02d145beeb6
+  FSCalendar: 2d1d0d9398f12d439f55c1fe0f01525b151b8260
   IQKeyboardManagerSwift: a8228c257614af98743b4cd8584637025f36358f
   NMapsGeometry: 53c573ead66466681cf123f99f698dc8071a4b83
   NMapsMap: a5b909a31b6f3d27a670f6eb2ddc913c38975474
@@ -41,6 +45,6 @@ SPEC CHECKSUMS:
   RealmSwift: 8b06ed06b5d16749ae0c4d91c0cba414a9e28189
   SnapKit: d612e99e678a2d3b95bf60b0705ed0a35c03484a
 
-PODFILE CHECKSUM: a6481b8aca687755ac866322cb938136ef2462d1
+PODFILE CHECKSUM: 866491276c1073aaab4d128f0ab1802d6337c8f4
 
 COCOAPODS: 1.12.0

@@ -11,7 +11,11 @@ target 'Mapmo' do
   pod 'Alamofire'
   pod 'FloatingPanel'
   pod 'IQKeyboardManagerSwift'
+  pod 'FSCalendar'
   # Pods for Mapmo
+
+end
+
 
 post_install do |installer|
     installer.generated_projects.each do |project|
@@ -21,6 +25,4 @@ post_install do |installer|
                end
           end
    end
-end
-
 end
