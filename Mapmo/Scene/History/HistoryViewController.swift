@@ -12,7 +12,7 @@ final class HistoryViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        mainView.historySementedVC.didMove(toParent: self)
     }
     
     override func loadView() {
