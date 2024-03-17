@@ -43,6 +43,7 @@ final class MapViewModel {
                                                            y2: northEast.lng)
         self.searchedPlaces.value = places
         print(places)
+        print(self.placeRepository.fetchPlace())
     }
     
     private func changeToNMGLatLng(_ coordinate: CLLocationCoordinate2D) {

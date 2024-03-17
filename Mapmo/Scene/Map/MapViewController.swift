@@ -47,6 +47,7 @@ final class MapViewController: BaseViewController {
     }
     
     private func getCurrentRegion() {
+        print(#function)
         let visibleRegion = mainView.naverMapView.contentBounds
         mapViewModel.inputVisibleRegion.value = visibleRegion
     }

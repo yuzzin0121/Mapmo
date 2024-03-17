@@ -14,7 +14,7 @@ extension FloatingPanelController {
         let shadow = SurfaceAppearance.Shadow()
         
         
-        appearance.cornerRadius = 30
+        appearance.cornerRadius = 25
         appearance.backgroundColor = ColorStyle.customWhite
         surfaceView.appearance = appearance
     }

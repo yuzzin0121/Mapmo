@@ -31,7 +31,7 @@ class PlaceRepository {
     }
     
     func getVisiblePlaces(x1: Double, x2: Double, y1: Double, y2: Double) -> [Place] {
-        let predicate = NSPredicate(format: "mapx >= %@ AND mapx <= %@ AND mapy >= %@ And mapy <= %@", argumentArray: [x1, x2, y1, y2])
+        let predicate = NSPredicate(format: "mapx >= %@ AND mapx <= %@ AND mapy >= %@ AND mapy <= %@", argumentArray: [x1, x2, y1, y2])
         let places = realm.objects(Place.self).filter(predicate)
         return Array(places)
     }
