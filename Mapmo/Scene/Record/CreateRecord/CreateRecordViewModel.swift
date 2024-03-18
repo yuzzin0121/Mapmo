@@ -26,6 +26,7 @@ class CreateRecordViewModel {
     let contentTextViewPlaceholder = "내용 입력"
     lazy var placeRepository = PlaceRepository()
     lazy var recordRepository = RecordRepository()
+    lazy var categoryRepository = CategoryRepository()
     lazy var fileManagerClass = FileManagerClass()
 
     
@@ -92,26 +93,21 @@ class CreateRecordViewModel {
                               link: placeItem.link)
         }
         
-        guard let place = place else { return }
+        guard let place = place, let record = self.createRecord(), let category = inputSelectedCategory.value  else { return }
         
         
         if placeRepository.isExistPlace(place) {    // 존재하면, 이미 있는 장소에 Record 생성 및 추가
-            guard let record = self.createRecord() else { return }
             print("이미 장소 등록되어있음")
-            recordRepository.createRecord(record, place: place)
-            if !inputSelectedImageList.value.isEmpty {
-                fileManagerClass.saveImagesToDocument(images: inputSelectedImageList.value, recordId: record.id.stringValue)
-            }
         } else {
             print("장소 등록 안되어있음")
             placeRepository.createPlace(place)  // 존재하지 않으면, 장소 생성 + Reacord 생성 및 생성된 장소에 추가
             
-            guard let record = self.createRecord() else { return }
-            recordRepository.createRecord(record, place: place)
-            if !inputSelectedImageList.value.isEmpty {
-                fileManagerClass.saveImagesToDocument(images: inputSelectedImageList.value, recordId: record.id.stringValue)
-            }
         }
+        recordRepository.createRecord(record, place: place)
+        if !inputSelectedImageList.value.isEmpty {
+            fileManagerClass.saveImagesToDocument(images: inputSelectedImageList.value, recordId: record.id.stringValue)
+        }
+        categoryRepository.updateCategorysRecordCount(category: category, count: category.recordCount + 1)
         createSuccess.value = true
     }
     
@@ -128,7 +124,6 @@ class CreateRecordViewModel {
                             createdAt: Date(),
                             modifiedAt: Date(),
                             categoryId: category.name)
-        
         return record
     }
     
