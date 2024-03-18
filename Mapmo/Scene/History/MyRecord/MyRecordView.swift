@@ -31,5 +31,24 @@ class MyRecordView: BaseView {
         collectionView.showsVerticalScrollIndicator = false
         collectionView.backgroundColor = ColorStyle.customWhite
         collectionView.register(RecordCollectionViewCell.self, forCellWithReuseIdentifier: RecordCollectionViewCell.identifier)
+        
+        calendar.locale = Locale(identifier: "ko_KR")
+        
+        calendar.appearance.weekdayFont = .pretendard(size: 15, weight: .regular)
+        calendar.appearance.weekdayTextColor = ColorStyle.customBlack
+        calendar.appearance.titleFont = .pretendard(size: 15, weight: .regular)
+        calendar.appearance.eventSelectionColor = ColorStyle.mapmoColor
+        
+        // 헤더 설정
+        calendar.appearance.headerTitleFont = .pretendard(size: 20, weight: .semiBold)
+        calendar.appearance.headerTitleColor = ColorStyle.customBlack
+        calendar.appearance.headerTitleAlignment = .center
+        calendar.appearance.headerMinimumDissolvedAlpha = 0.0
+        calendar.appearance.headerDateFormat = "yyyy년 MM월"
+        
+        calendar.appearance.titleDefaultColor = ColorStyle.customBlack
+        
+        calendar.appearance.todayColor = ColorStyle.mapmoBorderColor
+        calendar.appearance.selectionColor = ColorStyle.mapmoColor
     }
 }

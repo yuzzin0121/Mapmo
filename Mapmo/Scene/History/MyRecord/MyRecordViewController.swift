@@ -26,8 +26,8 @@ class MyRecordViewController: UIViewController {
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: mainView.frame.width, height: 124)
-        layout.minimumInteritemSpacing = 16
+        layout.itemSize = CGSize(width: mainView.frame.width, height: 90)
+        layout.minimumInteritemSpacing = 20
         mainView.collectionView.collectionViewLayout = layout
     }
     
@@ -53,6 +53,10 @@ extension MyRecordViewController: FSCalendarDelegate, FSCalendarDataSource {
         myRecordViewModel.inputSelectedDate.value = date
         mainView.collectionView.reloadData()
     }
+    
+    func calendar(_ calendar: FSCalendar, shouldDeselect date: Date, at monthPosition: FSCalendarMonthPosition) -> Bool {
+         return false  // 선택해제 불가능
+    }
 }
 
 extension MyRecordViewController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -69,5 +73,9 @@ extension MyRecordViewController: UICollectionViewDelegate, UICollectionViewData
         cell.configureCell(record: data)
         
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print(#function)
     }
 }

@@ -49,8 +49,8 @@ final class RecordCollectionViewCell: UICollectionViewCell, ViewProtocol {
     func configureLayout() {
         recordThumbnilImageView.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(12)
-            make.height.equalTo(100)
-            make.width.equalTo(130)
+            make.height.equalTo(90)
+            make.width.equalTo(120)
             make.centerY.equalToSuperview()
         }
         titleLabel.snp.makeConstraints { make in
@@ -61,7 +61,7 @@ final class RecordCollectionViewCell: UICollectionViewCell, ViewProtocol {
         }
         addressStackView.snp.makeConstraints { make in
             make.top.equalTo(titleLabel.snp.bottom).offset(12)
-            make.leading.equalTo(titleLabel)
+            make.leading.equalTo(recordThumbnilImageView.snp.trailing).offset(6)
             make.trailing.equalToSuperview().inset(12)
         }
         markImageView.snp.makeConstraints { make in
