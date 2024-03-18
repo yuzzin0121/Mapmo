@@ -12,6 +12,7 @@ class Record: Object {
     @Persisted(primaryKey: true) var id: ObjectId
     @Persisted var title: String
     @Persisted var content: String?
+    @Persisted var imageCount: Int
     @Persisted var visitedAt: Date
     @Persisted var createdAt: Date
     @Persisted var modifiedAt: Date
@@ -20,14 +21,28 @@ class Record: Object {
     
     @Persisted(originProperty: "records") var place: LinkingObjects<Place>
     
-    convenience init(title: String, content: String? = nil, visitedAt: Date, createdAt: Date, modifiedAt: Date, isFavorite: Bool = false, categoryId: String) {
+    convenience init(title: String, content: String? = nil, imageCount: Int, visitedAt: Date, createdAt: Date, modifiedAt: Date, isFavorite: Bool = false, categoryId: String) {
         self.init()
         self.title = title
         self.content = content
+        self.imageCount = imageCount
         self.visitedAt = visitedAt
         self.createdAt = createdAt
         self.modifiedAt = modifiedAt
         self.isFavorite = isFavorite
         self.categoryId = categoryId
     }
+}
+
+struct RecordItem {
+    let id: ObjectId
+    var title: String
+    var content: String?
+    var images: [UIImage]
+    var category: Category
+    var place: Place
+    var isFavorite: Bool
+    var visitedAt: Date
+    var createdAt: Date
+    var modifiedAt: Date
 }

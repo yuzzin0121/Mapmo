@@ -7,7 +7,38 @@
 
 import UIKit
 
+// TODO: - 파일 관련 오류가 발생했을 때 Error 클래스 만들기
 class FileManagerClass {
+    
+    // 도큐먼트/images/recordId/ 이미지들 가져오기
+    func loadImagesToDocument(recordId: String, imageCount: Int) -> [UIImage]? {
+        guard let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {
+            return nil  // nil일때 어떤 처리할지 고민해보자
+        }
+        
+        let imageDirectoryURL = documentDirectory.appendingPathComponent("images") // 폴더 이름 설정
+        if !FileManager.default.fileExists(atPath: imageDirectoryURL.path()) {
+            return nil
+        }
+        let recordIdURL = imageDirectoryURL.appendingPathComponent(recordId)
+        if !FileManager.default.fileExists(atPath: imageDirectoryURL.path()) {
+            return nil
+        }
+        
+        var images: [UIImage] = []
+        for index in 0...imageCount - 1 {
+            let fileURL = recordIdURL.appendingPathComponent("\(recordId)_\(index).jpg")
+            // 이 경로에 실제로 파일이 존재하는 지 확인
+            if FileManager.default.fileExists(atPath: fileURL.path) {
+                guard let image = UIImage(contentsOfFile: fileURL.path) else { return nil }
+                images.append(image)    // 도큐먼트 파일 경로로도 이미지를 가져올 수 있다.
+            } else {
+                return nil
+            }
+        }
+        
+        return images
+    }
     
     // 도큐먼트/images/recordId/이미지 파일들 저장
     func saveImagesToDocument(images: [UIImage], recordId: String) {
@@ -57,6 +88,5 @@ class FileManagerClass {
                 print("file save error", error)
             }
         }
-        
     }
 }

@@ -117,9 +117,13 @@ class CreateRecordViewModel {
     
     private func createRecord() -> Record? {
         guard let category = inputSelectedCategory.value, let title = inputTitleText.value, let visitDate = inputVisitDate.value else { return nil }
+        if inputSelectedImageList.value.isEmpty {
+            return nil
+        }
         
         let record = Record(title: title,
-                            content: inputContentText.value,
+                            content: inputContentText.value, 
+                            imageCount: inputSelectedImageList.value.count,
                             visitedAt: visitDate,
                             createdAt: Date(),
                             modifiedAt: Date(),

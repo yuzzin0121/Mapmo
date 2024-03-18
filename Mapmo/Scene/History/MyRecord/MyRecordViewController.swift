@@ -26,7 +26,7 @@ class MyRecordViewController: UIViewController {
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: mainView.frame.width, height: 154)
+        layout.itemSize = CGSize(width: mainView.frame.width, height: 124)
         layout.minimumInteritemSpacing = 16
         mainView.collectionView.collectionViewLayout = layout
     }

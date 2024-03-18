@@ -27,4 +27,11 @@ class CategoryRepository {
         let categories = Array(realm.objects(Category.self))
         return categories
     }
+    
+    func getCategory(categoryName: String) -> Category? {
+        let categories = Array(realm.objects(Category.self).where {
+            $0.name == categoryName
+        })
+        return categories.first
+    }
 }

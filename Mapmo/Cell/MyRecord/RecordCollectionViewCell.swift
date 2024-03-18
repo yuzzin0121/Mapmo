@@ -28,10 +28,14 @@ final class RecordCollectionViewCell: UICollectionViewCell, ViewProtocol {
         recordThumbnilImageView.image = nil
     }
     
-    func configureCell(record: Record?) {
+    func configureCell(record: RecordItem?) {
         guard let record = record else { return }
+        guard let thumbnailImage = record.images.first else { return }
+        recordThumbnilImageView.image = thumbnailImage
         titleLabel.text = record.title
-        
+        markImageView.tintColor = UIColor(named: record.category.colorName)
+        addressLabel.text = record.place.roadAddress
+        visitDateLabel.text = DateFormatterManager.shared.formattedUpdatedDate(record.visitedAt)
     }
     
     // MARK: - Configure
@@ -45,12 +49,12 @@ final class RecordCollectionViewCell: UICollectionViewCell, ViewProtocol {
     func configureLayout() {
         recordThumbnilImageView.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(12)
-            make.height.equalTo(130)
-            make.width.equalTo(180)
+            make.height.equalTo(100)
+            make.width.equalTo(130)
             make.centerY.equalToSuperview()
         }
         titleLabel.snp.makeConstraints { make in
-            make.top.equalTo(recordThumbnilImageView.snp.top).offset(12)
+            make.top.equalTo(recordThumbnilImageView.snp.top).offset(6)
             make.leading.equalTo(recordThumbnilImageView.snp.trailing).offset(12)
             make.trailing.equalToSuperview().inset(12)
             make.height.equalTo(16)
@@ -67,7 +71,7 @@ final class RecordCollectionViewCell: UICollectionViewCell, ViewProtocol {
             make.top.greaterThanOrEqualTo(addressStackView.snp.bottom).offset(12)
             make.leading.equalTo(titleLabel)
             make.trailing.equalTo(heartButton.snp.leading).offset(-12)
-            make.bottom.equalTo(recordThumbnilImageView.snp.bottom).offset(-4)
+            make.bottom.equalTo(recordThumbnilImageView.snp.bottom).offset(-6)
             make.height.equalTo(14)
         }
         
@@ -80,8 +84,10 @@ final class RecordCollectionViewCell: UICollectionViewCell, ViewProtocol {
     
     func configureView() {
         recordThumbnilImageView.image = ImageStyle.emptyPhoto
+        recordThumbnilImageView.layer.cornerRadius = 4
+        recordThumbnilImageView.clipsToBounds = true
         titleLabel.design(font: .pretendard(size: 16, weight: .semiBold))
-        addressStackView.design(axis: .horizontal)
+        addressStackView.design(axis: .horizontal, spacing: 2)
         markImageView.image = ImageStyle.mark
         markImageView.tintColor = ColorStyle.customGray
         
