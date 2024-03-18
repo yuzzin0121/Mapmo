@@ -74,15 +74,20 @@ class CreateRecordViewModel {
         guard let placeItem = inputPlaceItem.value else { return }
         var place: Place?
         
-        if let mapx = Double(placeItem.mapx), let mapy = Double(placeItem.mapy) {
-            let mapTm128 = NMGTm128(x: mapx, y: mapy)
-            let latLng = mapTm128.toLatLng()
-            let x = latLng.lat
-            let y = latLng.lng
+        if let mapx = Int(placeItem.mapx), let mapy = Int(placeItem.mapy) {
+            print("mapx\(mapx), mapy\(mapy)")
+            
+//            let mapTm128 = NMGTm128(x: mapx, y: mapy)
+//            print("maptm128\(mapTm128)")
+//            let latLng = mapTm128.toLatLng()
+//            print("latx\(latLng.lat), laty\(latLng.lng)")
+            let x = mapx.convertToCoordinate()
+            let y = mapy.convertToCoordinate()
+            print("10,000,000으로 나눈 좌표\(x),\(y)")
             
             place = Place(roadAddress: placeItem.roadAddress,
-                              mapx: x,
-                              mapy: y,
+                              mapx: y,
+                              mapy: x,
                               title: placeItem.title,
                               link: placeItem.link)
         }

@@ -60,6 +60,8 @@
 		61B312C32BA748C5000304CE /* MyRecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B312C22BA748C5000304CE /* MyRecordView.swift */; };
 		61B312C62BA7615A000304CE /* RecordCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B312C52BA7615A000304CE /* RecordCollectionViewCell.swift */; };
 		61B312C82BA76D44000304CE /* MyRecordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B312C72BA76D44000304CE /* MyRecordViewModel.swift */; };
+		61B312CA2BA770CC000304CE /* ChartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B312C92BA770CC000304CE /* ChartViewModel.swift */; };
+		61B312CC2BA85BF2000304CE /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B312CB2BA85BF2000304CE /* Int+Extension.swift */; };
 		61D8E55D2B9F723E0080D167 /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D8E55C2B9F723E0080D167 /* UITextField+Extension.swift */; };
 		61D8E5602B9F72970080D167 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D8E55F2B9F72970080D167 /* CustomTextField.swift */; };
 		61D8E5622B9F73150080D167 /* MapmoButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D8E5612B9F73150080D167 /* MapmoButton.swift */; };
@@ -152,6 +154,8 @@
 		61B312C22BA748C5000304CE /* MyRecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRecordView.swift; sourceTree = "<group>"; };
 		61B312C52BA7615A000304CE /* RecordCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordCollectionViewCell.swift; sourceTree = "<group>"; };
 		61B312C72BA76D44000304CE /* MyRecordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRecordViewModel.swift; sourceTree = "<group>"; };
+		61B312C92BA770CC000304CE /* ChartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewModel.swift; sourceTree = "<group>"; };
+		61B312CB2BA85BF2000304CE /* Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
 		61D8E55C2B9F723E0080D167 /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
 		61D8E55F2B9F72970080D167 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		61D8E5612B9F73150080D167 /* MapmoButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapmoButton.swift; sourceTree = "<group>"; };
@@ -342,6 +346,7 @@
 				614153492BA48D8F0035D5C8 /* FileManager+Extension.swift */,
 				61B169D42BA579D200D6D63F /* FloatingPanelController+Extension.swift */,
 				61B312B52BA71EFD000304CE /* CALayer+Extension.swift */,
+				61B312CB2BA85BF2000304CE /* Int+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -487,6 +492,7 @@
 			children = (
 				61B312BE2BA7233C000304CE /* ChartViewController.swift */,
 				61B312C02BA748B3000304CE /* ChartView.swift */,
+				61B312C92BA770CC000304CE /* ChartViewModel.swift */,
 			);
 			path = Chart;
 			sourceTree = "<group>";
@@ -704,6 +710,7 @@
 				61D8E58B2BA04B8E0080D167 /* InputPlaceCollectionViewCell.swift in Sources */,
 				614258682B9E943500F35521 /* AddCategoryView.swift in Sources */,
 				61D8E5A42BA213210080D167 /* SearchPlaceViewModel.swift in Sources */,
+				61B312CA2BA770CC000304CE /* ChartViewModel.swift in Sources */,
 				6136F6E12BA71933004AD8D1 /* HistorySegmentedViewController.swift in Sources */,
 				618CB0742B99D5B2005BC379 /* ColorStyle.swift in Sources */,
 				61D8E5B02BA450280080D167 /* Record.swift in Sources */,
@@ -749,6 +756,7 @@
 				61214F5A2B9F50F800C7D0B6 /* ReuseProtocol.swift in Sources */,
 				6126D2F32B9F15CB001F2303 /* SelectCategoryViewModel.swift in Sources */,
 				618CB0642B99D397005BC379 /* TabBarController.swift in Sources */,
+				61B312CC2BA85BF2000304CE /* Int+Extension.swift in Sources */,
 				61214F5E2B9F52EF00C7D0B6 /* UILabel+Extension.swift in Sources */,
 				61B312BF2BA7233C000304CE /* ChartViewController.swift in Sources */,
 				61D8E56A2B9F7AAC0080D167 /* AddCategoryViewModel.swift in Sources */,

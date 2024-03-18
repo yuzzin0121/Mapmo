@@ -50,7 +50,7 @@ final class RecordCollectionViewCell: UICollectionViewCell, ViewProtocol {
             make.centerY.equalToSuperview()
         }
         titleLabel.snp.makeConstraints { make in
-            make.top.equalTo(recordThumbnilImageView.snp.top).offset(4)
+            make.top.equalTo(recordThumbnilImageView.snp.top).offset(12)
             make.leading.equalTo(recordThumbnilImageView.snp.trailing).offset(12)
             make.trailing.equalToSuperview().inset(12)
             make.height.equalTo(16)
@@ -59,6 +59,9 @@ final class RecordCollectionViewCell: UICollectionViewCell, ViewProtocol {
             make.top.equalTo(titleLabel.snp.bottom).offset(12)
             make.leading.equalTo(titleLabel)
             make.trailing.equalToSuperview().inset(12)
+        }
+        markImageView.snp.makeConstraints { make in
+            make.size.equalTo(24)
         }
         visitDateLabel.snp.makeConstraints { make in
             make.top.greaterThanOrEqualTo(addressStackView.snp.bottom).offset(12)
