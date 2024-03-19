@@ -63,21 +63,21 @@ class DetailRecordView: BaseView {
         }
         
         placeInfoView.snp.makeConstraints { make in
-            make.top.equalTo(imageScrollView.snp.bottom).offset(36)
+            make.top.equalTo(imageScrollView.snp.bottom).offset(32)
             make.horizontalEdges.equalToSuperview().inset(20)
-            make.height.equalTo(58)
+            make.height.equalTo(57)
         }
         
         visitDateInfoView.snp.makeConstraints { make in
-            make.top.equalTo(placeInfoView.snp.bottom).offset(28)
+            make.top.equalTo(placeInfoView.snp.bottom).offset(32)
             make.horizontalEdges.equalToSuperview().inset(20)
-            make.height.equalTo(58)
+            make.height.equalTo(57)
         }
         
         memoInfoView.snp.makeConstraints { make in
-            make.top.equalTo(visitDateInfoView.snp.bottom).offset(28)
+            make.top.equalTo(visitDateInfoView.snp.bottom).offset(32)
             make.horizontalEdges.equalToSuperview().inset(20)
-            make.height.lessThanOrEqualTo(258)
+            make.height.lessThanOrEqualTo(257)
             make.bottom.equalToSuperview().inset(28)
         }
         

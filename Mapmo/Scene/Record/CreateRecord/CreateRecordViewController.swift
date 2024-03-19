@@ -76,7 +76,6 @@ final class CreateRecordViewController: BaseViewController {
     
     // 제목 텍스트필드 값 변경될 때
     @objc func titleTextFieldEditingChanged(_ sender: UITextField) {
-        print(#function, sender.text)
         createRecordViewModel.inputTitleText.value = sender.text
     }
     

@@ -30,11 +30,11 @@ class MemoInfoView: UIView, ViewProtocol {
         }
     }
     
-    // InfoView의 높이 - 18 + 240
+    // InfoView의 높이 - 17 + 240
     func configureLayout() {
         titleLabel.snp.makeConstraints { make in
             make.top.horizontalEdges.equalToSuperview()
-            make.height.equalTo(18)
+            make.height.equalTo(17)
         }
         memoBackgroundView.snp.makeConstraints { make in
             make.top.equalTo(titleLabel.snp.bottom).offset(8)
@@ -47,12 +47,12 @@ class MemoInfoView: UIView, ViewProtocol {
         }
         contentTextView.snp.makeConstraints { make in
             make.top.equalTo(memoTitleLabel.snp.bottom).offset(8)
-            make.horizontalEdges.bottom.equalToSuperview().inset(12)
+            make.horizontalEdges.bottom.equalToSuperview().inset(13)
         }
     }
     
     func configureView() {
-        titleLabel.design(font: .pretendard(size: 18, weight: .semiBold))
+        titleLabel.design(font: .pretendard(size: 17, weight: .semiBold))
         memoBackgroundView.backgroundColor = ColorStyle.customBackgroundGray
         memoBackgroundView.layer.cornerRadius = 12
         memoBackgroundView.clipsToBounds = true

@@ -30,11 +30,11 @@ class InfoView: UIView, ViewProtocol {
         }
     }
     
-    // InfoView의 높이 - 18 + 40
+    // InfoView의 높이 - 17 + 40
     func configureLayout() {
         titleLabel.snp.makeConstraints { make in
             make.top.horizontalEdges.equalToSuperview()
-            make.height.equalTo(18)
+            make.height.equalTo(17)
         }
         valueBackgroundView.snp.makeConstraints { make in
             make.top.equalTo(titleLabel.snp.bottom).offset(8)
@@ -55,7 +55,7 @@ class InfoView: UIView, ViewProtocol {
     }
     
     func configureView() {
-        titleLabel.design(font: .pretendard(size: 18, weight: .semiBold))
+        titleLabel.design(font: .pretendard(size: 17, weight: .semiBold))
         valueBackgroundView.backgroundColor = ColorStyle.customBackgroundGray
         valueBackgroundView.layer.cornerRadius = 12
         valueBackgroundView.clipsToBounds = true
