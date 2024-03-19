@@ -18,6 +18,16 @@ class MyRecordViewController: UIViewController {
         super.viewDidLoad()
 
         setDelegate()
+        NotificationCenter.default.addObserver(self, selector: #selector(recordUpdated), name: NSNotification.Name("RecordUpdated"), object: nil)
+    }
+    
+    @objc private func recordUpdated(notification: NSNotification) {
+        let userInfo = notification.userInfo
+        if let date = userInfo?["updatedDate"] as? Date {
+            calendar(mainView.calendar, numberOfEventsFor: date)
+            calendar(mainView.calendar, didSelect: date, at: .current)
+            mainView.calendar.reloadData()
+        }
     }
     
     override func loadView() {
@@ -39,10 +49,7 @@ class MyRecordViewController: UIViewController {
         mainView.collectionView.dataSource = self
     }
     
-    private func showDetailRecordVC() {
-        let detailRecordVC = DetailRecordViewController()
-        navigationController?.pushViewController(detailRecordVC, animated: true)
-    }
+    
 }
 
 extension MyRecordViewController: FSCalendarDelegate, FSCalendarDataSource {
@@ -87,3 +94,4 @@ extension MyRecordViewController: UICollectionViewDelegate, UICollectionViewData
         passDelegate?.showDetailRecordVC(recordItem: data)
     }
 }
+

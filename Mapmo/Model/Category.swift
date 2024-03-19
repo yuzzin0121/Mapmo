@@ -11,12 +11,10 @@ import RealmSwift
 class Category: Object {
     @Persisted(primaryKey: true) var name: String
     @Persisted var colorName: String
-    @Persisted var recordCount: Int
     
-    convenience init(name: String, colorName: String, recordCount: Int = 0) {
+    convenience init(name: String, colorName: String) {
         self.init()
         self.name = name
         self.colorName = colorName
-        self.recordCount = recordCount
     }
 }

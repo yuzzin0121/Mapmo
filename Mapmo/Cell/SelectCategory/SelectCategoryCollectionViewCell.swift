@@ -11,7 +11,6 @@ import SnapKit
 final class SelectCategoryCollectionViewCell: UICollectionViewCell, ViewProtocol {
     let markImageView = UIImageView()
     let titleLabel = UILabel()
-    let recordCountLabel = UILabel()
     
     override var isSelected: Bool {
         didSet {
@@ -38,12 +37,11 @@ final class SelectCategoryCollectionViewCell: UICollectionViewCell, ViewProtocol
         guard let category = category else { return }
         markImageView.tintColor = UIColor(named: category.colorName)
         titleLabel.text = category.name
-        recordCountLabel.text = "\(category.recordCount)"
     }
     
     // MARK: - Configure
     func configureHierarchy() {
-        [markImageView, titleLabel, recordCountLabel].forEach {
+        [markImageView, titleLabel].forEach {
             contentView.addSubview($0)
         }
     }
@@ -61,11 +59,6 @@ final class SelectCategoryCollectionViewCell: UICollectionViewCell, ViewProtocol
             make.height.equalTo(14)
         }
         
-        recordCountLabel.snp.makeConstraints { make in
-            make.centerY.equalToSuperview()
-            make.trailing.equalToSuperview().inset(12)
-            make.height.equalTo(14)
-        }
     }
     
     func configureView() {
@@ -74,7 +67,6 @@ final class SelectCategoryCollectionViewCell: UICollectionViewCell, ViewProtocol
         contentView.clipsToBounds = true
         markImageView.image = ImageStyle.mark
         titleLabel.design(text: "일상")
-        recordCountLabel.design(text: "0")
     }
     
     required init?(coder: NSCoder) {

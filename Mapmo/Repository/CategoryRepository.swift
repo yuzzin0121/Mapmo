@@ -35,13 +35,4 @@ class CategoryRepository {
         return categories.first
     }
     
-    func updateCategorysRecordCount(category: Category, count: Int) {
-        do {
-            try realm.write {
-                category.recordCount = count
-            }
-        } catch {
-            print(error)
-        }
-    }
 }

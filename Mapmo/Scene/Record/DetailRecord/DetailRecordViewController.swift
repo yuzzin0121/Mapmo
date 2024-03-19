@@ -83,7 +83,9 @@ class DetailRecordViewController: BaseViewController {
     }
     
     private func deleteRecord() {
+        guard let record = detailRecordViewModel.inputRecordItem.value else { return }
         detailRecordViewModel.deleteRecordTrigger.value = ()
+        NotificationCenter.default.post(name: NSNotification.Name("RecordUpdated"), object: nil, userInfo: ["updatedDate": record.visitedAt])
         navigationController?.popViewController(animated: true)
     }
     
@@ -97,3 +99,7 @@ extension DetailRecordViewController: UIScrollViewDelegate {
         mainView.pageControl.currentPage = Int(round(mainView.imageScrollView.contentOffset.x / view.frame.width))
     }
 }
+
+
+
+

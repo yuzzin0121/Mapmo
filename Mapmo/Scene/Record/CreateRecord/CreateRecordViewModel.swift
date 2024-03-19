@@ -107,7 +107,6 @@ class CreateRecordViewModel {
         if !inputSelectedImageList.value.isEmpty {
             fileManagerClass.saveImagesToDocument(images: inputSelectedImageList.value, recordId: record.id.stringValue)
         }
-        categoryRepository.updateCategorysRecordCount(category: category, count: category.recordCount + 1)
         createSuccess.value = true
     }
     
