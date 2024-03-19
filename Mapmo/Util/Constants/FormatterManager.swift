@@ -17,4 +17,10 @@ final class DateFormatterManager {
         let formattedDateString = dateFormatter.string(from: date)
         return formattedDateString
     }
+    
+    func formattedVisitedDate(_ date: Date) -> String? {
+        dateFormatter.dateFormat = "yyyy년 MM월 dd일 a hh시 mm분"
+        let formattedDateString = dateFormatter.string(from: date)
+        return formattedDateString
+    }
 }

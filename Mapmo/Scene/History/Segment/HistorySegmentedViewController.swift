@@ -19,6 +19,7 @@ class HistorySegmentedViewController: TabmanViewController {
     
     var viewControllers: [UIViewController] = []
     let tabTitles = ["나의 기록", "통계"]
+    var passDelegate: PassDataAndShowVCDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,6 +54,9 @@ class HistorySegmentedViewController: TabmanViewController {
     private func addViewControllers() {
         let myRecordVC = MyRecordViewController()
         let chartVC = ChartViewController()
+        
+            myRecordVC.passDelegate = self
+        
         viewControllers.append(contentsOf: [myRecordVC, chartVC])
     }
     
@@ -93,4 +97,10 @@ extension HistorySegmentedViewController: PageboyViewControllerDataSource, TMBar
     }
     
     
+}
+
+extension HistorySegmentedViewController: PassDataAndShowVCDelegate {
+    func showDetailRecordVC(recordItem: RecordItem) {
+        self.passDelegate?.showDetailRecordVC(recordItem: recordItem)
+    }
 }

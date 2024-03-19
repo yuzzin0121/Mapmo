@@ -12,6 +12,7 @@ class MyRecordViewController: UIViewController {
     let mainView = MyRecordView()
     
     let myRecordViewModel = MyRecordViewModel()
+    var passDelegate: PassDataAndShowVCDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +37,11 @@ class MyRecordViewController: UIViewController {
         mainView.calendar.dataSource = self
         mainView.collectionView.delegate = self
         mainView.collectionView.dataSource = self
+    }
+    
+    private func showDetailRecordVC() {
+        let detailRecordVC = DetailRecordViewController()
+        navigationController?.pushViewController(detailRecordVC, animated: true)
     }
 }
 
@@ -77,5 +83,7 @@ extension MyRecordViewController: UICollectionViewDelegate, UICollectionViewData
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print(#function)
+        let data = myRecordViewModel.outputSelectedDateRecordList.value[indexPath.item]
+        passDelegate?.showDetailRecordVC(recordItem: data)
     }
 }

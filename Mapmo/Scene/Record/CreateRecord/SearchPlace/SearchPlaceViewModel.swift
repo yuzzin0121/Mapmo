@@ -28,8 +28,6 @@ class SearchPlaceViewModel {
         NaverMapAPIManager.shared.fetchData(type: PlaceModel.self, api: .place(query: query, display: display, sort: sort)) { response, error in
             if error == nil {
                 guard let response = response else { return }
-                print(response)
-                print(response.items)
                 self.outputPlaceItemList.value = response.items
             } else {
                 guard let error = error else { return }

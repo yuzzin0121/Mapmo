@@ -13,6 +13,7 @@ final class HistoryViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         mainView.historySementedVC.didMove(toParent: self)
+        mainView.historySementedVC.passDelegate = self
     }
     
     override func loadView() {
@@ -20,9 +21,19 @@ final class HistoryViewController: BaseViewController {
     }
     
     override func configureNavigationItem() {
-        navigationController?.navigationBar.prefersLargeTitles = true
-        navigationItem.largeTitleDisplayMode = .always
         navigationItem.title = TabItem.history.title
     }
 
+}
+
+extension HistoryViewController: PassDataAndShowVCDelegate {
+    func showDetailRecordVC(recordItem: RecordItem) {
+        let detailRecordVC = DetailRecordViewController()
+        detailRecordVC.detailRecordViewModel.inputRecordItem.value = recordItem
+        navigationController?.pushViewController(detailRecordVC, animated: true)
+    }
+}
+
+protocol PassDataAndShowVCDelegate: AnyObject {
+    func showDetailRecordVC(recordItem: RecordItem)
 }
