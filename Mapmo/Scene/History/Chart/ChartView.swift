@@ -9,4 +9,13 @@ import UIKit
 
 class ChartView: BaseView {
     
+    override func configureHierarchy() {
+        
+    }
+    override func configureLayout() {
+        
+    }
+    override func configureView() {
+        
+    }
 }
