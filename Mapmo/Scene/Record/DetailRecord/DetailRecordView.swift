@@ -9,6 +9,26 @@ import UIKit
 import SnapKit
 
 class DetailRecordView: BaseView {
+    let editButton = {
+        let image = ImageStyle.edit
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height))
+        button.tintColor = ColorStyle.customBlack
+        button.setImage(image, for: .normal)
+        var configuration = UIButton.Configuration.plain()
+        configuration.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 0)
+        button.configuration = configuration
+        return button
+    }()
+    let deleteButton = {
+        let image = ImageStyle.trash
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height))
+        button.tintColor = ColorStyle.customBlack
+        button.setImage(image, for: .normal)
+        var configuration = UIButton.Configuration.plain()
+        configuration.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 0)
+        button.configuration = configuration
+        return button
+    }()
     let scrollView = UIScrollView()
     let contentView = UIView()
     
@@ -22,7 +42,8 @@ class DetailRecordView: BaseView {
     override func configureHierarchy() {
         addSubview(scrollView)
         scrollView.addSubview(contentView)
-        contentView.addSubviews([imageScrollView, placeInfoView, visitDateInfoView, memoInfoView])
+        contentView.addSubviews([imageScrollView, pageControl,placeInfoView, visitDateInfoView, memoInfoView])
+        
     }
     override func configureLayout() {
         scrollView.snp.makeConstraints { make in
@@ -35,6 +56,10 @@ class DetailRecordView: BaseView {
         imageScrollView.snp.makeConstraints { make in
             make.top.horizontalEdges.equalTo(contentView)
             make.height.equalTo(200)
+        }
+        pageControl.snp.makeConstraints { make in
+            make.bottom.horizontalEdges.equalTo(imageScrollView).inset(10)
+            make.height.equalTo(10)
         }
         
         placeInfoView.snp.makeConstraints { make in
@@ -58,13 +83,19 @@ class DetailRecordView: BaseView {
         
     }
     override func configureView() {
+        
         contentView.backgroundColor = ColorStyle.customWhite
         scrollView.showsVerticalScrollIndicator = false
         
         imageScrollView.isPagingEnabled = true
         imageScrollView.isScrollEnabled = true
-        imageScrollView.backgroundColor = .gray
+        imageScrollView.backgroundColor = ColorStyle.customWhite
+        imageScrollView.showsVerticalScrollIndicator = false
+        imageScrollView.showsHorizontalScrollIndicator = false
+        
         pageControl.currentPage = 0
+        pageControl.isUserInteractionEnabled = false
+        pageControl.hidesForSinglePage = true
         
         placeInfoView.titleLabel.text = "장소"
         placeInfoView.iconImageView.image = ImageStyle.mark
