@@ -33,8 +33,6 @@ class DetailRecordViewController: BaseViewController {
     
     
     private func setImages(images: [UIImage]) {
-        print(images)
-        print("view의 width: \(view.frame.width)")
         mainView.pageControl.numberOfPages = images.count
         mainView.imageScrollView.contentSize = CGSize(width: UIScreen.main.bounds.width * CGFloat(images.count), height: 200)
         for index in 0..<images.count {
@@ -78,7 +76,15 @@ class DetailRecordViewController: BaseViewController {
     }
     
     @objc private func deleteButtonClicked() {
-        print(#function)
+        guard let record = detailRecordViewModel.inputRecordItem.value else { return }
+        showAlert(title: "기록 삭제", message: "\(record.title)을\n정말로 삭제하시겠습니까?", actionTitle: "삭제") { UIAlertAction in
+            self.deleteRecord()
+        }
+    }
+    
+    private func deleteRecord() {
+        detailRecordViewModel.deleteRecordTrigger.value = ()
+        navigationController?.popViewController(animated: true)
     }
     
     @objc private func popView() {

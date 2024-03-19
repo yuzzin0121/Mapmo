@@ -35,4 +35,16 @@ class RecordRepository {
         
         return Array(list)
     }
+    
+    func deleteRecord(_ recordId: ObjectId) {
+        if let record = realm.object(ofType: Record.self, forPrimaryKey: recordId) {
+            do {
+                try realm.write {
+                    realm.delete(record)
+                }
+            } catch {
+                print(error)
+            }
+        }
+    }
 }

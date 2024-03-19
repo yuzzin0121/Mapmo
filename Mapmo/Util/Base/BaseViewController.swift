@@ -17,6 +17,16 @@ class BaseViewController: UIViewController {
         
     }
     
+    func showAlert(title: String, message: String, actionTitle: String, completionHandler: ((UIAlertAction) -> Void)?) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        let action = UIAlertAction(title: actionTitle, style: .destructive, handler: completionHandler)
+        let cancelAction = UIAlertAction(title: "취소", style: .cancel)
+        alert.addAction(action)
+        alert.addAction(cancelAction)
+        present(alert, animated: true)
+    }
+    
     // 메인 탭바로 화면 전환
     func showMainTabBar() {
         let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene

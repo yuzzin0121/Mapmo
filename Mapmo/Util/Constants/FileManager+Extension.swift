@@ -10,6 +10,24 @@ import UIKit
 // TODO: - 파일 관련 오류가 발생했을 때 Error 클래스 만들기
 class FileManagerClass {
     
+    // 도큐먼트/images/recordId 삭제
+    func removeImagesFromDocument(recordId: String) {
+        guard let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return }
+        let imageDirectoryURL = documentDirectory.appendingPathComponent("images")
+        let recordIdURL = imageDirectoryURL.appendingPathComponent(recordId)
+//        let fileURL = recordIdURL.appendingPathComponent("\(filename).jpg")
+        
+        if FileManager.default.fileExists(atPath: recordIdURL.path()) { // 이미지 파일이 존재하는지 확인
+            do {
+                try FileManager.default.removeItem(atPath: recordIdURL.path())
+            } catch {
+                print("file remove error", error)
+            }
+        } else {
+            print("file no exist, remove error")
+        }
+    }
+    
     // 도큐먼트/images/recordId/ 이미지들 가져오기
     func loadImagesToDocument(recordId: String, imageCount: Int) -> [UIImage]? {
         guard let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {

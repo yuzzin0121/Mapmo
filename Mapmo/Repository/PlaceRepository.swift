@@ -38,6 +38,18 @@ class PlaceRepository {
         return Array(places)
     }
     
+    func deletePlace(placeName: String) {
+        if let place = realm.object(ofType: Place.self, forPrimaryKey: placeName) {
+            do {
+                try realm.write {
+                    realm.delete(place)
+                }
+            } catch {
+                print(error)
+            }
+        }
+    }
+    
     func isExistPlace(_ place: Place) -> Bool {
         let places: [Place] = Array(realm.objects(Place.self).where {
             $0.roadAddress == place.roadAddress
