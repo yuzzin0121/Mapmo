@@ -10,8 +10,7 @@ import UIKit
 class InputMemoCollectionViewCell: UICollectionViewCell {
     let iconImageView = UIImageView()
     let titleLabel = UILabel()
-    let titleTextField = CustomTextField()
-    let contentTextView = UITextView()
+    let memoTextView = UITextView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -21,7 +20,7 @@ class InputMemoCollectionViewCell: UICollectionViewCell {
     }
     
     func configureHierarchy() {
-        [iconImageView, titleLabel, titleTextField, contentTextView].forEach {
+        [iconImageView, titleLabel, memoTextView].forEach {
             contentView.addSubview($0)
         }
     }
@@ -39,14 +38,8 @@ class InputMemoCollectionViewCell: UICollectionViewCell {
             make.height.equalTo(16)
         }
         
-        titleTextField.snp.makeConstraints { make in
+        memoTextView.snp.makeConstraints { make in
             make.top.equalTo(iconImageView.snp.bottom).offset(12)
-            make.horizontalEdges.equalToSuperview().inset(20)
-            make.height.equalTo(40)
-        }
-        
-        contentTextView.snp.makeConstraints { make in
-            make.top.equalTo(titleTextField.snp.bottom).offset(12)
             make.horizontalEdges.equalToSuperview().inset(20)
             make.bottom.equalToSuperview().inset(12)
         }
@@ -56,16 +49,14 @@ class InputMemoCollectionViewCell: UICollectionViewCell {
         iconImageView.image = InputRecordSection.memo.icon
         
         titleLabel.design(text: InputRecordSection.memo.title, font: .pretendard(size: 16, weight: .bold))
-        titleTextField.placeholder = "제목 입력"
-        titleTextField.textColor = ColorStyle.customBlack
-        
-        contentTextView.backgroundColor = ColorStyle.customBackgroundGray
-        contentTextView.layer.cornerRadius = 12
-        contentTextView.clipsToBounds = true
-        contentTextView.text = "내용 입력"
-        contentTextView.font = .pretendard(size: 17, weight: .regular)
-        contentTextView.textColor = ColorStyle.customGray
-        contentTextView.textContainerInset = UIEdgeInsets(top: 16, left: 12, bottom: 16, right: 12)
+       
+        memoTextView.backgroundColor = ColorStyle.customBackgroundGray
+        memoTextView.layer.cornerRadius = 12
+        memoTextView.clipsToBounds = true
+        memoTextView.text = "내용 입력"
+        memoTextView.font = .pretendard(size: 17, weight: .regular)
+        memoTextView.textColor = ColorStyle.customGray
+        memoTextView.textContainerInset = UIEdgeInsets(top: 16, left: 12, bottom: 16, right: 12)
     }
     
     

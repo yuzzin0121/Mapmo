@@ -9,17 +9,18 @@ import UIKit
 import PhotosUI
 
 protocol PassDataDelegate: AnyObject {
-    func sendPlaceItem(_ placeItem: PlaceItem)
+    func sendPlace(_ place: Place)
 }
 
 final class CreateRecordViewController: BaseViewController {
     let mainView = CreateRecordView()
     let createRecordViewModel = CreateRecordViewModel()
     
+    
     // MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        configureView()
         setDelegate()
         createRecordViewModel.inputSelectedImageList.bind { _ in
             DispatchQueue.main.async {
@@ -40,12 +41,32 @@ final class CreateRecordViewController: BaseViewController {
         mainView.createButton.addTarget(self, action: #selector(createButtonClicked), for: .touchUpInside)
     }
     
+    private func configureView() {
+        if let previousVC = createRecordViewModel.previousVC {
+            switch previousVC {
+            case .detailRecord:
+                mainView.createButton.setTitle("수정하기", for: .normal)
+            case .selectCatgory:
+                mainView.createButton.setTitle("생성하기", for: .normal)
+            }
+        }
+    }
+    
+    // 생성 또는 수정하기 클릭 시
     @objc private func createButtonClicked(_ sender: UIButton) {
         print(#function)
-        createRecordViewModel.createRecordTrigger.value = ()
-        createRecordViewModel.createSuccess.bind { success in
-            if success {
-                self.showMainTabBar()
+        
+        if let previousVC = createRecordViewModel.previousVC {
+            switch previousVC {
+            case .detailRecord:
+                createRecordViewModel.editRecordTrigger.value = ()
+            case .selectCatgory:
+                createRecordViewModel.createRecordTrigger.value = ()
+                createRecordViewModel.createSuccess.bind { success in
+                    if success {
+                        self.showMainTabBar()
+                    }
+                }
             }
         }
     }
@@ -76,7 +97,7 @@ final class CreateRecordViewController: BaseViewController {
     
     // 제목 텍스트필드 값 변경될 때
     @objc func titleTextFieldEditingChanged(_ sender: UITextField) {
-        createRecordViewModel.inputTitleText.value = sender.text
+        createRecordViewModel.inputMemo.value = sender.text
     }
     
     override func loadView() {
@@ -84,7 +105,14 @@ final class CreateRecordViewController: BaseViewController {
     }
     
     override func configureNavigationItem() {
-        navigationItem.title = "기록 생성하기"
+        if let previousVC = createRecordViewModel.previousVC {
+            switch previousVC {
+            case .detailRecord:
+                navigationItem.title = "맵모 수정하기"
+            case .selectCatgory:
+                navigationItem.title = "맵모 생성하기"
+            }
+        }
         
         let backButton = UIBarButtonItem(image: ImageStyle.arrowLeft, style: .plain, target: self, action: #selector(popView))
         backButton.tintColor = .customBlack
@@ -98,8 +126,8 @@ final class CreateRecordViewController: BaseViewController {
 
 // MARK: - 데이터 전달 Delegate 설정
 extension CreateRecordViewController: PassDataDelegate {
-    func sendPlaceItem(_ placeItem: PlaceItem) {
-        createRecordViewModel.inputPlaceItem.value = placeItem
+    func sendPlace(_ place: Place) {
+        createRecordViewModel.inputPlace.value = place
         mainView.collectionView.reloadItems(at: [IndexPath(item: InputRecordSection.place.rawValue, section: 0)])
     }
 }
@@ -141,7 +169,7 @@ extension CreateRecordViewController: UICollectionViewDelegate, UICollectionView
                 }
                 
                 cell.addressButton.addTarget(self, action: #selector(addressTextFieldTapped), for: .touchUpInside)
-                cell.configureCell(placeItem: createRecordViewModel.inputPlaceItem.value)
+                cell.configureCell(place: createRecordViewModel.inputPlace.value)
                 
                 
                 return cell
@@ -152,19 +180,16 @@ extension CreateRecordViewController: UICollectionViewDelegate, UICollectionView
                 }
                 
                 cell.datePicker.addTarget(self, action: #selector(datePickerSelected), for: .valueChanged)
-                datePickerSelected(cell.datePicker)
+                cell.datePicker.date = createRecordViewModel.inputVisitDate.value
                 return cell
                 
             case InputRecordSection.memo.rawValue:  // 메모
                 guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: InputMemoCollectionViewCell.identifier, for: indexPath) as? InputMemoCollectionViewCell else {
                     return UICollectionViewCell()
                 }
-                
-                cell.titleTextField.addTarget(self, action: #selector(titleTextFieldEditingChanged), for: .editingChanged)
-                titleTextFieldEditingChanged(cell.titleTextField)
-                
-                cell.contentTextView.delegate = self
-                textViewDidChange(cell.contentTextView)
+               
+                cell.memoTextView.delegate = self
+                cell.memoTextView.text = createRecordViewModel.inputMemo.value
                 
                 return cell
             default:
@@ -212,7 +237,6 @@ extension CreateRecordViewController: PHPickerViewControllerDelegate {
                         if let image = image as? UIImage {
                             images.append(image)
                             self.createRecordViewModel.inputSelectedImageList.value.append(image)
-                            print("미미미미")
                         }
                         
                         if error != nil {
@@ -247,7 +271,7 @@ extension CreateRecordViewController: UITextViewDelegate {
     }
     
     func textViewDidChange(_ textView: UITextView) {
-        createRecordViewModel.inputContentText.value = textView.text
+        createRecordViewModel.inputMemo.value = textView.text
     }
     
 }

@@ -14,12 +14,12 @@ class CreateRecordViewModel {
     var inputRecordSectionList: Observable<[InputRecordSection]> = Observable(InputRecordSection.allCases)
     
     var inputSelectedImageList: Observable<[UIImage]> = Observable([])
-    var inputPlaceItem: Observable<PlaceItem?> = Observable(nil)
-    var inputVisitDate: Observable<Date?> = Observable(nil)
-    var inputTitleText: Observable<String?> = Observable(nil)
-    var inputContentText: Observable<String?> = Observable(nil)
+    var inputPlace: Observable<Place?> = Observable(nil)
+    var inputVisitDate: Observable<Date> = Observable(Date())
+    var inputMemo: Observable<String?> = Observable(nil)
     var isActivate: Observable<Bool> = Observable(false)
     var createRecordTrigger: Observable<Void?> = Observable(nil)
+    var editRecordTrigger: Observable<Void?> = Observable(nil)
     
     var createSuccess: Observable<Bool> = Observable(false)
     
@@ -29,6 +29,7 @@ class CreateRecordViewModel {
     lazy var categoryRepository = CategoryRepository()
     lazy var fileManagerClass = FileManagerClass()
 
+    var previousVC: PreviousVC?
     
     init() {
         transform()
@@ -42,28 +43,34 @@ class CreateRecordViewModel {
                 self.checkData()
             }
         }
-        inputPlaceItem.bind { placeItem in
-            guard let placeItem = placeItem else { return }
+        inputPlace.bind { place in
+            guard let place = place else { return }
             self.checkData()
         }
-        inputVisitDate.bind { visitDate in
-            guard let visitDate = visitDate else { return }
+        inputMemo.bind { memo in
+            if memo == nil { return }
             self.checkData()
         }
-        inputTitleText.bind { titleText in
-            if self.inputTitleText.value == nil { return }
+        inputVisitDate.bind { date in
             self.checkData()
         }
         createRecordTrigger.bind { value in
             guard let value = value else { return }
             self.checkIsExistPlace()
         }
+        editRecordTrigger.bind { value in
+            guard let value = value else { return }
+            
+        }
     }
     
     private func checkData() {
-        guard let titleText = inputTitleText.value else { return }
+        guard let memo = inputMemo.value else {
+            isActivate.value = false
+            return
+        }
         if inputSelectedCategory.value != nil && !inputSelectedImageList.value.isEmpty
-            && inputPlaceItem.value != nil && !titleText.isEmpty {
+            && inputPlace.value != nil && !memo.isEmpty {
             // 생성할 데이터들이 존재할 때: 생성 버튼 활성화 해야한다. , Realm에 Record, Place(중복 확인) 저장
             isActivate.value = true
         } else {
@@ -72,29 +79,9 @@ class CreateRecordViewModel {
     }
     
     private func checkIsExistPlace() {
-        guard let placeItem = inputPlaceItem.value else { return }
-        var place: Place?
-        
-        if let mapx = Int(placeItem.mapx), let mapy = Int(placeItem.mapy) {
-            print("mapx\(mapx), mapy\(mapy)")
-            
-//            let mapTm128 = NMGTm128(x: mapx, y: mapy)
-//            print("maptm128\(mapTm128)")
-//            let latLng = mapTm128.toLatLng()
-//            print("latx\(latLng.lat), laty\(latLng.lng)")
-            let x = mapx.convertToCoordinate()
-            let y = mapy.convertToCoordinate()
-            print("10,000,000으로 나눈 좌표\(x),\(y)")
-            
-            place = Place(roadAddress: placeItem.roadAddress,
-                              mapx: y,
-                              mapy: x,
-                              title: placeItem.title,
-                              link: placeItem.link)
+        guard let place = inputPlace.value, let record = self.createRecord(), let category = inputSelectedCategory.value  else {
+            return
         }
-        
-        guard let place = place, let record = self.createRecord(), let category = inputSelectedCategory.value  else { return }
-        
         
         if placeRepository.isExistPlace(place) {    // 존재하면, 이미 있는 장소에 Record 생성 및 추가
             print("이미 장소 등록되어있음")
@@ -111,15 +98,14 @@ class CreateRecordViewModel {
     }
     
     private func createRecord() -> Record? {
-        guard let category = inputSelectedCategory.value, let title = inputTitleText.value, let visitDate = inputVisitDate.value else { return nil }
+        guard let category = inputSelectedCategory.value, let memo = inputMemo.value else { return nil }
         if inputSelectedImageList.value.isEmpty {
             return nil
         }
         
-        let record = Record(title: title,
-                            content: inputContentText.value, 
+        let record = Record(memo: memo,
                             imageCount: inputSelectedImageList.value.count,
-                            visitedAt: visitDate,
+                            visitedAt: inputVisitDate.value,
                             createdAt: Date(),
                             modifiedAt: Date(),
                             categoryId: category.name)

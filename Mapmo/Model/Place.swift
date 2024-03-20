@@ -26,17 +26,17 @@ struct PlaceItem: Decodable {
 // Realm 모델
 class Place: Object {
     @Persisted(primaryKey: true) var roadAddress: String
-    @Persisted var mapx: Double
-    @Persisted var mapy: Double
+    @Persisted var lat: Double
+    @Persisted var lng: Double
     @Persisted var title: String
     @Persisted var link: String
     @Persisted var records: List<Record>
     
-    convenience init(roadAddress: String, mapx: Double, mapy: Double, title: String, link: String) {
+    convenience init(roadAddress: String, lat: Double, lng: Double, title: String, link: String) {
         self.init()
         self.roadAddress = roadAddress
-        self.mapx = mapx
-        self.mapy = mapy
+        self.lat = lat
+        self.lng = lng
         self.title = title
         self.link = link
     }

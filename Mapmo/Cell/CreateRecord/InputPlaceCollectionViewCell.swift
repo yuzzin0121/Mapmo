@@ -22,13 +22,13 @@ final class InputPlaceCollectionViewCell: UICollectionViewCell, ViewProtocol {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        configureCell(placeItem: nil)
+        configureCell(place: nil)
     }
     
     // MARK: - setData
-    func configureCell(placeItem: PlaceItem?) {
-        guard let placeItem = placeItem else { return }
-        let title = "\(placeItem.title.htmlEscaped) | \(placeItem.roadAddress)"
+    func configureCell(place: Place?) {
+        guard let place = place else { return }
+        let title = "\(place.title) | \(place.roadAddress)"
         addressButton.setTitle(title, for: .normal)
         addressButton.setTitleColor(ColorStyle.customBlack, for: .normal)
     }

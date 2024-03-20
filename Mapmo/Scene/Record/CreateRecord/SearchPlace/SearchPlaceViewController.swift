@@ -52,13 +52,22 @@ class SearchPlaceViewController: BaseViewController {
         mainView.searchController.searchBar.delegate = self
     }
     
+    // 뒤로 가기
     @objc private func popView() {
         navigationController?.popViewController(animated: true)
     }
     
     private func placeItemSelected(_ placeItem: PlaceItem) {
-        passPlaceDelegate?.sendPlaceItem(placeItem)
-        navigationController?.popViewController(animated: true)
+        if let mapx = Double(placeItem.mapx), let mapy = Double(placeItem.mapy) {
+            let place = Place(roadAddress: placeItem.roadAddress,
+                              lat: mapy.convertToCoordinate(),
+                              lng: mapx.convertToCoordinate(),
+                              title: placeItem.title.htmlEscaped,
+                              link: placeItem.link)
+            passPlaceDelegate?.sendPlace(place)
+            popView()
+        }
+        
     }
 }
 

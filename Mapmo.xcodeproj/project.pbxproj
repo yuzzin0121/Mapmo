@@ -15,6 +15,7 @@
 		611729012BA96158005EBD79 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611729002BA96158005EBD79 /* InfoView.swift */; };
 		611729032BA9734A005EBD79 /* MemoInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611729022BA9734A005EBD79 /* MemoInfoView.swift */; };
 		611729052BA976F2005EBD79 /* DetailRecordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611729042BA976F2005EBD79 /* DetailRecordViewModel.swift */; };
+		611729072BA9E7B7005EBD79 /* PreviousVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611729062BA9E7B7005EBD79 /* PreviousVC.swift */; };
 		61214F572B9F50D000C7D0B6 /* SelectCategoryCollectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61214F562B9F50D000C7D0B6 /* SelectCategoryCollectionHeaderView.swift */; };
 		61214F5A2B9F50F800C7D0B6 /* ReuseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61214F592B9F50F800C7D0B6 /* ReuseProtocol.swift */; };
 		61214F5C2B9F514F00C7D0B6 /* ViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61214F5B2B9F514F00C7D0B6 /* ViewProtocol.swift */; };
@@ -70,7 +71,7 @@
 		61B312C62BA7615A000304CE /* RecordCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B312C52BA7615A000304CE /* RecordCollectionViewCell.swift */; };
 		61B312C82BA76D44000304CE /* MyRecordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B312C72BA76D44000304CE /* MyRecordViewModel.swift */; };
 		61B312CA2BA770CC000304CE /* ChartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B312C92BA770CC000304CE /* ChartViewModel.swift */; };
-		61B312CC2BA85BF2000304CE /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B312CB2BA85BF2000304CE /* Int+Extension.swift */; };
+		61B312CC2BA85BF2000304CE /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B312CB2BA85BF2000304CE /* Double+Extension.swift */; };
 		61D8E55D2B9F723E0080D167 /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D8E55C2B9F723E0080D167 /* UITextField+Extension.swift */; };
 		61D8E5602B9F72970080D167 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D8E55F2B9F72970080D167 /* CustomTextField.swift */; };
 		61D8E5622B9F73150080D167 /* MapmoButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D8E5612B9F73150080D167 /* MapmoButton.swift */; };
@@ -116,6 +117,7 @@
 		611729002BA96158005EBD79 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
 		611729022BA9734A005EBD79 /* MemoInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoInfoView.swift; sourceTree = "<group>"; };
 		611729042BA976F2005EBD79 /* DetailRecordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRecordViewModel.swift; sourceTree = "<group>"; };
+		611729062BA9E7B7005EBD79 /* PreviousVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviousVC.swift; sourceTree = "<group>"; };
 		61214F562B9F50D000C7D0B6 /* SelectCategoryCollectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCategoryCollectionHeaderView.swift; sourceTree = "<group>"; };
 		61214F592B9F50F800C7D0B6 /* ReuseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReuseProtocol.swift; sourceTree = "<group>"; };
 		61214F5B2B9F514F00C7D0B6 /* ViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewProtocol.swift; sourceTree = "<group>"; };
@@ -173,7 +175,7 @@
 		61B312C52BA7615A000304CE /* RecordCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordCollectionViewCell.swift; sourceTree = "<group>"; };
 		61B312C72BA76D44000304CE /* MyRecordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRecordViewModel.swift; sourceTree = "<group>"; };
 		61B312C92BA770CC000304CE /* ChartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewModel.swift; sourceTree = "<group>"; };
-		61B312CB2BA85BF2000304CE /* Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
+		61B312CB2BA85BF2000304CE /* Double+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extension.swift"; sourceTree = "<group>"; };
 		61D8E55C2B9F723E0080D167 /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
 		61D8E55F2B9F72970080D167 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		61D8E5612B9F73150080D167 /* MapmoButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapmoButton.swift; sourceTree = "<group>"; };
@@ -371,6 +373,7 @@
 				61D8E5722B9FDB110080D167 /* ValidationCategoryNameError.swift */,
 				61D8E5852BA032FD0080D167 /* InputRecordSection.swift */,
 				61D8E5A72BA2155A0080D167 /* NetworkError.swift */,
+				611729062BA9E7B7005EBD79 /* PreviousVC.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -386,7 +389,7 @@
 				61D8E5AD2BA2DB5F0080D167 /* UIView+Extension.swift */,
 				61B169D42BA579D200D6D63F /* FloatingPanelController+Extension.swift */,
 				61B312B52BA71EFD000304CE /* CALayer+Extension.swift */,
-				61B312CB2BA85BF2000304CE /* Int+Extension.swift */,
+				61B312CB2BA85BF2000304CE /* Double+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -779,6 +782,7 @@
 				61D8E5AE2BA2DB5F0080D167 /* UIView+Extension.swift in Sources */,
 				61214F5C2B9F514F00C7D0B6 /* ViewProtocol.swift in Sources */,
 				619773352BA872F700A1F7B9 /* FormatterManager.swift in Sources */,
+				611729072BA9E7B7005EBD79 /* PreviousVC.swift in Sources */,
 				61D8E5732B9FDB110080D167 /* ValidationCategoryNameError.swift in Sources */,
 				618CB06D2B99D551005BC379 /* RecordListViewController.swift in Sources */,
 				61D8E5682B9F79D50080D167 /* CategoryColor.swift in Sources */,
@@ -813,7 +817,7 @@
 				61214F5A2B9F50F800C7D0B6 /* ReuseProtocol.swift in Sources */,
 				6126D2F32B9F15CB001F2303 /* SelectCategoryViewModel.swift in Sources */,
 				618CB0642B99D397005BC379 /* TabBarController.swift in Sources */,
-				61B312CC2BA85BF2000304CE /* Int+Extension.swift in Sources */,
+				61B312CC2BA85BF2000304CE /* Double+Extension.swift in Sources */,
 				61214F5E2B9F52EF00C7D0B6 /* UILabel+Extension.swift in Sources */,
 				61B312BF2BA7233C000304CE /* ChartViewController.swift in Sources */,
 				611729032BA9734A005EBD79 /* MemoInfoView.swift in Sources */,

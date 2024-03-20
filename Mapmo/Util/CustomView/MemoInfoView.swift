@@ -11,9 +11,7 @@ import SnapKit
 class MemoInfoView: UIView, ViewProtocol {
     
     let titleLabel = UILabel()
-    let memoBackgroundView = UIView()
-    let memoTitleLabel = UILabel()
-    let contentTextView = UITextView()
+    let memoTextView = UITextView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -24,10 +22,7 @@ class MemoInfoView: UIView, ViewProtocol {
     
     // MARK: - Configure
     func configureHierarchy() {
-        addSubviews([titleLabel, memoBackgroundView])
-        [memoTitleLabel, contentTextView].forEach {
-            memoBackgroundView.addSubview($0)
-        }
+        addSubviews([titleLabel, memoTextView])
     }
     
     // InfoView의 높이 - 17 + 240
@@ -36,32 +31,21 @@ class MemoInfoView: UIView, ViewProtocol {
             make.top.horizontalEdges.equalToSuperview()
             make.height.equalTo(17)
         }
-        memoBackgroundView.snp.makeConstraints { make in
+        memoTextView.snp.makeConstraints { make in
             make.top.equalTo(titleLabel.snp.bottom).offset(8)
             make.horizontalEdges.equalToSuperview()
             make.height.equalTo(240)
-        }
-        memoTitleLabel.snp.makeConstraints { make in
-            make.top.horizontalEdges.equalToSuperview().inset(18)
-            make.height.equalTo(18)
-        }
-        contentTextView.snp.makeConstraints { make in
-            make.top.equalTo(memoTitleLabel.snp.bottom).offset(8)
-            make.horizontalEdges.bottom.equalToSuperview().inset(13)
         }
     }
     
     func configureView() {
         titleLabel.design(font: .pretendard(size: 17, weight: .semiBold))
-        memoBackgroundView.backgroundColor = ColorStyle.customBackgroundGray
-        memoBackgroundView.layer.cornerRadius = 12
-        memoBackgroundView.clipsToBounds = true
-        memoTitleLabel.design(font: .pretendard(size: 18, weight: .semiBold))
-        contentTextView.font = .pretendard(size: 16, weight: .regular)
-        contentTextView.isEditable = false
-        contentTextView.backgroundColor = .clear
-        contentTextView.textColor = ColorStyle.customBlack
-        contentTextView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        memoTextView.backgroundColor = ColorStyle.customBackgroundGray
+        memoTextView.layer.cornerRadius = 12
+        memoTextView.clipsToBounds = true
+        memoTextView.font = .pretendard(size: 16, weight: .regular)
+        memoTextView.textColor = ColorStyle.customBlack
+        memoTextView.contentInset = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
     }
     
     required init?(coder: NSCoder) {

@@ -45,8 +45,7 @@ class MyRecordViewModel {
             }
             
             let recordItem = RecordItem(id: id,
-                                        title: record.title,
-                                        content: record.content,
+                                        memo: record.memo,
                                         images: images,
                                         category: category,
                                         place: place,

@@ -105,6 +105,7 @@ class DetailRecordView: BaseView {
         visitDateInfoView.iconImageView.image = ImageStyle.clock
         
         memoInfoView.titleLabel.text = "메모"
+        memoInfoView.memoTextView.isEditable = false
     }
 }
 

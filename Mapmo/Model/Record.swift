@@ -10,8 +10,7 @@ import RealmSwift
 
 class Record: Object {
     @Persisted(primaryKey: true) var id: ObjectId
-    @Persisted var title: String
-    @Persisted var content: String?
+    @Persisted var memo: String
     @Persisted var imageCount: Int
     @Persisted var visitedAt: Date
     @Persisted var createdAt: Date
@@ -21,10 +20,9 @@ class Record: Object {
     
     @Persisted(originProperty: "records") var place: LinkingObjects<Place>
     
-    convenience init(title: String, content: String? = nil, imageCount: Int, visitedAt: Date, createdAt: Date, modifiedAt: Date, isFavorite: Bool = false, categoryId: String) {
+    convenience init(memo: String, imageCount: Int, visitedAt: Date, createdAt: Date, modifiedAt: Date, isFavorite: Bool = false, categoryId: String) {
         self.init()
-        self.title = title
-        self.content = content
+        self.memo = memo
         self.imageCount = imageCount
         self.visitedAt = visitedAt
         self.createdAt = createdAt
@@ -36,8 +34,7 @@ class Record: Object {
 
 struct RecordItem {
     let id: ObjectId
-    var title: String
-    var content: String?
+    var memo: String
     var images: [UIImage]
     var category: Category
     var place: Place
