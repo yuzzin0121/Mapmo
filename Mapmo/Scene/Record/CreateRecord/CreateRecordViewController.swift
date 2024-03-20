@@ -32,7 +32,12 @@ final class CreateRecordViewController: BaseViewController {
             self.mainView.createButton.isEnabled = isActivate
             self.mainView.createButton.backgroundColor = isActivate ? ColorStyle.mapmoColor : ColorStyle.null
         }
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.mainView.collectionView.reloadData()
+        createRecordViewModel.checkData()
     }
     
     private func setDelegate() {
@@ -60,6 +65,11 @@ final class CreateRecordViewController: BaseViewController {
             switch previousVC {
             case .detailRecord:
                 createRecordViewModel.editRecordTrigger.value = ()
+                createRecordViewModel.editSuccess.bind { success in
+                    if success {
+                        popView()
+                    }
+                }
             case .selectCatgory:
                 createRecordViewModel.createRecordTrigger.value = ()
                 createRecordViewModel.createSuccess.bind { success in
@@ -257,7 +267,6 @@ extension CreateRecordViewController: UITextViewDelegate {
     // textView에 focus를 얻는 경우 발생
     func textViewDidBeginEditing(_ textView: UITextView) {
         if textView.text == createRecordViewModel.contentTextViewPlaceholder {
-            textView.text = nil
             textView.textColor = ColorStyle.customBlack
         }
     }

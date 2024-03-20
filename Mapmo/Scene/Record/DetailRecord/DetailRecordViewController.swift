@@ -83,6 +83,9 @@ final class DetailRecordViewController: BaseViewController {
         createRecordVC.createRecordViewModel.inputVisitDate.value = recordItem.visitedAt
         createRecordVC.createRecordViewModel.inputMemo.value = recordItem.memo
         createRecordVC.createRecordViewModel.inputSelectedCategory.value = recordItem.category
+        createRecordVC.createRecordViewModel.createdAt = recordItem.createdAt
+        createRecordVC.createRecordViewModel.isFavorite = recordItem.isFavorite
+        createRecordVC.createRecordViewModel.recordId = recordItem.id
         navigationController?.pushViewController(createRecordVC, animated: true)
     }
     

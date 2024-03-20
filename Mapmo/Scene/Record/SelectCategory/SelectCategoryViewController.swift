@@ -28,6 +28,7 @@ final class SelectCategoryViewController: BaseViewController {
         // TODO: - 카테고리 값 전달 필요
         guard let selectedCategory = selectCategoryViewModel.inputSelectedCategory.value else { return }
         createRecordVC.createRecordViewModel.inputSelectedCategory.value = selectedCategory
+        createRecordVC.createRecordViewModel.previousVC = .selectCatgory
         navigationController?.pushViewController(createRecordVC, animated: true)
     }
     

@@ -15,11 +15,11 @@ class FileManagerClass {
         guard let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return }
         let imageDirectoryURL = documentDirectory.appendingPathComponent("images")
         let recordIdURL = imageDirectoryURL.appendingPathComponent(recordId)
-//        let fileURL = recordIdURL.appendingPathComponent("\(filename).jpg")
         
         if FileManager.default.fileExists(atPath: recordIdURL.path()) { // 이미지 파일이 존재하는지 확인
             do {
                 try FileManager.default.removeItem(atPath: recordIdURL.path())
+                print("remove images")
             } catch {
                 print("file remove error", error)
             }
