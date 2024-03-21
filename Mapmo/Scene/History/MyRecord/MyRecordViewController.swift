@@ -25,6 +25,7 @@ class MyRecordViewController: UIViewController {
         let userInfo = notification.userInfo
         if let date = userInfo?["updatedDate"] as? Date {
             mainView.calendar.reloadData()
+            calendar(mainView.calendar, didSelect: date, at: .current)
         }
     }
     
@@ -46,8 +47,6 @@ class MyRecordViewController: UIViewController {
         mainView.collectionView.delegate = self
         mainView.collectionView.dataSource = self
     }
-    
-    
 }
 
 extension MyRecordViewController: FSCalendarDelegate, FSCalendarDataSource {

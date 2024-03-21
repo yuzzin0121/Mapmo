@@ -26,17 +26,17 @@ final class MapView: BaseView {
             make.edges.equalToSuperview()
         }
         refreshButton.snp.makeConstraints { make in
-            make.top.equalTo(safeAreaLayoutGuide)
+            make.top.equalTo(safeAreaLayoutGuide).offset(20)
             make.centerX.equalToSuperview()
             make.height.equalTo(40)
         }
         moveCurrentLoactionButton.snp.makeConstraints { make in
-            make.top.equalTo(safeAreaLayoutGuide).offset(50)
+            make.top.equalTo(safeAreaLayoutGuide).offset(60)
             make.trailing.equalToSuperview().inset(14)
             make.size.equalTo(40)
         }
         addRecordButton.snp.makeConstraints { make in
-            make.top.equalTo(moveCurrentLoactionButton.snp.bottom).offset(30)
+            make.top.equalTo(moveCurrentLoactionButton.snp.bottom).offset(24)
             make.trailing.equalToSuperview().inset(14)
             make.size.equalTo(40)
         }
