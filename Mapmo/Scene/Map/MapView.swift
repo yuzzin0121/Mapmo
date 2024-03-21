@@ -12,11 +12,13 @@ import SnapKit
 final class MapView: BaseView {
     let naverMapView = NMFMapView()
     let refreshButton = UIButton()
+    let moveCurrentLoactionButton = UIButton()
     let addRecordButton = UIButton()
     
     override func configureHierarchy() {
         addSubview(naverMapView)
         addSubview(refreshButton)
+        addSubview(moveCurrentLoactionButton)
         addSubview(addRecordButton)
     }
     override func configureLayout() {
@@ -28,8 +30,13 @@ final class MapView: BaseView {
             make.centerX.equalToSuperview()
             make.height.equalTo(40)
         }
+        moveCurrentLoactionButton.snp.makeConstraints { make in
+            make.top.equalTo(safeAreaLayoutGuide).offset(50)
+            make.trailing.equalToSuperview().inset(14)
+            make.size.equalTo(40)
+        }
         addRecordButton.snp.makeConstraints { make in
-            make.top.equalTo(safeAreaLayoutGuide).offset(100)
+            make.top.equalTo(moveCurrentLoactionButton.snp.bottom).offset(30)
             make.trailing.equalToSuperview().inset(14)
             make.size.equalTo(40)
         }
@@ -54,6 +61,12 @@ final class MapView: BaseView {
         
         naverMapView.logoAlign = .leftTop
         
+        var currentLocationConfig = UIButton.Configuration.filled()
+        currentLocationConfig.image = ImageStyle.currentLocation
+        currentLocationConfig.cornerStyle = .capsule
+        currentLocationConfig.baseBackgroundColor = ColorStyle.customWhite
+        currentLocationConfig.baseForegroundColor = ColorStyle.customBlack
+        moveCurrentLoactionButton.configuration = currentLocationConfig
     }
 }
 

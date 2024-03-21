@@ -9,19 +9,20 @@ import UIKit
 import SnapKit
 
 class MapRecordListView: BaseView {
-    let tableView = UITableView()
+    let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     
     override func configureHierarchy() {
-        addSubview(tableView)
+        addSubview(collectionView)
     }
     override func configureLayout() {
-        tableView.snp.makeConstraints { make in
+        collectionView.snp.makeConstraints { make in
             make.horizontalEdges.equalTo(safeAreaLayoutGuide)
-            make.verticalEdges.equalTo(safeAreaLayoutGuide).inset(16)
+            make.verticalEdges.equalTo(safeAreaLayoutGuide).inset(30)
         }
     }
     override func configureView() {
-        tableView.backgroundColor = .systemGray6
+        collectionView.backgroundColor = ColorStyle.customWhite
+        collectionView.register(RecordCollectionViewCell.self, forCellWithReuseIdentifier: RecordCollectionViewCell.identifier)
     }
 }
 

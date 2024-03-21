@@ -17,6 +17,7 @@
 		611729052BA976F2005EBD79 /* DetailRecordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611729042BA976F2005EBD79 /* DetailRecordViewModel.swift */; };
 		611729072BA9E7B7005EBD79 /* PreviousVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611729062BA9E7B7005EBD79 /* PreviousVC.swift */; };
 		6117290A2BAB2229005EBD79 /* PassDataDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611729092BAB2229005EBD79 /* PassDataDelegate.swift */; };
+		6117290E2BAC2985005EBD79 /* MapRecordListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6117290D2BAC2985005EBD79 /* MapRecordListViewModel.swift */; };
 		61214F572B9F50D000C7D0B6 /* SelectCategoryCollectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61214F562B9F50D000C7D0B6 /* SelectCategoryCollectionHeaderView.swift */; };
 		61214F5A2B9F50F800C7D0B6 /* ReuseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61214F592B9F50F800C7D0B6 /* ReuseProtocol.swift */; };
 		61214F5C2B9F514F00C7D0B6 /* ViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61214F5B2B9F514F00C7D0B6 /* ViewProtocol.swift */; };
@@ -120,6 +121,7 @@
 		611729042BA976F2005EBD79 /* DetailRecordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRecordViewModel.swift; sourceTree = "<group>"; };
 		611729062BA9E7B7005EBD79 /* PreviousVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviousVC.swift; sourceTree = "<group>"; };
 		611729092BAB2229005EBD79 /* PassDataDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassDataDelegate.swift; sourceTree = "<group>"; };
+		6117290D2BAC2985005EBD79 /* MapRecordListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapRecordListViewModel.swift; sourceTree = "<group>"; };
 		61214F562B9F50D000C7D0B6 /* SelectCategoryCollectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCategoryCollectionHeaderView.swift; sourceTree = "<group>"; };
 		61214F592B9F50F800C7D0B6 /* ReuseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReuseProtocol.swift; sourceTree = "<group>"; };
 		61214F5B2B9F514F00C7D0B6 /* ViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewProtocol.swift; sourceTree = "<group>"; };
@@ -520,6 +522,7 @@
 			children = (
 				61B169CF2BA4A50D00D6D63F /* MapRecordListViewController.swift */,
 				61B169D22BA5781100D6D63F /* MapRecordListView.swift */,
+				6117290D2BAC2985005EBD79 /* MapRecordListViewModel.swift */,
 			);
 			path = MapRecordList;
 			sourceTree = "<group>";
@@ -808,6 +811,7 @@
 				61B312C82BA76D44000304CE /* MyRecordViewModel.swift in Sources */,
 				61D8E5912BA066560080D167 /* UIStackView+Extension.swift in Sources */,
 				611728E82BA897FD005EBD79 /* CategoryRecordCountCollectionViewCell.swift in Sources */,
+				6117290E2BAC2985005EBD79 /* MapRecordListViewModel.swift in Sources */,
 				611728EA2BA89819005EBD79 /* DateRecordCountCollectionViewCell.swift in Sources */,
 				61D8E5822BA01CFA0080D167 /* CategoryRepository.swift in Sources */,
 				614258642B9E93FF00F35521 /* SelectCategoryViewController.swift in Sources */,

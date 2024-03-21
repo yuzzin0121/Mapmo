@@ -12,17 +12,19 @@ import NMapsMap
 import NMapsGeometry
 
 final class MapViewController: BaseViewController {
+    
     let mainView = MapView()
     
     let mapViewModel = MapViewModel()
     var floatingPanelC: FloatingPanelController!
+    let mapRecordListVC = MapRecordListViewController()
     let locationManager = CLLocationManager()
     
     
     // MARK: - viewDidLoad()
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         setAction()
         setFloatingPanelC()
         setDelegate()
@@ -42,6 +44,9 @@ final class MapViewController: BaseViewController {
                 marker.mapView = self.mainView.naverMapView
             }
         }
+        mapViewModel.outputRecordList.bind { recordList in
+            self.mapRecordListVC.mapRecordListViewModel.inputRecordList.value = recordList
+        }
     }
     
     private func moveCamera(latLng: NMGLatLng) {
@@ -60,14 +65,14 @@ final class MapViewController: BaseViewController {
     private func setDelegate() {
         floatingPanelC.delegate = self
         locationManager.delegate = self
+        mapRecordListVC.passDelegate = self
         mainView.naverMapView.addCameraDelegate(delegate: self)
     }
     
     private func setFloatingPanelC() {
         floatingPanelC = FloatingPanelController()
-        let mapRecordListVC = MapRecordListViewController()
         floatingPanelC.set(contentViewController: mapRecordListVC)
-        floatingPanelC.track(scrollView: mapRecordListVC.mainView.tableView)
+        floatingPanelC.track(scrollView: mapRecordListVC.mainView.collectionView)
         floatingPanelC.addPanel(toParent: self)
         floatingPanelC.designPanel()
         floatingPanelC.show()
@@ -84,12 +89,17 @@ final class MapViewController: BaseViewController {
         getCurrentRegion()
     }
     
+    @objc private func moveCurrentLoactionButtonClicked(_ sender: UIButton) {
+        checkDeviceLocationAuthorization()
+    }
+    
     @objc private func addRecordButtonClicked(_ sender: UIButton) {
         mapViewModel.addRecordButtonTrigger.value = ()
     }
     
     private func setAction() {
         mainView.refreshButton.addTarget(self, action: #selector(refreshButtonClicked), for: .touchUpInside)
+        mainView.moveCurrentLoactionButton.addTarget(self, action: #selector(moveCurrentLoactionButtonClicked), for: .touchUpInside)
         mainView.addRecordButton.addTarget(self, action: #selector(addRecordButtonClicked), for: .touchUpInside)
     }
     
@@ -204,6 +214,14 @@ extension MapViewController {
     }
 }
 
+extension MapViewController: PassDataAndShowVCDelegate {
+    func showDetailRecordVC(recordItem: RecordItem) {
+        let detailRecordVC = DetailRecordViewController()
+        detailRecordVC.detailRecordViewModel.inputRecordItem.value = recordItem
+        navigationController?.pushViewController(detailRecordVC, animated: true)
+    }
+}
+
 extension MapViewController {
     func mapViewCameraIdle(_ mapView: NMFMapView) {
         getCurrentRegion()
@@ -241,7 +259,7 @@ class MyFloatingPanelLayout: FloatingPanelLayout {
         return [
             .full: FloatingPanelLayoutAnchor(absoluteInset: 16.0, edge: .top, referenceGuide: .safeArea),
             .half: FloatingPanelLayoutAnchor(absoluteInset: 292, edge: .bottom, referenceGuide: .safeArea),
-            .tip: FloatingPanelLayoutAnchor(absoluteInset: 60, edge: .bottom, referenceGuide: .safeArea)
+            .tip: FloatingPanelLayoutAnchor(fractionalInset: 0.1, edge: .bottom, referenceGuide: .safeArea)
         ]
     }
 }
