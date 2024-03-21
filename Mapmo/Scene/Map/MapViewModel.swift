@@ -16,6 +16,7 @@ final class MapViewModel {
     var outputCurrentLatLng: Observable<NMGLatLng?> = Observable(nil)
     var inputVisibleRegion: Observable<NMGLatLngBounds?> = Observable(nil)
     var searchedPlaces: Observable<[Place]> = Observable([])
+    var outputPlaceMarkerList: Observable<[NMFMarker]> = Observable([])
     
     let placeRepository = PlaceRepository()
     
@@ -32,6 +33,19 @@ final class MapViewModel {
             guard let visibleRegion = visibleRegion else { return }
             self.getVisiblePlace(visibleRegion)
         }
+        searchedPlaces.bind { places in
+            self.setMarkers(places: places)
+        }
+    }
+    
+    private func setMarkers(places: [Place]) {
+        var markers: [NMFMarker] = []
+        for place in places {
+            let marker = NMFMarker()
+            marker.position = NMGLatLng(lat: place.lat, lng: place.lng)
+            markers.append(marker)
+        }
+        outputPlaceMarkerList.value =  markers
     }
     
     private func getVisiblePlace(_ visibleRegion: NMGLatLngBounds) {

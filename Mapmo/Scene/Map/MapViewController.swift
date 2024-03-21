@@ -37,6 +37,11 @@ final class MapViewController: BaseViewController {
             guard let currentLatLng = currentLatLng else { return }
             self.moveCamera(latLng: currentLatLng)
         }
+        mapViewModel.outputPlaceMarkerList.bind { markers in
+            for marker in markers {
+                marker.mapView = self.mainView.naverMapView
+            }
+        }
     }
     
     private func moveCamera(latLng: NMGLatLng) {
@@ -55,6 +60,7 @@ final class MapViewController: BaseViewController {
     private func setDelegate() {
         floatingPanelC.delegate = self
         locationManager.delegate = self
+        mainView.naverMapView.addCameraDelegate(delegate: self)
     }
     
     private func setFloatingPanelC() {
@@ -195,6 +201,18 @@ extension MapViewController {
         
         self.present(alert, animated: true)
         
+    }
+}
+
+extension MapViewController {
+    func mapViewCameraIdle(_ mapView: NMFMapView) {
+        getCurrentRegion()
+    }
+}
+
+extension MapViewController: NMFMapViewCameraDelegate {
+    func mapView(_ mapView: NMFMapView, cameraDidChangeByReason reason: Int, animated: Bool) {
+//        print(#function)
     }
 }
 

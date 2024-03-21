@@ -52,6 +52,7 @@ final class MapView: BaseView {
         addRecordConfig.baseBackgroundColor = ColorStyle.mapmoColor
         addRecordButton.configuration = addRecordConfig
         
+        naverMapView.logoAlign = .leftTop
         
     }
 }
