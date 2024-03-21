@@ -24,8 +24,6 @@ class MyRecordViewController: UIViewController {
     @objc private func recordUpdated(notification: NSNotification) {
         let userInfo = notification.userInfo
         if let date = userInfo?["updatedDate"] as? Date {
-            calendar(mainView.calendar, numberOfEventsFor: date)
-            calendar(mainView.calendar, didSelect: date, at: .current)
             mainView.calendar.reloadData()
         }
     }

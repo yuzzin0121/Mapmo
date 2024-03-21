@@ -64,11 +64,17 @@ class RecordRepository {
         do {
             if let record = getRecord(recordId: recordId) {
                 print("record 있음")
-                try realm.write {
-                    if removePlace(record: record) {
-                        place.records.append(record)
-                    } else {
-                        print("제거 실패")
+                guard let currentPlace = record.place.first else { return }
+                if currentPlace.roadAddress == place.roadAddress {
+                    print("같은 장소임")
+                    return
+                } else {
+                    try realm.write {
+                        if removePlace(record: record, currentPlace: currentPlace) {
+                            place.records.append(record)
+                        } else {
+                            print("제거 실패")
+                        }
                     }
                 }
             }
@@ -78,8 +84,7 @@ class RecordRepository {
         }
     }
     
-    private func removePlace(record: Record) -> Bool {
-        guard let currentPlace = record.place.first else { return false }
+    private func removePlace(record: Record, currentPlace: Place) -> Bool {
         if let index = currentPlace.records.firstIndex(where: { $0.id == record.id}) {
             print("삭제할 인덱스 찾음")
             currentPlace.records.remove(at: index)

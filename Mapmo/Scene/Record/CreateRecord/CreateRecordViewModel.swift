@@ -113,7 +113,9 @@ final class CreateRecordViewModel {
         editImages(recordId: recordId.stringValue)
         
         // 장소 변경됐을 경우
+        
         if placeRepository.isExistPlace(place) {    // 존재하면, 이미 있는 장소에 Record 생성 및 추가
+        
         } else {
             placeRepository.createPlace(place)  // 존재하지 않으면, 장소 생성 + Reacord 생성 및 생성된 장소에 추가
         }

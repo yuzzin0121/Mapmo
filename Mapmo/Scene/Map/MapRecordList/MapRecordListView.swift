@@ -19,7 +19,7 @@ class MapRecordListView: BaseView {
     override func configureLayout() {
         collectionView.snp.makeConstraints { make in
             make.horizontalEdges.equalTo(safeAreaLayoutGuide)
-            make.verticalEdges.equalTo(safeAreaLayoutGuide).inset(30)
+            make.verticalEdges.equalTo(safeAreaLayoutGuide).inset(34)
         }
         emptyMessaageLabel.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(150)

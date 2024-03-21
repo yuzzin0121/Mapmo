@@ -64,6 +64,7 @@ final class CreateRecordViewController: BaseViewController {
                 createRecordViewModel.editSuccess.bind { id in
                     guard let id = id else { return }
                     self.passRecordIdDelegate?.sendRecordId(id)
+                    NotificationCenter.default.post(name: NSNotification.Name("RecordUpdated"), object: nil, userInfo: ["updatedDate": self.createRecordViewModel.inputVisitDate.value])
                     self.popView()
                 }
             case .selectCatgory:

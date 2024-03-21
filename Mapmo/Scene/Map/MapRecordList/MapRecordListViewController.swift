@@ -30,7 +30,7 @@ class MapRecordListViewController: BaseViewController {
         super.viewWillLayoutSubviews()
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: mainView.frame.width, height: 90)
-        layout.minimumInteritemSpacing = 24
+        layout.minimumLineSpacing = 14
         mainView.collectionView.collectionViewLayout = layout
     }
     
