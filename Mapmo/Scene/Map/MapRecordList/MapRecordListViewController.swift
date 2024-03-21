@@ -18,14 +18,19 @@ class MapRecordListViewController: BaseViewController {
         setDelegate()
         mapRecordListViewModel.inputRecordList.bind { recordList in
             self.mainView.collectionView.reloadData()
+            self.setEmptyUI(recordList.isEmpty)
         }
+    }
+    
+    private func setEmptyUI(_ isEmpty: Bool) {
+        mainView.emptyMessaageLabel.isHidden = !isEmpty
     }
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: mainView.frame.width, height: 90)
-        layout.minimumInteritemSpacing = 20
+        layout.minimumInteritemSpacing = 24
         mainView.collectionView.collectionViewLayout = layout
     }
     
