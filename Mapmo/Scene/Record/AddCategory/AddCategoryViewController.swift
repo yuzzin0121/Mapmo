@@ -65,7 +65,6 @@ final class AddCategoryViewController: BaseViewController {
     }
     
     @objc private func categoryNameTextFieldValueChanged(_ sender: UITextField) {
-        print(#function)
         let text = sender.text
         addCategoryViewModel.inputCategoryName.value = text
     }

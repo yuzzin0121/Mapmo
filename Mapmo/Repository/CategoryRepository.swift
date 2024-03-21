@@ -33,6 +33,17 @@ class CategoryRepository {
         }
     }
     
+    func checkOverlap(name: String) -> Bool {
+        let categories = Array(realm.objects(Category.self).where {
+            $0.name == name
+        })
+        if categories.isEmpty {
+            return false
+        } else {
+            return true
+        }
+    }
+    
     func fetchCategory() -> [Category] {
         let categories = Array(realm.objects(Category.self))
         return categories

@@ -82,6 +82,12 @@ class AddCategoryViewModel {
             return
         }
         
+        if categoryRepository.checkOverlap(name: name) == true {
+            outputWarningMessage.value = ValidationCategoryNameError.overlap.message
+            isValidName.value = false
+            return
+        }
+        
         outputWarningMessage.value = ""
         isValidName.value = true
     }
