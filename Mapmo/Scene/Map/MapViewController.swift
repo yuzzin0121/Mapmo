@@ -28,16 +28,25 @@ final class MapViewController: BaseViewController {
         setAction()
         setFloatingPanelC()
         setDelegate()
+        setBinding()
+        mapViewModel.moveCameraPlaceTrigger.value = ()
+        getCurrentRegion()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(recordUpdated), name: NSNotification.Name("RecordUpdated"), object: nil)
+    }
+    
+    private func setBinding() {
         mapViewModel.addRecordButtonTrigger.bind { value in
             guard let value = value else { return }
             self.showAddRecordVC()
         }
-        
-        checkDeviceLocationAuthorization()
-        getCurrentRegion()
         mapViewModel.outputCurrentLatLng.bind { currentLatLng in
             guard let currentLatLng = currentLatLng else { return }
             self.moveCamera(latLng: currentLatLng)
+        }
+        mapViewModel.outputRecentPlaceLatLng.bind { recentPlaceLatLng in
+            guard let recentPlaceLatLng = recentPlaceLatLng else { return }
+            self.moveCamera(latLng: recentPlaceLatLng)
         }
         mapViewModel.outputPlaceMarkerList.bind { markers in
             for marker in markers {
@@ -47,6 +56,10 @@ final class MapViewController: BaseViewController {
         mapViewModel.outputRecordList.bind { recordList in
             self.mapRecordListVC.mapRecordListViewModel.inputRecordList.value = recordList
         }
+    }
+    
+    @objc private func recordUpdated() {
+        mapViewModel.moveCameraPlaceTrigger.value = ()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -67,7 +80,6 @@ final class MapViewController: BaseViewController {
     }
     
     private func getCurrentRegion() {
-        print(#function)
         let visibleRegion = mainView.naverMapView.contentBounds
         mapViewModel.inputVisibleRegion.value = visibleRegion
     }
@@ -232,15 +244,9 @@ extension MapViewController: PassDataAndShowVCDelegate {
     }
 }
 
-extension MapViewController {
+extension MapViewController: NMFMapViewCameraDelegate {
     func mapViewCameraIdle(_ mapView: NMFMapView) {
         getCurrentRegion()
-    }
-}
-
-extension MapViewController: NMFMapViewCameraDelegate {
-    func mapView(_ mapView: NMFMapView, cameraDidChangeByReason reason: Int, animated: Bool) {
-//        print(#function)
     }
 }
 

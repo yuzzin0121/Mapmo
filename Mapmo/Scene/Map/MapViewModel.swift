@@ -11,13 +11,14 @@ import NMapsMap
 
 final class MapViewModel {
     var addRecordButtonTrigger: Observable<Void?> = Observable(nil)
-    
+    var moveCameraPlaceTrigger: Observable<Void?> = Observable(nil)
     var inputCurrentLocation: Observable<CLLocationCoordinate2D?> = Observable(nil)
     var outputCurrentLatLng: Observable<NMGLatLng?> = Observable(nil)
     var inputVisibleRegion: Observable<NMGLatLngBounds?> = Observable(nil)
     var searchedPlaces: Observable<[Place]> = Observable([])
     var outputPlaceMarkerList: Observable<[NMFMarker]> = Observable([])
     var outputRecordList: Observable<[RecordItem]> = Observable([])
+    var outputRecentPlaceLatLng: Observable<NMGLatLng?> = Observable(nil)
     
     let placeRepository = PlaceRepository()
     let categoryRepository = CategoryRepository()
@@ -39,6 +40,20 @@ final class MapViewModel {
         searchedPlaces.bind { places in
             self.setMarkers(places: places)
             self.setRecordList(places: places)
+        }
+        moveCameraPlaceTrigger.bind { value in
+            guard let value = value else { return }
+            self.fetchPlaces()
+        }
+    }
+    
+    private func fetchPlaces() {
+        searchedPlaces.value = placeRepository.fetchPlace()
+        if !searchedPlaces.value.isEmpty {
+            guard let recentPlace = searchedPlaces.value.first else {
+                return
+            }
+            outputRecentPlaceLatLng.value = NMGLatLng(lat: recentPlace.lat, lng: recentPlace.lng)
         }
     }
     
