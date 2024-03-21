@@ -8,14 +8,10 @@
 import UIKit
 import PhotosUI
 
-protocol PassDataDelegate: AnyObject {
-    func sendPlace(_ place: Place)
-}
-
 final class CreateRecordViewController: BaseViewController {
     let mainView = CreateRecordView()
     let createRecordViewModel = CreateRecordViewModel()
-    
+    var passRecordIdDelegate: PassRecordIdDelegate?
     
     // MARK: - viewDidLoad
     override func viewDidLoad() {
@@ -65,10 +61,10 @@ final class CreateRecordViewController: BaseViewController {
             switch previousVC {
             case .detailRecord:
                 createRecordViewModel.editRecordTrigger.value = ()
-                createRecordViewModel.editSuccess.bind { success in
-                    if success {
-                        popView()
-                    }
+                createRecordViewModel.editSuccess.bind { id in
+                    guard let id = id else { return }
+                    self.passRecordIdDelegate?.sendRecordId(id)
+                    self.popView()
                 }
             case .selectCatgory:
                 createRecordViewModel.createRecordTrigger.value = ()
@@ -135,7 +131,7 @@ final class CreateRecordViewController: BaseViewController {
 }
 
 // MARK: - 데이터 전달 Delegate 설정
-extension CreateRecordViewController: PassDataDelegate {
+extension CreateRecordViewController: PassPlaceDataDelegate {
     func sendPlace(_ place: Place) {
         createRecordViewModel.inputPlace.value = place
         mainView.collectionView.reloadItems(at: [IndexPath(item: InputRecordSection.place.rawValue, section: 0)])

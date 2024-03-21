@@ -27,7 +27,7 @@ final class CreateRecordViewModel {
     var editRecordTrigger: Observable<Void?> = Observable(nil)          // 수정 클릭 시
     var createdAt: Date?
     var createSuccess: Observable<Bool> = Observable(false)             // 생성 성공 여부
-    var editSuccess: Observable<Bool> = Observable(false)
+    var editSuccess: Observable<ObjectId?> = Observable(nil)
     
     
     let contentTextViewPlaceholder = "메모 입력"
@@ -118,7 +118,7 @@ final class CreateRecordViewModel {
             placeRepository.createPlace(place)  // 존재하지 않으면, 장소 생성 + Reacord 생성 및 생성된 장소에 추가
         }
         recordRepository.updateRecord(record, recordId: recordId, place: place)
-        editSuccess.value = true
+        editSuccess.value = recordId
     }
     
     private func editImages(recordId: String) {

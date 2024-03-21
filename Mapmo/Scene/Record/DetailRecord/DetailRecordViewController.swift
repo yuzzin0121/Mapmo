@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 final class DetailRecordViewController: BaseViewController {
     let mainView = DetailRecordView()
@@ -86,6 +87,8 @@ final class DetailRecordViewController: BaseViewController {
         createRecordVC.createRecordViewModel.createdAt = recordItem.createdAt
         createRecordVC.createRecordViewModel.isFavorite = recordItem.isFavorite
         createRecordVC.createRecordViewModel.recordId = recordItem.id
+        
+        createRecordVC.passRecordIdDelegate = self
         navigationController?.pushViewController(createRecordVC, animated: true)
     }
     
@@ -117,6 +120,9 @@ extension DetailRecordViewController: UIScrollViewDelegate {
     }
 }
 
-
-
+extension DetailRecordViewController: PassRecordIdDelegate {
+    func sendRecordId(_ id: ObjectId) {
+        detailRecordViewModel.inputRecordId.value = id
+    }
+}
 

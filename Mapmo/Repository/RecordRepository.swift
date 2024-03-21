@@ -42,35 +42,56 @@ class RecordRepository {
         return realm.object(ofType: Record.self, forPrimaryKey: recordId)
     }
     
-    func updateRecord(_ record: Record, recordId: ObjectId, place: Place?) {
+    func updateRecord(_ record: Record, recordId: ObjectId, place: Place) {
         print(realm.configuration.fileURL)
         // U
         do {
             try realm.write {
                 realm.create(Record.self,
                              value: [
-                                    "id": recordId,
-                                    "memo": record.memo,
-                                    "imageCount": record.imageCount,
-                                    "visitedAt": record.visitedAt,
-                                    "modifiedAt": record.modifiedAt,
-                                    "categoryId": record.categoryId],
+                                "id": recordId,
+                                "memo": record.memo,
+                                "imageCount": record.imageCount,
+                                "visitedAt": record.visitedAt,
+                                "modifiedAt": record.modifiedAt,
+                                "categoryId": record.categoryId],
                              update: .modified)
-                if let place = place {
-                    if let record = getRecord(recordId: record.id), let currentPlace = record.place.first {
-                        if let index = currentPlace.records.firstIndex(where: { $0.id == record.id }) {
-                            print("삭제할 인덱스 찾음")
-                            currentPlace.records.remove(at: index)
-                            if currentPlace.records.isEmpty {
-                                placeRepository.deletePlace(placeName: currentPlace.roadAddress)
-                            }
-                            place.records.append(record)
-                        }
+            }
+        } catch {
+            print(error, "업데이트 실패")
+        }
+                
+        do {
+            if let record = getRecord(recordId: recordId) {
+                print("record 있음")
+                try realm.write {
+                    if removePlace(record: record) {
+                        place.records.append(record)
+                    } else {
+                        print("제거 실패")
                     }
                 }
             }
+            
         } catch {
-            print(error)
+            print(error, "장소 업데이트 실패")
+        }
+    }
+    
+    private func removePlace(record: Record) -> Bool {
+        guard let currentPlace = record.place.first else { return false }
+        if let index = currentPlace.records.firstIndex(where: { $0.id == record.id}) {
+            print("삭제할 인덱스 찾음")
+            currentPlace.records.remove(at: index)
+            if currentPlace.records.isEmpty {
+                if let place = realm.object(ofType: Place.self, forPrimaryKey: currentPlace.roadAddress) {
+                    print("처음 장소 삭제")
+                    realm.delete(place)
+                }
+            }
+            return true
+        } else {
+            return false
         }
     }
     

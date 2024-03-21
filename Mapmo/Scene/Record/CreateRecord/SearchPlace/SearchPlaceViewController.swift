@@ -11,7 +11,7 @@ class SearchPlaceViewController: BaseViewController {
     let mainView = SearchPlaceView()
     
     let searchPlaceViewModel = SearchPlaceViewModel()
-    var passPlaceDelegate: PassDataDelegate?
+    var passPlaceDelegate: PassPlaceDataDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
