@@ -67,6 +67,10 @@ final class MapView: BaseView {
         currentLocationConfig.baseBackgroundColor = ColorStyle.customWhite
         currentLocationConfig.baseForegroundColor = ColorStyle.customBlack
         moveCurrentLoactionButton.configuration = currentLocationConfig
+        moveCurrentLoactionButton.layer.shadowColor = ColorStyle.customGray.cgColor
+        moveCurrentLoactionButton.layer.shadowOffset = CGSize(width: 2, height: 2)
+        moveCurrentLoactionButton.layer.shadowOpacity = 0.3
+        moveCurrentLoactionButton.layer.shadowRadius = 3
     }
 }
 
