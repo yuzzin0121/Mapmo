@@ -23,6 +23,16 @@ class CategoryRepository {
         }
     }
     
+    func createCategoryList(_ categoryList: [Category]) {
+        do {
+            try realm.write {
+                realm.add(categoryList)
+            }
+        } catch {
+            print("create Place error", error)
+        }
+    }
+    
     func fetchCategory() -> [Category] {
         let categories = Array(realm.objects(Category.self))
         return categories

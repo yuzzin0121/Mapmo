@@ -31,6 +31,7 @@ class MyRecordView: BaseView {
         collectionView.showsVerticalScrollIndicator = false
         collectionView.backgroundColor = ColorStyle.customWhite
         collectionView.register(RecordCollectionViewCell.self, forCellWithReuseIdentifier: RecordCollectionViewCell.identifier)
+        collectionView.register(RecordCollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: RecordCollectionReusableView.identifier)
         
         calendar.locale = Locale(identifier: "ko_KR")
         

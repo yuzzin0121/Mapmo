@@ -16,6 +16,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
       
         window = UIWindow(windowScene: windowScene)
+        if UserDefaultManager.shared.UserStatus == false {
+            let category1 = Category(name: DefaultCategory.life.title, colorName: DefaultCategory.life.colorName)
+            let category2 = Category(name: DefaultCategory.cafe.title, colorName: DefaultCategory.cafe.colorName)
+            let category3 = Category(name: DefaultCategory.matzip.title, colorName: DefaultCategory.matzip.colorName)
+            let categoryRepository = CategoryRepository()
+            categoryRepository.createCategoryList([category1, category2, category3])
+            UserDefaultManager.shared.UserStatus = true
+        }
         let mainViewController = TabBarController()
         window?.rootViewController = mainViewController
         window?.makeKeyAndVisible()

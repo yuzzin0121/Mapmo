@@ -18,6 +18,9 @@
 		611729072BA9E7B7005EBD79 /* PreviousVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611729062BA9E7B7005EBD79 /* PreviousVC.swift */; };
 		6117290A2BAB2229005EBD79 /* PassDataDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611729092BAB2229005EBD79 /* PassDataDelegate.swift */; };
 		6117290E2BAC2985005EBD79 /* MapRecordListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6117290D2BAC2985005EBD79 /* MapRecordListViewModel.swift */; };
+		611729102BACA167005EBD79 /* RecordCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6117290F2BACA167005EBD79 /* RecordCollectionReusableView.swift */; };
+		611729122BACAB2D005EBD79 /* UserDefaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611729112BACAB2D005EBD79 /* UserDefaultManager.swift */; };
+		611729142BACABA7005EBD79 /* DefaultCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611729132BACABA7005EBD79 /* DefaultCategory.swift */; };
 		61214F572B9F50D000C7D0B6 /* SelectCategoryCollectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61214F562B9F50D000C7D0B6 /* SelectCategoryCollectionHeaderView.swift */; };
 		61214F5A2B9F50F800C7D0B6 /* ReuseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61214F592B9F50F800C7D0B6 /* ReuseProtocol.swift */; };
 		61214F5C2B9F514F00C7D0B6 /* ViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61214F5B2B9F514F00C7D0B6 /* ViewProtocol.swift */; };
@@ -122,6 +125,9 @@
 		611729062BA9E7B7005EBD79 /* PreviousVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviousVC.swift; sourceTree = "<group>"; };
 		611729092BAB2229005EBD79 /* PassDataDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassDataDelegate.swift; sourceTree = "<group>"; };
 		6117290D2BAC2985005EBD79 /* MapRecordListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapRecordListViewModel.swift; sourceTree = "<group>"; };
+		6117290F2BACA167005EBD79 /* RecordCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordCollectionReusableView.swift; sourceTree = "<group>"; };
+		611729112BACAB2D005EBD79 /* UserDefaultManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultManager.swift; sourceTree = "<group>"; };
+		611729132BACABA7005EBD79 /* DefaultCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultCategory.swift; sourceTree = "<group>"; };
 		61214F562B9F50D000C7D0B6 /* SelectCategoryCollectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCategoryCollectionHeaderView.swift; sourceTree = "<group>"; };
 		61214F592B9F50F800C7D0B6 /* ReuseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReuseProtocol.swift; sourceTree = "<group>"; };
 		61214F5B2B9F514F00C7D0B6 /* ViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewProtocol.swift; sourceTree = "<group>"; };
@@ -379,6 +385,7 @@
 				61D8E5852BA032FD0080D167 /* InputRecordSection.swift */,
 				61D8E5A72BA2155A0080D167 /* NetworkError.swift */,
 				611729062BA9E7B7005EBD79 /* PreviousVC.swift */,
+				611729132BACABA7005EBD79 /* DefaultCategory.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -513,6 +520,7 @@
 			children = (
 				614153492BA48D8F0035D5C8 /* FileManager+Extension.swift */,
 				619773342BA872F700A1F7B9 /* FormatterManager.swift */,
+				611729112BACAB2D005EBD79 /* UserDefaultManager.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -559,6 +567,7 @@
 			isa = PBXGroup;
 			children = (
 				61B312C52BA7615A000304CE /* RecordCollectionViewCell.swift */,
+				6117290F2BACA167005EBD79 /* RecordCollectionReusableView.swift */,
 			);
 			path = MyRecord;
 			sourceTree = "<group>";
@@ -785,6 +794,7 @@
 				61D8E56F2B9F80400080D167 /* CreateRecordView.swift in Sources */,
 				61D8E5A82BA2155A0080D167 /* NetworkError.swift in Sources */,
 				618CB0622B99D337005BC379 /* UIFont+Pretendard.swift in Sources */,
+				611729122BACAB2D005EBD79 /* UserDefaultManager.swift in Sources */,
 				61D8E5AE2BA2DB5F0080D167 /* UIView+Extension.swift in Sources */,
 				61214F5C2B9F514F00C7D0B6 /* ViewProtocol.swift in Sources */,
 				619773352BA872F700A1F7B9 /* FormatterManager.swift in Sources */,
@@ -826,6 +836,7 @@
 				6126D2F32B9F15CB001F2303 /* SelectCategoryViewModel.swift in Sources */,
 				618CB0642B99D397005BC379 /* TabBarController.swift in Sources */,
 				61B312CC2BA85BF2000304CE /* Double+Extension.swift in Sources */,
+				611729102BACA167005EBD79 /* RecordCollectionReusableView.swift in Sources */,
 				61214F5E2B9F52EF00C7D0B6 /* UILabel+Extension.swift in Sources */,
 				61B312BF2BA7233C000304CE /* ChartViewController.swift in Sources */,
 				611729032BA9734A005EBD79 /* MemoInfoView.swift in Sources */,
@@ -852,6 +863,7 @@
 				61D8E5862BA032FD0080D167 /* InputRecordSection.swift in Sources */,
 				61D8E5A62BA2145E0080D167 /* Place.swift in Sources */,
 				618CB0782B99D62C005BC379 /* BaseView.swift in Sources */,
+				611729142BACABA7005EBD79 /* DefaultCategory.swift in Sources */,
 				618CB06F2B99D55D005BC379 /* HistoryViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

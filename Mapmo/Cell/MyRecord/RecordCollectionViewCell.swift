@@ -48,7 +48,7 @@ final class RecordCollectionViewCell: UICollectionViewCell, ViewProtocol {
     
     func configureLayout() {
         recordThumbnilImageView.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(12)
+            make.leading.equalToSuperview().offset(14)
             make.height.equalTo(90)
             make.width.equalTo(120)
             make.centerY.equalToSuperview()
@@ -56,13 +56,13 @@ final class RecordCollectionViewCell: UICollectionViewCell, ViewProtocol {
         memoLabel.snp.makeConstraints { make in
             make.top.equalTo(recordThumbnilImageView.snp.top).offset(6)
             make.leading.equalTo(recordThumbnilImageView.snp.trailing).offset(12)
-            make.trailing.equalToSuperview().inset(12)
+            make.trailing.equalToSuperview().inset(14)
             make.height.equalTo(16)
         }
         addressStackView.snp.makeConstraints { make in
             make.top.equalTo(memoLabel.snp.bottom).offset(12)
             make.leading.equalTo(recordThumbnilImageView.snp.trailing).offset(6)
-            make.trailing.equalToSuperview().inset(12)
+            make.trailing.equalToSuperview().inset(14)
         }
         markImageView.snp.makeConstraints { make in
             make.size.equalTo(24)
@@ -70,7 +70,7 @@ final class RecordCollectionViewCell: UICollectionViewCell, ViewProtocol {
         visitDateLabel.snp.makeConstraints { make in
             make.top.greaterThanOrEqualTo(addressStackView.snp.bottom).offset(12)
             make.leading.equalTo(memoLabel)
-            make.trailing.equalTo(heartButton.snp.leading).offset(-12)
+            make.trailing.equalTo(heartButton.snp.leading).offset(-14)
             make.bottom.equalTo(recordThumbnilImageView.snp.bottom).offset(-6)
             make.height.equalTo(14)
         }
@@ -78,7 +78,7 @@ final class RecordCollectionViewCell: UICollectionViewCell, ViewProtocol {
         heartButton.snp.makeConstraints { make in
             make.size.equalTo(24)
             make.bottom.equalTo(visitDateLabel)
-            make.trailing.equalToSuperview().inset(12)
+            make.trailing.equalToSuperview().inset(14)
         }
     }
     

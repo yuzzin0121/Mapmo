@@ -45,7 +45,20 @@ class MapRecordListViewController: BaseViewController {
     
 }
 
-extension MapRecordListViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension MapRecordListViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        guard let headerview = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: RecordCollectionReusableView.identifier, for: indexPath) as? RecordCollectionReusableView else {
+            return UICollectionReusableView()
+        }
+        headerview.setData(count: mapRecordListViewModel.inputRecordList.value.count)
+             
+        return headerview
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return CGSize(width: view.frame.width, height: 42)
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return mapRecordListViewModel.inputRecordList.value.count
     }

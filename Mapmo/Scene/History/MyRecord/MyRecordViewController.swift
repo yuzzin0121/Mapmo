@@ -69,7 +69,25 @@ extension MyRecordViewController: FSCalendarDelegate, FSCalendarDataSource {
     }
 }
 
-extension MyRecordViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension MyRecordViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+      
+        if kind == UICollectionView.elementKindSectionHeader {
+            guard let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: RecordCollectionReusableView.identifier, for: indexPath) as? RecordCollectionReusableView else {
+                return UICollectionReusableView()
+            }
+            headerView.setData(count: myRecordViewModel.outputSelectedDateRecordList.value.count)
+            return headerView
+        } else {
+            return UICollectionReusableView()
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return CGSize(width: view.frame.width, height: 42)
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return myRecordViewModel.outputSelectedDateRecordList.value.count
     }
