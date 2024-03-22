@@ -18,7 +18,7 @@ class HistorySegmentedViewController: TabmanViewController {
     }()
     
     var viewControllers: [UIViewController] = []
-    let tabTitles = ["나의 기록", "통계"]
+    let tabTitles = ["나의 기록"]
     var passDelegate: PassDataAndShowVCDelegate?
     var showCreateDelegate: ShowCreateRecordDelegate?
 
@@ -54,12 +54,11 @@ class HistorySegmentedViewController: TabmanViewController {
     
     private func addViewControllers() {
         let myRecordVC = MyRecordViewController()
-        let chartVC = ChartViewController()
         
         myRecordVC.passDelegate = self
         myRecordVC.showCreateRecordDelegate = self
         
-        viewControllers.append(contentsOf: [myRecordVC, chartVC])
+        viewControllers.append(contentsOf: [myRecordVC])
     }
     
     private func setDelegate() {

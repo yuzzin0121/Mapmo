@@ -26,7 +26,7 @@ class MyRecordViewController: UIViewController {
     }
     
     private func setEmptyUI(_ isEmpty: Bool) {
-        mainView.emptyMessaageLabel.isEnabled = !isEmpty
+        mainView.emptyMessaageLabel.isHidden = !isEmpty
     }
     
     @objc private func recordUpdated(notification: NSNotification) {
@@ -44,7 +44,7 @@ class MyRecordViewController: UIViewController {
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: mainView.frame.width, height: 90)
+        layout.itemSize = CGSize(width: mainView.frame.width, height: 95)
         layout.minimumInteritemSpacing = 20
         mainView.collectionView.collectionViewLayout = layout
     }

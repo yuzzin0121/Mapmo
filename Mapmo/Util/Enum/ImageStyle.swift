@@ -8,8 +8,8 @@
 import UIKit
 
 enum ImageStyle {
-    static let map = UIImage(systemName: "map")!
-    static let mapFill = UIImage(systemName: "map.fill")!
+    static let map = UIImage(named: "map")!
+    static let mapFill = UIImage(named: "mapFill")!
     static let photos = UIImage(systemName: "photo.on.rectangle.angled")!
     static let history = UIImage(named: "clock")!
     static let selectedHistory = UIImage(named: "clockFill")!
@@ -32,4 +32,6 @@ enum ImageStyle {
     static let currentLocation = UIImage(named: "currentLocation")!
     static let note = UIImage(named: "note")!
     static let rectPlus = UIImage(named: "rectPlus")!
+    static let heart = UIImage(named: "heart")!
+    static let heartFill = UIImage(named: "heartFill")!
 }

@@ -49,7 +49,7 @@ class MyRecordView: BaseView {
         calendar.appearance.eventSelectionColor = ColorStyle.mapmoColor
         
         // 헤더 설정
-        calendar.appearance.headerTitleFont = .pretendard(size: 20, weight: .semiBold)
+        calendar.appearance.headerTitleFont = .pretendard(size: 17, weight: .semiBold)
         calendar.appearance.headerTitleColor = ColorStyle.customBlack
         calendar.appearance.headerTitleAlignment = .center
         calendar.appearance.headerMinimumDissolvedAlpha = 0.0

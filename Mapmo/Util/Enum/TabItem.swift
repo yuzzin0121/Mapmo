@@ -23,7 +23,7 @@ enum TabItem {
     var image: UIImage {
         switch self {
         case .map: return ImageStyle.map
-        case .list: return ImageStyle.photos
+        case .list: return ImageStyle.heartFill
         case .history: return ImageStyle.history
         }
     }
@@ -31,7 +31,7 @@ enum TabItem {
     var selectedImage: UIImage {
         switch self {
         case .map: return ImageStyle.mapFill
-        case .list: return ImageStyle.photos
+        case .list: return ImageStyle.heartFill
         case .history: return ImageStyle.selectedHistory
         }
     }

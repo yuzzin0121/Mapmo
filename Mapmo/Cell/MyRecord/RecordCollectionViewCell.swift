@@ -11,8 +11,9 @@ import SnapKit
 final class RecordCollectionViewCell: UICollectionViewCell, ViewProtocol {
     let recordThumbnilImageView = UIImageView()
     let memoLabel = UILabel()
-    let addressStackView = UIStackView()
+    let placeStackView = UIStackView()
     let markImageView = UIImageView()
+    let placeLabel = UILabel()
     let addressLabel = UILabel()
     let visitDateLabel = UILabel()
     let heartButton = UIButton()
@@ -34,52 +35,61 @@ final class RecordCollectionViewCell: UICollectionViewCell, ViewProtocol {
         recordThumbnilImageView.image = thumbnailImage
         memoLabel.text = record.memo
         markImageView.tintColor = UIColor(named: record.category.colorName)
-        addressLabel.text = "\(record.place.title) | \(record.place.roadAddress)"
+        placeLabel.text = "\(record.place.title)"
+        addressLabel.text = "\(record.place.roadAddress)"
         visitDateLabel.text = DateFormatterManager.shared.formattedUpdatedDate(record.visitedAt)
+        
+        let image = record.isFavorite ? ImageStyle.heartFill : ImageStyle.heart
+        heartButton.setImage(image, for: .normal)
     }
     
     // MARK: - Configure
     func configureHierarchy() {
-        contentView.addSubviews([recordThumbnilImageView, memoLabel, addressStackView, visitDateLabel, heartButton])
-        [markImageView, addressLabel].forEach {
-            addressStackView.addArrangedSubview($0)
+        contentView.addSubviews([recordThumbnilImageView, memoLabel, placeStackView, addressLabel, visitDateLabel, heartButton])
+        [markImageView, placeLabel].forEach {
+            placeStackView.addArrangedSubview($0)
         }
     }
     
     func configureLayout() {
         recordThumbnilImageView.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(14)
-            make.height.equalTo(90)
+            make.height.equalTo(95)
             make.width.equalTo(120)
             make.centerY.equalToSuperview()
         }
         memoLabel.snp.makeConstraints { make in
-            make.top.equalTo(recordThumbnilImageView.snp.top).offset(4)
+            make.top.equalTo(recordThumbnilImageView.snp.top).offset(2)
             make.leading.equalTo(recordThumbnilImageView.snp.trailing).offset(12)
             make.trailing.equalToSuperview().inset(14)
-            make.height.equalTo(16)
+            make.height.equalTo(17)
         }
-        addressStackView.snp.makeConstraints { make in
+        placeStackView.snp.makeConstraints { make in
             make.top.equalTo(memoLabel.snp.bottom).offset(6)
-            make.leading.equalTo(recordThumbnilImageView.snp.trailing).offset(6)
+            make.leading.equalTo(recordThumbnilImageView.snp.trailing).offset(10)
             make.trailing.equalToSuperview().inset(14)
         }
         markImageView.snp.makeConstraints { make in
-            make.size.equalTo(24)
+            make.size.equalTo(22)
         }
-        addressLabel.snp.makeConstraints { make in
+        
+        placeLabel.snp.makeConstraints { make in
             make.height.equalTo(30)
         }
+        addressLabel.snp.makeConstraints { make in
+            make.top.equalTo(placeStackView.snp.bottom).offset(4)
+            make.horizontalEdges.equalTo(memoLabel)
+        }
         visitDateLabel.snp.makeConstraints { make in
-            make.top.greaterThanOrEqualTo(addressStackView.snp.bottom).offset(8)
+            make.top.greaterThanOrEqualTo(addressLabel.snp.bottom).offset(4)
             make.leading.equalTo(memoLabel)
             make.trailing.equalTo(heartButton.snp.leading).offset(-14)
-            make.bottom.equalTo(recordThumbnilImageView.snp.bottom).offset(-4)
+            make.bottom.equalTo(recordThumbnilImageView.snp.bottom).offset(-2)
             make.height.equalTo(14)
         }
         
         heartButton.snp.makeConstraints { make in
-            make.size.equalTo(24)
+            make.size.equalTo(22)
             make.bottom.equalTo(visitDateLabel)
             make.trailing.equalToSuperview().inset(14)
         }
@@ -89,13 +99,16 @@ final class RecordCollectionViewCell: UICollectionViewCell, ViewProtocol {
         recordThumbnilImageView.image = ImageStyle.emptyPhoto
         recordThumbnilImageView.layer.cornerRadius = 4
         recordThumbnilImageView.clipsToBounds = true
-        memoLabel.design(font: .pretendard(size: 16, weight: .semiBold))
-        addressStackView.design(axis: .horizontal, spacing: 2)
+        memoLabel.design(font: .pretendard(size: 17, weight: .semiBold))
+        placeStackView.design(axis: .horizontal, spacing: 3)
         markImageView.image = ImageStyle.mark
         markImageView.tintColor = ColorStyle.customGray
         
-        addressLabel.design(numberOfLines: 2)
+        placeLabel.design(font: .pretendard(size: 15, weight: .semiBold))
+        addressLabel.design()
         visitDateLabel.design(textColor: ColorStyle.customGray, font: .pretendard(size: 14, weight: .regular))
+        
+        heartButton.setImage(ImageStyle.heart, for: .normal)
     }
     
     required init?(coder: NSCoder) {

@@ -15,6 +15,10 @@ final class RecordListViewController: BaseViewController {
 
     }
     
+    override func configureNavigationItem() {
+        navigationItem.title = TabItem.list.title
+    }
+    
     override func loadView() {
         view = mainView
     }

@@ -30,7 +30,7 @@ class SelectCategoryCollectionHeaderView: UICollectionReusableView, ViewProtocol
         titleLabel.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
             make.leading.equalToSuperview().offset(16)
-            make.height.equalTo(16)
+            make.height.equalTo(20)
         }
         addCategoryButton.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
