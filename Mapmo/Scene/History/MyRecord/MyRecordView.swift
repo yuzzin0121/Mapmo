@@ -11,9 +11,12 @@ import FSCalendar
 class MyRecordView: BaseView {
     let calendar = FSCalendar()
     let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+    let emptyMessaageLabel = UILabel()
+    
     
     override func configureHierarchy() {
         addSubviews([calendar, collectionView])
+        collectionView.addSubview(emptyMessaageLabel)
     }
     override func configureLayout() {
         calendar.snp.makeConstraints { make in
@@ -26,12 +29,17 @@ class MyRecordView: BaseView {
             make.horizontalEdges.equalToSuperview()
             make.bottom.equalTo(safeAreaLayoutGuide)
         }
+        emptyMessaageLabel.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+        }
     }
     override func configureView() {
         collectionView.showsVerticalScrollIndicator = false
         collectionView.backgroundColor = ColorStyle.customWhite
         collectionView.register(RecordCollectionViewCell.self, forCellWithReuseIdentifier: RecordCollectionViewCell.identifier)
         collectionView.register(RecordCollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: RecordCollectionReusableView.identifier)
+        
+        emptyMessaageLabel.design(text: "+ 버튼을 클릭하여 맵모를 남겨보세요", textColor: ColorStyle.customGray, font: .pretendard(size: 17, weight: .regular))
         
         calendar.locale = Locale(identifier: "ko_KR")
         

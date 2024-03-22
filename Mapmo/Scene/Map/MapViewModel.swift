@@ -110,6 +110,7 @@ final class MapViewModel {
         outputPlaceMarkerList.value =  markers
     }
     
+    // 현 지도에 보이는 장소들 가져오기
     private func getVisiblePlace(_ visibleRegion: NMGLatLngBounds) {
         let southWest = visibleRegion.southWest
         let northEast = visibleRegion.northEast

@@ -20,6 +20,7 @@ final class PhotoCollectionViewCell: UICollectionViewCell, ViewProtocol {
     }
     override func prepareForReuse() {
         super.prepareForReuse()
+        photoImageView.image = nil
         configureCell(image: nil)
     }
     
@@ -30,8 +31,8 @@ final class PhotoCollectionViewCell: UICollectionViewCell, ViewProtocol {
     
     // MARK: - Configure
     func configureHierarchy() {
-        addSubview(photoImageView)
-        addSubview(deleteButton)
+        contentView.addSubview(photoImageView)
+        contentView.addSubview(deleteButton)
     }
     
     func configureLayout() {
@@ -41,8 +42,8 @@ final class PhotoCollectionViewCell: UICollectionViewCell, ViewProtocol {
         }
         deleteButton.snp.makeConstraints { make in
             make.size.equalTo(32)
-            make.trailing.equalToSuperview().offset(16)
-            make.top.equalToSuperview().offset(-16)
+            make.trailing.equalToSuperview().offset(12)
+            make.top.equalToSuperview().offset(-12)
         }
     }
     
@@ -53,6 +54,7 @@ final class PhotoCollectionViewCell: UICollectionViewCell, ViewProtocol {
         photoImageView.contentMode = .scaleAspectFill
         photoImageView.layer.cornerRadius = 6
         photoImageView.clipsToBounds = true
+        photoImageView.isUserInteractionEnabled = true
         
         deleteButton.setImage(ImageStyle.xCircle, for: .normal)
     }

@@ -31,7 +31,7 @@ class MapRecordListView: BaseView {
         collectionView.register(RecordCollectionViewCell.self, forCellWithReuseIdentifier: RecordCollectionViewCell.identifier)
         collectionView.register(RecordCollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: RecordCollectionReusableView.identifier)
         
-        emptyMessaageLabel.design(text: "+ 버튼을 눌러 맵모를 남겨보세요", textColor: ColorStyle.customGray, font: .pretendard(size: 18, weight: .regular))
+        emptyMessaageLabel.design(text: "+ 버튼을 클릭하여 맵모를 남겨보세요", textColor: ColorStyle.customGray, font: .pretendard(size: 17, weight: .regular))
     }
 }
 

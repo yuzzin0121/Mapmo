@@ -15,3 +15,8 @@ protocol PassPlaceDataDelegate: AnyObject {
 protocol PassRecordIdDelegate: AnyObject {
     func sendRecordId(_ id: ObjectId)
 }
+
+
+protocol ShowCreateRecordDelegate: AnyObject {
+    func showCreateRecordVC()
+}

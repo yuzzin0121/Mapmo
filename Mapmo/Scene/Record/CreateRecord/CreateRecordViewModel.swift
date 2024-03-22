@@ -19,6 +19,7 @@ final class CreateRecordViewModel {
     var inputRecordSectionList: Observable<[InputRecordSection]> = Observable(InputRecordSection.allCases)
     
     var inputSelectedImageList: Observable<[UIImage]> = Observable([])  // 선택된 이미지 리스트
+    var inputDeleteImageIndex: Observable<Int?> = Observable(nil)
     var inputPlace: Observable<Place?> = Observable(nil)                // 선택된 장소
     var inputVisitDate: Observable<Date> = Observable(Date())           // 방문 시간
     var inputMemo: Observable<String?> = Observable(nil)                // 메모
@@ -68,6 +69,14 @@ final class CreateRecordViewModel {
             guard let value = value else { return }
             self.editRecord()
         }
+        inputDeleteImageIndex.bind { index in
+            guard let index = index else { return }
+            self.deleteImage(index: index)
+        }
+    }
+    
+    private func deleteImage(index: Int) {
+        inputSelectedImageList.value.remove(at: index)
     }
     
     // 이미지, 카테고리, 장소, 메모 데이터 유무 확인

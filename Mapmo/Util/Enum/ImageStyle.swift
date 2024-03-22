@@ -30,4 +30,6 @@ enum ImageStyle {
     static let edit = UIImage(named: "edit")!
     static let trash = UIImage(named: "trash")!
     static let currentLocation = UIImage(named: "currentLocation")!
+    static let note = UIImage(named: "note")!
+    static let rectPlus = UIImage(named: "rectPlus")!
 }

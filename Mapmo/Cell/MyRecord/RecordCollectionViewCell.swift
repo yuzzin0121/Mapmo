@@ -34,7 +34,7 @@ final class RecordCollectionViewCell: UICollectionViewCell, ViewProtocol {
         recordThumbnilImageView.image = thumbnailImage
         memoLabel.text = record.memo
         markImageView.tintColor = UIColor(named: record.category.colorName)
-        addressLabel.text = record.place.roadAddress
+        addressLabel.text = "\(record.place.title) | \(record.place.roadAddress)"
         visitDateLabel.text = DateFormatterManager.shared.formattedUpdatedDate(record.visitedAt)
     }
     
@@ -54,24 +54,27 @@ final class RecordCollectionViewCell: UICollectionViewCell, ViewProtocol {
             make.centerY.equalToSuperview()
         }
         memoLabel.snp.makeConstraints { make in
-            make.top.equalTo(recordThumbnilImageView.snp.top).offset(6)
+            make.top.equalTo(recordThumbnilImageView.snp.top).offset(4)
             make.leading.equalTo(recordThumbnilImageView.snp.trailing).offset(12)
             make.trailing.equalToSuperview().inset(14)
             make.height.equalTo(16)
         }
         addressStackView.snp.makeConstraints { make in
-            make.top.equalTo(memoLabel.snp.bottom).offset(12)
+            make.top.equalTo(memoLabel.snp.bottom).offset(6)
             make.leading.equalTo(recordThumbnilImageView.snp.trailing).offset(6)
             make.trailing.equalToSuperview().inset(14)
         }
         markImageView.snp.makeConstraints { make in
             make.size.equalTo(24)
         }
+        addressLabel.snp.makeConstraints { make in
+            make.height.equalTo(30)
+        }
         visitDateLabel.snp.makeConstraints { make in
-            make.top.greaterThanOrEqualTo(addressStackView.snp.bottom).offset(12)
+            make.top.greaterThanOrEqualTo(addressStackView.snp.bottom).offset(8)
             make.leading.equalTo(memoLabel)
             make.trailing.equalTo(heartButton.snp.leading).offset(-14)
-            make.bottom.equalTo(recordThumbnilImageView.snp.bottom).offset(-6)
+            make.bottom.equalTo(recordThumbnilImageView.snp.bottom).offset(-4)
             make.height.equalTo(14)
         }
         
@@ -91,7 +94,7 @@ final class RecordCollectionViewCell: UICollectionViewCell, ViewProtocol {
         markImageView.image = ImageStyle.mark
         markImageView.tintColor = ColorStyle.customGray
         
-        addressLabel.design()
+        addressLabel.design(numberOfLines: 2)
         visitDateLabel.design(textColor: ColorStyle.customGray, font: .pretendard(size: 14, weight: .regular))
     }
     

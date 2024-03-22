@@ -129,6 +129,12 @@ final class CreateRecordViewController: BaseViewController {
     @objc private func popView() {
         navigationController?.popViewController(animated: true)
     }
+    
+    @objc private func deleteImageButtonClicked(_ sender: UIButton) {
+        print(#function)
+        let index = sender.tag
+        createRecordViewModel.inputDeleteImageIndex.value = index
+    }
 }
 
 // MARK: - 데이터 전달 Delegate 설정
@@ -157,6 +163,8 @@ extension CreateRecordViewController: UICollectionViewDelegate, UICollectionView
             }
             let data = createRecordViewModel.inputSelectedImageList.value[indexPath.item]
             cell.configureCell(image: data)
+            cell.deleteButton.tag = indexPath.item
+            cell.deleteButton.addTarget(self, action: #selector(deleteImageButtonClicked), for: .touchUpInside)
             return cell
         } else {
             switch indexPath.item {

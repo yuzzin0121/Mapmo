@@ -19,6 +19,13 @@ class MyRecordViewController: UIViewController {
 
         setDelegate()
         NotificationCenter.default.addObserver(self, selector: #selector(recordUpdated), name: NSNotification.Name("RecordUpdated"), object: nil)
+        myRecordViewModel.outputSelectedDateRecordList.bind { recordItem in
+            self.setEmptyUI(recordItem.isEmpty)
+        }
+    }
+    
+    private func setEmptyUI(_ isEmpty: Bool) {
+        mainView.emptyMessaageLabel.isEnabled = !isEmpty
     }
     
     @objc private func recordUpdated(notification: NSNotification) {

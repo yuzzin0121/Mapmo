@@ -88,6 +88,7 @@ final class MapViewController: BaseViewController {
         floatingPanelC.delegate = self
         locationManager.delegate = self
         mapRecordListVC.passDelegate = self
+        mapRecordListVC.showCreateRecordDelegate = self
         mainView.naverMapView.addCameraDelegate(delegate: self)
     }
     
@@ -241,6 +242,12 @@ extension MapViewController: PassDataAndShowVCDelegate {
         let detailRecordVC = DetailRecordViewController()
         detailRecordVC.detailRecordViewModel.inputRecordItem.value = recordItem
         navigationController?.pushViewController(detailRecordVC, animated: true)
+    }
+}
+
+extension MapViewController: ShowCreateRecordDelegate {
+    func showCreateRecordVC() {
+        mapViewModel.addRecordButtonTrigger.value = ()
     }
 }
 

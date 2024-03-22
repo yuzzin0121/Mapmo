@@ -12,6 +12,7 @@ class MapRecordListViewController: BaseViewController {
     
     let mapRecordListViewModel = MapRecordListViewModel()
     var passDelegate: PassDataAndShowVCDelegate?
+    var showCreateRecordDelegate: ShowCreateRecordDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,6 +44,10 @@ class MapRecordListViewController: BaseViewController {
         view = mainView
     }
     
+    @objc private func addRecordButtonClicked(sender: UIButton) {
+        showCreateRecordDelegate?.showCreateRecordVC()
+    }
+    
 }
 
 extension MapRecordListViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -51,6 +56,7 @@ extension MapRecordListViewController: UICollectionViewDelegate, UICollectionVie
             return UICollectionReusableView()
         }
         headerview.setData(count: mapRecordListViewModel.inputRecordList.value.count)
+        headerview.addRecordButton.addTarget(self, action: #selector(addRecordButtonClicked), for: .touchUpInside)
              
         return headerview
     }
