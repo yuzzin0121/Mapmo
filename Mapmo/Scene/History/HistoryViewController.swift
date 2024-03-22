@@ -14,6 +14,7 @@ final class HistoryViewController: BaseViewController {
         super.viewDidLoad()
         mainView.historySementedVC.didMove(toParent: self)
         mainView.historySementedVC.passDelegate = self
+        mainView.historySementedVC.showCreateDelegate = self
     }
     
     override func loadView() {
@@ -33,6 +34,15 @@ extension HistoryViewController: PassDataAndShowVCDelegate {
         navigationController?.pushViewController(detailRecordVC, animated: true)
     }
 }
+
+extension HistoryViewController: ShowCreateRecordDelegate {
+    func showCreateRecordVC() {
+        let selectCategoryVC = SelectCategoryViewController()
+        navigationController?.pushViewController(selectCategoryVC, animated: true)
+    }
+}
+
+
 
 protocol PassDataAndShowVCDelegate: AnyObject {
     func showDetailRecordVC(recordItem: RecordItem)

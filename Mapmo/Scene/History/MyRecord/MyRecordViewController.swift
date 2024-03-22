@@ -13,6 +13,7 @@ class MyRecordViewController: UIViewController {
     
     let myRecordViewModel = MyRecordViewModel()
     var passDelegate: PassDataAndShowVCDelegate?
+    var showCreateRecordDelegate: ShowCreateRecordDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,6 +55,10 @@ class MyRecordViewController: UIViewController {
         mainView.collectionView.delegate = self
         mainView.collectionView.dataSource = self
     }
+    
+    @objc private func addRecordButtonClicked(_ sender: UIButton) {
+        showCreateRecordDelegate?.showCreateRecordVC()
+    }
 }
 
 extension MyRecordViewController: FSCalendarDelegate, FSCalendarDataSource {
@@ -85,6 +90,7 @@ extension MyRecordViewController: UICollectionViewDelegate, UICollectionViewData
                 return UICollectionReusableView()
             }
             headerView.setData(count: myRecordViewModel.outputSelectedDateRecordList.value.count)
+            headerView.addRecordButton.addTarget(self, action: #selector(addRecordButtonClicked), for: .touchUpInside)
             return headerView
         } else {
             return UICollectionReusableView()
