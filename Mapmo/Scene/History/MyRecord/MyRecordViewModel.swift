@@ -10,6 +10,7 @@ import Foundation
 class MyRecordViewModel {
     var inputSelectedDate: Observable<Date> = Observable(Date())
     var outputSelectedDateRecordList: Observable<[RecordItem]> = Observable([])
+    var toggleIsFavorite: Observable<Int?> = Observable(nil)
     
     let recordRepository = RecordRepository()
     let categoryRepository = CategoryRepository()
@@ -23,6 +24,16 @@ class MyRecordViewModel {
         inputSelectedDate.bind { selectedDate in
             self.getSelectedDateRecords(selectedDate: selectedDate)
         }
+        toggleIsFavorite.bind { index in
+            guard let index = index else { return }
+            self.toggleIsFavorite(index)
+        }
+    }
+    
+    private func toggleIsFavorite(_ index: Int) {
+        let record = outputSelectedDateRecordList.value[index]
+        recordRepository.updateFavorite(record.id)
+        getSelectedDateRecords(selectedDate: inputSelectedDate.value)
     }
     
     func getNumberOfEventDate(date: Date) -> Int {

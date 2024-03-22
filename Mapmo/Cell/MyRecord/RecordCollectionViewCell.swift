@@ -109,6 +109,7 @@ final class RecordCollectionViewCell: UICollectionViewCell, ViewProtocol {
         visitDateLabel.design(textColor: ColorStyle.customGray, font: .pretendard(size: 14, weight: .regular))
         
         heartButton.setImage(ImageStyle.heart, for: .normal)
+        heartButton.tintColor = ColorStyle.customBlack
     }
     
     required init?(coder: NSCoder) {

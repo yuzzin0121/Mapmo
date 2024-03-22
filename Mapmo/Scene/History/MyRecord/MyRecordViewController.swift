@@ -21,6 +21,7 @@ class MyRecordViewController: UIViewController {
         setDelegate()
         NotificationCenter.default.addObserver(self, selector: #selector(recordUpdated), name: NSNotification.Name("RecordUpdated"), object: nil)
         myRecordViewModel.outputSelectedDateRecordList.bind { recordItem in
+            self.mainView.calendar.reloadData()
             self.setEmptyUI(recordItem.isEmpty)
         }
     }
@@ -58,6 +59,13 @@ class MyRecordViewController: UIViewController {
     
     @objc private func addRecordButtonClicked(_ sender: UIButton) {
         showCreateRecordDelegate?.showCreateRecordVC()
+    }
+    
+    @objc private func heartButtonClicked(_ sender: UIButton) {
+        let index = sender.tag
+        myRecordViewModel.toggleIsFavorite.value = index
+        mainView.collectionView.reloadData()
+        NotificationCenter.default.post(name: NSNotification.Name("RecordUpdated"), object: nil, userInfo: nil)
     }
 }
 
@@ -112,6 +120,8 @@ extension MyRecordViewController: UICollectionViewDelegate, UICollectionViewData
         
         let data = myRecordViewModel.outputSelectedDateRecordList.value[indexPath.item]
         cell.configureCell(record: data)
+        cell.heartButton.tag = indexPath.item
+        cell.heartButton.addTarget(self, action: #selector(heartButtonClicked), for: .touchUpInside)
         
         return cell
     }

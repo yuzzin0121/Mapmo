@@ -111,4 +111,15 @@ class RecordRepository {
             }
         }
     }
+    
+    func updateFavorite(_ recordId: ObjectId) {
+        guard let record = getRecord(recordId: recordId) else { return }
+        do {
+            try realm.write {
+                record.isFavorite.toggle()
+            }
+        } catch {
+            print(error)
+        }
+    }
 }
