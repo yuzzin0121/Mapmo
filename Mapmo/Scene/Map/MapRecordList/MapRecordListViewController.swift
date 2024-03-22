@@ -48,6 +48,13 @@ class MapRecordListViewController: BaseViewController {
         showCreateRecordDelegate?.showCreateRecordVC()
     }
     
+    @objc private func heartButtonClicked(_ sender: UIButton) {
+        let index = sender.tag
+        mapRecordListViewModel.toggleIsFavorite.value = index
+        mainView.collectionView.reloadData()
+        NotificationCenter.default.post(name: NSNotification.Name("RecordUpdated"), object: nil, userInfo: nil)
+    }
+    
 }
 
 extension MapRecordListViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -76,6 +83,8 @@ extension MapRecordListViewController: UICollectionViewDelegate, UICollectionVie
         
         let data = mapRecordListViewModel.inputRecordList.value[indexPath.item]
         cell.configureCell(record: data)
+        cell.heartButton.tag = indexPath.item
+        cell.heartButton.addTarget(self, action: #selector(heartButtonClicked), for: .touchUpInside)
         
         return cell
     }

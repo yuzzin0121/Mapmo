@@ -35,6 +35,8 @@ class MyRecordViewController: UIViewController {
         if let date = userInfo?["updatedDate"] as? Date {
             mainView.calendar.reloadData()
             calendar(mainView.calendar, didSelect: date, at: .current)
+        } else {
+            calendar(mainView.calendar, didSelect: myRecordViewModel.inputSelectedDate.value, at: .current)
         }
     }
     
@@ -64,7 +66,6 @@ class MyRecordViewController: UIViewController {
     @objc private func heartButtonClicked(_ sender: UIButton) {
         let index = sender.tag
         myRecordViewModel.toggleIsFavorite.value = index
-        mainView.collectionView.reloadData()
         NotificationCenter.default.post(name: NSNotification.Name("RecordUpdated"), object: nil, userInfo: nil)
     }
 }
