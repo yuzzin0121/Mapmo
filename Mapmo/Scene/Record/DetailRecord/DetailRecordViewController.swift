@@ -26,6 +26,7 @@ final class DetailRecordViewController: BaseViewController {
     private func setData(_ record: RecordItem) {
         setImages(images: record.images)
         mainView.placeInfoView.valueLabel.text = record.place.roadAddress
+        mainView.placeInfoView.iconImageView.tintColor = UIColor(named: record.category.colorName)
         mainView.visitDateInfoView.valueLabel.text = DateFormatterManager.shared.formattedVisitedDate(record.visitedAt)
         mainView.memoInfoView.memoTextView.text = record.memo
         

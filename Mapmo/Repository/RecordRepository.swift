@@ -42,6 +42,13 @@ class RecordRepository {
         return realm.object(ofType: Record.self, forPrimaryKey: recordId)
     }
     
+    func fetchFavoriteRecords() -> [Record] {
+        let records = realm.objects(Record.self).where {
+            $0.isFavorite == true
+        }.sorted(byKeyPath: "modifiedAt", ascending: true)
+        return Array(records)
+    }
+    
     func updateRecord(_ record: Record, recordId: ObjectId, place: Place) {
         print(realm.configuration.fileURL)
         // U

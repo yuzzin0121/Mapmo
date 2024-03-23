@@ -21,6 +21,10 @@
 		611729102BACA167005EBD79 /* RecordCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6117290F2BACA167005EBD79 /* RecordCollectionReusableView.swift */; };
 		611729122BACAB2D005EBD79 /* UserDefaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611729112BACAB2D005EBD79 /* UserDefaultManager.swift */; };
 		611729142BACABA7005EBD79 /* DefaultCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611729132BACABA7005EBD79 /* DefaultCategory.swift */; };
+		611729172BADFA37005EBD79 /* RecordListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611729162BADFA37005EBD79 /* RecordListViewModel.swift */; };
+		6117291A2BADFA8D005EBD79 /* RecordListCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611729192BADFA8D005EBD79 /* RecordListCollectionReusableView.swift */; };
+		6117291C2BADFA97005EBD79 /* RecordListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6117291B2BADFA96005EBD79 /* RecordListCollectionViewCell.swift */; };
+		6117291E2BADFAD9005EBD79 /* RecordCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6117291D2BADFAD9005EBD79 /* RecordCardView.swift */; };
 		61214F572B9F50D000C7D0B6 /* SelectCategoryCollectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61214F562B9F50D000C7D0B6 /* SelectCategoryCollectionHeaderView.swift */; };
 		61214F5A2B9F50F800C7D0B6 /* ReuseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61214F592B9F50F800C7D0B6 /* ReuseProtocol.swift */; };
 		61214F5C2B9F514F00C7D0B6 /* ViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61214F5B2B9F514F00C7D0B6 /* ViewProtocol.swift */; };
@@ -128,6 +132,10 @@
 		6117290F2BACA167005EBD79 /* RecordCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordCollectionReusableView.swift; sourceTree = "<group>"; };
 		611729112BACAB2D005EBD79 /* UserDefaultManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultManager.swift; sourceTree = "<group>"; };
 		611729132BACABA7005EBD79 /* DefaultCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultCategory.swift; sourceTree = "<group>"; };
+		611729162BADFA37005EBD79 /* RecordListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordListViewModel.swift; sourceTree = "<group>"; };
+		611729192BADFA8D005EBD79 /* RecordListCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordListCollectionReusableView.swift; sourceTree = "<group>"; };
+		6117291B2BADFA96005EBD79 /* RecordListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordListCollectionViewCell.swift; sourceTree = "<group>"; };
+		6117291D2BADFAD9005EBD79 /* RecordCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordCardView.swift; sourceTree = "<group>"; };
 		61214F562B9F50D000C7D0B6 /* SelectCategoryCollectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCategoryCollectionHeaderView.swift; sourceTree = "<group>"; };
 		61214F592B9F50F800C7D0B6 /* ReuseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReuseProtocol.swift; sourceTree = "<group>"; };
 		61214F5B2B9F514F00C7D0B6 /* ViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewProtocol.swift; sourceTree = "<group>"; };
@@ -262,9 +270,19 @@
 			path = DetailRecord;
 			sourceTree = "<group>";
 		};
+		611729182BADFA75005EBD79 /* RecordList */ = {
+			isa = PBXGroup;
+			children = (
+				611729192BADFA8D005EBD79 /* RecordListCollectionReusableView.swift */,
+				6117291B2BADFA96005EBD79 /* RecordListCollectionViewCell.swift */,
+			);
+			path = RecordList;
+			sourceTree = "<group>";
+		};
 		61214F552B9F50A500C7D0B6 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				611729182BADFA75005EBD79 /* RecordList */,
 				611728E62BA897DC005EBD79 /* Chart */,
 				61B312C42BA76140000304CE /* MyRecord */,
 				61D8E5872BA033970080D167 /* CreateRecord */,
@@ -499,6 +517,7 @@
 			children = (
 				618CB06C2B99D551005BC379 /* RecordListViewController.swift */,
 				618CB07D2B99D675005BC379 /* RecordListView.swift */,
+				611729162BADFA37005EBD79 /* RecordListViewModel.swift */,
 			);
 			path = RecordList;
 			sourceTree = "<group>";
@@ -588,6 +607,7 @@
 				61D8E5612B9F73150080D167 /* MapmoButton.swift */,
 				611729002BA96158005EBD79 /* InfoView.swift */,
 				611729022BA9734A005EBD79 /* MemoInfoView.swift */,
+				6117291D2BADFAD9005EBD79 /* RecordCardView.swift */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -787,6 +807,7 @@
 				61D8E5B02BA450280080D167 /* Record.swift in Sources */,
 				61D8E5892BA033B30080D167 /* AddPhotoCollectionViewCell.swift in Sources */,
 				61B312C32BA748C5000304CE /* MyRecordView.swift in Sources */,
+				6117291C2BADFA97005EBD79 /* RecordListCollectionViewCell.swift in Sources */,
 				618CB0762B99D5B8005BC379 /* ImageStyle.swift in Sources */,
 				61D8E5932BA076550080D167 /* PhotoCollectionViewCell.swift in Sources */,
 				61D8E59E2BA211AB0080D167 /* PlaceCollectionViewCell.swift in Sources */,
@@ -801,12 +822,14 @@
 				611729072BA9E7B7005EBD79 /* PreviousVC.swift in Sources */,
 				61D8E5732B9FDB110080D167 /* ValidationCategoryNameError.swift in Sources */,
 				618CB06D2B99D551005BC379 /* RecordListViewController.swift in Sources */,
+				611729172BADFA37005EBD79 /* RecordListViewModel.swift in Sources */,
 				61D8E5682B9F79D50080D167 /* CategoryColor.swift in Sources */,
 				6141534A2BA48D8F0035D5C8 /* FileManager+Extension.swift in Sources */,
 				6142585E2B9E916D00F35521 /* Observable.swift in Sources */,
 				618CB07C2B99D64A005BC379 /* MapView.swift in Sources */,
 				61D8E58F2BA051260080D167 /* InputMemoCollectionViewCell.swift in Sources */,
 				61D8E5622B9F73150080D167 /* MapmoButton.swift in Sources */,
+				6117291E2BADFAD9005EBD79 /* RecordCardView.swift in Sources */,
 				618CB06B2B99D548005BC379 /* MapViewController.swift in Sources */,
 				61D8E5652B9F75820080D167 /* SelectCategoryColorCollectionViewCell.swift in Sources */,
 				61B169D32BA5781100D6D63F /* MapRecordListView.swift in Sources */,
@@ -847,6 +870,7 @@
 				61D8E5A02BA213080080D167 /* NaverMapAPI.swift in Sources */,
 				611728F12BA91241005EBD79 /* DetailRecordView.swift in Sources */,
 				61B169D52BA579D200D6D63F /* FloatingPanelController+Extension.swift in Sources */,
+				6117291A2BADFA8D005EBD79 /* RecordListCollectionReusableView.swift in Sources */,
 				618CB07E2B99D675005BC379 /* RecordListView.swift in Sources */,
 				61B312B62BA71EFD000304CE /* CALayer+Extension.swift in Sources */,
 				61D8E5712B9FD7840080D167 /* Category.swift in Sources */,

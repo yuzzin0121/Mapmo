@@ -15,7 +15,7 @@ enum TabItem {
     var title: String {
         switch self {
         case .map: return "지도"
-        case .list: return "목록"
+        case .list: return "좋아요한 맵모"
         case .history: return "히스토리"
         }
     }
