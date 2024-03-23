@@ -31,6 +31,7 @@ extension HistoryViewController: PassDataAndShowVCDelegate {
     func showDetailRecordVC(recordItem: RecordItem) {
         let detailRecordVC = DetailRecordViewController()
         detailRecordVC.detailRecordViewModel.inputRecordItem.value = recordItem
+        detailRecordVC.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(detailRecordVC, animated: true)
     }
 }
