@@ -22,6 +22,8 @@ class SearchPlaceView: BaseView {
         }
     }
     override func configureView() {
+        backgroundColor = ColorStyle.customWhite
+        collectionView.backgroundColor = ColorStyle.customWhite
         collectionView.showsVerticalScrollIndicator = false
         collectionView.register(PlaceCollectionViewCell.self, forCellWithReuseIdentifier: PlaceCollectionViewCell.identifier)
 

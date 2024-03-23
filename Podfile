@@ -14,6 +14,9 @@ target 'Mapmo' do
   pod 'FSCalendar'
   pod 'DGCharts'
   pod 'Tabman', '~> 3.0'
+
+  pod ‘Firebase/AnalyticsWithoutAdIdSupport’
+  pod 'Firebase/Crashlytics'
   # Pods for Mapmo
 
 end
