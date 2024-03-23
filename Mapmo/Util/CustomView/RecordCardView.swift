@@ -45,7 +45,9 @@ class RecordCardView: BaseView {
         }
     }
     override func configureView() {
-        gradientView.applyGradientBackground()
+        DispatchQueue.main.async {
+            self.gradientView.applyGradientBackground()
+        }
         thumbnailImageView.contentMode = .scaleAspectFill
         
         placeLabel.design(textColor: .white, font: .pretendard(size: 15, weight: .regular))

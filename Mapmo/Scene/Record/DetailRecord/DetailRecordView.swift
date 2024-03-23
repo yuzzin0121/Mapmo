@@ -12,9 +12,9 @@ class DetailRecordView: BaseView {
     let editButton = {
         let image = ImageStyle.edit
         let button = UIButton(frame: CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height))
-        button.tintColor = ColorStyle.customBlack
-        button.setImage(image, for: .normal)
         var configuration = UIButton.Configuration.plain()
+        configuration.image = image
+        configuration.baseForegroundColor = ColorStyle.customBlack
         configuration.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 0)
         button.configuration = configuration
         return button
@@ -22,9 +22,9 @@ class DetailRecordView: BaseView {
     let deleteButton = {
         let image = ImageStyle.trash
         let button = UIButton(frame: CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height))
-        button.tintColor = ColorStyle.customBlack
-        button.setImage(image, for: .normal)
         var configuration = UIButton.Configuration.plain()
+        configuration.image = image
+        configuration.baseForegroundColor = ColorStyle.customBlack
         configuration.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 0)
         button.configuration = configuration
         return button

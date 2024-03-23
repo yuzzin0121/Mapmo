@@ -66,7 +66,7 @@ final class SelectCategoryCollectionViewCell: UICollectionViewCell, ViewProtocol
         contentView.layer.cornerRadius = 12
         contentView.clipsToBounds = true
         markImageView.image = ImageStyle.mark
-        titleLabel.design(text: "일상")
+        titleLabel.design(text: "일상", font: .pretendard(size: 16, weight: .semiBold))
     }
     
     required init?(coder: NSCoder) {
