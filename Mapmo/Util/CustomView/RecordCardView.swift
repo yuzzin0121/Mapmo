@@ -35,7 +35,7 @@ class RecordCardView: BaseView {
         }
         
         memoLabel.snp.makeConstraints { make in
-            make.bottom.equalTo(placeLabel.snp.top).offset(-8)
+            make.bottom.equalTo(placeLabel.snp.top).offset(-4)
             make.horizontalEdges.equalToSuperview().inset(12)
         }
         
@@ -48,8 +48,8 @@ class RecordCardView: BaseView {
         gradientView.applyGradientBackground()
         thumbnailImageView.contentMode = .scaleAspectFill
         
-        placeLabel.design(textColor: .white)
-        memoLabel.design(textColor: .white)
+        placeLabel.design(textColor: .white, font: .pretendard(size: 15, weight: .regular))
+        memoLabel.design(textColor: .white, font: .pretendard(size: 16, weight: .semiBold))
         heartButton.setImage(ImageStyle.heart, for: .normal)
         heartButton.tintColor = .white
     }

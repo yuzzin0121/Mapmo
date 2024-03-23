@@ -61,7 +61,24 @@ final class RecordListViewController: BaseViewController {
     }
 }
 
-extension RecordListViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension RecordListViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+      
+        if kind == UICollectionView.elementKindSectionHeader {
+            guard let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: RecordListCollectionReusableView.identifier, for: indexPath) as? RecordListCollectionReusableView else {
+                return UICollectionReusableView()
+            }
+            headerView.setData(count: recordListViewModel.outputRecordItemList.value.count)
+            return headerView
+        } else {
+            return UICollectionReusableView()
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return CGSize(width: view.frame.width, height: 42)
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return recordListViewModel.outputRecordItemList.value.count
     }
