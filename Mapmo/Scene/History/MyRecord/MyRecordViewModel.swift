@@ -66,7 +66,6 @@ class MyRecordViewModel {
                                         modifiedAt: record.modifiedAt)
             recordItems.append(recordItem)
         }
-        print(recordItems)
         outputSelectedDateRecordList.value = recordItems
         
     }

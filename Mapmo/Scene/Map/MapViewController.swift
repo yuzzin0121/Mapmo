@@ -136,7 +136,6 @@ extension MapViewController: CLLocationManagerDelegate {
     // 사용자의 위치를 성공적으로 가지고 온 경우 실행
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let coordinate = locations.last?.coordinate {
-            print(coordinate)
             mapViewModel.inputCurrentLocation.value = coordinate
         }
         

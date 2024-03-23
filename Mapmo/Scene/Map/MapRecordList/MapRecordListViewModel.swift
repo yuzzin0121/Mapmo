@@ -27,6 +27,5 @@ class MapRecordListViewModel {
     private func toggleIsFavorite(_ index: Int) {
         let record = inputRecordList.value[index]
         recordRepository.updateFavorite(record.id)
-        inputRecordList.value.remove(at: index)
     }
 }

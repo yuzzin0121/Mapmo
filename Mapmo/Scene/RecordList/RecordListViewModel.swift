@@ -35,6 +35,7 @@ final class RecordListViewModel {
     private func toggleIsFavorite(_ index: Int) {
         let record = outputRecordItemList.value[index]
         recordRepository.updateFavorite(record.id)
+        outputRecordItemList.value.remove(at: index)
     }
     
     private func fetchFavoriteRecordItem() {

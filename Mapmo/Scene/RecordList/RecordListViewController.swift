@@ -18,7 +18,12 @@ final class RecordListViewController: BaseViewController {
         setDelegate()
         recordListViewModel.outputRecordItemList.bind { recordItemList in
             self.mainView.collectionView.reloadData()
+            self.setEmptyUI(recordItemList.isEmpty)
         }
+    }
+    
+    private func setEmptyUI(_ isEmpty: Bool) {
+        mainView.emptyMessaageLabel.isHidden = !isEmpty
     }
     
     override func viewWillAppear(_ animated: Bool) {

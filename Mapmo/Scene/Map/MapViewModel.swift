@@ -101,7 +101,6 @@ final class MapViewModel {
                 break
                 return
             }
-            print()
             marker.iconImage = NMFOverlayImage(name: category.colorName)
             marker.width = 35
             marker.height = 35
