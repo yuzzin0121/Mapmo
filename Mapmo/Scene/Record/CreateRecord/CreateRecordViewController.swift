@@ -163,8 +163,8 @@ extension CreateRecordViewController: UICollectionViewDelegate, UICollectionView
             }
             let data = createRecordViewModel.inputSelectedImageList.value[indexPath.item]
             cell.configureCell(image: data)
-            cell.deleteButton.tag = indexPath.item
-            cell.deleteButton.addTarget(self, action: #selector(deleteImageButtonClicked), for: .touchUpInside)
+//            cell.deleteButton.tag = indexPath.item
+//            cell.deleteButton.addTarget(self, action: #selector(deleteImageButtonClicked), for: .touchUpInside)
             return cell
         } else {
             switch indexPath.item {

@@ -10,7 +10,7 @@ import SnapKit
 
 final class PhotoCollectionViewCell: UICollectionViewCell, ViewProtocol {
     let photoImageView = UIImageView()
-    let deleteButton = UIButton()
+//    let deleteButton = UIButton()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -32,7 +32,7 @@ final class PhotoCollectionViewCell: UICollectionViewCell, ViewProtocol {
     // MARK: - Configure
     func configureHierarchy() {
         contentView.addSubview(photoImageView)
-        contentView.addSubview(deleteButton)
+//        contentView.addSubview(deleteButton)
     }
     
     func configureLayout() {
@@ -40,11 +40,11 @@ final class PhotoCollectionViewCell: UICollectionViewCell, ViewProtocol {
             make.edges.equalToSuperview()
             make.size.equalToSuperview()
         }
-        deleteButton.snp.makeConstraints { make in
-            make.size.equalTo(32)
-            make.trailing.equalToSuperview().offset(12)
-            make.top.equalToSuperview().offset(-12)
-        }
+//        deleteButton.snp.makeConstraints { make in
+//            make.size.equalTo(32)
+//            make.trailing.equalToSuperview().offset(12)
+//            make.top.equalToSuperview().offset(-12)
+//        }
     }
     
     func configureView() {
@@ -56,7 +56,7 @@ final class PhotoCollectionViewCell: UICollectionViewCell, ViewProtocol {
         photoImageView.clipsToBounds = true
         photoImageView.isUserInteractionEnabled = true
         
-        deleteButton.setImage(ImageStyle.xCircle, for: .normal)
+//        deleteButton.setImage(ImageStyle.xCircle, for: .normal)
     }
     
     required init?(coder: NSCoder) {

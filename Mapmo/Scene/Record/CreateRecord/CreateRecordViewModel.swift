@@ -77,6 +77,7 @@ final class CreateRecordViewModel {
     
     private func deleteImage(index: Int) {
         inputSelectedImageList.value.remove(at: index)
+        print(index)
     }
     
     // 이미지, 카테고리, 장소, 메모 데이터 유무 확인
