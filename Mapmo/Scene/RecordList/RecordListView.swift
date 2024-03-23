@@ -27,6 +27,8 @@ final class RecordListView: BaseView {
         }
     }
     override func configureView() {
+        backgroundColor = ColorStyle.customWhite
+        collectionView.backgroundColor = ColorStyle.customWhite
         collectionView.showsVerticalScrollIndicator = false
         collectionView.register(RecordListCollectionViewCell.self, forCellWithReuseIdentifier: RecordListCollectionViewCell.identifier)
         collectionView.register(RecordListCollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: RecordListCollectionReusableView.identifier)

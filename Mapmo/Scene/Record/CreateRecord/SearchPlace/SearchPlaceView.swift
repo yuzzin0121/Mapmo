@@ -25,5 +25,6 @@ class SearchPlaceView: BaseView {
         collectionView.showsVerticalScrollIndicator = false
         collectionView.register(PlaceCollectionViewCell.self, forCellWithReuseIdentifier: PlaceCollectionViewCell.identifier)
 
+        searchController.searchBar.backgroundColor = ColorStyle.customWhite
     }
 }

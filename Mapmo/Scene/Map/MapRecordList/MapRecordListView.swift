@@ -27,6 +27,7 @@ class MapRecordListView: BaseView {
         }
     }
     override func configureView() {
+        backgroundColor = ColorStyle.customWhite
         collectionView.backgroundColor = ColorStyle.customWhite
         collectionView.register(RecordCollectionViewCell.self, forCellWithReuseIdentifier: RecordCollectionViewCell.identifier)
         collectionView.register(RecordCollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: RecordCollectionReusableView.identifier)
