@@ -101,7 +101,7 @@ final class MapViewModel {
                 break
                 return
             }
-            marker.iconImage = NMFOverlayImage(name: category.colorName)
+            marker.iconImage = NMFOverlayImage(name: "\(category.colorName)Image")
             marker.width = 35
             marker.height = 35
             markers.append(marker)
