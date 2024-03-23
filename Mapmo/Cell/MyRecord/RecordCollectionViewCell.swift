@@ -104,9 +104,9 @@ final class RecordCollectionViewCell: UICollectionViewCell, ViewProtocol {
         markImageView.image = ImageStyle.mark
         markImageView.tintColor = ColorStyle.customGray
         
-        placeLabel.design(font: .pretendard(size: 15, weight: .semiBold))
+        placeLabel.design(font: .pretendard(size: 15, weight: .medium))
         addressLabel.design()
-        visitDateLabel.design(textColor: ColorStyle.customGray, font: .pretendard(size: 14, weight: .regular))
+        visitDateLabel.design(textColor: ColorStyle.customGray, font: .pretendard(size: 13, weight: .light))
         
         heartButton.setImage(ImageStyle.heart, for: .normal)
         heartButton.tintColor = ColorStyle.customBlack
