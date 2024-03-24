@@ -19,7 +19,7 @@ final class MapmoButton: UIButton {
     }
     
     private func configureView() {
-        backgroundColor = ColorStyle.null
+        backgroundColor = ColorStyle.mapmoBackgroundColor
         layer.cornerRadius = 12
         clipsToBounds = true
     }
