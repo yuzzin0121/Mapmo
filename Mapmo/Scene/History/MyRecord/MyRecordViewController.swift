@@ -34,7 +34,7 @@ class MyRecordViewController: UIViewController {
         let userInfo = notification.userInfo
         if let date = userInfo?["updatedDate"] as? Date {
             mainView.calendar.reloadData()
-            calendar(mainView.calendar, didSelect: date, at: .current)
+            calendar(mainView.calendar, didSelect: Date(), at: .current)
         } else {
             calendar(mainView.calendar, didSelect: myRecordViewModel.inputSelectedDate.value, at: .current)
         }
