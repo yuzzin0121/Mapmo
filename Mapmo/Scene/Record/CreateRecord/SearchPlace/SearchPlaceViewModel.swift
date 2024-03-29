@@ -39,7 +39,7 @@ class SearchPlaceViewModel {
     private func validate(text: String?) {
         guard let text = text else { return }
         
-        if text.isEmpty {
+        if text.isEmpty || text.trimmingCharacters(in: [" "]).isEmpty {
             return
         } else {
             callRequest(query: text, display: 30, sort: "random")
