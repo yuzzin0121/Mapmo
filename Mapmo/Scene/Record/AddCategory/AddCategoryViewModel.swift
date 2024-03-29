@@ -51,7 +51,9 @@ class AddCategoryViewModel {
         guard let categoryName = inputCategoryName.value else { return }
         guard let selectedColor = selectedColor.value else { return }
         
-        let category = Category(name: categoryName, colorName: selectedColor.name)
+        let trimmedCatecoryName = categoryName.trimmingCharacters(in: [" "])
+        
+        let category = Category(name: trimmedCatecoryName, colorName: selectedColor.name)
         categoryRepository.createCategory(category)
     }
     
@@ -66,6 +68,12 @@ class AddCategoryViewModel {
     
     private func validateCategoryName(name: String?) {
         guard let name = name else { return }
+        
+        if name.trimmingCharacters(in: [" "]).isEmpty {
+            outputWarningMessage.value = ValidationCategoryNameError.space.message
+            isValidName.value = false
+            return
+        }
         
         var pattern = "^.{2,14}$"
         if name.isEmpty || name.range(of: pattern, options: .regularExpression) == nil {

@@ -12,6 +12,7 @@ enum ValidationCategoryNameError: Error {
     case invalidateLength
     case isSpecialChars
     case overlap
+    case space
     
     var message: String {
         switch self {
@@ -21,6 +22,8 @@ enum ValidationCategoryNameError: Error {
             return "@, #, $, %는 포함할 수 없어요"
         case .overlap:
             return "이미 존재하는 이름이에요"
+        case .space:
+            return "공백을 제거해주세요"
         }
     }
 }

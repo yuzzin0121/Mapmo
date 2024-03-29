@@ -84,10 +84,12 @@ final class CreateRecordViewModel {
     func checkData() {
         guard let memo = inputMemo.value else {
             print("메모 없음")
-            isActivate.value = false
             return
         }
-        if !inputSelectedImageList.value.isEmpty && inputSelectedCategory.value != nil && inputPlace.value != nil && !memo.isEmpty {
+        
+        let trimmedMemo = memo.trimmingCharacters(in: [" "])
+        
+        if !inputSelectedImageList.value.isEmpty && inputSelectedCategory.value != nil && inputPlace.value != nil && !(trimmedMemo.isEmpty) {
             // 생성할 데이터들이 존재할 때: 생성 버튼 활성화 해야한다. , Realm에 Record, Place(중복 확인) 저장
             print("활성화 성공")
             isActivate.value = true
@@ -110,6 +112,8 @@ final class CreateRecordViewModel {
         if inputSelectedImageList.value.isEmpty {
             return
         }
+        
+        let trimmedMemo = memo.trimmingCharacters(in: [" "])
         
         let record = Record(memo: memo,
                                 imageCount: inputSelectedImageList.value.count,
@@ -167,8 +171,10 @@ final class CreateRecordViewModel {
             return nil
         }
         
+        let trimmedMemo = memo.trimmingCharacters(in: [" "])
+        
         let record = Record(
-                            memo: memo,
+                            memo: trimmedMemo,
                             imageCount: inputSelectedImageList.value.count,
                             visitedAt: inputVisitDate.value,
                             createdAt: createdAt ?? Date(),

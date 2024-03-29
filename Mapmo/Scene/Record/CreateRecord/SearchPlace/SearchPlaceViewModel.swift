@@ -38,11 +38,12 @@ class SearchPlaceViewModel {
     
     private func validate(text: String?) {
         guard let text = text else { return }
+        let trimmedText = text.trimmingCharacters(in: [" "])
         
-        if text.isEmpty || text.trimmingCharacters(in: [" "]).isEmpty {
+        if trimmedText.isEmpty {
             return
         } else {
-            callRequest(query: text, display: 30, sort: "random")
+            callRequest(query: trimmedText, display: 30, sort: "random")
         }
     }
 }
