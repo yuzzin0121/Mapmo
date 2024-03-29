@@ -6,33 +6,64 @@
 //
 
 import Foundation
+import Network
 
 class SearchPlaceViewModel {
     var inputSearchText: Observable<String?> = Observable(nil)
     var searchButtonClickTrigger: Observable<Void?> = Observable(nil)
     var outputPlaceItemList: Observable<[PlaceItem]> = Observable([])
+    var inputViewDidLoadTrigger: Observable<Void?> = Observable(nil)
+    var outputNetworkConnect: Observable<Void?> = Observable(nil)
+    
+    private let monitor = NWPathMonitor()
     
     init() {
         transform()
     }
     
+    deinit {
+        monitor.cancel()
+    }
+    
     private func transform() {
-        searchButtonClickTrigger.bind { value in
-            guard let value = value else { return }
+        searchButtonClickTrigger.bind { [weak self] value in
+            guard let self = self else { return }
+            if value == nil { return }
             self.validate(text: self.inputSearchText.value)
         }
+        
+        inputViewDidLoadTrigger.bind { [weak self] value in
+            guard let self = self else { return }
+            if value == nil { return }
+            self.handleNetwork()
+        }
+    }
+    
+    private func handleNetwork() {
+        print(#function)
+        monitor.start(queue: .global())
     }
     
     // 장소 검색
     private func callRequest(query: String, display: Int, sort: String) {
-        NaverMapAPIManager.shared.fetchData(type: PlaceModel.self, api: .place(query: query, display: display, sort: sort)) { response, error in
-            if error == nil {
-                guard let response = response else { return }
-                self.outputPlaceItemList.value = response.items
-            } else {
-                guard let error = error else { return }
-                
+        print("흠흠")
+        if monitor.currentPath.status == .satisfied {
+            
+            print("satisfied")
+            NaverMapAPIManager.shared.fetchData(type: PlaceModel.self, api: .place(query: query, display: display, sort: sort)) { [weak self] response, error in
+                guard let self = self else { return }
+                if error == nil {
+                    guard let response = response else { return }
+                    self.outputPlaceItemList.value = response.items
+                } else {
+                    guard let error = error else { return }
+                    
+                }
             }
+            
+        } else {
+            print("Not satisfied")
+            outputNetworkConnect.value = ()
         }
     }
     

@@ -17,13 +17,17 @@ class BaseViewController: UIViewController {
         
     }
     
-    func showAlert(title: String, message: String, actionTitle: String, completionHandler: ((UIAlertAction) -> Void)?) {
+    func showAlert(title: String, message: String, actionTitle: String, showCancel: Bool, completionHandler: ((UIAlertAction) -> Void)?) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
         let action = UIAlertAction(title: actionTitle, style: .destructive, handler: completionHandler)
-        let cancelAction = UIAlertAction(title: "취소", style: .cancel)
         alert.addAction(action)
-        alert.addAction(cancelAction)
+        
+        if showCancel {
+            let cancelAction = UIAlertAction(title: "취소", style: .cancel)
+            alert.addAction(cancelAction)
+        }
+        
         present(alert, animated: true)
     }
     

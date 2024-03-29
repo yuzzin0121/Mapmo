@@ -16,11 +16,25 @@ class SearchPlaceViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setDelegate()
-        searchPlaceViewModel.outputPlaceItemList.bind { placeItemList in
+        searchPlaceViewModel.outputPlaceItemList.bind { [weak self] placeItemList in
+            guard let self = self else { return }
             if !placeItemList.isEmpty {
                 self.mainView.collectionView.reloadData()
             }
         }
+        searchPlaceViewModel.outputNetworkConnect.bind { [weak self] value in
+            guard let self = self else { return }
+            if value == nil { return }
+            self.showAlert(title: "인터넷 연결이 원활하지 않습니다.", message: "Wifi 또는 셀룰러를 활성화 해주세요", actionTitle: "확인", showCancel: false, completionHandler: nil)
+        }
+        
+        searchPlaceViewModel.inputViewDidLoadTrigger.value = ()
+    }
+    
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
     }
     
     private func setDelegate() {

@@ -96,7 +96,7 @@ final class DetailRecordViewController: BaseViewController {
     // 삭제 버튼 클릭 시
     @objc private func deleteButtonClicked() {
         guard let record = detailRecordViewModel.inputRecordItem.value else { return }
-        showAlert(title: "기록 삭제", message: "\(record.memo.prefix(10))을\n정말로 삭제하시겠습니까?", actionTitle: "삭제") { UIAlertAction in
+        showAlert(title: "기록 삭제", message: "\(record.memo.prefix(10))을\n정말로 삭제하시겠습니까?", actionTitle: "삭제", showCancel: true) { UIAlertAction in
             self.deleteRecord()
         }
     }
