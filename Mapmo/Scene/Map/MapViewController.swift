@@ -108,10 +108,6 @@ final class MapViewController: BaseViewController {
         navigationController?.pushViewController(selectCategoryVC, animated: true)
     }
     
-    @objc private func refreshButtonClicked(_ sender: UIButton) {
-        getCurrentRegion()
-    }
-    
     @objc private func moveCurrentLoactionButtonClicked(_ sender: UIButton) {
         checkDeviceLocationAuthorization()
     }
@@ -121,7 +117,6 @@ final class MapViewController: BaseViewController {
     }
     
     private func setAction() {
-        mainView.refreshButton.addTarget(self, action: #selector(refreshButtonClicked), for: .touchUpInside)
         mainView.moveCurrentLoactionButton.addTarget(self, action: #selector(moveCurrentLoactionButtonClicked), for: .touchUpInside)
         mainView.addRecordButton.addTarget(self, action: #selector(addRecordButtonClicked), for: .touchUpInside)
     }

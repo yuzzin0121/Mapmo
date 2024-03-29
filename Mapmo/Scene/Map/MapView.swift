@@ -11,24 +11,17 @@ import SnapKit
 
 final class MapView: BaseView {
     let naverMapView = NMFMapView()
-    let refreshButton = UIButton()
     let moveCurrentLoactionButton = UIButton()
     let addRecordButton = UIButton()
     
     override func configureHierarchy() {
         addSubview(naverMapView)
-        addSubview(refreshButton)
         addSubview(moveCurrentLoactionButton)
         addSubview(addRecordButton)
     }
     override func configureLayout() {
         naverMapView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
-        }
-        refreshButton.snp.makeConstraints { make in
-            make.top.equalTo(safeAreaLayoutGuide).offset(20)
-            make.centerX.equalToSuperview()
-            make.height.equalTo(40)
         }
         moveCurrentLoactionButton.snp.makeConstraints { make in
             make.top.equalTo(safeAreaLayoutGuide).offset(60)
@@ -43,15 +36,6 @@ final class MapView: BaseView {
     }
     override func configureView() {
         naverMapView.allowsZooming = true
-        
-        var refreshConfig = UIButton.Configuration.filled()
-        refreshConfig.image = ImageStyle.refresh
-        refreshConfig.title = "현 지도에서 찾기"
-        refreshConfig.cornerStyle = .capsule
-        refreshConfig.imagePadding = 6
-        refreshConfig.baseBackgroundColor = ColorStyle.customWhite
-        refreshConfig.baseForegroundColor = ColorStyle.mapmoColor
-        refreshButton.configuration = refreshConfig
         
         var addRecordConfig = UIButton.Configuration.filled()
         addRecordConfig.image = ImageStyle.plus
