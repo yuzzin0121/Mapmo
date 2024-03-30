@@ -11,10 +11,23 @@ class BaseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureNavigationItem()
+        setSwipe()
     }
     
     func configureNavigationItem() {
         
+    }
+    
+    private func setSwipe() {
+        let swipeRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(swipeAction))
+        swipeRecognizer.direction = .right
+        view.addGestureRecognizer(swipeRecognizer)
+    }
+    
+    @objc func swipeAction(_ sender: UISwipeGestureRecognizer) {
+        if sender.direction == .right {
+            self.navigationController?.popViewController(animated: true)
+        }
     }
     
     func showAlert(title: String, message: String, actionTitle: String, showCancel: Bool, completionHandler: ((UIAlertAction) -> Void)?) {

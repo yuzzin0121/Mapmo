@@ -55,7 +55,7 @@ class DetailRecordView: BaseView {
         }
         imageScrollView.snp.makeConstraints { make in
             make.top.horizontalEdges.equalTo(contentView)
-            make.height.equalTo(200)
+            make.height.equalTo(250)
         }
         pageControl.snp.makeConstraints { make in
             make.bottom.horizontalEdges.equalTo(imageScrollView).inset(10)

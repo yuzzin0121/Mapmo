@@ -37,6 +37,18 @@ final class SelectCategoryViewController: BaseViewController {
         mainView.collectionView.dataSource = self
     }
     
+//    private func setSwipe() {
+//        let swipeRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(swipeAction))
+//        swipeRecognizer.direction = .right
+//        view.addGestureRecognizer(swipeRecognizer)
+//    }
+    
+//    @objc func swipeAction(_ sender: UISwipeGestureRecognizer) {
+//        if sender.direction == .right {
+//            self.navigationController?.popViewController(animated: true)
+//        }
+//    }
+    
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         let layout = UICollectionViewFlowLayout()

@@ -36,7 +36,7 @@ final class DetailRecordViewController: BaseViewController {
     // 이미지 데이터 스크롤뷰에 적용
     private func setImages(images: [UIImage]) {
         mainView.pageControl.numberOfPages = images.count
-        mainView.imageScrollView.contentSize = CGSize(width: UIScreen.main.bounds.width * CGFloat(images.count), height: 200)
+        mainView.imageScrollView.contentSize = CGSize(width: UIScreen.main.bounds.width * CGFloat(images.count), height: 250)
         for index in 0..<images.count {
             let imageView = UIImageView()
             imageView.image = images[index]
@@ -45,7 +45,7 @@ final class DetailRecordViewController: BaseViewController {
             imageView.frame = CGRect(x: UIScreen.main.bounds.width * CGFloat(index),
                                      y: 0,
                                      width: UIScreen.main.bounds.width,
-                                     height: 200)
+                                     height: 250)
             mainView.imageScrollView.addSubview(imageView)
         }
     }
