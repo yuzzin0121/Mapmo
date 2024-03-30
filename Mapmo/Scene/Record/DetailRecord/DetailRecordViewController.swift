@@ -29,7 +29,7 @@ final class DetailRecordViewController: BaseViewController {
     // 전달받은 기록 데이터 UI에 반영
     private func setData(_ record: RecordItem) {
         setImages(images: record.images)
-        mainView.placeInfoView.valueLabel.text = record.place.roadAddress
+        mainView.placeInfoView.valueLabel.text = record.place.address
         mainView.placeInfoView.iconImageView.tintColor = UIColor(named: record.category.colorName)
         mainView.visitDateInfoView.valueLabel.text = DateFormatterManager.shared.formattedVisitedDate(record.visitedAt)
         mainView.memoInfoView.memoTextView.text = record.memo

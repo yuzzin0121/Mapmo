@@ -9,17 +9,25 @@ import UIKit
 import NMapsMap
 import IQKeyboardManagerSwift
 import FirebaseCore
+import RealmSwift
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
-
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
         NMFAuthManager.shared().clientId = APIKey.NMFClientId
         IQKeyboardManager.shared.enable = true
         
+        let configuration = Realm.Configuration(schemaVersion: 1) {
+            migration, oldSchemaVersion in
+            if oldSchemaVersion < 1 {
+                print("Schema: 0 -> 1")
+                migration.renameProperty(onType: Place.className(), from: "roadAddress", to: "address")
+            }
+        }
+        
+        Realm.Configuration.defaultConfiguration = configuration
         return true
     }
 

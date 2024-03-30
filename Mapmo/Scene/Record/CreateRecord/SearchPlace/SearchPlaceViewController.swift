@@ -75,7 +75,7 @@ final class SearchPlaceViewController: BaseViewController {
     
     private func placeItemSelected(_ placeItem: PlaceItem) {
         if let mapx = Double(placeItem.mapx), let mapy = Double(placeItem.mapy) {
-            let place = Place(roadAddress: placeItem.roadAddress,
+            let place = Place(address: placeItem.address,
                               lat: mapy.convertToCoordinate(),
                               lng: mapx.convertToCoordinate(),
                               title: placeItem.title.htmlEscaped,

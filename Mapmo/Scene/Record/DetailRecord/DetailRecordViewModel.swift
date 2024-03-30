@@ -46,7 +46,7 @@ final class DetailRecordViewModel {
     
         recordRepository.deleteRecord(recordItem.id)
         if recordItem.place.records.count == 0 {
-            placeRepository.deletePlace(placeName: recordItem.place.roadAddress)
+            placeRepository.deletePlace(placeName: recordItem.place.address)
         }
     }
     

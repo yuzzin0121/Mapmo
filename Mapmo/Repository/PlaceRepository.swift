@@ -26,7 +26,7 @@ final class PlaceRepository {
     
     // 등록된 장소 모두 불러오기
     func fetchPlace() -> [Place] {
-        let places = Array(realm.objects(Place.self).sorted(byKeyPath: "roadAddress", ascending: true))
+        let places = Array(realm.objects(Place.self).sorted(byKeyPath: "address", ascending: true))
         return places
     }
     
@@ -51,7 +51,7 @@ final class PlaceRepository {
     
     func isExistPlace(_ place: Place) -> Bool {
         let places: [Place] = Array(realm.objects(Place.self).where {
-            $0.roadAddress == place.roadAddress
+            $0.address == place.address
         })
         
         return !places.isEmpty

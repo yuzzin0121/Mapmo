@@ -36,7 +36,7 @@ final class RecordCollectionViewCell: UICollectionViewCell, ViewProtocol {
         memoLabel.text = record.memo
         markImageView.tintColor = UIColor(named: record.category.colorName)
         placeLabel.text = "\(record.place.title)"
-        addressLabel.text = "\(record.place.roadAddress)"
+        addressLabel.text = "\(record.place.address)"
         visitDateLabel.text = DateFormatterManager.shared.formattedUpdatedDate(record.visitedAt)
         
         let image = record.isFavorite ? ImageStyle.heartFill : ImageStyle.heart

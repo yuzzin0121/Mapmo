@@ -72,7 +72,7 @@ final class RecordRepository {
             if let record = getRecord(recordId: recordId) {
                 print("record 있음")
                 guard let currentPlace = record.place.first else { return }
-                if currentPlace.roadAddress == place.roadAddress {
+                if currentPlace.address == place.address {
                     print("같은 장소임")
                     return
                 } else {
@@ -96,7 +96,7 @@ final class RecordRepository {
             print("삭제할 인덱스 찾음")
             currentPlace.records.remove(at: index)
             if currentPlace.records.isEmpty {
-                if let place = realm.object(ofType: Place.self, forPrimaryKey: currentPlace.roadAddress) {
+                if let place = realm.object(ofType: Place.self, forPrimaryKey: currentPlace.address) {
                     print("처음 장소 삭제")
                     realm.delete(place)
                 }
