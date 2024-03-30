@@ -19,11 +19,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         NMFAuthManager.shared().clientId = APIKey.NMFClientId
         IQKeyboardManager.shared.enable = true
         
-        let configuration = Realm.Configuration(schemaVersion: 1) {
+        let configuration = Realm.Configuration(schemaVersion: 2) {
             migration, oldSchemaVersion in
             if oldSchemaVersion < 1 {
                 print("Schema: 0 -> 1")
                 migration.renameProperty(onType: Place.className(), from: "roadAddress", to: "address")
+            }
+            
+            if oldSchemaVersion < 2 {
+                print("Schema: 1 -> 2")
+                
+                migration.enumerateObjects(ofType: Place.className()) { oldObject,
+                    newObject in
+                    guard let new = newObject else { return }
+                    new["modifiedAt"] = Date()
+                }
             }
         }
         

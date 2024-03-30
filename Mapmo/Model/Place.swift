@@ -30,14 +30,16 @@ final class Place: Object {
     @Persisted var lng: Double
     @Persisted var title: String
     @Persisted var link: String
+    @Persisted var modifiedAt: Date
     @Persisted var records: List<Record>
     
-    convenience init(address: String, lat: Double, lng: Double, title: String, link: String) {
+    convenience init(address: String, lat: Double, lng: Double, title: String, link: String, modifiedAt: Date) {
         self.init()
         self.address = address
         self.lat = lat
         self.lng = lng
         self.title = title
         self.link = link
+        self.modifiedAt = modifiedAt
     }
 }

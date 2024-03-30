@@ -79,7 +79,8 @@ final class SearchPlaceViewController: BaseViewController {
                               lat: mapy.convertToCoordinate(),
                               lng: mapx.convertToCoordinate(),
                               title: placeItem.title.htmlEscaped,
-                              link: placeItem.link)
+                              link: placeItem.link,
+                              modifiedAt: Date())
             passPlaceDelegate?.sendPlace(place)
             popView()
         }

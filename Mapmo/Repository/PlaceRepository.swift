@@ -30,6 +30,21 @@ final class PlaceRepository {
         return places
     }
     
+    func getPlace(address: String) -> Place? {
+        return realm.object(ofType: Place.self, forPrimaryKey: address)
+    }
+    
+    func updateModifiedAt(address: String) {
+        guard let place = getPlace(address: address) else { return }
+        do {
+            try realm.write {
+                place.modifiedAt = Date()
+            }
+        } catch {
+            print(error)
+        }
+    }
+    
     func getVisiblePlaces(x1: Double, x2: Double, y1: Double, y2: Double) -> [Place] {
         print("\(x1), \(y1)----\(x2), \(y2)")
         let predicate = NSPredicate(format: "lat >= %f && lat <= %f && lng >= %f && lng <= %f", x1, x2, y1, y2)

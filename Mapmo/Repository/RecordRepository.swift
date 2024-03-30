@@ -18,6 +18,7 @@ final class RecordRepository {
             try realm.write {
                 if let place {
                     place.records.append(record)
+                    place.modifiedAt = Date()
                     print("Append Record To Place")
                 }
                 realm.add(record)
@@ -79,6 +80,7 @@ final class RecordRepository {
                     try realm.write {
                         if removePlace(record: record, currentPlace: currentPlace) {
                             place.records.append(record)
+                            place.modifiedAt = Date()
                         } else {
                             print("제거 실패")
                         }
