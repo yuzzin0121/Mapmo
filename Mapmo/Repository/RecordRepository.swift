@@ -8,7 +8,7 @@
 import Foundation
 import RealmSwift
 
-class RecordRepository {
+final class RecordRepository {
     private let realm = try! Realm()
     private let placeRepository = PlaceRepository()
     

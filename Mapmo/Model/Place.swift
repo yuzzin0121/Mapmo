@@ -24,7 +24,7 @@ struct PlaceItem: Decodable {
 }
 
 // Realm 모델
-class Place: Object {
+final class Place: Object {
     @Persisted(primaryKey: true) var roadAddress: String
     @Persisted var lat: Double
     @Persisted var lng: Double

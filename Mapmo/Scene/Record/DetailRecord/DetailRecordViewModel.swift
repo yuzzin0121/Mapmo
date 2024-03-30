@@ -13,10 +13,10 @@ final class DetailRecordViewModel {
     var deleteRecordTrigger: Observable<Void?> = Observable(nil)
     var inputRecordId: Observable<ObjectId?> = Observable(nil)
     
-    let fileManagerClass = FileManagerClass()
-    let recordRepository = RecordRepository()
-    lazy var placeRepository = PlaceRepository()
-    lazy var categoryRepository = CategoryRepository()
+    private let fileManagerClass = FileManagerClass()
+    private let recordRepository = RecordRepository()
+    private lazy var placeRepository = PlaceRepository()
+    private lazy var categoryRepository = CategoryRepository()
     
     init() {
         transform()

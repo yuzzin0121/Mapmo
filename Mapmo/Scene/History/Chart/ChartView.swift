@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ChartView: BaseView {
+final class ChartView: BaseView {
     
     override func configureHierarchy() {
         

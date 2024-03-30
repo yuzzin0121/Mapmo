@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class MemoInfoView: UIView, ViewProtocol {
+final class MemoInfoView: UIView, ViewProtocol {
     
     let titleLabel = UILabel()
     let memoTextView = UITextView()

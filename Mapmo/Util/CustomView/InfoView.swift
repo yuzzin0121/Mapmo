@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class InfoView: UIView, ViewProtocol {
+final class InfoView: UIView, ViewProtocol {
     
     let titleLabel = UILabel()
     let valueBackgroundView = UIView()

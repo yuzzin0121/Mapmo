@@ -7,7 +7,7 @@
 
 import Foundation
 
-class ChartViewModel {
+final class ChartViewModel {
     
     
     init() {

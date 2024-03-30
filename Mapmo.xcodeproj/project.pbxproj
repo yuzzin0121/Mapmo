@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		611722CE2BB7EE7D006A2415 /* mapmoSplash.png in Resources */ = {isa = PBXBuildFile; fileRef = 611722CD2BB7EE7D006A2415 /* mapmoSplash.png */; };
 		611728E82BA897FD005EBD79 /* CategoryRecordCountCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611728E72BA897FD005EBD79 /* CategoryRecordCountCollectionViewCell.swift */; };
 		611728EA2BA89819005EBD79 /* DateRecordCountCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611728E92BA89819005EBD79 /* DateRecordCountCollectionViewCell.swift */; };
 		611728EC2BA89826005EBD79 /* CategoryLikeCountCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611728EB2BA89826005EBD79 /* CategoryLikeCountCollectionViewCell.swift */; };
@@ -39,7 +40,6 @@
 		614258662B9E940D00F35521 /* AddCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614258652B9E940D00F35521 /* AddCategoryViewController.swift */; };
 		614258682B9E943500F35521 /* AddCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614258672B9E943500F35521 /* AddCategoryView.swift */; };
 		6142586A2B9E96AB00F35521 /* SelectCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614258692B9E96AA00F35521 /* SelectCategoryView.swift */; };
-		615819482BB00129008DAA84 /* mapmoSplash.png in Resources */ = {isa = PBXBuildFile; fileRef = 615819452BB00129008DAA84 /* mapmoSplash.png */; };
 		618CB02F2B99D073005BC379 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618CB02E2B99D073005BC379 /* AppDelegate.swift */; };
 		618CB0312B99D073005BC379 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618CB0302B99D073005BC379 /* SceneDelegate.swift */; };
 		618CB0382B99D075005BC379 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 618CB0372B99D075005BC379 /* Assets.xcassets */; };
@@ -120,6 +120,7 @@
 
 /* Begin PBXFileReference section */
 		266404A7697C85E9C64645C6 /* Pods-Mapmo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mapmo.release.xcconfig"; path = "Target Support Files/Pods-Mapmo/Pods-Mapmo.release.xcconfig"; sourceTree = "<group>"; };
+		611722CD2BB7EE7D006A2415 /* mapmoSplash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mapmoSplash.png; sourceTree = "<group>"; };
 		611728E72BA897FD005EBD79 /* CategoryRecordCountCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryRecordCountCollectionViewCell.swift; sourceTree = "<group>"; };
 		611728E92BA89819005EBD79 /* DateRecordCountCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateRecordCountCollectionViewCell.swift; sourceTree = "<group>"; };
 		611728EB2BA89826005EBD79 /* CategoryLikeCountCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryLikeCountCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -152,7 +153,6 @@
 		614258652B9E940D00F35521 /* AddCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCategoryViewController.swift; sourceTree = "<group>"; };
 		614258672B9E943500F35521 /* AddCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCategoryView.swift; sourceTree = "<group>"; };
 		614258692B9E96AA00F35521 /* SelectCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCategoryView.swift; sourceTree = "<group>"; };
-		615819452BB00129008DAA84 /* mapmoSplash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mapmoSplash.png; sourceTree = "<group>"; };
 		618CB02B2B99D073005BC379 /* Mapmo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mapmo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		618CB02E2B99D073005BC379 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		618CB0302B99D073005BC379 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -340,7 +340,7 @@
 		615819422BB0011A008DAA84 /* LaunchScreen */ = {
 			isa = PBXGroup;
 			children = (
-				615819452BB00129008DAA84 /* mapmoSplash.png */,
+				611722CD2BB7EE7D006A2415 /* mapmoSplash.png */,
 			);
 			path = LaunchScreen;
 			sourceTree = "<group>";
@@ -391,7 +391,6 @@
 				618CB0472B99D148005BC379 /* Extensions */,
 				618CB0462B99D143005BC379 /* Enum */,
 				618CB0452B99D140005BC379 /* Base */,
-				6142585D2B9E916D00F35521 /* Observable.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -399,6 +398,7 @@
 		618CB0452B99D140005BC379 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				6142585D2B9E916D00F35521 /* Observable.swift */,
 				618CB0772B99D62C005BC379 /* BaseView.swift */,
 				618CB0792B99D632005BC379 /* BaseViewController.swift */,
 			);
@@ -748,11 +748,11 @@
 			files = (
 				618CB05F2B99D2D0005BC379 /* Pretendard-SemiBold.otf in Resources */,
 				618CB0432B99D084005BC379 /* .gitignore in Resources */,
-				615819482BB00129008DAA84 /* mapmoSplash.png in Resources */,
 				618CB0722B99D58A005BC379 /* Colors.xcassets in Resources */,
 				618CB05E2B99D2D0005BC379 /* Pretendard-Thin.otf in Resources */,
 				618CB03B2B99D075005BC379 /* LaunchScreen.storyboard in Resources */,
 				618CB05C2B99D2D0005BC379 /* Pretendard-ExtraBold.otf in Resources */,
+				611722CE2BB7EE7D006A2415 /* mapmoSplash.png in Resources */,
 				618CB05B2B99D2D0005BC379 /* Pretendard-Bold.otf in Resources */,
 				618CB0602B99D2D0005BC379 /* Pretendard-ExtraLight.otf in Resources */,
 				618CB05D2B99D2D0005BC379 /* Pretendard-Regular.otf in Resources */,

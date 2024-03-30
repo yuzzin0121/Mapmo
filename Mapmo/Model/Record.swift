@@ -8,7 +8,7 @@
 import Foundation
 import RealmSwift
 
-class Record: Object {
+final class Record: Object {
     @Persisted(primaryKey: true) var id: ObjectId
     @Persisted var memo: String
     @Persisted var imageCount: Int

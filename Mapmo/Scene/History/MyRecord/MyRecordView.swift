@@ -8,7 +8,7 @@
 import UIKit
 import FSCalendar
 
-class MyRecordView: BaseView {
+final class MyRecordView: BaseView {
     let calendar = FSCalendar()
     let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     let emptyMessaageLabel = UILabel()

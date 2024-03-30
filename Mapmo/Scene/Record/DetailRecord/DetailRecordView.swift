@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class DetailRecordView: BaseView {
+final class DetailRecordView: BaseView {
     let editButton = {
         let image = ImageStyle.edit
         let button = UIButton(frame: CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height))

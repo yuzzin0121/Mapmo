@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CreateRecordView: BaseView {
+final class CreateRecordView: BaseView {
     lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     let createButton = MapmoButton()
     

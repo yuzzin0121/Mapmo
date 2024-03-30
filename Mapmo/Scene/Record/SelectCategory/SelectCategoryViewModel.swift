@@ -7,7 +7,7 @@
 
 import Foundation
 
-class SelectCategoryViewModel {
+final class SelectCategoryViewModel {
     var categoryList: Observable<[Category]> = Observable([])
     var fetchCategoryTrigger: Observable<Void?> = Observable(nil)
     var inputSelectedCategory: Observable<Category?> = Observable(nil)

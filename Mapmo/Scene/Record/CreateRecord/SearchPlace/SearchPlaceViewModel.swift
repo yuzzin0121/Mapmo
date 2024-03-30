@@ -8,7 +8,7 @@
 import Foundation
 import Network
 
-class SearchPlaceViewModel {
+final class SearchPlaceViewModel {
     var inputSearchText: Observable<String?> = Observable(nil)
     var searchButtonClickTrigger: Observable<Void?> = Observable(nil)
     var outputPlaceItemList: Observable<[PlaceItem]> = Observable([])

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SelectCategoryColorCollectionViewCell: UICollectionViewCell{
+final class SelectCategoryColorCollectionViewCell: UICollectionViewCell{
     
     override init(frame: CGRect) {
         super.init(frame: frame)

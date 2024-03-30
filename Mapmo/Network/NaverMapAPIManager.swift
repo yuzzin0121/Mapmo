@@ -8,7 +8,7 @@
 import Foundation
 import Alamofire
 
-class NaverMapAPIManager {
+final class NaverMapAPIManager {
     static let shared = NaverMapAPIManager()
     private init() { }
     

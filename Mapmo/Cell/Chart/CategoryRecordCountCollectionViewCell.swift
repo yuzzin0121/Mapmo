@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class CategoryRecordCountCollectionViewCell: UICollectionViewCell, ViewProtocol {
+final class CategoryRecordCountCollectionViewCell: UICollectionViewCell, ViewProtocol {
     let titleLabel = UILabel()
     let firstCategoryStackView = UIStackView()
     let firstRankLabel = UILabel()

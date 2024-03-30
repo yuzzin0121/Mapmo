@@ -7,7 +7,7 @@
 
 import Foundation
 
-class MyRecordViewModel {
+final class MyRecordViewModel {
     var inputSelectedDate: Observable<Date> = Observable(Date())
     var outputSelectedDateRecordList: Observable<[RecordItem]> = Observable([])
     var toggleIsFavorite: Observable<Int?> = Observable(nil)

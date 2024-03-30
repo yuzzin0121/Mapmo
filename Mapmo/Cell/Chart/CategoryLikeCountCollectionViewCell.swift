@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CategoryLikeCountCollectionViewCell: UICollectionViewCell, ViewProtocol {
+final class CategoryLikeCountCollectionViewCell: UICollectionViewCell, ViewProtocol {
     override init(frame: CGRect) {
         super.init(frame: frame)
         configureHierarchy()

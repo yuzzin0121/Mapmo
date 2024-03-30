@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class ChartViewController: UIViewController {
+final class ChartViewController: UIViewController {
     enum Section: Int, CaseIterable {
         case categoryRecordCount
         case recordCount

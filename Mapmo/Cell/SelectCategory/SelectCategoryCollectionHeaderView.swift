@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class SelectCategoryCollectionHeaderView: UICollectionReusableView, ViewProtocol {
+final class SelectCategoryCollectionHeaderView: UICollectionReusableView, ViewProtocol {
     
     private let titleLabel = UILabel()
     let addCategoryButton = UIButton()

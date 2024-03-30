@@ -7,7 +7,7 @@
 
 import Foundation
 
-class AddCategoryViewModel {
+final class AddCategoryViewModel {
     var inputCategoryName: Observable<String?> = Observable(nil)
     var outputWarningMessage: Observable<String?> = Observable(nil)
     var isValidName: Observable<Bool> = Observable(false)

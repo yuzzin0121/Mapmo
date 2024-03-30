@@ -7,7 +7,7 @@
 
 import Foundation
 
-class MapRecordListViewModel {
+final class MapRecordListViewModel {
     var inputRecordList: Observable<[RecordItem]> = Observable([])
     var toggleIsFavorite: Observable<Int?> = Observable(nil)
     

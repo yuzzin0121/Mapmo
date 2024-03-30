@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SearchPlaceViewController: BaseViewController {
+final class SearchPlaceViewController: BaseViewController {
     let mainView = SearchPlaceView()
     
     let searchPlaceViewModel = SearchPlaceViewModel()

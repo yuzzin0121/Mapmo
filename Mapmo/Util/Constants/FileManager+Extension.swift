@@ -8,7 +8,7 @@
 import UIKit
 
 // TODO: - 파일 관련 오류가 발생했을 때 Error 클래스 만들기
-class FileManagerClass {
+final class FileManagerClass {
     
     // 도큐먼트/images/recordId 삭제
     func removeImagesFromDocument(recordId: String) {

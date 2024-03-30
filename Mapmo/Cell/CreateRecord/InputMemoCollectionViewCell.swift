@@ -7,7 +7,7 @@
 
 import UIKit
 
-class InputMemoCollectionViewCell: UICollectionViewCell {
+final class InputMemoCollectionViewCell: UICollectionViewCell {
     let iconImageView = UIImageView()
     let titleLabel = UILabel()
     let memoTextView = UITextView()

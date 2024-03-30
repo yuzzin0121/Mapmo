@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class RecordListCollectionViewCell: UICollectionViewCell, ViewProtocol {
+final class RecordListCollectionViewCell: UICollectionViewCell, ViewProtocol {
     let recordCardView = RecordCardView()
     
     override init(frame: CGRect) {

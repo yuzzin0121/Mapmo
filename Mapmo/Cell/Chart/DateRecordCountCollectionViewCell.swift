@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DateRecordCountCollectionViewCell: UICollectionViewCell, ViewProtocol {
+final class DateRecordCountCollectionViewCell: UICollectionViewCell, ViewProtocol {
     override init(frame: CGRect) {
         super.init(frame: frame)
         configureHierarchy()

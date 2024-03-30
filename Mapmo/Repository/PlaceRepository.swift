@@ -8,7 +8,7 @@
 import Foundation
 import RealmSwift
 
-class PlaceRepository {
+final class PlaceRepository {
     private let realm = try! Realm()
     
     // 카테고리 추가

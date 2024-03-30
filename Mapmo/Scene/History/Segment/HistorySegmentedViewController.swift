@@ -9,7 +9,7 @@ import UIKit
 import Tabman
 import Pageboy
 
-class HistorySegmentedViewController: TabmanViewController {
+final class HistorySegmentedViewController: TabmanViewController {
     let tabView = {
         let view = UIView()
         view.backgroundColor = ColorStyle.customWhite

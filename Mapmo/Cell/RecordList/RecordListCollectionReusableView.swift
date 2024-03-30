@@ -7,7 +7,7 @@
 
 import UIKit
 
-class RecordListCollectionReusableView: UICollectionReusableView {
+final class RecordListCollectionReusableView: UICollectionReusableView, ViewProtocol {
     let countLabel = UILabel()
     
     override init(frame: CGRect) {

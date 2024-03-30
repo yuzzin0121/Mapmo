@@ -8,7 +8,7 @@
 import UIKit
 import FSCalendar
 
-class MyRecordViewController: UIViewController {
+final class MyRecordViewController: UIViewController {
     let mainView = MyRecordView()
     
     let myRecordViewModel = MyRecordViewModel()

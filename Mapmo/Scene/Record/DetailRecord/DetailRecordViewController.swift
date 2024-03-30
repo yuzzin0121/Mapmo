@@ -9,7 +9,7 @@ import UIKit
 import RealmSwift
 
 final class DetailRecordViewController: BaseViewController {
-    let mainView = DetailRecordView()
+    private let mainView = DetailRecordView()
     
     let detailRecordViewModel = DetailRecordViewModel()
 

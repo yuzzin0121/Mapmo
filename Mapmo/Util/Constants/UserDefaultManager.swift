@@ -9,7 +9,7 @@ import Foundation
 
 // singleton pattern
 // 유일한 인스턴스를 하나만 생성
-class UserDefaultManager {
+final class UserDefaultManager {
     static let shared = UserDefaultManager()
     
     private init() { }

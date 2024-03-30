@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class AddCategoryView: BaseView {
+final class AddCategoryView: BaseView {
     let newCategoryNameLabel = UILabel()
     let categoryNameTextField = CustomTextField()
     let warningMessageLabel = UILabel()

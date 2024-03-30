@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class MapRecordListView: BaseView {
+final class MapRecordListView: BaseView {
     let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     let emptyMessaageLabel = UILabel()
     

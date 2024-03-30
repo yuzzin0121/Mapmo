@@ -7,7 +7,7 @@
 
 import UIKit
 
-class InputVisitedDateCollectionViewCell: UICollectionViewCell {
+final class InputVisitedDateCollectionViewCell: UICollectionViewCell {
     let iconImageView = UIImageView()
     let titleLabel = UILabel()
     let datePicker = UIDatePicker()

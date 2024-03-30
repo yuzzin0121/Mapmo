@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MapRecordListViewController: BaseViewController {
+final class MapRecordListViewController: BaseViewController {
     let mainView = MapRecordListView()
     
     let mapRecordListViewModel = MapRecordListViewModel()

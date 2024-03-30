@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class SearchPlaceView: BaseView {
+final class SearchPlaceView: BaseView {
     let searchController = UISearchController(searchResultsController: nil)
     let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     

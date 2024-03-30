@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class SelectCategoryView: BaseView {
+final class SelectCategoryView: BaseView {
     lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout())
     let nextButton = MapmoButton()
     

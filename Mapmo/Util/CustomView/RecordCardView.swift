@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class RecordCardView: BaseView {
+final class RecordCardView: BaseView {
     let thumbnailImageView = UIImageView()
     let gradientView = UIView()
     let placeLabel = UILabel()
