@@ -18,9 +18,14 @@ final class SelectCategoryViewController: BaseViewController {
         setDelegate()
         mainView.nextButton.addTarget(self, action: #selector(nextButtonClicked), for: .touchUpInside)
         selectCategoryViewModel.fetchCategoryTrigger.value = ()
-        selectCategoryViewModel.categoryList.bind { _ in
+        selectCategoryViewModel.categoryList.bind { [weak self] _ in
+            guard let self = self else { return }
             self.mainView.collectionView.reloadData()
         }
+    }
+    
+    deinit {
+        print("Deinit" + String(describing: self))
     }
     
     @objc private func nextButtonClicked(sender: UIButton) {

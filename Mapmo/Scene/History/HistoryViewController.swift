@@ -17,6 +17,10 @@ final class HistoryViewController: BaseViewController {
         mainView.historySementedVC.showCreateDelegate = self
     }
     
+    deinit {
+        print("Deinit" + String(describing: self))
+    }
+    
     override func loadView() {
         view = mainView
     }

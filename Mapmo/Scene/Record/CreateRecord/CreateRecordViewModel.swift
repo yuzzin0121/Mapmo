@@ -32,10 +32,10 @@ final class CreateRecordViewModel {
     
     
     let contentTextViewPlaceholder = "메모 입력"
-    lazy var placeRepository = PlaceRepository()
-    lazy var recordRepository = RecordRepository()
-    lazy var categoryRepository = CategoryRepository()
-    lazy var fileManagerClass = FileManagerClass()
+    private lazy var placeRepository = PlaceRepository()
+    private lazy var recordRepository = RecordRepository()
+    private lazy var categoryRepository = CategoryRepository()
+    private lazy var fileManagerClass = FileManagerClass()
 
     var previousVC: PreviousVC?     // 이전 화면
     var recordId: ObjectId?         // 상세 화면에서 전달받을 기록 아이디
@@ -45,32 +45,38 @@ final class CreateRecordViewModel {
         transform()
     }
     
+    deinit {
+        print("Deinit" + String(describing: self))
+    }
+    
     private func transform() {
-        inputSelectedImageList.bind { imageList in
+        inputSelectedImageList.bind { [weak self] imageList in
+            guard let self = self else { return }
             print("이미지 변경됨")
             self.checkData()
         }
-        inputPlace.bind { place in
-            guard let place = place else { return }
+        inputPlace.bind { [weak self] place in
+            guard let place = place, let self = self else { return }
             print("장소 있음")
             self.checkData()
         }
-        inputMemo.bind { memo in
+        inputMemo.bind { [weak self] memo in
             if memo == nil { return }
+            guard let self = self else { return }
             print("메모 있음")
             self.checkData()
         }
         
-        createRecordTrigger.bind { value in
-            guard let value = value else { return }
+        createRecordTrigger.bind { [weak self] value in
+            guard let value = value, let self = self else { return }
             self.createRecord()
         }
-        editRecordTrigger.bind { value in
-            guard let value = value else { return }
+        editRecordTrigger.bind { [weak self] value in
+            guard let value = value, let self = self else { return }
             self.editRecord()
         }
-        inputDeleteImageIndex.bind { index in
-            guard let index = index else { return }
+        inputDeleteImageIndex.bind { [weak self] index in
+            guard let index = index, let self = self else { return }
             self.deleteImage(index: index)
         }
     }

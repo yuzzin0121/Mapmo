@@ -18,30 +18,33 @@ final class AddCategoryViewModel {
     
     var addButtonClickTrigger: Observable<Void?> = Observable(nil)
     
-    let categoryRepository = CategoryRepository()
+    private let categoryRepository = CategoryRepository()
     
     init() {
         transform()
     }
     
     deinit {
-        print("AddCategoryViewModel Deinit")
+        print("Deinit" + String(describing: self))
     }
     
     private func transform() {
         colorList.value = CategoryColor.allCases
-        inputCategoryName.bind { name in
+        inputCategoryName.bind { [weak self] name in
+            guard let self = self, let name = name else { return }
             self.validateCategoryName(name: name)
         }
-        isValidName.bind { value in
+        isValidName.bind { [weak self] value in
+            guard let self = self else { return }
             self.confirmActive(isValidName: value)
         }
-        selectedColor.bind { value in
+        selectedColor.bind { [weak self] value in
+            guard let self = self else { return }
             self.confirmActive(isValidName: self.isValidName.value)
         }
         
-        addButtonClickTrigger.bind { value in
-            guard let value = value else { return }
+        addButtonClickTrigger.bind { [weak self] value in
+            guard let value = value, let self = self else { return }
             self.addCategory()
         }
     }

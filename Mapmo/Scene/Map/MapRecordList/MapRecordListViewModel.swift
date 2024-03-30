@@ -11,15 +11,19 @@ final class MapRecordListViewModel {
     var inputRecordList: Observable<[RecordItem]> = Observable([])
     var toggleIsFavorite: Observable<Int?> = Observable(nil)
     
-    let recordRepository = RecordRepository()
+    private let recordRepository = RecordRepository()
     
     init() {
         transform()
     }
     
+    deinit {
+        print(String(describing: self))
+    }
+    
     private func transform() {
-        toggleIsFavorite.bind { index in
-            guard let index = index else { return }
+        toggleIsFavorite.bind { [weak self] index in
+            guard let index = index, let self = self else { return }
             self.toggleIsFavorite(index)
         }
     }

@@ -21,13 +21,18 @@ final class RecordListViewModel {
         transform()
     }
     
+    deinit {
+        print("Deinit" + String(describing: self))
+    }
+    
     private func transform() {
-        fetchFavoriteRecordsTrigger.bind { value in
+        fetchFavoriteRecordsTrigger.bind { [weak self] value in
             if value == nil { return }
+            guard let self = self else { return }
             self.fetchFavoriteRecordItem()
         }
-        toggleIsFavorite.bind { index in
-            guard let index = index else { return }
+        toggleIsFavorite.bind { [weak self] index in
+            guard let index = index, let self = self else { return }
             self.toggleIsFavorite(index)
         }
     }

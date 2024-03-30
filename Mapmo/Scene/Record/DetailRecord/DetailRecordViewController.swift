@@ -16,10 +16,14 @@ final class DetailRecordViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setDelegateAndAction()
-        detailRecordViewModel.inputRecordItem.bind { record in
-            guard let record = record else { return }
+        detailRecordViewModel.inputRecordItem.bind { [weak self] record in
+            guard let record = record, let self = self else { return }
             self.setData(record)
         }
+    }
+    
+    deinit {
+        print("Deinit" + String(describing: self))
     }
     
     // 전달받은 기록 데이터 UI에 반영
@@ -96,7 +100,8 @@ final class DetailRecordViewController: BaseViewController {
     // 삭제 버튼 클릭 시
     @objc private func deleteButtonClicked() {
         guard let record = detailRecordViewModel.inputRecordItem.value else { return }
-        showAlert(title: "기록 삭제", message: "\(record.memo.prefix(10))을\n정말로 삭제하시겠습니까?", actionTitle: "삭제", showCancel: true) { UIAlertAction in
+        showAlert(title: "기록 삭제", message: "\(record.memo.prefix(10))을\n정말로 삭제하시겠습니까?", actionTitle: "삭제", showCancel: true) { [weak self] UIAlertAction in
+            guard let self = self else { return }
             self.deleteRecord()
         }
     }

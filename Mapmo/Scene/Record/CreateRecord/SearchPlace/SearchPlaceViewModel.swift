@@ -23,6 +23,7 @@ final class SearchPlaceViewModel {
     
     deinit {
         monitor.cancel()
+        print("Deinit" + String(describing: self))
     }
     
     private func transform() {

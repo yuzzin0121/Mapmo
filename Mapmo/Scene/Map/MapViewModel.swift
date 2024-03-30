@@ -20,29 +20,34 @@ final class MapViewModel {
     var outputRecordList: Observable<[RecordItem]> = Observable([])
     var outputRecentPlaceLatLng: Observable<NMGLatLng?> = Observable(nil)
     
-    let placeRepository = PlaceRepository()
-    let categoryRepository = CategoryRepository()
-    let fileManagerClass = FileManagerClass()
+    private let placeRepository = PlaceRepository()
+    private let categoryRepository = CategoryRepository()
+    private let fileManagerClass = FileManagerClass()
     
     init() {
         transform()
     }
     
+    deinit {
+        print("Deinit" + String(describing: self))
+    }
+    
     private func transform() {
-        inputCurrentLocation.bind { coordinate in
-            guard let coordinate = coordinate else { return }
+        inputCurrentLocation.bind { [weak self] coordinate in
+            guard let coordinate = coordinate, let self = self else { return }
             self.changeToNMGLatLng(coordinate)
         }
-        inputVisibleRegion.bind { visibleRegion in
-            guard let visibleRegion = visibleRegion else { return }
+        inputVisibleRegion.bind { [weak self] visibleRegion in
+            guard let visibleRegion = visibleRegion, let self = self else { return }
             self.getVisiblePlace(visibleRegion)
         }
-        searchedPlaces.bind { places in
+        searchedPlaces.bind { [weak self] places in
+            guard let self = self else { return }
             self.setMarkers(places: places)
             self.setRecordList(places: places)
         }
-        moveCameraPlaceTrigger.bind { value in
-            guard let value = value else { return }
+        moveCameraPlaceTrigger.bind { [weak self] value in
+            guard let value = value, let self = self else { return }
             self.fetchPlaces()
         }
     }
@@ -113,11 +118,11 @@ final class MapViewModel {
     private func getVisiblePlace(_ visibleRegion: NMGLatLngBounds) {
         let southWest = visibleRegion.southWest
         let northEast = visibleRegion.northEast
-        let places = self.placeRepository.getVisiblePlaces(x1: southWest.lat,
+        let places = placeRepository.getVisiblePlaces(x1: southWest.lat,
                                                            x2: northEast.lat,
                                                            y1: southWest.lng,
                                                            y2: northEast.lng)
-        self.searchedPlaces.value = places
+        searchedPlaces.value = places
     }
     
     private func changeToNMGLatLng(_ coordinate: CLLocationCoordinate2D) {

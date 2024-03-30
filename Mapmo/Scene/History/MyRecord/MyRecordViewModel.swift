@@ -20,12 +20,17 @@ final class MyRecordViewModel {
         transform()
     }
     
+    deinit {
+        print("Deinit" + String(describing: self))
+    }
+    
     private func transform() {
-        inputSelectedDate.bind { selectedDate in
+        inputSelectedDate.bind { [weak self] selectedDate in
+            guard let self = self else { return }
             self.getSelectedDateRecords(selectedDate: selectedDate)
         }
-        toggleIsFavorite.bind { index in
-            guard let index = index else { return }
+        toggleIsFavorite.bind { [weak self] index in
+            guard let index = index, let self = self else { return }
             self.toggleIsFavorite(index)
         }
     }

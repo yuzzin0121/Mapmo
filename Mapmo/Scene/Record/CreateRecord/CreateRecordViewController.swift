@@ -11,28 +11,34 @@ import PhotosUI
 final class CreateRecordViewController: BaseViewController {
     let mainView = CreateRecordView()
     let createRecordViewModel = CreateRecordViewModel()
-    var passRecordIdDelegate: PassRecordIdDelegate?
+    weak var passRecordIdDelegate: PassRecordIdDelegate?
     
     // MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView()
         setDelegate()
-        createRecordViewModel.inputSelectedImageList.bind { _ in
+        createRecordViewModel.inputSelectedImageList.bind { [weak self] _ in
+            guard let self = self else { return }
             DispatchQueue.main.async {
                 self.mainView.collectionView.reloadData()
             }
         }
         
-        createRecordViewModel.isActivate.bind { isActivate in
+        createRecordViewModel.isActivate.bind { [weak self] isActivate in
+            guard let self = self else { return }
             self.mainView.createButton.isEnabled = isActivate
             self.mainView.createButton.backgroundColor = isActivate ? ColorStyle.mapmoColor : ColorStyle.null
         }
     }
     
+    deinit {
+        print("Deinit" + String(describing: self))
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.mainView.collectionView.reloadData()
+        mainView.collectionView.reloadData()
         createRecordViewModel.checkData()
     }
     
@@ -61,15 +67,16 @@ final class CreateRecordViewController: BaseViewController {
             switch previousVC {
             case .detailRecord:
                 createRecordViewModel.editRecordTrigger.value = ()
-                createRecordViewModel.editSuccess.bind { id in
-                    guard let id = id else { return }
+                createRecordViewModel.editSuccess.bind { [weak self] id in
+                    guard let id = id, let self = self else { return }
                     self.passRecordIdDelegate?.sendRecordId(id)
                     NotificationCenter.default.post(name: NSNotification.Name("RecordUpdated"), object: nil, userInfo: ["updatedDate": self.createRecordViewModel.inputVisitDate.value])
                     self.popView()
                 }
             case .selectCatgory:
                 createRecordViewModel.createRecordTrigger.value = ()
-                createRecordViewModel.createSuccess.bind { success in
+                createRecordViewModel.createSuccess.bind { [weak self] success in
+                    guard let self = self else { return }
                     if success {
                         self.showMainTabBar()
                     }
@@ -86,7 +93,7 @@ final class CreateRecordViewController: BaseViewController {
         
         let picker = PHPickerViewController(configuration: configuration)
         picker.delegate = self
-        self.present(picker, animated: true, completion: nil)
+        present(picker, animated: true, completion: nil)
     }
     
     // 주소 버튼을 클릭했을 때 - 주소 검색 화면으로 화면 전환
@@ -248,7 +255,8 @@ extension CreateRecordViewController: PHPickerViewControllerDelegate {
                 let itemProvider = result.itemProvider
                 
                 if itemProvider.canLoadObject(ofClass: UIImage.self) {
-                    itemProvider.loadObject(ofClass: UIImage.self) { image, error in
+                    itemProvider.loadObject(ofClass: UIImage.self) { [weak self] image, error in
+                        guard let self = self else { return }
                         if let image = image as? UIImage {
                             images.append(image)
                             self.createRecordViewModel.inputSelectedImageList.value.append(image)

@@ -12,18 +12,23 @@ final class MyRecordViewController: UIViewController {
     let mainView = MyRecordView()
     
     let myRecordViewModel = MyRecordViewModel()
-    var passDelegate: PassDataAndShowVCDelegate?
-    var showCreateRecordDelegate: ShowCreateRecordDelegate?
+    weak var passDelegate: PassDataAndShowVCDelegate?
+    weak var showCreateRecordDelegate: ShowCreateRecordDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setDelegate()
         NotificationCenter.default.addObserver(self, selector: #selector(recordUpdated), name: NSNotification.Name("RecordUpdated"), object: nil)
-        myRecordViewModel.outputSelectedDateRecordList.bind { recordItem in
+        myRecordViewModel.outputSelectedDateRecordList.bind { [weak self] recordItem in
+            guard let self = self else { return }
             self.mainView.calendar.reloadData()
             self.setEmptyUI(recordItem.isEmpty)
         }
+    }
+    
+    deinit {
+        print("Deinit" + String(describing: self))
     }
     
     private func setEmptyUI(_ isEmpty: Bool) {

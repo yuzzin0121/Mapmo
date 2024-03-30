@@ -35,25 +35,31 @@ final class MapViewController: BaseViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(recordUpdated), name: NSNotification.Name("RecordUpdated"), object: nil)
     }
     
+    deinit {
+        print("Deinit" + String(describing: self))
+    }
+    
     private func setBinding() {
-        mapViewModel.addRecordButtonTrigger.bind { value in
-            guard let value = value else { return }
+        mapViewModel.addRecordButtonTrigger.bind { [weak self] value in
+            guard let value = value, let self = self else { return }
             self.showAddRecordVC()
         }
-        mapViewModel.outputCurrentLatLng.bind { currentLatLng in
-            guard let currentLatLng = currentLatLng else { return }
+        mapViewModel.outputCurrentLatLng.bind { [weak self] currentLatLng in
+            guard let currentLatLng = currentLatLng, let self = self else { return }
             self.moveCamera(latLng: currentLatLng)
         }
-        mapViewModel.outputRecentPlaceLatLng.bind { recentPlaceLatLng in
-            guard let recentPlaceLatLng = recentPlaceLatLng else { return }
+        mapViewModel.outputRecentPlaceLatLng.bind { [weak self] recentPlaceLatLng in
+            guard let recentPlaceLatLng = recentPlaceLatLng, let self = self else { return }
             self.moveCamera(latLng: recentPlaceLatLng)
         }
-        mapViewModel.outputPlaceMarkerList.bind { markers in
+        mapViewModel.outputPlaceMarkerList.bind { [weak self] markers in
+            guard let self = self else { return }
             for marker in markers {
                 marker.mapView = self.mainView.naverMapView
             }
         }
-        mapViewModel.outputRecordList.bind { recordList in
+        mapViewModel.outputRecordList.bind { [weak self] recordList in
+            guard let self = self else { return }
             self.mapRecordListVC.mapRecordListViewModel.inputRecordList.value = recordList
         }
     }

@@ -22,14 +22,19 @@ final class DetailRecordViewModel {
         transform()
     }
     
+    deinit {
+        print("Deinit" + String(describing: self))
+    }
+    
     private func transform() {
-        deleteRecordTrigger.bind { value in
+        deleteRecordTrigger.bind { [weak self] value in
             if value == nil { return }
+            guard let self = self else { return }
             self.deleteRecord()
         }
         
-        inputRecordId.bind { id in
-            guard let id = id else { return }
+        inputRecordId.bind { [weak self] id in
+            guard let id = id, let self = self else { return }
             self.refreshRecordItem(id: id)
         }
     }

@@ -16,19 +16,22 @@ final class AddCategoryViewController: BaseViewController {
         super.viewDidLoad()
 
         setDelegateAndAction()
-        addCategoryViewModel.colorList.bind { _ in
+        addCategoryViewModel.colorList.bind { [weak self] _ in
+            guard let self = self else { return }
             self.mainView.colorCollectionView.reloadData()
         }
-        addCategoryViewModel.outputWarningMessage.bind { message in
+        addCategoryViewModel.outputWarningMessage.bind { [weak self] message in
+            guard let self = self else { return }
             self.mainView.warningMessageLabel.text = message
         }
-        addCategoryViewModel.isActive.bind { isActive in
+        addCategoryViewModel.isActive.bind { [weak self] isActive in
+            guard let self = self else { return }
             self.checkIsValid(isActive)
         }
     }
     
     deinit {
-        print("AddCategoryViewController Deinit")
+        print("Deinit" + String(describing: self))
     }
     
     override func loadView() {

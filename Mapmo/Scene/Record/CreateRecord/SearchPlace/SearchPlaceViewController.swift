@@ -11,7 +11,7 @@ final class SearchPlaceViewController: BaseViewController {
     let mainView = SearchPlaceView()
     
     let searchPlaceViewModel = SearchPlaceViewModel()
-    var passPlaceDelegate: PassPlaceDataDelegate?
+    weak var passPlaceDelegate: PassPlaceDataDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +31,9 @@ final class SearchPlaceViewController: BaseViewController {
         searchPlaceViewModel.inputViewDidLoadTrigger.value = ()
     }
     
-    
+    deinit {
+        print("Deinit" + String(describing: self))
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

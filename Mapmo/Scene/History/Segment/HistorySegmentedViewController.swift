@@ -19,8 +19,8 @@ final class HistorySegmentedViewController: TabmanViewController {
     
     var viewControllers: [UIViewController] = []
     let tabTitles = ["나의 기록"]
-    var passDelegate: PassDataAndShowVCDelegate?
-    var showCreateDelegate: ShowCreateRecordDelegate?
+    weak var passDelegate: PassDataAndShowVCDelegate?
+    weak var showCreateDelegate: ShowCreateRecordDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +30,10 @@ final class HistorySegmentedViewController: TabmanViewController {
         addViewControllers()
         setDelegate()
         createBar()
+    }
+    
+    deinit {
+        print("Deinit" + String(describing: self))
     }
     
     func createBar() {
@@ -49,7 +53,7 @@ final class HistorySegmentedViewController: TabmanViewController {
 //        bar.layout.interButtonSpacing = 35 // 버튼 사이 간격
         bar.layout.contentMode = .fit
         
-        self.addBar(bar, dataSource: self, at: .custom(view: tabView, layout: nil))
+        addBar(bar, dataSource: self, at: .custom(view: tabView, layout: nil))
     }
     
     private func addViewControllers() {
@@ -62,7 +66,7 @@ final class HistorySegmentedViewController: TabmanViewController {
     }
     
     private func setDelegate() {
-        self.dataSource = self
+        dataSource = self
     }
 
     private func configureHierachy() {
@@ -102,7 +106,7 @@ extension HistorySegmentedViewController: PageboyViewControllerDataSource, TMBar
 
 extension HistorySegmentedViewController: PassDataAndShowVCDelegate {
     func showDetailRecordVC(recordItem: RecordItem) {
-        self.passDelegate?.showDetailRecordVC(recordItem: recordItem)
+        passDelegate?.showDetailRecordVC(recordItem: recordItem)
     }
 }
 

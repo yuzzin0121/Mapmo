@@ -11,16 +11,21 @@ final class MapRecordListViewController: BaseViewController {
     let mainView = MapRecordListView()
     
     let mapRecordListViewModel = MapRecordListViewModel()
-    var passDelegate: PassDataAndShowVCDelegate?
-    var showCreateRecordDelegate: ShowCreateRecordDelegate?
+    weak var passDelegate: PassDataAndShowVCDelegate?
+    weak var showCreateRecordDelegate: ShowCreateRecordDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setDelegate()
-        mapRecordListViewModel.inputRecordList.bind { recordList in
+        mapRecordListViewModel.inputRecordList.bind { [weak self] recordList in
+            guard let self = self else { return }
             self.mainView.collectionView.reloadData()
             self.setEmptyUI(recordList.isEmpty)
         }
+    }
+    
+    deinit {
+        print(String(describing: self))
     }
     
     private func setEmptyUI(_ isEmpty: Bool) {

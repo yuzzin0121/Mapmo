@@ -16,10 +16,15 @@ final class RecordListViewController: BaseViewController {
         super.viewDidLoad()
 
         setDelegate()
-        recordListViewModel.outputRecordItemList.bind { recordItemList in
+        recordListViewModel.outputRecordItemList.bind { [weak self] recordItemList in
+            guard let self = self else { return }
             self.mainView.collectionView.reloadData()
             self.setEmptyUI(recordItemList.isEmpty)
         }
+    }
+    
+    deinit {
+        print("Deinit" + String(describing: self))
     }
     
     private func setEmptyUI(_ isEmpty: Bool) {

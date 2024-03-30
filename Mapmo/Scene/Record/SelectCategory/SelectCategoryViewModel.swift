@@ -12,15 +12,19 @@ final class SelectCategoryViewModel {
     var fetchCategoryTrigger: Observable<Void?> = Observable(nil)
     var inputSelectedCategory: Observable<Category?> = Observable(nil)
     
-    let categoryRepository = CategoryRepository()
+    private let categoryRepository = CategoryRepository()
     
     init() {
         transform()
     }
     
+    deinit {
+        print("Deinit" + String(describing: self))
+    }
+    
     private func transform() {
-        fetchCategoryTrigger.bind { value in
-            guard let value = value else { return }
+        fetchCategoryTrigger.bind { [weak self] value in
+            guard let value = value, let self = self else { return }
             self.categoryList.value = self.categoryRepository.fetchCategory()
         }
     }
