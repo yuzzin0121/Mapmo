@@ -26,6 +26,7 @@ final class PlaceRepository {
     
     // 등록된 장소 모두 불러오기
     func fetchPlace() -> [Place] {
+        print(realm.configuration.fileURL)
         let places = Array(realm.objects(Place.self).sorted(byKeyPath: "address", ascending: true))
         return places
     }

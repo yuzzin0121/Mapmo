@@ -52,7 +52,7 @@ final class MapViewController: BaseViewController {
             guard let recentPlaceLatLng = recentPlaceLatLng, let self = self else { return }
             self.moveCamera(latLng: recentPlaceLatLng)
         }
-        mapViewModel.outputPlaceMarkerList.bind { [weak self] markers in
+        mapViewModel.outputPlaceMarkers.bind { [weak self] markers in
             guard let self = self else { return }
             for marker in markers {
                 marker.mapView = self.mainView.naverMapView

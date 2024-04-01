@@ -28,6 +28,31 @@ final class FileManagerClass {
         }
     }
     
+    func loadFirstImageToDocument(recordId: String) -> UIImage? {
+        guard let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {
+            return nil  // nil일때 어떤 처리할지 고민해보자
+        }
+        
+        let imageDirectoryURL = documentDirectory.appendingPathComponent("images") // 폴더 이름 설정
+        if !FileManager.default.fileExists(atPath: imageDirectoryURL.path()) {
+            return nil
+        }
+        let recordIdURL = imageDirectoryURL.appendingPathComponent(recordId)
+        if !FileManager.default.fileExists(atPath: imageDirectoryURL.path()) {
+            return nil
+        }
+        
+        let fileURL = recordIdURL.appendingPathComponent("\(recordId)_0.jpg")
+        
+        if FileManager.default.fileExists(atPath: fileURL.path) {
+            guard let image = UIImage(contentsOfFile: fileURL.path) else { return nil }
+            print("get first Image, \(image)")
+            return image
+        } else {
+            return nil
+        }
+    }
+    
     // 도큐먼트/images/recordId/ 이미지들 가져오기
     func loadImagesToDocument(recordId: String, imageCount: Int) -> [UIImage]? {
         guard let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {
