@@ -33,7 +33,7 @@
 <br>
 
 ## 주요 기술
-- MVVM / Realm / Alamofire / Codable / Kingfisher / IQKeyboardManager
+- MVVM / Realm / Alamofire / Codable / IQKeyboardManager
 - Code-Based UI / SnapKit / FSCalendar 
 - Naver Map SDK
 
