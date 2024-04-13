@@ -40,3 +40,15 @@
 <br>
 
 ## 기술 설명
+<mark>1. MVVM</mark><br>
+<mark>2. Alamofire</mark><br>
+<mark>3. Realm</mark><br>
+
+## 트러블슈팅
+### 1. 많은 realm 트랙잭션을 처리할 때 UI반응성이 저하
+<img width="700" alt="image" src="https://github.com/yuzzin0121/Mapmo/assets/77273340/79a97c3e-7774-41ab-acf4-96dc20dffe42">
+
+
+### 2. 이미지 마커로 커스텀
+<img width="500" alt="image" src="https://github.com/yuzzin0121/Mapmo/assets/77273340/726b68fc-62d3-42bb-9d50-e1ad3daee84c"><br>
+<img width="500" alt="image" src="https://github.com/yuzzin0121/Mapmo/assets/77273340/c1d2edf1-c8c0-4f94-b508-f2c3e672132d">
