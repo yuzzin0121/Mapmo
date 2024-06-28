@@ -8,7 +8,7 @@
 
 ## 한줄 소개
 > 맵모는 방문했던 위치에 대해 이미지, 날짜, 메모를 남겨 차트, 캘린더, 지도를 통해 탐색할 수 있는 앱입니다.
-<img src=https://github.com/yuzzin0121/Mapmo/assets/77273340/37e18ec0-1873-4637-9f30-e59356f2abbc width=650 height=350>
+<img src=https://github.com/yuzzin0121/Mapmo/assets/77273340/8094f6f3-b705-479b-a1b1-ff4d956a163a width=650 height=350>
 
 ## 프로젝트 개발
 - iOS 1인 개발
