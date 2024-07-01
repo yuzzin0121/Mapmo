@@ -35,7 +35,7 @@
 ## 주요 기술
 **Framework** - UIKit <br>
 **Pattern** - MVVM / Singleton / Delegate / Repository <br>
-**Network** - Alamofire <br>
+**Network** - Alamofire / Codable <br>
 **Database** - Realm <br>
 **OpenSource** - SnapKit, ToastSwift, TapMan, FSCalendar, IQKeyboardManagerSwift, Naver Map SDK, FloatingPanel, Firebase Analytics, Firebase Crashlytics <br>
 **Etc** - Custom Observable, CoreLocation <br>
@@ -45,7 +45,8 @@
 ## 기술 설명
 **Alamofire**
 - Alamofire에 Router 패턴과 Generic을 통해 네트워크 통신의 구조화 및 확장성 있는 네트워킹 구현
-
+**Realm**
+- writeAsync를 사용하여 쓰기 트랜잭션을 비동기적으로 수행
 **Etc**
 - 공통적인 디자인의 뷰를 재사용하기 위해 커스텀 뷰로 구성
 - 이미지 및 컬러 등 반복적으로 사용되는 에셋을 enum을 통해 네임스페이스화하여 관리
