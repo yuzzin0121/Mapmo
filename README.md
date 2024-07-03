@@ -37,8 +37,8 @@
 **Pattern** - MVVM / Singleton / Delegate / Repository <br>
 **Network** - Alamofire / Codable <br>
 **Database** - Realm <br>
-**OpenSource** - SnapKit, ToastSwift, TapMan, FSCalendar, IQKeyboardManagerSwift, Naver Map SDK, FloatingPanel, Firebase Analytics, Firebase Crashlytics <br>
-**Etc** - Custom Observable, CoreLocation <br>
+**OpenSource** - SnapKit / ToastSwift / TapMan / FSCalendar / IQKeyboardManagerSwift / Naver Map SDK / FloatingPanel / Firebase Analytics / Firebase Crashlytics <br>
+**Etc** - Custom Observable / CoreLocation <br>
 
 <br>
 
