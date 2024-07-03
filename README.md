@@ -53,7 +53,6 @@
 - NotificationCenter를 활용해 다른 계층에 있는 뷰에 데이터 갱신
 - NetworkMonitor를 통해 네트워크 단절 상황 대응
 - weak 키워드를 통해 객체를 약한 참조를 해줌으로써 메모리 누수 해결
-
 <br>
 
 ## 트러블슈팅
