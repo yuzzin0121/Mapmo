@@ -44,11 +44,13 @@
 
 ## 기술 설명
 **Alamofire**
-- Router 패턴과 Generic을 적용하여 API 요청과 관련된 로직을 캡슐화
+- Router 패턴과 Generic을 적용하여 API 요청과 관련된 로직을 캡슐화 <br><br>
+  
 **Realm**
 - writeAsync를 사용하여 쓰기 트랜잭션을 비동기적으로 수행
 - Realm List를 활용하여 To Many Relationship 구현
-- Repository 패턴을 적용하여 CRUD에 대한 유지보수성 및 확장성 향상
+- Repository 패턴을 적용하여 CRUD에 대한 유지보수성 및 확장성 향상 <br><br>
+
 **Etc**
 - UIGraphicsImageRenderer을 통해 커스텀 뷰 마커 구현
 - MVVM과 Custom Observable을 구현하여 비즈니스 로직과 UI 코드 분리
