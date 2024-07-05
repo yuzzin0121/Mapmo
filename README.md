@@ -44,15 +44,17 @@
 
 ## 기술 설명
 **Alamofire**
-- Alamofire에 Router 패턴과 Generic을 통해 네트워크 통신의 구조화 및 확장성 있는 네트워킹 구현
+- Router 패턴과 Generic을 적용하여 API 요청과 관련된 로직을 캡슐화
 **Realm**
 - writeAsync를 사용하여 쓰기 트랜잭션을 비동기적으로 수행
+- Realm List를 활용하여 To Many Relationship 구현
+- Repository 패턴을 적용하여 CRUD에 대한 유지보수성 및 확장성 향상
 **Etc**
-- 공통적인 디자인의 뷰를 재사용하기 위해 커스텀 뷰로 구성
-- 이미지 및 컬러 등 반복적으로 사용되는 에셋을 enum을 통해 네임스페이스화하여 관리
-- NotificationCenter를 활용해 다른 계층에 있는 뷰에 데이터 갱신
-- NetworkMonitor를 통해 네트워크 단절 상황 대응
-- weak 키워드를 통해 객체를 약한 참조를 해줌으로써 메모리 누수 해결
+- UIGraphicsImageRenderer을 통해 커스텀 뷰 마커 구현
+- MVVM과 Custom Observable을 구현하여 비즈니스 로직과 UI 코드 분리
+- NWPathMonitor를 통해 네트워크 단절 상황 대응
+- Firebase Analytics와 Crashlytics를 활용하여 사용자 이탈지점 및 충돌 데이터 수집을 통해 앱의 안정성 향상
+- final 키워드와 접근제어자를 통해 컴파일 최적화 달성
 <br>
 
 ## 트러블슈팅
