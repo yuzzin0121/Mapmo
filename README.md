@@ -16,12 +16,17 @@
 - 환경: 최소 버전 16.0 / 세로 모드 / 아이폰용 / 다크모드
 <br>
 
+
 ## 스크린샷
 
 ### 🔍 메모
-|지도 탐색|좋아요한 맵모|캘린더 탐색|맵모 상세화면|메모 생성|메모 수정|메모 삭제|메모 좋아요|카테고리 수정|
-|-----|---|---|---|---|---|---|---|---|
-|<img src= width=150 height=330>|<img src= width=150 height=330>|<img src= width=150 height=330>|<img src= width=150 height=330>|<img src= width=150 height=330>|<img src= width=150 height=330>|<img src= width=150 height=330>|<img src= width=150 height=330>|<img src= width=150 height=330>|<img src= width=150 height=330>|<img src= width=150 height=330>|<img src= width=150 height=330>|
+|지도 탐색|좋아요한 맵모|캘린더 탐색|맵모 상세화면|
+|-----|---|---|---|
+|<img src=https://github.com/yuzzin0121/Mapmo/assets/77273340/e747a515-51da-450b-ae4c-ae409b8c0e86 width=150 height=330>|<img src=https://github.com/yuzzin0121/Mapmo/assets/77273340/03ba97fa-a3b3-4b9b-bbc4-389e04a9eef4 width=150 height=330>|<img src=https://github.com/yuzzin0121/Mapmo/assets/77273340/0f10e0ff-8078-4323-a97b-c8d5555497db width=150 height=330>|<img src=https://github.com/yuzzin0121/Mapmo/assets/77273340/efe35404-2028-4ef4-9be7-a3fa916f3995 width=150 height=330>|
+
+|메모 생성|메모 삭제|메모 좋아요|카테고리 추가|
+|---|---|---|---|
+|<img src=https://github.com/yuzzin0121/Mapmo/assets/77273340/713bd767-0fce-4c12-b988-34c384abdbdf width=150 height=330>|<img src=https://github.com/yuzzin0121/Mapmo/assets/77273340/113d3dba-bbe8-48ae-ad46-7d9b9854c77f width=150 height=330>|<img src=https://github.com/yuzzin0121/Mapmo/assets/77273340/7528a40f-bad9-4f67-82a0-2034367b60de width=150 height=330>|<img src=https://github.com/yuzzin0121/Mapmo/assets/77273340/f42ed72c-9b16-4a1a-a479-f8b5b32b0e47 width=150 height=330>|
 <br>
 
 ## 핵심 기능
