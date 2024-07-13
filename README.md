@@ -26,7 +26,7 @@
 
 |메모 생성|메모 삭제|메모 좋아요|카테고리 추가|
 |---|---|---|---|
-|<img src=https://github.com/yuzzin0121/Mapmo/assets/77273340/713bd767-0fce-4c12-b988-34c384abdbdf width=150 height=330>|<img src=https://github.com/yuzzin0121/Mapmo/assets/77273340/113d3dba-bbe8-48ae-ad46-7d9b9854c77f width=150 height=330>|<img src=https://github.com/yuzzin0121/Mapmo/assets/77273340/7528a40f-bad9-4f67-82a0-2034367b60de width=150 height=330>|<img src=https://github.com/yuzzin0121/Mapmo/assets/77273340/f42ed72c-9b16-4a1a-a479-f8b5b32b0e47 width=150 height=330>|
+|<img src=https://github.com/yuzzin0121/Mapmo/assets/77273340/713bd767-0fce-4c12-b988-34c384abdbdf width=180 height=360>|<img src=https://github.com/yuzzin0121/Mapmo/assets/77273340/113d3dba-bbe8-48ae-ad46-7d9b9854c77f width=180 height=360>|<img src=https://github.com/yuzzin0121/Mapmo/assets/77273340/7528a40f-bad9-4f67-82a0-2034367b60de width=180 height=360>|<img src=https://github.com/yuzzin0121/Mapmo/assets/77273340/f42ed72c-9b16-4a1a-a479-f8b5b32b0e47 width=180 height=360>|
 <br>
 
 ## 핵심 기능
