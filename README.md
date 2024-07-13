@@ -22,7 +22,7 @@
 ### 🔍 메모
 |지도 탐색|좋아요한 맵모|캘린더 탐색|맵모 상세화면|
 |-----|---|---|---|
-|<img src=https://github.com/yuzzin0121/Mapmo/assets/77273340/e747a515-51da-450b-ae4c-ae409b8c0e86 width=150 height=330>|<img src=https://github.com/yuzzin0121/Mapmo/assets/77273340/03ba97fa-a3b3-4b9b-bbc4-389e04a9eef4 width=150 height=330>|<img src=https://github.com/yuzzin0121/Mapmo/assets/77273340/0f10e0ff-8078-4323-a97b-c8d5555497db width=150 height=330>|<img src=https://github.com/yuzzin0121/Mapmo/assets/77273340/efe35404-2028-4ef4-9be7-a3fa916f3995 width=150 height=330>|
+|<img src=https://github.com/yuzzin0121/Mapmo/assets/77273340/e747a515-51da-450b-ae4c-ae409b8c0e86 width=180 height=360>|<img src=https://github.com/yuzzin0121/Mapmo/assets/77273340/03ba97fa-a3b3-4b9b-bbc4-389e04a9eef4 width=180 height=360>|<img src=https://github.com/yuzzin0121/Mapmo/assets/77273340/0f10e0ff-8078-4323-a97b-c8d5555497db width=180 height=360>|<img src=https://github.com/yuzzin0121/Mapmo/assets/77273340/efe35404-2028-4ef4-9be7-a3fa916f3995 width=180 height=360>|
 
 |메모 생성|메모 삭제|메모 좋아요|카테고리 추가|
 |---|---|---|---|
