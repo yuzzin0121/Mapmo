@@ -7,13 +7,13 @@
 <br>
 
 ## 한줄 소개
-> 맵모는 방문했던 위치에 대해 이미지, 날짜, 메모를 남겨 차트, 캘린더, 지도를 통해 탐색할 수 있는 앱입니다.
+> 맵모는 방문했던 위치에 대해 이미지, 날짜, 메모를 남겨 차트, 캘린더, 지도를 통해 탐색할 수 있는 **위치 기반 메모 앱**입니다.
 <img src=https://github.com/yuzzin0121/Mapmo/assets/77273340/8094f6f3-b705-479b-a1b1-ff4d956a163a width=650 height=350>
 
 ## 프로젝트 개발
-- iOS 1인 개발
-- 개발 기간: 2주 (2024.03.10 ~ 2024.03.24)
-- 환경: 최소 버전 16.0 / 세로 모드 / 아이폰용 / 다크모드
+- **개발 인원**: iOS 1인 개발
+- **개발 기간**: **2주** (2024.03.10 ~ 2024.03.24)
+- **개발 환경**: 최소 버전 16.0 / 세로 모드 / 아이폰용 / 다크모드
 <br>
 
 
@@ -67,14 +67,14 @@
 ## 트러블슈팅
 ### 1. 많은 realm 트랙잭션을 처리할 때 UI반응성이 저하
 **해결방안**
-- writeAsync를 사용하여 비동기적으로 쓰기 작업을 수행
+- **writeAsync**를 사용하여 비동기적으로 쓰기 작업을 수행
 <img width="700" alt="image" src="https://github.com/yuzzin0121/Mapmo/assets/77273340/79a97c3e-7774-41ab-acf4-96dc20dffe42">
 <br><br>
 
 
 ### 2. **Naver Map SDK는 마커의 모양을 UIImage 타입만 가능하기 때문에 커스텀뷰로 마커를 사용하는 방법에 대한 고민**
 **해결 방안** 
-- UIGraphicsImageRenderer의 image 메서드를 사용하여 Custom View를 UIImage 객체로 변환
+- **UIGraphicsImageRenderer**의 image 메서드를 사용하여 Custom View를 UIImage 객체로 변환
   
 <img width="500" alt="image" src="https://github.com/yuzzin0121/Mapmo/assets/77273340/726b68fc-62d3-42bb-9d50-e1ad3daee84c"><br>
 <img width="500" alt="image" src="https://github.com/yuzzin0121/Mapmo/assets/77273340/c1d2edf1-c8c0-4f94-b508-f2c3e672132d">
@@ -84,7 +84,7 @@
 ### 3. **강한 참조로 인한 메모리 누수 문제 발생**
 - 메모리 그래프를 통해 메모리가 누수되는 문제 확인 <br>
 **해결 방안**
-- weak 키워드를 통해 객체를 약한 참조 해줌으로써 메모리 누수 해결
+- **weak** 키워드를 통해 객체를 약한 참조 해줌으로써 **메모리 누수 해결**
 
 |해결 전|해결 후|
 |-----|------|
