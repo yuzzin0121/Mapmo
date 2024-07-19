@@ -51,32 +51,29 @@ final class CreateRecordViewModel {
     
     private func transform() {
         inputSelectedImageList.bind { [weak self] imageList in
-            guard let self = self else { return }
-            print("이미지 변경됨")
+            guard let self else { return }
             self.checkData()
         }
         inputPlace.bind { [weak self] place in
-            guard let place = place, let self = self else { return }
-            print("장소 있음")
+            guard let place = place, let self else { return }
             self.checkData()
         }
         inputMemo.bind { [weak self] memo in
             if memo == nil { return }
             guard let self = self else { return }
-            print("메모 있음")
             self.checkData()
         }
         
         createRecordTrigger.bind { [weak self] value in
-            guard let value = value, let self = self else { return }
+            guard let value = value, let self else { return }
             self.createRecord()
         }
         editRecordTrigger.bind { [weak self] value in
-            guard let value = value, let self = self else { return }
+            guard let value = value, let self else { return }
             self.editRecord()
         }
         inputDeleteImageIndex.bind { [weak self] index in
-            guard let index = index, let self = self else { return }
+            guard let index = index, let self else { return }
             self.deleteImage(index: index)
         }
     }
@@ -89,7 +86,6 @@ final class CreateRecordViewModel {
     // 이미지, 카테고리, 장소, 메모 데이터 유무 확인
     func checkData() {
         guard let memo = inputMemo.value else {
-            print("메모 없음")
             return
         }
         

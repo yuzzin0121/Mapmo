@@ -29,6 +29,10 @@ final class RecordRepository {
         }
     }
     
+    deinit {
+        print("Deinit RecordRepository")
+    }
+    
     func fetchRecordFromDate(date: Date) -> [Record] {
         let calendar = Calendar.current
         let start = calendar.startOfDay(for: date)
@@ -50,49 +54,44 @@ final class RecordRepository {
         return Array(records)
     }
     
+    // 기록 수정 - 장소 수정할 경우 기존의 장소 제거 후(0개일 경우 삭제) 새로운 장소에 append
     func updateRecord(_ record: Record, recordId: ObjectId, place: Place) {
-        print(realm.configuration.fileURL)
         // U
-        do {
-            try realm.write {
-                realm.create(Record.self,
-                             value: [
-                                "id": recordId,
-                                "memo": record.memo,
-                                "imageCount": record.imageCount,
-                                "visitedAt": record.visitedAt,
-                                "modifiedAt": record.modifiedAt,
-                                "categoryId": record.categoryId],
-                             update: .modified)
-            }
-        } catch {
-            print(error, "업데이트 실패")
-        }
-                
-        do {
-            if let record = getRecord(recordId: recordId) {
-                print("record 있음")
+        realm.writeAsync {
+            self.modifyRecord(record, recordId: recordId)
+            
+            if let record = self.getRecord(recordId: recordId) {
                 guard let currentPlace = record.place.first else { return }
-                if currentPlace.address == place.address {
-                    print("같은 장소임")
+                if currentPlace.address == place.address {  // 현재 주소와 변경하려는 주소가 같을 경우
                     return
-                } else {
-                    try realm.write {
-                        if removePlace(record: record, currentPlace: currentPlace) {
-                            place.records.append(record)
-                            place.modifiedAt = Date()
-                        } else {
-                            print("제거 실패")
-                        }
+                } else {    // 주소 수정
+                    if self.removePlace(record: record, currentPlace: currentPlace) {   // 현재 주소에서 record 삭제
+                        place.records.append(record)    // 변경하려는 주소에 record 추가
+                        place.modifiedAt = Date()       // 수정된 시간 업데이트
+                    } else {
+                        print("제거 실패")
                     }
                 }
             }
-            
-        } catch {
-            print(error, "장소 업데이트 실패")
+        } onComplete: { error in
+            guard let error = error else { return }
+            print("update Record Error")
         }
     }
     
+    private func modifyRecord(_ record: Record, recordId: ObjectId) {
+        realm.create(Record.self,
+                     value: [
+                        "id": recordId,
+                        "memo": record.memo,
+                        "imageCount": record.imageCount,
+                        "visitedAt": record.visitedAt,
+                        "modifiedAt": record.modifiedAt,
+                        "categoryId": record.categoryId],
+                     update: .modified)
+    }
+    
+
     private func removePlace(record: Record, currentPlace: Place) -> Bool {
         if let index = currentPlace.records.firstIndex(where: { $0.id == record.id}) {
             print("삭제할 인덱스 찾음")

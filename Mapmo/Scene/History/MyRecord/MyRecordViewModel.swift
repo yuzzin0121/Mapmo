@@ -56,7 +56,6 @@ final class MyRecordViewModel {
                   let category = categoryRepository.getCategory(categoryName: record.categoryId),
                   let place = record.place.first else {
                 
-                print("뭐가 없는걸까..?")
                 return
             }
             

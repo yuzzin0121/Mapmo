@@ -13,7 +13,6 @@ final class NaverMapAPIManager {
     private init() { }
     
     func fetchData<T: Decodable>(type: T.Type, api: NaverMapAPI, completionHandler: @escaping (T?, NetworkError?) -> Void) {
-        print(api.endpoint)
         AF.request(api.endpoint,
                    method: api.method,
                    parameters: api.parameter,

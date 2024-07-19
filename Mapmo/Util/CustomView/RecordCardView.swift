@@ -30,7 +30,7 @@ final class RecordCardView: BaseView {
         
         placeLabel.snp.makeConstraints { make in
             make.leading.bottom.equalToSuperview().inset(12)
-            make.trailing.greaterThanOrEqualTo(heartButton.snp.leading).offset(-8)
+            make.trailing.lessThanOrEqualTo(heartButton.snp.leading).offset(-8)
             make.height.equalTo(15)
         }
         

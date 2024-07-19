@@ -32,7 +32,9 @@ final class DetailRecordViewController: BaseViewController {
         mainView.placeInfoView.valueLabel.text = record.place.address
         mainView.placeInfoView.iconImageView.tintColor = UIColor(named: record.category.colorName)
         mainView.visitDateInfoView.valueLabel.text = DateFormatterManager.shared.formattedVisitedDate(record.visitedAt)
-        mainView.memoInfoView.memoTextView.text = record.memo
+        DispatchQueue.main.async {
+            self.mainView.memoInfoView.memoTextView.text = record.memo
+        }
         
         navigationItem.title = record.place.title
     }

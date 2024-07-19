@@ -33,10 +33,11 @@ class PlaceMarkerView: UIView {
     }()
     
     override var intrinsicContentSize: CGSize {
-        let imgSize = 44
+        let imgSize = 64
         let decorationHeight = 10 + 8
         return CGSize(width: imgSize, height: imgSize + decorationHeight)
     }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         configureHierachy()

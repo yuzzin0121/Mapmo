@@ -141,7 +141,6 @@ final class MapViewModel {
         for place in places {
 //            let marker = NMFMarker()
 //            marker.position = NMGLatLng(lat: place.lat, lng: place.lng)
-            
             guard let record = place.records.first, let category = categoryRepository.getCategory(categoryName: record.categoryId), let image = fileManagerClass.loadFirstImageToDocument(recordId: record.id.stringValue) else {
                 return
             }

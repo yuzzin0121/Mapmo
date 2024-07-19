@@ -128,3 +128,5 @@ extension SearchPlaceViewController: UICollectionViewDelegate, UICollectionViewD
         placeItemSelected(data)
     }
 }
+
+

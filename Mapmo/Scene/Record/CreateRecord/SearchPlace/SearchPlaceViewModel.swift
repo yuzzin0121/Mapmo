@@ -47,7 +47,6 @@ final class SearchPlaceViewModel {
     
     // 장소 검색
     private func callRequest(query: String, display: Int, sort: String) {
-        print("흠흠")
         if monitor.currentPath.status == .satisfied {
             
             print("satisfied")

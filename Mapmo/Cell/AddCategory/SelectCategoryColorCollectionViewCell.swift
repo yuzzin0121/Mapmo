@@ -16,7 +16,6 @@ final class SelectCategoryColorCollectionViewCell: UICollectionViewCell{
     
     override var isSelected: Bool {
         didSet {
-            print(isSelected)
             contentView.layer.borderWidth = isSelected ? 4 : 0
             contentView.layer.borderColor = ColorStyle.null.cgColor
         }

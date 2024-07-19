@@ -12,3 +12,4 @@ extension Double {
         return self / 10_000_000.0
     }
 }
+

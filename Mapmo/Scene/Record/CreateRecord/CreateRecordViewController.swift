@@ -272,7 +272,6 @@ extension CreateRecordViewController: PHPickerViewControllerDelegate {
             }
         }
     }
-
 }
 
 // MARK: - UITextViewDelegate
