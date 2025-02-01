@@ -1,0 +1,8 @@
+app_identifier("com.yuz.Mapmo") # The bundle identifier of your app
+apple_id("ki6560@naver.com") # Your Apple Developer Portal username
+
+itc_team_id("126871119") # App Store Connect Team ID
+team_id("T2Q8P9627P") # Developer Portal Team ID
+
+# For more information about the Appfile, see:
+#     https://docs.fastlane.tools/advanced/#appfile
