@@ -5,7 +5,7 @@
 //  Created by 조유진 on 3/15/24.
 //
 
-import Foundation
+import UIKit
 import RealmSwift
 
 final class Record: Object {

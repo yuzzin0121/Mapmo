@@ -48,7 +48,7 @@ final class MapViewModel {
             self.setRecordList(places: places)
         }
         moveCameraPlaceTrigger.bind { [weak self] value in
-            guard let value = value, let self = self else { return }
+            guard let value, let self = self else { return }
             self.fetchPlaces()
         }
         outputPlaceMarkerList.bind { [weak self] markers in
@@ -94,6 +94,7 @@ final class MapViewModel {
         searchedPlaces.value = placeRepository.fetchPlace()
         if !searchedPlaces.value.isEmpty {
             guard let recentPlace = searchedPlaces.value.first else {
+                outputRecentPlaceLatLng.value = NMGLatLng(lat: DefaultLatLng.defaultLat.rawValue, lng: DefaultLatLng.defaultLng.rawValue)
                 return
             }
             outputRecentPlaceLatLng.value = NMGLatLng(lat: recentPlace.lat, lng: recentPlace.lng)
@@ -139,22 +140,14 @@ final class MapViewModel {
 //            marker.mapView = nil
         }
         for place in places {
-//            let marker = NMFMarker()
-//            marker.position = NMGLatLng(lat: place.lat, lng: place.lng)
             guard let record = place.records.first, let category = categoryRepository.getCategory(categoryName: record.categoryId), let image = fileManagerClass.loadFirstImageToDocument(recordId: record.id.stringValue) else {
                 return
             }
             
             let position = NMGLatLng(lat: place.lat, lng: place.lng)
-            let placeMarker = PlaceMarker(address: place.address, latLng: NMGLatLng(lat: place.lat, lng: place.lng), recordImage: image, categoryColorName: category.colorName)
+            let placeMarker = PlaceMarker(address: place.address, latLng: position, recordImage: image, categoryColorName: category.colorName)
             
-//            placeMarker.placeAddress = place.address
-//            placeMarker.showPlaceWindow()
             placeMarkers.append(placeMarker)
-//            marker.iconImage = NMFOverlayImage(name: "\(category.colorName)Image")
-//            marker.width = 35
-//            marker.height = 35
-//            markers.append(marker)
         }
         outputPlaceMarkerList.value =  placeMarkers
     }

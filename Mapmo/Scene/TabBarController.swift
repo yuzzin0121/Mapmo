@@ -35,10 +35,6 @@ final class TabBarController: UITabBarController {
         let historyNav = UINavigationController(rootViewController: historyVC)
         historyNav.tabBarItem = UITabBarItem(title: nil, image: TabItem.history.image, selectedImage: TabItem.history.selectedImage)
         
-//        [mapNav, recordListNav, historyNav].forEach {
-//            $0.setupBarAppearance()
-//        }
-        
         self.viewControllers = [mapNav, recordListNav, historyNav]
     }
 }

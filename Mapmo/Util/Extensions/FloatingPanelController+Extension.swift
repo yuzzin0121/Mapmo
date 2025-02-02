@@ -11,8 +11,6 @@ import FloatingPanel
 extension FloatingPanelController {
     func designPanel() {
         let appearance = SurfaceAppearance()
-        let shadow = SurfaceAppearance.Shadow()
-        
         
         appearance.cornerRadius = 25
         appearance.backgroundColor = ColorStyle.customWhite

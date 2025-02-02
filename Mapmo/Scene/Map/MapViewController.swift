@@ -30,7 +30,8 @@ final class MapViewController: BaseViewController {
         setDelegate()
         setBinding()
         mapViewModel.moveCameraPlaceTrigger.value = ()
-        getCurrentRegion()
+//      getCurrentRegion()  // 현재 위치로 이동
+        recordUpdated()
         
         NotificationCenter.default.addObserver(self, selector: #selector(recordUpdated), name: NSNotification.Name("RecordUpdated"), object: nil)
     }
@@ -40,24 +41,33 @@ final class MapViewController: BaseViewController {
     }
     
     private func setBinding() {
+        // 기록 추가 버튼 클릭 시
         mapViewModel.addRecordButtonTrigger.bind { [weak self] value in
-            guard let value = value, let self = self else { return }
-            self.showAddRecordVC()
+            guard let value, let self else { return }
+            showAddRecordVC()
         }
+        
+        // 현재 위치로 이동
         mapViewModel.outputCurrentLatLng.bind { [weak self] currentLatLng in
-            guard let currentLatLng = currentLatLng, let self = self else { return }
-            self.moveCamera(latLng: currentLatLng)
+            guard let currentLatLng = currentLatLng, let self else { return }
+            moveCamera(latLng: currentLatLng)
         }
+        
+        // 최근 수정된 장소로 카메라 이동
         mapViewModel.outputRecentPlaceLatLng.bind { [weak self] recentPlaceLatLng in
-            guard let recentPlaceLatLng = recentPlaceLatLng, let self = self else { return }
-            self.moveCamera(latLng: recentPlaceLatLng)
+            guard let recentPlaceLatLng = recentPlaceLatLng, let self else { return }
+            moveCamera(latLng: recentPlaceLatLng)
         }
+        
+        // 장소들 마커에 등록
         mapViewModel.outputPlaceMarkers.bind { [weak self] markers in
             guard let self = self else { return }
             for marker in markers {
                 marker.mapView = self.mainView.naverMapView
             }
         }
+        
+        // 현재 위치의 기록들 리스트VC에 전달
         mapViewModel.outputRecordList.bind { [weak self] recordList in
             guard let self = self else { return }
             self.mapRecordListVC.mapRecordListViewModel.inputRecordList.value = recordList
@@ -109,6 +119,7 @@ final class MapViewController: BaseViewController {
     }
     
     private func showAddRecordVC() {
+        print(#function)
         let selectCategoryVC = SelectCategoryViewController()
         selectCategoryVC.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(selectCategoryVC, animated: true)
@@ -119,6 +130,7 @@ final class MapViewController: BaseViewController {
     }
     
     @objc private func addRecordButtonClicked(_ sender: UIButton) {
+        print(#function)
         mapViewModel.addRecordButtonTrigger.value = ()
     }
     
@@ -268,8 +280,8 @@ extension MapViewController: FloatingPanelControllerDelegate {
     }
 }
 
-
-class MyFloatingPanelLayout: FloatingPanelLayout {
+// MARK: 플로팅 패널
+final class MyFloatingPanelLayout: FloatingPanelLayout {
 
     var position: FloatingPanelPosition {
         return .bottom

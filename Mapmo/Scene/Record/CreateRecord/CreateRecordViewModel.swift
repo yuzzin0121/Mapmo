@@ -117,7 +117,7 @@ final class CreateRecordViewModel {
         
         let trimmedMemo = memo.trimmingCharacters(in: [" "])
         
-        let record = Record(memo: memo,
+        let record = Record(memo: trimmedMemo,
                                 imageCount: inputSelectedImageList.value.count,
                                 visitedAt: inputVisitDate.value,
                                 createdAt: createdAt ?? Date(),

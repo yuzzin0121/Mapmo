@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		611722CE2BB7EE7D006A2415 /* mapmoSplash.png in Resources */ = {isa = PBXBuildFile; fileRef = 611722CD2BB7EE7D006A2415 /* mapmoSplash.png */; };
 		611728E82BA897FD005EBD79 /* CategoryRecordCountCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611728E72BA897FD005EBD79 /* CategoryRecordCountCollectionViewCell.swift */; };
 		611728EA2BA89819005EBD79 /* DateRecordCountCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611728E92BA89819005EBD79 /* DateRecordCountCollectionViewCell.swift */; };
 		611728EC2BA89826005EBD79 /* CategoryLikeCountCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611728EB2BA89826005EBD79 /* CategoryLikeCountCollectionViewCell.swift */; };
@@ -31,7 +30,19 @@
 		61214F5C2B9F514F00C7D0B6 /* ViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61214F5B2B9F514F00C7D0B6 /* ViewProtocol.swift */; };
 		61214F5E2B9F52EF00C7D0B6 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61214F5D2B9F52EF00C7D0B6 /* UILabel+Extension.swift */; };
 		61214F602B9F597D00C7D0B6 /* SelectCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61214F5F2B9F597D00C7D0B6 /* SelectCategoryCollectionViewCell.swift */; };
+		6121D2142D4E223A00F38CCA /* DefaultLatLng.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6121D2132D4E222F00F38CCA /* DefaultLatLng.swift */; };
 		6126D2F32B9F15CB001F2303 /* SelectCategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6126D2F22B9F15CB001F2303 /* SelectCategoryViewModel.swift */; };
+		612E13DB2D4A20AA0057C65C /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 612E13DA2D4A20AA0057C65C /* SnapKit */; };
+		612E13DE2D4A20C10057C65C /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 612E13DD2D4A20C10057C65C /* Alamofire */; };
+		612E13E12D4A20D30057C65C /* Tabman in Frameworks */ = {isa = PBXBuildFile; productRef = 612E13E02D4A20D30057C65C /* Tabman */; };
+		612E13E42D4A21330057C65C /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = 612E13E32D4A21330057C65C /* FirebaseAnalyticsWithoutAdIdSupport */; };
+		612E13E62D4A21330057C65C /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 612E13E52D4A21330057C65C /* FirebaseCrashlytics */; };
+		612E13E92D4A21630057C65C /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 612E13E82D4A21630057C65C /* IQKeyboardManagerSwift */; };
+		612E13EC2D4A21980057C65C /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 612E13EB2D4A21980057C65C /* Realm */; };
+		612E13EE2D4A21980057C65C /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 612E13ED2D4A21980057C65C /* RealmSwift */; };
+		612E13F12D4A21B50057C65C /* FloatingPanel in Frameworks */ = {isa = PBXBuildFile; productRef = 612E13F02D4A21B50057C65C /* FloatingPanel */; };
+		612E13F42D4A21CA0057C65C /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 612E13F32D4A21CA0057C65C /* FSCalendar */; };
+		612E13F72D4A220B0057C65C /* NMapsMap in Frameworks */ = {isa = PBXBuildFile; productRef = 612E13F62D4A220B0057C65C /* NMapsMap */; };
 		6136F6E12BA71933004AD8D1 /* HistorySegmentedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6136F6E02BA71933004AD8D1 /* HistorySegmentedViewController.swift */; };
 		6141534A2BA48D8F0035D5C8 /* FileManager+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614153492BA48D8F0035D5C8 /* FileManager+Extension.swift */; };
 		6142585C2B9E903800F35521 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6142585B2B9E903800F35521 /* MapViewModel.swift */; };
@@ -116,12 +127,9 @@
 		61D8E5B02BA450280080D167 /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D8E5AF2BA450280080D167 /* Record.swift */; };
 		61D8E5B22BA480360080D167 /* PlaceRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D8E5B12BA480360080D167 /* PlaceRepository.swift */; };
 		61D8E5B42BA484B80080D167 /* RecordRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D8E5B32BA484B80080D167 /* RecordRepository.swift */; };
-		DA6A4A6CA64332726B03C6F8 /* Pods_Mapmo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 980F4D8B3D07F8E679D1D81B /* Pods_Mapmo.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		266404A7697C85E9C64645C6 /* Pods-Mapmo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mapmo.release.xcconfig"; path = "Target Support Files/Pods-Mapmo/Pods-Mapmo.release.xcconfig"; sourceTree = "<group>"; };
-		611722CD2BB7EE7D006A2415 /* mapmoSplash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mapmoSplash.png; sourceTree = "<group>"; };
 		611728E72BA897FD005EBD79 /* CategoryRecordCountCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryRecordCountCollectionViewCell.swift; sourceTree = "<group>"; };
 		611728E92BA89819005EBD79 /* DateRecordCountCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateRecordCountCollectionViewCell.swift; sourceTree = "<group>"; };
 		611728EB2BA89826005EBD79 /* CategoryLikeCountCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryLikeCountCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -145,6 +153,7 @@
 		61214F5B2B9F514F00C7D0B6 /* ViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewProtocol.swift; sourceTree = "<group>"; };
 		61214F5D2B9F52EF00C7D0B6 /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		61214F5F2B9F597D00C7D0B6 /* SelectCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		6121D2132D4E222F00F38CCA /* DefaultLatLng.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultLatLng.swift; sourceTree = "<group>"; };
 		6126D2F22B9F15CB001F2303 /* SelectCategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCategoryViewModel.swift; sourceTree = "<group>"; };
 		6136F6E02BA71933004AD8D1 /* HistorySegmentedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistorySegmentedViewController.swift; sourceTree = "<group>"; };
 		614153492BA48D8F0035D5C8 /* FileManager+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+Extension.swift"; sourceTree = "<group>"; };
@@ -232,8 +241,6 @@
 		61D8E5AF2BA450280080D167 /* Record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
 		61D8E5B12BA480360080D167 /* PlaceRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceRepository.swift; sourceTree = "<group>"; };
 		61D8E5B32BA484B80080D167 /* RecordRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordRepository.swift; sourceTree = "<group>"; };
-		89A1130BA0DEA3EB97F2373A /* Pods-Mapmo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mapmo.debug.xcconfig"; path = "Target Support Files/Pods-Mapmo/Pods-Mapmo.debug.xcconfig"; sourceTree = "<group>"; };
-		980F4D8B3D07F8E679D1D81B /* Pods_Mapmo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mapmo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -241,21 +248,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA6A4A6CA64332726B03C6F8 /* Pods_Mapmo.framework in Frameworks */,
+				612E13F12D4A21B50057C65C /* FloatingPanel in Frameworks */,
+				612E13EE2D4A21980057C65C /* RealmSwift in Frameworks */,
+				612E13EC2D4A21980057C65C /* Realm in Frameworks */,
+				612E13F42D4A21CA0057C65C /* FSCalendar in Frameworks */,
+				612E13DB2D4A20AA0057C65C /* SnapKit in Frameworks */,
+				612E13DE2D4A20C10057C65C /* Alamofire in Frameworks */,
+				612E13F72D4A220B0057C65C /* NMapsMap in Frameworks */,
+				612E13E62D4A21330057C65C /* FirebaseCrashlytics in Frameworks */,
+				612E13E12D4A20D30057C65C /* Tabman in Frameworks */,
+				612E13E42D4A21330057C65C /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
+				612E13E92D4A21630057C65C /* IQKeyboardManagerSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		447A6969DA3621F3D2AAA17E /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				980F4D8B3D07F8E679D1D81B /* Pods_Mapmo.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		611728E62BA897DC005EBD79 /* Chart */ = {
 			isa = PBXGroup;
 			children = (
@@ -339,22 +348,12 @@
 			path = Record;
 			sourceTree = "<group>";
 		};
-		615819422BB0011A008DAA84 /* LaunchScreen */ = {
-			isa = PBXGroup;
-			children = (
-				611722CD2BB7EE7D006A2415 /* mapmoSplash.png */,
-			);
-			path = LaunchScreen;
-			sourceTree = "<group>";
-		};
 		618CB0222B99D073005BC379 = {
 			isa = PBXGroup;
 			children = (
 				618CB0422B99D084005BC379 /* .gitignore */,
 				618CB02D2B99D073005BC379 /* Mapmo */,
 				618CB02C2B99D073005BC379 /* Products */,
-				875C62DC5E3D3C1EC1FE7A70 /* Pods */,
-				447A6969DA3621F3D2AAA17E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -410,6 +409,7 @@
 		618CB0462B99D143005BC379 /* Enum */ = {
 			isa = PBXGroup;
 			children = (
+				6121D2132D4E222F00F38CCA /* DefaultLatLng.swift */,
 				618CB0652B99D3B3005BC379 /* TabItem.swift */,
 				618CB0732B99D5B2005BC379 /* ColorStyle.swift */,
 				618CB0752B99D5B8005BC379 /* ImageStyle.swift */,
@@ -492,7 +492,6 @@
 		618CB04D2B99D19C005BC379 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				615819422BB0011A008DAA84 /* LaunchScreen */,
 				618CB04E2B99D1AB005BC379 /* Fonts */,
 				618CB0372B99D075005BC379 /* Assets.xcassets */,
 				618CB0392B99D075005BC379 /* LaunchScreen.storyboard */,
@@ -679,15 +678,6 @@
 			name = SearchPlace;
 			sourceTree = "<group>";
 		};
-		875C62DC5E3D3C1EC1FE7A70 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				89A1130BA0DEA3EB97F2373A /* Pods-Mapmo.debug.xcconfig */,
-				266404A7697C85E9C64645C6 /* Pods-Mapmo.release.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -695,20 +685,16 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 618CB03F2B99D075005BC379 /* Build configuration list for PBXNativeTarget "Mapmo" */;
 			buildPhases = (
-				85158EBE66D9C053256DE78B /* [CP] Check Pods Manifest.lock */,
 				618CB0272B99D073005BC379 /* Sources */,
 				618CB0282B99D073005BC379 /* Frameworks */,
 				618CB0292B99D073005BC379 /* Resources */,
-				736C3896BF68367391F0CDBB /* [CP] Embed Pods Frameworks */,
-				6190F80C2BAF301B0028596E /* ShellScript */,
+				61A970F32D4A2EB5009C3C85 /* ShellScript */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = Mapmo;
-			packageProductDependencies = (
-			);
 			productName = Mapmo;
 			productReference = 618CB02B2B99D073005BC379 /* Mapmo.app */;
 			productType = "com.apple.product-type.application";
@@ -738,6 +724,15 @@
 			);
 			mainGroup = 618CB0222B99D073005BC379;
 			packageReferences = (
+				612E13D92D4A20AA0057C65C /* XCRemoteSwiftPackageReference "SnapKit" */,
+				612E13DC2D4A20C10057C65C /* XCRemoteSwiftPackageReference "Alamofire" */,
+				612E13DF2D4A20D30057C65C /* XCRemoteSwiftPackageReference "Tabman" */,
+				612E13E22D4A21330057C65C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				612E13E72D4A21630057C65C /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
+				612E13EA2D4A21980057C65C /* XCRemoteSwiftPackageReference "realm-swift" */,
+				612E13EF2D4A21B50057C65C /* XCRemoteSwiftPackageReference "FloatingPanel" */,
+				612E13F22D4A21CA0057C65C /* XCRemoteSwiftPackageReference "FSCalendar" */,
+				612E13F52D4A220B0057C65C /* XCRemoteSwiftPackageReference "SPM-NMapsMap" */,
 			);
 			productRefGroup = 618CB02C2B99D073005BC379 /* Products */;
 			projectDirPath = "";
@@ -759,7 +754,6 @@
 				618CB05E2B99D2D0005BC379 /* Pretendard-Thin.otf in Resources */,
 				618CB03B2B99D075005BC379 /* LaunchScreen.storyboard in Resources */,
 				618CB05C2B99D2D0005BC379 /* Pretendard-ExtraBold.otf in Resources */,
-				611722CE2BB7EE7D006A2415 /* mapmoSplash.png in Resources */,
 				618CB05B2B99D2D0005BC379 /* Pretendard-Bold.otf in Resources */,
 				618CB0602B99D2D0005BC379 /* Pretendard-ExtraLight.otf in Resources */,
 				618CB05D2B99D2D0005BC379 /* Pretendard-Regular.otf in Resources */,
@@ -774,7 +768,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		6190F80C2BAF301B0028596E /* ShellScript */ = {
+		61A970F32D4A2EB5009C3C85 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -791,46 +785,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/FirebaseCrashlytics/run\"\n";
-		};
-		736C3896BF68367391F0CDBB /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Mapmo/Pods-Mapmo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Mapmo/Pods-Mapmo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Mapmo/Pods-Mapmo-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		85158EBE66D9C053256DE78B /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Mapmo-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${BUILD_DIR%/Build/*}/SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/run\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -904,6 +859,7 @@
 				618CB0642B99D397005BC379 /* TabBarController.swift in Sources */,
 				61B312CC2BA85BF2000304CE /* Double+Extension.swift in Sources */,
 				611729102BACA167005EBD79 /* RecordCollectionReusableView.swift in Sources */,
+				6121D2142D4E223A00F38CCA /* DefaultLatLng.swift in Sources */,
 				61214F5E2B9F52EF00C7D0B6 /* UILabel+Extension.swift in Sources */,
 				61B312BF2BA7233C000304CE /* ChartViewController.swift in Sources */,
 				611729032BA9734A005EBD79 /* MemoInfoView.swift in Sources */,
@@ -1071,13 +1027,12 @@
 		};
 		618CB0402B99D075005BC379 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 89A1130BA0DEA3EB97F2373A /* Pods-Mapmo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = T2Q8P9627P;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
@@ -1094,7 +1049,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.3;
+				MARKETING_VERSION = 1.0.5;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yuz.Mapmo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1109,13 +1065,12 @@
 		};
 		618CB0412B99D075005BC379 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 266404A7697C85E9C64645C6 /* Pods-Mapmo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = T2Q8P9627P;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1131,7 +1086,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.3;
+				MARKETING_VERSION = 1.0.5;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yuz.Mapmo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1166,6 +1122,139 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		612E13D92D4A20AA0057C65C /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
+		612E13DC2D4A20C10057C65C /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.10.2;
+			};
+		};
+		612E13DF2D4A20D30057C65C /* XCRemoteSwiftPackageReference "Tabman" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/uias/Tabman";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.2.0;
+			};
+		};
+		612E13E22D4A21330057C65C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.7.0;
+			};
+		};
+		612E13E72D4A21630057C65C /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.0.0;
+			};
+		};
+		612E13EA2D4A21980057C65C /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				kind = exactVersion;
+				version = 10.47.0;
+			};
+		};
+		612E13EF2D4A21B50057C65C /* XCRemoteSwiftPackageReference "FloatingPanel" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/scenee/FloatingPanel";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.8.6;
+			};
+		};
+		612E13F22D4A21CA0057C65C /* XCRemoteSwiftPackageReference "FSCalendar" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/WenchaoD/FSCalendar";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.8.4;
+			};
+		};
+		612E13F52D4A220B0057C65C /* XCRemoteSwiftPackageReference "SPM-NMapsMap" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/navermaps/SPM-NMapsMap";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.20.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		612E13DA2D4A20AA0057C65C /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 612E13D92D4A20AA0057C65C /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		612E13DD2D4A20C10057C65C /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 612E13DC2D4A20C10057C65C /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		612E13E02D4A20D30057C65C /* Tabman */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 612E13DF2D4A20D30057C65C /* XCRemoteSwiftPackageReference "Tabman" */;
+			productName = Tabman;
+		};
+		612E13E32D4A21330057C65C /* FirebaseAnalyticsWithoutAdIdSupport */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 612E13E22D4A21330057C65C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsWithoutAdIdSupport;
+		};
+		612E13E52D4A21330057C65C /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 612E13E22D4A21330057C65C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
+		};
+		612E13E82D4A21630057C65C /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 612E13E72D4A21630057C65C /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
+		};
+		612E13EB2D4A21980057C65C /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 612E13EA2D4A21980057C65C /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		612E13ED2D4A21980057C65C /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 612E13EA2D4A21980057C65C /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+		612E13F02D4A21B50057C65C /* FloatingPanel */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 612E13EF2D4A21B50057C65C /* XCRemoteSwiftPackageReference "FloatingPanel" */;
+			productName = FloatingPanel;
+		};
+		612E13F32D4A21CA0057C65C /* FSCalendar */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 612E13F22D4A21CA0057C65C /* XCRemoteSwiftPackageReference "FSCalendar" */;
+			productName = FSCalendar;
+		};
+		612E13F62D4A220B0057C65C /* NMapsMap */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 612E13F52D4A220B0057C65C /* XCRemoteSwiftPackageReference "SPM-NMapsMap" */;
+			productName = NMapsMap;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 618CB0232B99D073005BC379 /* Project object */;
 }

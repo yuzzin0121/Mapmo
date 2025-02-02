@@ -64,6 +64,7 @@ final class CreateRecordViewController: BaseViewController {
         print(#function)
         
         if let previousVC = createRecordViewModel.previousVC {
+            print(previousVC)
             switch previousVC {
             case .detailRecord:
                 createRecordViewModel.editRecordTrigger.value = ()

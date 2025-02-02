@@ -11,7 +11,7 @@ import RealmSwift
 final class DetailRecordViewModel {
     var inputRecordItem: Observable<RecordItem?> = Observable(nil)
     var deleteRecordTrigger: Observable<Void?> = Observable(nil)
-    var inputRecordId: Observable<ObjectId?> = Observable(nil)
+    var inputRecordId: Observable<ObjectId?> = Observable(nil)  // 변경된 record의 ID
     
     private let fileManagerClass = FileManagerClass()
     private let recordRepository = RecordRepository()
@@ -51,6 +51,7 @@ final class DetailRecordViewModel {
     }
     
     private func refreshRecordItem(id: ObjectId) {
+        print("Realm에서 record 조회")
         guard let record = recordRepository.getRecord(recordId: id) else { return }
         
         // id를 통해 등록된 이미지들, 카테고리 가져오기
@@ -70,5 +71,7 @@ final class DetailRecordViewModel {
                                     visitedAt: record.visitedAt,
                                     createdAt: record.createdAt,
                                     modifiedAt: record.modifiedAt)
+        
+        print(inputRecordItem.value)
     }
 }

@@ -28,6 +28,7 @@ final class DetailRecordViewController: BaseViewController {
     
     // 전달받은 기록 데이터 UI에 반영
     private func setData(_ record: RecordItem) {
+        print("맵모 갱신")
         setImages(images: record.images)
         mainView.placeInfoView.valueLabel.text = record.place.address
         mainView.placeInfoView.iconImageView.tintColor = UIColor(named: record.category.colorName)
