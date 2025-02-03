@@ -92,7 +92,6 @@ final class MapViewController: BaseViewController {
         print(#function, latLng)
         let cameraUpdate = NMFCameraUpdate(scrollTo: latLng)
         mainView.naverMapView.moveCamera(cameraUpdate)
-        getCurrentRegion()
     }
     
     private func getCurrentRegion() {

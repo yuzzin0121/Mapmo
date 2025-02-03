@@ -10,6 +10,7 @@ import Foundation
 final class MapRecordListViewModel {
     var inputRecordList: Observable<[RecordItem]> = Observable([])
     var toggleIsFavorite: Observable<Int?> = Observable(nil)
+    var outputRecordList: Observable<[RecordItem]> = Observable([])
     
     private let recordRepository = RecordRepository()
     
@@ -30,6 +31,7 @@ final class MapRecordListViewModel {
     
     private func toggleIsFavorite(_ index: Int) {
         let record = inputRecordList.value[index]
+        inputRecordList.value[index].isFavorite.toggle()
         recordRepository.updateFavorite(record.id)
     }
 }

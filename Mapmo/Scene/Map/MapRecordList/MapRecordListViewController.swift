@@ -56,8 +56,6 @@ final class MapRecordListViewController: BaseViewController {
     @objc private func heartButtonClicked(_ sender: UIButton) {
         let index = sender.tag
         mapRecordListViewModel.toggleIsFavorite.value = index
-        mainView.collectionView.reloadData()
-        NotificationCenter.default.post(name: NSNotification.Name("RecordUpdated"), object: nil, userInfo: nil)
     }
     
 }
