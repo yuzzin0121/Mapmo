@@ -29,7 +29,7 @@ final class MapView: BaseView {
             make.size.equalTo(40)
         }
         addRecordButton.snp.makeConstraints { make in
-            make.top.equalTo(moveCurrentLoactionButton.snp.bottom).offset(24)
+            make.top.equalTo(moveCurrentLoactionButton.snp.bottom).offset(16)
             make.trailing.equalToSuperview().inset(14)
             make.size.equalTo(40)
         }

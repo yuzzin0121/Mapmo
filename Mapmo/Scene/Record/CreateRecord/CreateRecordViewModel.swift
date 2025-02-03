@@ -28,7 +28,7 @@ final class CreateRecordViewModel {
     var editRecordTrigger: Observable<Void?> = Observable(nil)          // 수정 클릭 시
     var createdAt: Date?
     var createSuccess: Observable<Bool> = Observable(false)             // 생성 성공 여부
-    var editSuccess: Observable<ObjectId?> = Observable(nil)
+    var editSuccess: Observable<RecordItem?> = Observable(nil)
     
     
     let contentTextViewPlaceholder = "메모 입력"
@@ -52,29 +52,29 @@ final class CreateRecordViewModel {
     private func transform() {
         inputSelectedImageList.bind { [weak self] imageList in
             guard let self else { return }
-            self.checkData()
+            checkData()
         }
         inputPlace.bind { [weak self] place in
-            guard let place = place, let self else { return }
-            self.checkData()
+            guard let place, let self else { return }
+            checkData()
         }
         inputMemo.bind { [weak self] memo in
             if memo == nil { return }
-            guard let self = self else { return }
-            self.checkData()
+            guard let self else { return }
+            checkData()
         }
         
         createRecordTrigger.bind { [weak self] value in
-            guard let value = value, let self else { return }
-            self.createRecord()
+            guard let value, let self else { return }
+            createRecord()
         }
         editRecordTrigger.bind { [weak self] value in
-            guard let value = value, let self else { return }
-            self.editRecord()
+            guard let value, let self else { return }
+            editRecord()
         }
         inputDeleteImageIndex.bind { [weak self] index in
-            guard let index = index, let self else { return }
-            self.deleteImage(index: index)
+            guard let index, let self else { return }
+            deleteImage(index: index)
         }
     }
     
@@ -136,7 +136,16 @@ final class CreateRecordViewModel {
             placeRepository.createPlace(place)  // 존재하지 않으면, 장소 생성 + Reacord 생성 및 생성된 장소에 추가
         }
         recordRepository.updateRecord(record, recordId: recordId, place: place)
-        editSuccess.value = recordId
+        
+        guard let record = getRecordItem(recordId: recordId, imageCount: inputSelectedImageList.value.count, record: record, place: place, category: category) else { return }
+        editSuccess.value = record
+    }
+    
+    private func getRecordItem(recordId: ObjectId, imageCount: Int, record: Record, place: Place, category: Category) -> RecordItem? {
+        // 이미지 가져오기
+        guard let images = fileManagerClass.loadImagesToDocument(recordId: recordId.stringValue, imageCount: imageCount) else { return nil }
+        
+        return RecordItem(id: recordId, memo: record.memo, images: images, category: category, place: place, isFavorite: record.isFavorite, visitedAt: record.visitedAt, createdAt: record.createdAt, modifiedAt: record.modifiedAt)
     }
     
     private func editImages(recordId: String) {

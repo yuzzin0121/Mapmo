@@ -12,8 +12,8 @@ protocol PassPlaceDataDelegate: AnyObject {
     func sendPlace(_ place: Place)
 }
 
-protocol PassRecordIdDelegate: AnyObject {
-    func sendRecordId(_ id: ObjectId)
+protocol PassEditedRecordDelegate: AnyObject {
+    func sendRecordItem(_ id: RecordItem)
 }
 
 

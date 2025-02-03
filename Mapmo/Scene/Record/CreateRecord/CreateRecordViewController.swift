@@ -11,7 +11,7 @@ import PhotosUI
 final class CreateRecordViewController: BaseViewController {
     let mainView = CreateRecordView()
     let createRecordViewModel = CreateRecordViewModel()
-    weak var passRecordIdDelegate: PassRecordIdDelegate?
+    weak var passEditedRecordDelegate: PassEditedRecordDelegate?
     
     // MARK: - viewDidLoad
     override func viewDidLoad() {
@@ -68,11 +68,11 @@ final class CreateRecordViewController: BaseViewController {
             switch previousVC {
             case .detailRecord:
                 createRecordViewModel.editRecordTrigger.value = ()
-                createRecordViewModel.editSuccess.bind { [weak self] id in
-                    guard let id = id, let self = self else { return }
-                    self.passRecordIdDelegate?.sendRecordId(id)
+                createRecordViewModel.editSuccess.bind { [weak self] recordItem in
+                    guard let recordItem, let self = self else { return }
+                    passEditedRecordDelegate?.sendRecordItem(recordItem)
                     NotificationCenter.default.post(name: NSNotification.Name("RecordUpdated"), object: nil, userInfo: ["updatedDate": self.createRecordViewModel.inputVisitDate.value])
-                    self.popView()
+                    popView()
                 }
             case .selectCatgory:
                 createRecordViewModel.createRecordTrigger.value = ()

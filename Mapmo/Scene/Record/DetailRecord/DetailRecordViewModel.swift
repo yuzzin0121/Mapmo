@@ -29,12 +29,12 @@ final class DetailRecordViewModel {
     private func transform() {
         deleteRecordTrigger.bind { [weak self] value in
             if value == nil { return }
-            guard let self = self else { return }
+            guard let self else { return }
             self.deleteRecord()
         }
         
         inputRecordId.bind { [weak self] id in
-            guard let id = id, let self = self else { return }
+            guard let id, let self else { return }
             self.refreshRecordItem(id: id)
         }
     }
@@ -71,7 +71,6 @@ final class DetailRecordViewModel {
                                     visitedAt: record.visitedAt,
                                     createdAt: record.createdAt,
                                     modifiedAt: record.modifiedAt)
-        
         print(inputRecordItem.value)
     }
 }

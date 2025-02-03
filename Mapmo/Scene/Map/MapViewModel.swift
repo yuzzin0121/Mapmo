@@ -35,20 +35,20 @@ final class MapViewModel {
     
     private func transform() {
         inputCurrentLocation.bind { [weak self] coordinate in
-            guard let coordinate = coordinate, let self = self else { return }
+            guard let coordinate, let self else { return }
             self.changeToNMGLatLng(coordinate)
         }
         inputVisibleRegion.bind { [weak self] visibleRegion in
-            guard let visibleRegion = visibleRegion, let self = self else { return }
+            guard let visibleRegion, let self else { return }
             self.getVisiblePlace(visibleRegion)
         }
         searchedPlaces.bind { [weak self] places in
-            guard let self = self else { return }
+            guard let self else { return }
             self.setMarkers(places: places)
             self.setRecordList(places: places)
         }
         moveCameraPlaceTrigger.bind { [weak self] value in
-            guard let value, let self = self else { return }
+            guard let value, let self else { return }
             self.fetchPlaces()
         }
         outputPlaceMarkerList.bind { [weak self] markers in
@@ -135,10 +135,6 @@ final class MapViewModel {
     private func setMarkers(places: [Place]) {
         var markers: [NMFMarker] = []
         var placeMarkers: [PlaceMarker] = []
-        for marker in outputPlaceMarkerList.value {
-//            marker.hidePlaceWindow()
-//            marker.mapView = nil
-        }
         for place in places {
             guard let record = place.records.first, let category = categoryRepository.getCategory(categoryName: record.categoryId), let image = fileManagerClass.loadFirstImageToDocument(recordId: record.id.stringValue) else {
                 return

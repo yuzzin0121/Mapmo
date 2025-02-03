@@ -17,7 +17,7 @@ final class DetailRecordViewController: BaseViewController {
         super.viewDidLoad()
         setDelegateAndAction()
         detailRecordViewModel.inputRecordItem.bind { [weak self] record in
-            guard let record = record, let self = self else { return }
+            guard let record, let self else { return }
             self.setData(record)
         }
     }
@@ -96,7 +96,7 @@ final class DetailRecordViewController: BaseViewController {
         createRecordVC.createRecordViewModel.isFavorite = recordItem.isFavorite
         createRecordVC.createRecordViewModel.recordId = recordItem.id
         
-        createRecordVC.passRecordIdDelegate = self
+        createRecordVC.passEditedRecordDelegate = self
         navigationController?.pushViewController(createRecordVC, animated: true)
     }
     
@@ -129,9 +129,9 @@ extension DetailRecordViewController: UIScrollViewDelegate {
     }
 }
 
-extension DetailRecordViewController: PassRecordIdDelegate {
-    func sendRecordId(_ id: ObjectId) {
-        detailRecordViewModel.inputRecordId.value = id
+extension DetailRecordViewController: PassEditedRecordDelegate {
+    func sendRecordItem(_ recordItem: RecordItem) {
+        detailRecordViewModel.inputRecordItem.value = recordItem
     }
 }
 
